@@ -6,4 +6,4 @@ script:
   ant build
 branches:
    only:
-    - gh-pages
+    - master
