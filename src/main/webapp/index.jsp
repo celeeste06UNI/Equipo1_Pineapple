@@ -6,7 +6,7 @@
 
 <link rel="shortcut icon" href="images/favicon.ico" />
 
-<div class="container">
+<div class="container" class="center-block">
     <div class="row">
 		<div class="span12">
 			<form class="form-horizontal" action='' method="POST">
