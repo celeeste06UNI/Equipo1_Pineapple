@@ -42,7 +42,7 @@ public class HomeController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView newContact(ModelAndView model) {
 		model.setViewName("home");
-		DAOEmpleado.insert("1", "Manolo");
+		//DAOEmpleado.insert("1", "Manolo");
 		return model;
 	}
 	
