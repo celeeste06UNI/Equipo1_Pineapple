@@ -125,7 +125,7 @@
 <body>
 
 	<input type="button" value="Cancelar" id="cancelar" name="cancelar"
-		onclick="self.location.href = 'home.jsp'" />
+		onclick="self.location.href = 'home'" />
 
 	<section class="login-block">
 		<div class="container">
