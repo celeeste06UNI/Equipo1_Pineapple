@@ -12,7 +12,7 @@
 			<form class="form-horizontal" action='' method="POST">
 			  <fieldset>
 			    <div id="legend">
-			      <legend class="">Login</legend>
+			      <legend class="">Login Emple</legend>
 			    </div>
 			    <div class="control-group">
 			      <!-- Username -->
