@@ -1,4 +1,4 @@
-package com.pineapple.intime;
+package com.pineapple.intime.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
