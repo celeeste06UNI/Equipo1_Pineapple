@@ -6,13 +6,13 @@
 
 <link rel="shortcut icon" href="images/favicon.ico" />
 
-<div class="container" class="center-block">
+<div class="container" class="col-xs-12">
     <div class="row">
 		<div class="span12">
 			<form class="form-horizontal" action='' method="POST">
 			  <fieldset>
 			    <div id="legend">
-			      <legend class="">Login Emple</legend>
+			      <legend class="">Login</legend>
 			    </div>
 			    <div class="control-group">
 			      <!-- Username -->
