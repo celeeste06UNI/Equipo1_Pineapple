@@ -41,6 +41,7 @@ public class HomeController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView newContact(ModelAndView model) {
 		model.setViewName("home");
+		
 		return model;
 	}
 	
