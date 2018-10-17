@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pineapple.intime.dao.DAOEmpleado;
+
 
 
 /**
@@ -41,7 +43,7 @@ public class HomeController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView newContact(ModelAndView model) {
 		model.setViewName("home");
-		
+		DAOEmpleado.insert("1", "Manolo");
 		return model;
 	}
 	
