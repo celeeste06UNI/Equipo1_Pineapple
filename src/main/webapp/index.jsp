@@ -136,12 +136,12 @@
 					method='POST'>
 						<div class="form-group">
 							<label for="exampleInputEmail1" class="text-uppercase">Email</label>
-							<input id="email" type="text" class="form-control" placeholder="">
+							<input name="email" type="text" class="form-control" placeholder="">
 						</div>
 						
 						<div class="form-group">
 							<label for="exampleInputPassword1" class="text-uppercase">Password</label>
-							<input type="password" class="form-control" placeholder="">
+							<input name="password" type="password" class="form-control" placeholder="">
 						</div>
 
 
