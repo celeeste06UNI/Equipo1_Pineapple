@@ -1,43 +1,3 @@
-<<<<<<< HEAD
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<div class="container">
-    <div class="row">
-		<div class="span12">
-			<form class="form-horizontal" action='' method="POST">
-			  <fieldset>
-			    <div id="legend">
-			      <legend class="">Login</legend>
-			    </div>
-			    <div class="control-group">
-			      <!-- Username -->
-			      <label class="control-label"  for="username">Username</label>
-			      <div class="controls">
-			        <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
-			      </div>
-			    </div>
-			    <div class="control-group">
-			      <!-- Password-->
-			      <label class="control-label" for="password">Password</label>
-			      <div class="controls">
-			        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-			      </div>
-			    </div>
-			    <div class="control-group">
-			      <!-- Button -->
-			      <div class="controls">
-			        <button class="btn btn-success">Login</button>
-			      </div>
-			    </div>
-			  </fieldset>
-			</form>
-		</div>
-	</div>
-</div>
-=======
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <html>
@@ -164,15 +124,16 @@
 
 <body>
 
-	<input type="button" value="Cancelar" id="cancelar" name="cancelar"
-		onclick="self.location.href = 'home'" />
+<!-- 	<input type="button" value="Cancelar" id="cancelar" name="cancelar"
+		onclick="self.location.href = 'home'" /> -->
 
 	<section class="login-block">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 login-sec">
-					<h2 class="text-center">Login Now</h2>
-					<form class="login-form">
+					<h2 class="text-center">Iniciar Sesion</h2>
+					<form class="login-form" name='loginForm' action="<c:url value='/home'/>"
+					method='POST'>
 						<div class="form-group">
 							<label for="exampleInputEmail1" class="text-uppercase">Username</label>
 							<input type="text" class="form-control" placeholder="">
@@ -193,8 +154,7 @@
 
 					</form>
 					<div class="copy-text">
-						Created with <i class="fa fa-heart"></i> by <a
-							href="http://grafreez.com">Grafreez.com</a>
+						Pineapple
 					</div>
 				</div>
 				<div class="col-md-8 banner-sec">
@@ -213,48 +173,16 @@
 									alt="First slide">
 								<div class="carousel-caption d-none d-md-block">
 									<div class="banner-text">
-										<h2>This is Heaven</h2>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-											elit, sed do eiusmod tempor incididunt ut labore et dolore
-											magna aliqua. Ut enim ad minim veniam, quis nostrud
-											exercitation</p>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<img class="d-block img-fluid"
-									src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg"
-									alt="First slide">
-								<div class="carousel-caption d-none d-md-block">
-									<div class="banner-text">
-										<h2>This is Heaven</h2>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-											elit, sed do eiusmod tempor incididunt ut labore et dolore
-											magna aliqua. Ut enim ad minim veniam, quis nostrud
-											exercitation</p>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<img class="d-block img-fluid"
-									src="https://images.pexels.com/photos/872957/pexels-photo-872957.jpeg"
-									alt="First slide">
-								<div class="carousel-caption d-none d-md-block">
-									<div class="banner-text">
-										<h2>This is Heaven</h2>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing
-											elit, sed do eiusmod tempor incididunt ut labore et dolore
-											magna aliqua. Ut enim ad minim veniam, quis nostrud
-											exercitation</p>
+										<h2>In Time</h2>
+										<p>Aplicación web para la gestión
+										 de los fichajes</p>
 									</div>
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
 	</section>
 </body>
 </html>
->>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple
