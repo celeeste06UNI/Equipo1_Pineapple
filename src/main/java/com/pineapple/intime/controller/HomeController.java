@@ -51,9 +51,9 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView loginProcess(ModelAndView model, HttpServletRequest request, HttpServletResponse response,
+	public ModelAndView loginProcess( HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("email") String email, @ModelAttribute("password") String password) {
-		model.setViewName("home");
+	
 		System.out.println(email);
 		
 		//User user = userService.validateUser(login);
@@ -64,7 +64,7 @@ public class HomeController {
 			mav = new ModelAndView("login");
 			mav.addObject("message", "Username or Password is wrong!!");
 		}*/
-		return model;
+		return new ModelAndView("redirect:/main");
 	}
 
 }
