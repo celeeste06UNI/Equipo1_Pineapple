@@ -132,7 +132,7 @@
 			<div class="row">
 				<div class="col-md-4 login-sec">
 					<h2 class="text-center">Iniciar Sesion</h2>
-					<form class="login-form" name='loginForm' action="/login" method='GET'>
+					<form class="login-form" name='loginForm' action="/login" method='POST'>
 						<div class="form-group">
 							<label for="exampleInputEmail1" class="text-uppercase">Email</label>
 							<input name="email" type="text" class="form-control" placeholder="">
