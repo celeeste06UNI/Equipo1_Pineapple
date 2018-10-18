@@ -50,17 +50,6 @@ public class HomeController {
 		return model;
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password) {
-		//User user = userService.validateUser(login);
-		/*if (null != user) {
-			mav = new ModelAndView("welcome");
-			mav.addObject("firstname", user.getFirstname());
-		} else {
-			mav = new ModelAndView("login");
-			mav.addObject("message", "Username or Password is wrong!!");
-		}*/
-		return "home";
-	}
+
 
 }
