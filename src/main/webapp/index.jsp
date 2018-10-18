@@ -169,9 +169,9 @@
 						<div class="carousel-inner" role="listbox">
 							<div class="carousel-item active">
 								<img class="d-block img-fluid"
-									src="https://blog.elinsignia.com/wp-content/uploads/2017/06/tipos-de-administracion.png"
+									src="https://static.pexels.com/photos/33972/pexels-photo.jpg"
 									alt="First slide">
-								<div class="carousel-caption d-none d-md-block">
+								<div >
 									<div class="banner-text">
 										<h2>In Time</h2>
 										<p>Aplicación web para la gestión
