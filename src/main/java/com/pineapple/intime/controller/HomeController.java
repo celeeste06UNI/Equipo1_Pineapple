@@ -54,6 +54,7 @@ public class HomeController {
 	public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("email") String email, @ModelAttribute("password") String password) {
 		ModelAndView mav = null;
+		System.out.println(email);
 		
 		//User user = userService.validateUser(login);
 		/*if (null != user) {
