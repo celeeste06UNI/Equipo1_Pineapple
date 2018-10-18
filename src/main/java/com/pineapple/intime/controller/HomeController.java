@@ -64,7 +64,7 @@ public class HomeController {
 			mav = new ModelAndView("login");
 			mav.addObject("message", "Username or Password is wrong!!");
 		}*/
-		return new ModelAndView("redirect:/main");
+		return new ModelAndView("redirect:/home");
 	}
 
 }
