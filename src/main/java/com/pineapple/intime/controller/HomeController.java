@@ -3,6 +3,7 @@ package com.pineapple.intime.controller;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -68,6 +69,11 @@ public class HomeController {
 			mav.addObject("message", "Username or Password is wrong!!");
 		}*/
 		return mav;
+	}
+	public boolean autenticar(String email,String password) {
+		Boolean autenticado = false;
+		ConcurrentHashMap<Integer,String> empleados=DAOEmpleado.load();
+		return true;
 	}
 
 }
