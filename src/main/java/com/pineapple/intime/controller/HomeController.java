@@ -67,10 +67,12 @@ public class HomeController {
 		String pagina = null;
 		Document doc = DAOEmpleado.autenticar(email,password);
 		if(doc.get("email").equals("error")) {
-			pagina = "index";
+			pagina = "error";
 		}
 		if(doc.get("email").equals(email)) {
-			pagina = "home";
+			if(doc.get("rol").equals("admin")){
+				pagina = "admin";
+			}
 		}
 		return pagina;
 	
