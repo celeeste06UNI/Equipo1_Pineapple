@@ -66,7 +66,7 @@ public class HomeController {
 	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password) throws IOException {
 		String pagina = null;
 		Document doc = DAOEmpleado.autenticar(email,password);
-		if(doc.isEmpty()) {
+		if(doc.get("email").equals("error")) {
 			pagina = "error";
 		}
 		if(doc.get("email").equals(email)) {

@@ -49,6 +49,10 @@ public class DAOEmpleado {
 				empleadoAut.append("email", email);
 				empleadoAut.append("password", password);
 				empleadoAut.append("rol", comprobarRol(email));
+			}else {
+				empleadoAut.append("email", "error");
+				empleadoAut.append("password", "error");
+				empleadoAut.append("rol", "error");
 			}
 		}
 		return empleadoAut;
