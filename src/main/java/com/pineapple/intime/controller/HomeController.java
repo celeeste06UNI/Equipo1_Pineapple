@@ -51,10 +51,8 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginProcess( HttpServletRequest request, HttpServletResponse response,
-			@ModelAttribute("email") String email, @ModelAttribute("password") String password) {
-
-		return email;
+	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password) {
+		return "home";
 	}
 
 }
