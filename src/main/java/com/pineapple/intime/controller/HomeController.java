@@ -1,5 +1,6 @@
 package com.pineapple.intime.controller;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -62,12 +63,14 @@ public class HomeController {
 	
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password) {
+	public void loginProcess(HttpServletRequest request,HttpServletResponse response, @ModelAttribute("email") String email, @ModelAttribute("password") String password) throws IOException {
 		String pagina = "error";
 		Document doc = DAOEmpleado.autenticar(email,password);
 		if(doc.get("email").equals(email)) {
-			pagina = "home";
+			response.sendRedirect("home.jsp");
+		}else {
+			response.sendRedirect("error.jsp");
 		}
-		return pagina;
+	
 	}
 }
