@@ -3,6 +3,7 @@ package com.pineapple.intime.controller;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import com.pineapple.intime.dao.DAOEmpleado;
+
 
 /**
  * Handles requests for the application home page.
@@ -43,17 +46,24 @@ public class HomeController {
 		return "home";
 	}
 
+	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView newContact(ModelAndView model) {
 		model.setViewName("home");
-		// DAOEmpleado.insert("1", "Manolo");
+		//Document obj=DAOEmpleado.load();
 		return model;
 	}
+	
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password) {
 		
 		return "home";
+	}
+	public boolean autenticar(String email,String password) {
+		Boolean autenticado = false;
+		ConcurrentHashMap<Integer,String> empleados=DAOEmpleado.load();
+		return true;
 	}
 
 }
