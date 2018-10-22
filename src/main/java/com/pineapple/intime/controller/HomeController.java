@@ -63,7 +63,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password) {
-		String pagina = "index";
+		String pagina = "error";
 		Document doc = DAOEmpleado.autenticar(email,password);
 		if(doc.get("email").equals(email)) {
 			pagina = "home";
