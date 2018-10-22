@@ -24,7 +24,7 @@
 }
 
 .banner-sec {
-	background: url(https://static.pexels.com/photos/33972/pexels-photo.jpg)
+	background: url(https://image.freepik.com/vector-gratis/acuarela-real-fondo-rojo-san-valentin_1340-4028.jpg)
 		no-repeat left bottom;
 	background-size: cover;
 	min-height: 500px;
