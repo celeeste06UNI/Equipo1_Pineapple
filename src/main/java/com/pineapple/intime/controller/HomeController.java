@@ -51,7 +51,6 @@ public class HomeController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView newContact(ModelAndView model) {
 		model.setViewName("home");
-		//Document obj=DAOEmpleado.load();
 		return model;
 	}
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
@@ -65,7 +64,7 @@ public class HomeController {
 	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password) {
 		String pagina;
 		Document doc = DAOEmpleado.autenticar(email,password);
-		if(doc != null) {
+		if(doc.get("email").equals(email)) {
 			pagina = "home";
 		}else {
 			pagina = "index";
