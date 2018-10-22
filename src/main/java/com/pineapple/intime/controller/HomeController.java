@@ -8,6 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.jasper.tagplugins.jstl.core.Out;
 import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,6 +68,7 @@ public class HomeController {
 		if(doc.get("email").equals(email)) {
 			pagina = "home";
 		}else {
+			System.out.println("Wrong usser or password");
 			pagina = "index";
 		}
 		return pagina;
