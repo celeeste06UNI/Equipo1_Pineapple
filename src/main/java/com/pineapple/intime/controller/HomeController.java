@@ -67,7 +67,7 @@ public class HomeController {
 		String pagina = "error";
 		Document doc = DAOEmpleado.autenticar(email,password);
 		if(doc.get("email").equals(email)) {
-			response.sendRedirect("home.jsp");
+			response.sendRedirect("views/home.jsp");
 		}else {
 			response.sendRedirect("error.jsp");
 		}
