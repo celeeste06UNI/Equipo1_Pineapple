@@ -68,7 +68,6 @@ public class HomeController {
 		if(doc.get("email").equals(email)) {
 			pagina = "home";
 		}else {
-			System.out.println("Wrong usser or password");
 			pagina = "index";
 		}
 		return pagina;
