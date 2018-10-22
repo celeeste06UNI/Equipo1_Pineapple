@@ -19,6 +19,7 @@
 				<a class="navbar-brand" href="#">InTime</a>
 			</div>
 			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
 				<li><a href="#">Fichajes</a></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Gestion Incidencias <span

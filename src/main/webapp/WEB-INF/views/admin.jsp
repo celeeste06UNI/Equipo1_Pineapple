@@ -19,7 +19,7 @@
 				<a class="navbar-brand" href="#">InTime</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Administrador</a></li>
+				<li class="active"><a href="#">Home</a></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
 					<ul class="dropdown-menu">

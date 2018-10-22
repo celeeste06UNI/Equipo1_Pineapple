@@ -73,6 +73,12 @@ public class HomeController {
 			if(doc.get("rol").equals("admin")){
 				pagina = "admin";
 			}
+			if(doc.get("rol").equals("user")){
+				pagina = "user";
+			}
+			if(doc.get("rol").equals("incid")){
+				pagina = "incid";
+			}
 		}
 		return pagina;
 	
