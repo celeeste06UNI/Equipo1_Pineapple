@@ -8,6 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -57,13 +58,11 @@ public class HomeController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password) {
-		
-		return "home";
+		String pagina = "login";
+		Document doc = DAOEmpleado.autenticar(email,password);
+		if(doc != null) {
+			pagina = "home";
+		}
+		return pagina;
 	}
-	public boolean autenticar(String email,String password) {
-		Boolean autenticado = false;
-		ConcurrentHashMap<Integer,String> empleados=DAOEmpleado.load();
-		return true;
-	}
-
 }
