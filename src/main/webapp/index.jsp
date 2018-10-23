@@ -123,6 +123,7 @@
 
 
 <body>
+<<<<<<< HEAD
 	<section class="login-block">
 		<div class="container">
 			<div class="row">
@@ -214,3 +215,67 @@
 </body>
 </html>
 
+=======
+
+<!-- 	<input type="button" value="Cancelar" id="cancelar" name="cancelar"
+		onclick="self.location.href = 'home'" /> -->
+
+	<section class="login-block">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 login-sec">
+					<h2 class="text-center">Iniciar Sesion</h2>
+					<form class="login-form" name='loginForm' action="/login" method='POST'>
+						<div class="form-group">
+							<label for="exampleInputEmail1" class="text-uppercase">Email</label>
+							<input name="email" type="text" class="form-control" placeholder="">
+						</div>
+						
+						<div class="form-group">
+							<label for="exampleInputPassword1" class="text-uppercase">Password</label>
+							<input name="password" type="password" class="form-control" placeholder="">
+						</div>
+
+
+						<div class="form-check">
+							<label class="form-check-label"> <input type="checkbox"
+								class="form-check-input"> <small>Remember Me</small>
+							</label>
+							<button type="submit" class="btn btn-login float-right">Submit</button>
+						</div>
+
+					</form>
+					<div class="copy-text">
+						Pineapple
+					</div>
+				</div>
+				<div class="col-md-8 banner-sec">
+					<div id="carouselExampleIndicators" class="carousel slide"
+						data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#carouselExampleIndicators" data-slide-to="0"
+								class="active"></li>
+							<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+							<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+						</ol>
+						<div class="carousel-inner" role="listbox">
+							<div class="carousel-item active">
+								<img class="d-block img-fluid"
+									src="https://static.pexels.com/photos/33972/pexels-photo.jpg"
+									alt="First slide">
+								<div >
+									<div class="banner-text">
+										<h2>In Time</h2>
+										<p>Aplicación web para la gestión
+										 de los fichajes</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+</body>
+</html>
+>>>>>>> branch 'master' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
