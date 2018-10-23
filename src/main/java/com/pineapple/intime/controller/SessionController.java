@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class SessionController {
 	
 	@RequestMapping(value = "/newUser", method = RequestMethod.GET)
-	public ModelAndView index(ModelAndView model) {
+	public ModelAndView newUser(ModelAndView model) {
 		model.setViewName("newUser");
 		return model;
 	}
