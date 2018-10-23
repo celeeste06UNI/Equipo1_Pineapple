@@ -83,9 +83,4 @@ public class HomeController {
 		return pagina;
 	
 	}
-	@RequestMapping(value = "/newUser", method = RequestMethod.GET)
-	public ModelAndView newUser(ModelAndView model) {
-		model.setViewName("newUser");
-		return model;
-	}
 }
