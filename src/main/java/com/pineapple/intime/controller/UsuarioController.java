@@ -13,5 +13,17 @@ public class UsuarioController {
 		model.setViewName("newUser");
 		return model;
 	}
+	
+	@RequestMapping(value = "/deleteUser", method = RequestMethod.GET)
+	public ModelAndView deleteUser(ModelAndView model) {
+		model.setViewName("deleteUser");
+		return model;
+	}
+	
+	@RequestMapping(value = "/updateUser", method = RequestMethod.GET)
+	public ModelAndView updateUser(ModelAndView model) {
+		model.setViewName("updateUser");
+		return model;
+	}
 
 }
