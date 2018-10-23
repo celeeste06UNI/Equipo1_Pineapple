@@ -118,6 +118,10 @@
 .banner-text p {
 	color: #fff;
 }
+
+.botonLogin{
+	background-color: #FF0000;
+}
 </style>
 </head>
 
@@ -148,7 +152,7 @@
 							<label class="form-check-label"> <input type="checkbox"
 								class="form-check-input"> <small>Remember Me</small>
 							</label>
-							<button type="submit" class="btn btn-login float-right">Submit</button>
+							<button type="submit" class="botonLogin">Submit</button>
 						</div>
 
 					</form>
