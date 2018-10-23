@@ -60,6 +60,16 @@ body{
 			    				</div>
 			    			</div>
 			    			
+			    			<div class="dropdown">
+  								<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+ 								 <span class="caret"></span></button>
+ 								 <ul class="dropdown-menu">
+    								<li><a href="#">ADMINISTRADOR</a></li>
+   									 <li><a href="#">EMPLEADO</a></li>
+   									 <li><a href="#">GESTOR DE INCIDENCIAS</a></li>
+  								</ul>
+							</div>
+			    			
 			    			<input type="submit" value="Registrar" class="btn btn-info btn-block">
 			    		
 			    		</form>
