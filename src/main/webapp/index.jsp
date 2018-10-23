@@ -132,7 +132,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 login-sec">
-					<h2 class="text-center">Iniciar Sesion</h2>
+					<h2 class="text-center">Iniciar Sesión</h2>
 					<form class="login-form" name='loginForm' action="/login" method='POST'>
 						<div class="form-group">
 							<label for="exampleInputEmail1" class="text-uppercase">Email</label>
@@ -147,7 +147,7 @@
 
 						<div class="form-check">
 							<label class="form-check-label"> <input type="checkbox"
-								class="form-check-input"> <small>Remember Me</small>
+								class="form-check-input"> <small>Recuérdame</small>
 							</label>
 							<button type="submit" class="btn btn-login float-right">Acceder</button>
 						</div>
