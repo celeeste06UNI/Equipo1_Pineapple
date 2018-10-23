@@ -12,22 +12,25 @@ import com.mongodb.client.MongoCursor;
 
 public class DAOEmpleado {
 
-	public static void insert(String idEmpleado, String empleado) {
+	public static void insert(Document empleado) {
 		MongoCollection<Document> collection= MongoBroker.get().getCollection("Empleado");
-		Document doc=new Document("idEmpleado","nombre").append(idEmpleado,empleado);    
-		collection.insertOne(doc);
+		
+		collection.insertOne(empleado);
 	}
-	public static ConcurrentHashMap<Integer, String> load() {
+	public static ConcurrentHashMap<String, Document> load() {
 		MongoCollection<Document> collection = MongoBroker.get().getCollection("Empleado");
-		ConcurrentHashMap<Integer, String> result=new ConcurrentHashMap<Integer, String>();
+		ConcurrentHashMap<String, Document> result=new ConcurrentHashMap<String, Document>();
 		MongoCursor<Document> cursor = collection.find().iterator();
 		while (cursor.hasNext()) {
 			Document empleadodoc = cursor.next();
-			int _id=(int) empleadodoc.getDouble("_id").intValue();
-			String empleado=empleadodoc.getString("nombre");
-			result.put(_id, empleado);
+			result.put(empleadodoc.getString("email"), empleadodoc);
 		}
 		return result;
+	}
+	public static void delete(Document empleado) {
+		MongoCollection<Document> collection= MongoBroker.get().getCollection("Empleado");
+		collection.deleteOne(empleado);
+		
 	}
 	public static Document autenticar(String email,String password) {
 		/*Breve explicación: recoge la colección empleado y crea un iterador
