@@ -1,9 +1,13 @@
 package com.pineapple.intime.controller;
 
+import org.bson.Document;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.pineapple.intime.dao.DAOEmpleado;
 
 @Controller
 public class UsuarioController {
@@ -25,5 +29,17 @@ public class UsuarioController {
 		model.setViewName("updateUser");
 		return model;
 	}
+	
+	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
+	public ModelAndView saveUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellido") String apellido,
+			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
+		Document empleado=new Document();
+		empleado.put("email", email);
+		empleado.put("rol", rol);
+		DAOEmpleado.insertEmpleado(empleado);
+		return new ModelAndView("redirect:/admin");
+	}
+	
+	
 
 }

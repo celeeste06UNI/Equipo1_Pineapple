@@ -38,25 +38,31 @@ body {
 						</h3>
 					</div>
 					<div class="panel-body">
-						<form role="form">
+						<form name='loginForm' action="<c:url value='/login' />"
+							method='POST'>
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<input type="text" name="first_name" id="first_name"
-											class="form-control input-sm" placeholder="First Name">
+										<input type="text" name="nombre" class="form-control input-sm"
+											placeholder="Nombre">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<input type="text" name="last_name" id="last_name"
-											class="form-control input-sm" placeholder="Last Name">
+										<input type="text" name="apellido"
+											class="form-control input-sm" placeholder="Apellido">
 									</div>
 								</div>
 							</div>
 
 							<div class="form-group">
-								<input type="email" name="email" id="email"
-									class="form-control input-sm" placeholder="Email Address">
+								<input type="text" name="rol" class="form-control input-sm"
+									placeholder="rol">
+							</div>
+
+							<div class="form-group">
+								<input type="email" name="email" class="form-control input-sm"
+									placeholder="Email">
 							</div>
 
 							<div class="row">
