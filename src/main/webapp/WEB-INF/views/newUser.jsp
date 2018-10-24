@@ -75,7 +75,7 @@ select {
 button {
   padding: 19px 39px 18px 39px;
   color: #FFF;
-  background-color: #4bc970;
+  background-color: #FE2E2E;
   font-size: 18px;
   text-align: center;
   font-style: normal;
@@ -108,7 +108,7 @@ label.light {
 }
 
 .number {
-  background-color: #5fcf80;
+  background-color: #FE2E2E;
   color: #fff;
   height: 30px;
   width: 30px;
@@ -137,7 +137,7 @@ label.light {
         <h1>Registro</h1>
         
         <fieldset>
-          <legend><span class="number">1</span>Your basic info</legend>
+          <legend><span class="number">1</span>Información básica</legend>
           <label for="name">Name:</label>
           <input type="text" id="name" name="user_name">
           
@@ -150,9 +150,6 @@ label.light {
         
         <fieldset>
           <legend><span class="number">2</span>Seleccionar Rol</legend>
-        </fieldset>
-        <fieldset>
-        
           <label>Interests:</label>
           <input type="checkbox" id="admin" value="rol_admin" name="user_rol"><label class="light" for="Administrador">Administrador</label><br>
             <input type="checkbox" id="usuario" value="rol_user" name="user_rol"><label class="light" for="Usuario">Usuario</label><br>
