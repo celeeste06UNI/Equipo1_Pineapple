@@ -10,38 +10,9 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
-<style type="text/css">
-
-html,body{
-            height: 100%;
-            width: 100%;
-
-        }
-body{
-  /* The image used */
-  background-image: url(/fondo.jpg) ;
-            /* Full height */
-            height: 100%;
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
--webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
-
-        }
- 
-</style>	
-	
-	
 </head>
 <body>
-	
-	
+
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -73,5 +44,8 @@ body{
 			</ul>
 		</div>
 	</nav>
-	</body>
-	</html>
+
+	<div class="container" style="background-image: url(/fondo.jpg); height: 1240px; width: 1754px;">
+		<h3>EQUIPO 1</h3>
+		<p>Crear Usuario</p>
+	</div>
