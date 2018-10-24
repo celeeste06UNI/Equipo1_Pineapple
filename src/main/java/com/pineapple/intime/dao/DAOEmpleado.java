@@ -5,6 +5,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.bson.BsonDocument;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
@@ -12,33 +13,57 @@ import com.mongodb.client.MongoCursor;
 
 public class DAOEmpleado {
 	/*INSERTAR EMPLEADO*/
-	public static void insertEmpleado(Document empleado) {
-		MongoCollection<Document> collection= MongoBroker.get().getCollection("Empleado");
-		Document empleadoRol=new Document();
-		empleadoRol.put("email", empleado.get("email"));
-		empleadoRol.put("rol", empleado.get("rol"));
-		
-		collection.insertOne(empleado);
-		insertRolEmpleado(empleadoRol);
+	public static void insert(Document empleado) {
+		MongoCollection<Document> dbEmpleado=MongoBroker.get().getCollection("Empleado");
+		MongoCollection<Document> dbRol=MongoBroker.get().getCollection("EmpleadoRol");
+		insertDatosPersonales(empleado, dbEmpleado);
+		insertRol(empleado,dbRol);
 	}
-	public static void insertRolEmpleado(Document empleadoRol) {
-		MongoCollection<Document> collection= MongoBroker.get().getCollection("EmpleadoRol");
-		collection.insertOne(empleadoRol);
+	private static void insertDatosPersonales(Document empleado, MongoCollection<Document> dbEmpleado) {
+		Document datosPersonales=new Document();
+		Object email=empleado.get("email");
+		Object password=empleado.get("password");
+		Object nombre=empleado.get("password");
+		Object apellidos=empleado.get("password");
+		datosPersonales.put("email", email);
+		datosPersonales.put("password",password);
+		datosPersonales.put("nombre",nombre);
+		datosPersonales.put("apellidos",apellidos);
+		dbEmpleado.insertOne(datosPersonales);
+	}
+	public static void insertRol(Document empleado, MongoCollection<Document> dbRol) {
+		Document rol=new Document();
+		rol.put("email", empleado.get("email"));
+		rol.put("rol", empleado.get("rol"));
+		dbRol.insertOne(rol);
 		
 	}
+	
 	/*ELIMINAR USUARIO*/
+	/*INSERTAR EMPLEADO*/
 	public static void delete(Document empleado) {
-		MongoCollection<Document> collection= MongoBroker.get().getCollection("Empleado");
-		Document empleadoRol=new Document();
-		empleadoRol.put("email", empleado.get("email"));
-		empleadoRol.put("rol", empleado.get("rol"));
-		collection.deleteOne(empleado);
-		deleteRolEmpleado(empleadoRol);
-		
+		MongoCollection<Document> dbEmpleado=MongoBroker.get().getCollection("Empleado");
+		MongoCollection<Document> dbRol=MongoBroker.get().getCollection("EmpleadoRol");
+		deleteDatosPersonales(empleado, dbEmpleado);
+		deleteRol(empleado,dbRol);
 	}
-	public static void deleteRolEmpleado(Document empleadoRol) {
-		MongoCollection<Document> collection= MongoBroker.get().getCollection("EmpleadoRol");
-		collection.insertOne(empleadoRol);
+	private static void deleteDatosPersonales(Document empleado, MongoCollection<Document> dbEmpleado) {
+		Document datosPersonales=new Document();
+		Object email=empleado.get("email");
+		Object password=empleado.get("password");
+		Object nombre=empleado.get("password");
+		Object apellidos=empleado.get("password");
+		datosPersonales.put("email", email);
+		datosPersonales.put("password",password);
+		datosPersonales.put("nombre",nombre);
+		datosPersonales.put("apellidos",apellidos);
+		dbEmpleado.deleteOne(datosPersonales);
+	}
+	public static void deleteRol(Document empleado, MongoCollection<Document> dbRol) {
+		Document rol=new Document();
+		rol.put("email", empleado.get("email"));
+		rol.put("rol", empleado.get("rol"));
+		dbRol.deleteOne(rol);
 		
 	}
 	/*MODIFICAR USUARIO*/
