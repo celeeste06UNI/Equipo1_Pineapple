@@ -10,14 +10,20 @@
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Crear Usuario</title>
 <style type="text/css">
 body {
-	background-color: #525252;
+	background-color: #FE2E2E;
+	margin:0px;
+    height:100%;
 }
 
 .centered-form {
-	margin-top: 60px;
+
+	position: absolute;
+		/*nos posicionamos en el centro del navegador*/
+		top:50%;
+		left:50%;
 }
 
 .centered-form .panel {
@@ -34,7 +40,7 @@ body {
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="panel-title">
-							Bienvenido Por Favor Registrese <small>It's free!</small>
+							Registrar Usuario <small></small>
 						</h3>
 					</div>
 					<div class="panel-body">
