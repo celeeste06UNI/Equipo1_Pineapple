@@ -130,7 +130,7 @@ label.light {
 }
         </style>
     </head>
-    <body background="fondo.jpg>
+    <body background="/fondo.jpg">
 
       <form action="index.html" method="post">
       
