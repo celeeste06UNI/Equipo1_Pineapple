@@ -25,7 +25,6 @@
 					<ul class="dropdown-menu">
 
 						<li><a href="/newUser">Crear</a></li>
-						<li><a href="">Crear</a></li>
 						<li><a href="#">Eliminar</a></li>
 						<li><a href="#">Modificar</a></li>
 					</ul></li>
