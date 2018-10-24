@@ -130,7 +130,7 @@ label.light {
 }
         </style>
     </head>
-    <body background="/fondo.jpg">
+    <body>
 
       <form action="index.html" method="post">
       
@@ -138,25 +138,26 @@ label.light {
         
         <fieldset>
           <legend><span class="number">1</span>Información básica</legend>
-          <label for="name">Name:</label>
+          <label for="name">Nombre:</label>
           <input type="text" id="name" name="user_name">
+          
+          <label for="name">Apellido:</label>
+          <input type="text" id="apellido" name="user_apellido">
           
           <label for="mail">Email:</label>
           <input type="email" id="mail" name="user_email">
           
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="user_password">
         </fieldset>
         
         <fieldset>
           <legend><span class="number">2</span>Seleccionar Rol</legend>
-          <label>Interests:</label>
+          <label>Roles:</label>
           <input type="checkbox" id="admin" value="rol_admin" name="user_rol"><label class="light" for="Administrador">Administrador</label><br>
             <input type="checkbox" id="usuario" value="rol_user" name="user_rol"><label class="light" for="Usuario">Usuario</label><br>
           <input type="checkbox" id="gestor" value="rol_gestor" name="user_rol"><label class="light" for="Gestor">Gestor</label>
         
         </fieldset>
-        <button type="submit">Sign Up</button>
+        <button type="submit">Registrar</button>
       </form>
       
     </body>
