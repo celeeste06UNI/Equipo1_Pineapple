@@ -38,7 +38,7 @@ body {
 						</h3>
 					</div>
 					<div class="panel-body">
-						<form name='loginForm' action="<c:url value='/login' />"
+						<form name='loginForm' action="<c:url value='/saveUser' />"
 							method='POST'>
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
@@ -63,22 +63,6 @@ body {
 							<div class="form-group">
 								<input type="email" name="email" class="form-control input-sm"
 									placeholder="Email">
-							</div>
-
-							<div class="row">
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="password" name="password" id="password"
-											class="form-control input-sm" placeholder="Password">
-									</div>
-								</div>
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="password" name="password_confirmation"
-											id="password_confirmation" class="form-control input-sm"
-											placeholder="Confirm Password">
-									</div>
-								</div>
 							</div>
 
 							<div class="dropdown">
