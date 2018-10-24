@@ -5,7 +5,7 @@
   <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Crar usuario</title>
+        <title>Crear usuario</title>
         <link rel="stylesheet" href="css/normalize.css">
         <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css">
@@ -88,7 +88,7 @@ button {
 }
 
 fieldset {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border: none;
 }
 
@@ -130,7 +130,7 @@ label.light {
 }
         </style>
     </head>
-    <body>
+    <body background="fondo.jpg>
 
       <form action="index.html" method="post">
       
