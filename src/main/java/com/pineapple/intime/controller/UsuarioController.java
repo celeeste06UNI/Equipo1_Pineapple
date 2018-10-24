@@ -37,7 +37,7 @@ public class UsuarioController {
 		empleado.put("email", email);
 		empleado.put("rol", rol);
 		DAOEmpleado.insertEmpleado(empleado);
-		return new ModelAndView("redirect:/newEmployee");
+		return new ModelAndView("redirect:/saveUser");
 	}
 	
 	
