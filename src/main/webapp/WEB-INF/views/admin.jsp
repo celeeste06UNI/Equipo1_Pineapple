@@ -23,7 +23,11 @@
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
 					<ul class="dropdown-menu">
+<<<<<<< HEAD
 						<li><a href="/newUser">Crear</a></li>
+=======
+						<li><a href="">Crear</a></li>
+>>>>>>> refs/remotes/origin/mapi_formularioUser
 						<li><a href="#">Eliminar</a></li>
 						<li><a href="#">Modificar</a></li>
 					</ul></li>
