@@ -13,17 +13,12 @@
 <title>Crear Usuario</title>
 <style type="text/css">
 body {
-	background-color: #FE2E2E;
-	margin:0px;
-    height:100%;
+	background-color: #525252;
+	height:100%;
 }
 
 .centered-form {
-
-	position: absolute;
-		/*nos posicionamos en el centro del navegador*/
-		top:50%;
-		left:50%;
+	margin-top: 60px;
 }
 
 .centered-form .panel {
