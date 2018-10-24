@@ -38,7 +38,7 @@ body {
 						</h3>
 					</div>
 					<div class="panel-body">
-						<form name='loginForm' action="<c:url value='/saveUser' />"
+						<form name='loginForm' action= '/saveUser'
 							method='POST'>
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
