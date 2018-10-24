@@ -31,13 +31,13 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
-	public ModelAndView saveUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellido") String apellido,
+	public String saveUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellido") String apellido,
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
 		Document empleado=new Document();
 		empleado.put("email", email);
 		empleado.put("rol", rol);
 		DAOEmpleado.insertEmpleado(empleado);
-		return new ModelAndView("redirect:/saveUser");
+		return "error";
 	}
 	
 	

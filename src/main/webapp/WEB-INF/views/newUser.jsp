@@ -38,8 +38,7 @@ body {
 						</h3>
 					</div>
 					<div class="panel-body">
-						<form name='loginForm' action= '/saveUser'
-							method='POST'>
+						<form name='loginForm' action='/saveUser' method='POST'>
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
@@ -63,18 +62,6 @@ body {
 							<div class="form-group">
 								<input type="email" name="email" class="form-control input-sm"
 									placeholder="Email">
-							</div>
-
-							<div class="dropdown">
-								<button class="btn btn-primary dropdown-toggle" type="button"
-									data-toggle="dropdown">
-									Dropdown Example <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">ADMINISTRADOR</a></li>
-									<li><a href="#">EMPLEADO</a></li>
-									<li><a href="#">GESTOR DE INCIDENCIAS</a></li>
-								</ul>
 							</div>
 
 							<input type="submit" value="Registrar"
