@@ -12,12 +12,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 <style type="text/css">
-    .container {
-    	background-color: #915143;
-        height: 100%;
-        width: 100%;
-        padding: 0;
-        margin: 0;
+    .body {
+    background-image: url(/fondo.jpg);
     }
  
 </style>	
@@ -58,8 +54,5 @@
 			</ul>
 		</div>
 	</nav>
-
-	<div class="container">
-		<h3>EQUIPO 1</h3>
-		<p>Crear Usuario</p>
-	</div>
+	</body>
+	</html>
