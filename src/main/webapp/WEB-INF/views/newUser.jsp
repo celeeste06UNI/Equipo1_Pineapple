@@ -20,7 +20,7 @@ html,body{
         }
 body{
   /* The image used */
-  background-image: url(http://www.fondos10.net/wp-content/uploads/images/fondos10.net-3d-832.jpg) ;
+  background-image: url(/fondo.jpg) ;
             /* Full height */
             height: 100%;
             /* Center and scale the image nicely */
