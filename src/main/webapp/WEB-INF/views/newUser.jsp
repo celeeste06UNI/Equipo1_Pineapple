@@ -47,5 +47,5 @@
 
 	<div class="container">
 		<h3>EQUIPO 1</h3>
-		<p>Pineapple</p>
+		<p>Crear Usuario</p>
 	</div>
