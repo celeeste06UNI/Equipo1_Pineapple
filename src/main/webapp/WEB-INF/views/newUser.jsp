@@ -13,7 +13,7 @@
 	
 <style type="text/css">
     .container {
-    	background-image: url("/fondo.jpg");
+    	background-color: #915143;
         height: 100%;
         width: 100%;
         padding: 0;
