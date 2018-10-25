@@ -47,7 +47,7 @@ public class UsuarioController {
 		return "admin";
 	}
 	
-	@RequestMapping(value = "/searchUser", method = RequestMethod.GET)
+	@RequestMapping(value = "/searchUser", method = RequestMethod.POST)
 	public ModelAndView searchUser(ModelAndView model, @ModelAttribute("email") String email) {
 		Document empleado = DAOEmpleado.cargarEmpleado(email);
 		model.addObject("nombre", empleado.get("nombre"));
