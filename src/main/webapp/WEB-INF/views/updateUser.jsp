@@ -46,7 +46,7 @@
 	</nav>
 
 	<form name='searchForm' action='/searchUser' method='POST'>
-		<div>
+		<div class= "container">
 			<h1>Busqueda de un usuario</h1>
 			<label for="name">Introduzca el email:</label> <input type="email" name="email">
 			<button type="submit">Buscar</button>
