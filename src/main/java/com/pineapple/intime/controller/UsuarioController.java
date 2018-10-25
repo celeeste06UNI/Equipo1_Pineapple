@@ -28,6 +28,18 @@ public class UsuarioController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/actionDeleteUser", method = RequestMethod.POST)
+	public String actionDeleteUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
+			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
+		Document empleado=new Document();
+		empleado.put("email", email);
+		empleado.put("rol", rol);
+		empleado.put("nombre", nombre);
+		empleado.put("apellidos", apellidos);
+		DAOEmpleado.delete(empleado);
+		return "admin";
+	}
+	
 	@RequestMapping(value = "/updateUser", method = RequestMethod.GET)
 	public ModelAndView updateUser(ModelAndView model) {
 		model.setViewName("updateUser");
