@@ -163,7 +163,7 @@ label.light {
 
 
 
-	<div class="container">
+<!-- 	<div class="container">
 		<div class="row centered-form">
 			<div
 				class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
@@ -208,18 +208,18 @@ label.light {
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 
-	<form action="index.html" method="post">
+	<form name='loginForm' action='/saveUser' method='POST'>
 		<h1>Registro</h1>
 		<fieldset>
 			<legend>
 				<span class="number">1</span>Información básica
 			</legend>
-			<label for="name">Nombre:</label> <input type="text" id="name" name="user_name"> 
-			<label for="name">Apellido:</label><input type="text" id="apellido" name="user_apellido"> 
-			<label for="mail">Email:</label> <input type="email" id="mail" name="user_email">
+			<label for="name">Nombre:</label> <input type="text" name="nombre"> 
+			<label for="name">Apellido:</label><input type="text" name="apellido"> 
+			<label for="mail">Email:</label> <input type="email" name="email">
 		</fieldset>
 
 		<fieldset>
@@ -227,11 +227,11 @@ label.light {
 				<span class="number">2</span>Seleccionar Rol
 			</legend>
 			<label>Roles:</label> 
-			<input type="radio" id="admin" value="rol_admin" name="user_rol">
+			<input type="radio" id="admin" value="rol_admin" name="rol">
 			<label class="light" for="Administrador">Administrador</label><br> 
-			<input type="radio" id="usuario" value="rol_user" name="user_rol">
+			<input type="radio" id="usuario" value="rol_user" name="rol">
 			<label class="light" for="Usuario">Usuario</label><br> 
-			<input type="radio" id="gestor" value="rol_gestor" name="user_rol">
+			<input type="radio" id="gestor" value="rol_gestor" name="rol">
 			<label class="light" for="Gestor">Gestor</label>
 		</fieldset>
 		
