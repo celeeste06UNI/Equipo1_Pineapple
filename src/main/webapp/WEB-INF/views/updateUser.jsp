@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Administrador</title>
+<title>Editar Usuario</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -25,7 +25,7 @@
 					<ul class="dropdown-menu">
 
 						<li><a href="/newUser">Crear</a></li>
-						<li><a href="/updateUser">Eliminar</a></li>
+						<li><a href="#">Eliminar</a></li>
 						<li><a href="#">Modificar</a></li>
 					</ul></li>
 				<li><a href="#">Fichajes</a></li>
@@ -44,8 +44,12 @@
 			</ul>
 		</div>
 	</nav>
-
-	<div class="container">
-		<h3>EQUIPO 1</h3>
-		<p>Pineapple</p>
-	</div>
+	
+	<form name='searchForm' action='/searchUser' method='POST'>
+		<h1>Busqueda de un usuario</h1>
+		
+		<button type="submit">Registrar</button>
+		
+	</form>
+	
+</body>
