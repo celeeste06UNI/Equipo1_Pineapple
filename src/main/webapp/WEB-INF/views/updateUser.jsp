@@ -60,7 +60,7 @@
 			value=${apellidos} >
 			
 		<label for="email">Email</label> <input type="email" name="email"
-			value=${email} readonly>
+			readonly value=${email} >
 			
 		<label for="rol">Rol</label> <input type="text" name="rol"
 			value=${rol} >
