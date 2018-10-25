@@ -38,6 +38,7 @@ public class UsuarioController {
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
+		
 		DAOEmpleado.insert(empleado);
 		return "error";
 	}
