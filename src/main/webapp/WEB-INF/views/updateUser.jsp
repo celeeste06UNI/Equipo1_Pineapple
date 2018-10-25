@@ -44,12 +44,15 @@
 			</ul>
 		</div>
 	</nav>
-	
+
 	<form name='searchForm' action='/searchUser' method='POST'>
-		<h1>Busqueda de un usuario</h1>
-		
-		<button type="submit">Registrar</button>
-		
+		<div>
+			<h1>Busqueda de un usuario</h1>
+			<label for="name">Introduzca el email:</label> <input type="email" name="email">
+			<button type="submit">Buscar</button>
+		</div>
+
+
 	</form>
-	
+
 </body>
