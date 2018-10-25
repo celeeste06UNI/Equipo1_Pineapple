@@ -1,11 +1,15 @@
 package com.pineapple.intime.controller;
 
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+
 import org.bson.Document;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
 
 import com.pineapple.intime.dao.DAOEmpleado;
 
@@ -41,6 +45,17 @@ public class UsuarioController {
 		
 		DAOEmpleado.insert(empleado);
 		return "admin";
+	}
+	
+	@RequestMapping(value = "/searchUser", method = RequestMethod.GET)
+	public ModelAndView searchUser(ModelAndView model, @ModelAttribute("email") String email) {
+/*		
+		ConcurrentHashMap<String, Document> empleados = DAOEmpleado.cargarEmpleados();
+		Document empleado = empleados.get(email);
+
+		model.addObject("listPersonal", listPersonal);
+		model.setViewName("personalList");*/
+		return model;
 	}
 	
 	

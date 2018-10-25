@@ -44,15 +44,14 @@
 			</ul>
 		</div>
 	</nav>
+	<div class="container">
+		<form name='searchForm' action='/searchUser' method='POST'>
 
-	<form name='searchForm' action='/searchUser' method='POST'>
-		<div class= "container">
 			<h1>Busqueda de un usuario</h1>
-			<label for="name">Introduzca el email:</label> <input type="email" name="email">
+			<label for="name">Introduzca el email:</label> <input type="email"
+				name="email">
 			<button type="submit">Buscar</button>
-		</div>
-
-
-	</form>
+		</form>
+	</div>
 
 </body>
