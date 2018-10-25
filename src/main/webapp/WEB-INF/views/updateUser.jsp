@@ -52,9 +52,19 @@
 				name="email">
 			<button type="submit">Buscar</button>
 		</form>
-	</div>
 
-	<label for="name">Nombre</label> <input type="text"
-				name="nombre" value=${nombre} >
+		<label for="nombre">Nombre</label> <input type="text" name="nombre"
+			value=${nombre} >
+			
+		<label for="apellidos">Apellidos</label> <input type="text" name="apellidos"
+			value=${apellidos} >
+			
+		<label for="email">Email</label> <input type="email" name="email"
+			value=${email} readonly>
+			
+		<label for="rol">Rol</label> <input type="text" name="rol"
+			value=${rol} >
+
+	</div>
 
 </body>

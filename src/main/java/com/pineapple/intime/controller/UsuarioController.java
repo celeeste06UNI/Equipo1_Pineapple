@@ -51,6 +51,9 @@ public class UsuarioController {
 	public ModelAndView searchUser(ModelAndView model, @ModelAttribute("email") String email) {
 		Document empleado = DAOEmpleado.cargarEmpleado(email);
 		model.addObject("nombre", empleado.get("nombre"));
+		model.addObject("apellidos", empleado.get("apellidos"));
+		model.addObject("email", empleado.get("email"));
+		model.addObject("rol", empleado.get("rol"));
 		model.setViewName("updateUser");
 		
 	/*	ConcurrentHashMap<String, Document> empleados = DAOEmpleado.cargarEmpleados();
