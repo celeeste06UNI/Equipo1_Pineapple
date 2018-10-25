@@ -23,8 +23,8 @@ public class DAOEmpleado {
 		Document datosPersonales=new Document();
 		Object email=empleado.get("email");
 		Object password=empleado.get("password");
-		Object nombre=empleado.get("password");
-		Object apellidos=empleado.get("password");
+		Object nombre=empleado.get("nombre");
+		Object apellidos=empleado.get("apellidos");
 		datosPersonales.put("email", email);
 		datosPersonales.put("password",password);
 		datosPersonales.put("nombre",nombre);
@@ -51,8 +51,8 @@ public class DAOEmpleado {
 		Document datosPersonales=new Document();
 		Object email=empleado.get("email");
 		Object password=empleado.get("password");
-		Object nombre=empleado.get("password");
-		Object apellidos=empleado.get("password");
+		Object nombre=empleado.get("nombre");
+		Object apellidos=empleado.get("apellidos");
 		datosPersonales.put("email", email);
 		datosPersonales.put("password",password);
 		datosPersonales.put("nombre",nombre);
