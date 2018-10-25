@@ -49,10 +49,12 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/searchUser", method = RequestMethod.GET)
 	public ModelAndView searchUser(ModelAndView model, @ModelAttribute("email") String email) {
-/*		
-		ConcurrentHashMap<String, Document> empleados = DAOEmpleado.cargarEmpleados();
+		Document empleado = DAOEmpleado.cargarEmpleado(email);
+		model.addObject("nombre", empleado.get("nombre"));
+		model.setViewName("updateUser");
+		
+	/*	ConcurrentHashMap<String, Document> empleados = DAOEmpleado.cargarEmpleados();
 		Document empleado = empleados.get(email);
-
 		model.addObject("listPersonal", listPersonal);
 		model.setViewName("personalList");*/
 		return model;

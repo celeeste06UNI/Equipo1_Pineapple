@@ -54,4 +54,7 @@
 		</form>
 	</div>
 
+	<label for="name">Nombre</label> <input type="text"
+				name="nombre" value=${nombre} >
+
 </body>
