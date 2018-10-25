@@ -31,12 +31,14 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
-	public String saveUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellido") String apellido,
+	public String saveUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
 		Document empleado=new Document();
 		empleado.put("email", email);
 		empleado.put("rol", rol);
-		DAOEmpleado.insertEmpleado(empleado);
+		empleado.put("nombre", nombre);
+		empleado.put("apellidos", apellidos);
+		DAOEmpleado.insert(empleado);
 		return "error";
 	}
 	

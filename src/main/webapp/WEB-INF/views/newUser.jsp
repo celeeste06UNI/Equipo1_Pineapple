@@ -218,7 +218,7 @@ label.light {
 				<span class="number">1</span>Información básica
 			</legend>
 			<label for="name">Nombre:</label> <input type="text" name="nombre"> 
-			<label for="name">Apellido:</label><input type="text" name="apellido"> 
+			<label for="name">Apellido:</label><input type="text" name="apellidos"> 
 			<label for="mail">Email:</label> <input type="email" name="email">
 		</fieldset>
 
