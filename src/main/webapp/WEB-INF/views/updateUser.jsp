@@ -70,7 +70,7 @@
 			<label for="rol">Rol</label> <input type="text" name="rol"
 				value=${rol} >
 				
-			<button type="submit">Buscar</button>
+			<button type="submit">Actualizar</button>
 			
 		</form>
 
