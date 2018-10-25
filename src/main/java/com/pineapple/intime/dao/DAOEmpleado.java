@@ -67,13 +67,13 @@ public class DAOEmpleado {
 		MongoCollection<Document> dbRol= MongoBroker.get().getCollection("Empleado");
 		BsonDocument filter=new BsonDocument();
 		filter.put("email",new BsonString((String) email));
-		updateDatosPersonales(filter,email,empleado,dbEmpleado);
-		updateRol(filter,email,empleado,dbRol);
+		updateDatosPersonales(filter,empleado,dbEmpleado);
+		updateRol(filter,empleado,dbRol);
 		
 	}
-	private static void updateDatosPersonales(BsonDocument filtro,String email,Document empleado, MongoCollection<Document> dbEmpleado) {
+	private static void updateDatosPersonales(BsonDocument filtro,Document empleado, MongoCollection<Document> dbEmpleado) {
 		Document datosPersonales=new Document();
-		datosPersonales.put("email", email);
+		datosPersonales.put("email", empleado.get("email"));
 		datosPersonales.put("password",empleado.get("password"));
 		datosPersonales.put("nombre",empleado.get("nombre"));
 		datosPersonales.put("apellidos",empleado.get("apellidos"));
@@ -81,9 +81,9 @@ public class DAOEmpleado {
 		
 	}
 	
-	public static void updateRol(BsonDocument filtro,String email,Document empleado,MongoCollection<Document> dbRol) {
+	public static void updateRol(BsonDocument filtro,Document empleado,MongoCollection<Document> dbRol) {
 		Document rol=new Document();
-		rol.put("email", email);
+		rol.put("email", empleado.get("email"));
 		rol.put("rol", empleado.get("rol"));
 		dbRol.replaceOne(filtro,rol);
 		
