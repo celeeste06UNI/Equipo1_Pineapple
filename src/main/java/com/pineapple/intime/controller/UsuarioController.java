@@ -47,6 +47,18 @@ public class UsuarioController {
 		return "admin";
 	}
 	
+	@RequestMapping(value = "/editUser", method = RequestMethod.POST)
+	public String editUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
+			@ModelAttribute("emailAntiguo") String emailAntiguo, @ModelAttribute("emailNuevo") String emailNuevo, @ModelAttribute("rol") String rol) {
+		Document empleado=new Document();
+		empleado.put("email", emailNuevo);
+		empleado.put("rol", rol);
+		empleado.put("nombre", nombre);
+		empleado.put("apellidos", apellidos);
+		DAOEmpleado.update(emailAntiguo, empleado);
+		return "admin";
+	}
+	
 	@RequestMapping(value = "/searchUser", method = RequestMethod.POST)
 	public ModelAndView searchUser(ModelAndView model, @ModelAttribute("email") String email) {
 		Document empleado = DAOEmpleado.cargarEmpleado(email);

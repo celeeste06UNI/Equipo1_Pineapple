@@ -52,18 +52,27 @@
 				name="email">
 			<button type="submit">Buscar</button>
 		</form>
-
-		<label for="nombre">Nombre</label> <input type="text" name="nombre"
-			value=${nombre} >
+		
+		<form name='updateForm' action='/editUser' method='POST'>
 			
-		<label for="apellidos">Apellidos</label> <input type="text" name="apellidos"
-			value=${apellidos} >
+			<label for="email">Email</label> <input type="email" name="emailAntiguo"
+				readonly value=${email} >
 			
-		<label for="email">Email</label> <input type="email" name="email"
-			readonly value=${email} >
+			<label for="nombre">Nombre</label> <input type="text" name="nombre"
+				value=${nombre} >
+				
+			<label for="apellidos">Apellidos</label> <input type="text" name="apellidos"
+				value=${apellidos} >
+				
+			<label for="email">Email</label> <input type="email" name="emailNuevo"
+				value=${email} >
+				
+			<label for="rol">Rol</label> <input type="text" name="rol"
+				value=${rol} >
+				
+			<button type="submit">Buscar</button>
 			
-		<label for="rol">Rol</label> <input type="text" name="rol"
-			value=${rol} >
+		</form>
 
 	</div>
 
