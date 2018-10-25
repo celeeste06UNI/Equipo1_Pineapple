@@ -76,7 +76,7 @@ public class DAOEmpleado {
 		datosPersonales.put("email", email);
 		datosPersonales.put("password",empleado.get("password"));
 		datosPersonales.put("nombre",empleado.get("nombre"));
-		datosPersonales.put("apellidos",empleado.get("apellido"));
+		datosPersonales.put("apellidos",empleado.get("apellidos"));
 		dbEmpleado.replaceOne(filtro,datosPersonales);
 		
 	}
