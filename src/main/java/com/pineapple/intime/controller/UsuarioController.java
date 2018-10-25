@@ -40,7 +40,7 @@ public class UsuarioController {
 		empleado.put("apellidos", apellidos);
 		
 		DAOEmpleado.insert(empleado);
-		return "error";
+		return "admin";
 	}
 	
 	
