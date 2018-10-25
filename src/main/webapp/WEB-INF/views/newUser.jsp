@@ -212,35 +212,31 @@ label.light {
 
 
 	<form action="index.html" method="post">
-
 		<h1>Registro</h1>
-
 		<fieldset>
 			<legend>
 				<span class="number">1</span>Información básica
 			</legend>
-			<label for="name">Nombre:</label> <input type="text" id="name"
-				name="user_name"> <label for="name">Apellido:</label> <input
-				type="text" id="apellido" name="user_apellido"> <label
-				for="mail">Email:</label> <input type="email" id="mail"
-				name="user_email">
-
+			<label for="name">Nombre:</label> <input type="text" id="name" name="user_name"> 
+			<label for="name">Apellido:</label><input type="text" id="apellido" name="user_apellido"> 
+			<label for="mail">Email:</label> <input type="email" id="mail" name="user_email">
 		</fieldset>
 
 		<fieldset>
 			<legend>
 				<span class="number">2</span>Seleccionar Rol
 			</legend>
-			<label>Roles:</label> <input type="checkbox" id="admin"
-				value="rol_admin" name="user_rol"><label class="light"
-				for="Administrador">Administrador</label><br> <input
-				type="checkbox" id="usuario" value="rol_user" name="user_rol"><label
-				class="light" for="Usuario">Usuario</label><br> <input
-				type="checkbox" id="gestor" value="rol_gestor" name="user_rol"><label
-				class="light" for="Gestor">Gestor</label>
-
+			<label>Roles:</label> 
+			<input type="radio" id="admin" value="rol_admin" name="user_rol">
+			<label class="light" for="Administrador">Administrador</label><br> 
+			<input type="radio" id="usuario" value="rol_user" name="user_rol">
+			<label class="light" for="Usuario">Usuario</label><br> 
+			<input type="radio" id="gestor" value="rol_gestor" name="user_rol">
+			<label class="light" for="Gestor">Gestor</label>
 		</fieldset>
+		
 		<button type="submit">Registrar</button>
+		
 	</form>
 
 
