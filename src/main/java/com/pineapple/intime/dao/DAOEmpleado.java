@@ -58,6 +58,7 @@ public class DAOEmpleado {
 		datosPersonales.put("nombre",nombre);
 		datosPersonales.put("apellidos",apellidos);
 		dbEmpleado.deleteOne(datosPersonales);
+		
 	}
 	public static void deleteRol(Document empleado, MongoCollection<Document> dbRol) {
 		Document rol=new Document();
