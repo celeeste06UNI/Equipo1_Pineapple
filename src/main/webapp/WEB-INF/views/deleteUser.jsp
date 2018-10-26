@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Administrador</title>
+<title>Eliminar Usuario</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -25,8 +25,8 @@
 					<ul class="dropdown-menu">
 
 						<li><a href="/newUser">Crear</a></li>
-						<li><a href="/deleteUser">Eliminar</a></li>
-						<li><a href="/updateUser">Modificar</a></li>
+						<li><a href="#">Eliminar</a></li>
+						<li><a href="#">Modificar</a></li>
 					</ul></li>
 				<li><a href="#">Fichajes</a></li>
 				<li class="dropdown"><a class="dropdown-toggle"
@@ -44,8 +44,33 @@
 			</ul>
 		</div>
 	</nav>
-
 	<div class="container">
-		<h3>EQUIPO 1</h3>
-		<p>Pineapple</p>
+		<form name='searchForm' action='/deleteSearchUser' method='POST'>
+
+			<h1>Busqueda de un usuario</h1>
+			<label for="name">Introduzca el email:</label> <input type="email"
+				name="email">
+			<button type="submit">Buscar</button>
+		</form>
+		
+		<form name='deleteForm' action='/actionDeleteUser' method='POST'>
+			
+			<label for="nombre">Nombre</label> <input type="text" name="nombre"
+				readonly value=${nombre} >
+				
+			<label for="apellidos">Apellidos</label> <input type="text" name="apellidos"
+				readonly value=${apellidos} >
+				
+			<label for="email">Email</label> <input type="email" name="email"
+				readonly value=${email} >
+				
+			<label for="rol">Rol</label> <input type="text" name="rol"
+				readonly value=${rol} >
+				
+			<button type="submit">Eliminar</button>
+			
+		</form>
+
 	</div>
+
+</body>
