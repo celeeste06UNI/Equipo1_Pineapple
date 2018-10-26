@@ -64,7 +64,7 @@ public class DAOEmpleado {
 	/*MODIFICAR USUARIO*/
 	public static void update(String email,Document empleado) {
 		MongoCollection<Document> dbEmpleado= MongoBroker.get().getCollection("Empleado");
-		MongoCollection<Document> dbRol= MongoBroker.get().getCollection("Empleado");
+		MongoCollection<Document> dbRol= MongoBroker.get().getCollection("EmpleadoRol");
 		BsonDocument filter=new BsonDocument();
 		filter.put("email",new BsonString((String) email));
 		updateDatosPersonales(filter,empleado,dbEmpleado);
