@@ -12,7 +12,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<img src="Equipo1_Pineapple\src\main\webapp\WEB-INF\views\fondo.jpg" align="center">
+	<img src="Equipo1_Pineapple/src/main/webapp/WEB-INF/views/fondo.jpg" align="center">
 	
-
-	</div>
+</body>
+</html>
