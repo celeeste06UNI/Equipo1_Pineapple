@@ -199,49 +199,50 @@ label.light {
 
 	</div> -->
 
-
-	<div class="row">
-		<div class="col-sm-4" style="background-color: lavender;">
-			<form name='searchForm' action='/searchUser' method='POST'>
-				<h1>Búsqueda de Usuario</h1>
-				<fieldset>
-					<legend>
-						<span class="number">1</span>Introduzca el e-mail del usuario
-					</legend>
-					<label for="name">Introduzca el email:</label> <input type="email"
-						name="email">
-					<button type="submit">Buscar</button>
-				</fieldset>
-			</form>
-
-		</div>
-		<div class="col-sm-8" style="background-color: lavenderblush;">
-
-			<form name='updateForm' action='/editUser' method='POST'>
-				<form>
+	<div class = "container">
+		<div class="row">
+			<div class="col-sm-6" style="background-color: white;">
+				<form name='searchForm' action='/searchUser' method='POST'>
+					<h1>Búsqueda de Usuario</h1>
 					<fieldset>
 						<legend>
-							<span class="number">2</span>Modificar campos
+							<span class="number">1</span>Introduzca el e-mail del usuario
 						</legend>
-
-						<label for="email">Email Actual</label> <input type="email"
-							name="emailAntiguo" readonly value=${email} > <label
-							for="nombre">Nombre</label> <input type="text" name="nombre"
-							value=${nombre} > <label for="apellidos">Apellidos</label>
-						<input type="text" name="apellidos" value=${apellidos} > <label
-							for="email">Nuevo Email</label> <input type="email"
-							name="emailNuevo" value=${email} > <label>Roles:</label>
-						<input type="radio" id="admin" value="rol_admin" name="rol">
-						<label class="light" for="Administrador">Administrador</label><br>
-						<input type="radio" id="usuario" value="rol_user" name="rol">
-						<label class="light" for="Usuario">Usuario</label><br> <input
-							type="radio" id="gestor" value="rol_gestor" name="rol"> <label
-							class="light" for="Gestor">Gestor</label>
+						<label for="name">Introduzca el email:</label> <input type="email"
+							name="email">
+						<button type="submit">Buscar</button>
 					</fieldset>
-
-					<button type="submit">Actualizar</button>
-
 				</form>
+
+			</div>
+			<div class="col-sm-6" style="background-color: white;">
+
+				<form name='updateForm' action='/editUser' method='POST'>
+					<form>
+						<fieldset>
+							<legend>
+								<span class="number">2</span>Modificar campos
+							</legend>
+
+							<label for="email">Email Actual</label> <input type="email"
+								name="emailAntiguo" readonly value=${email} > <label
+								for="nombre">Nombre</label> <input type="text" name="nombre"
+								value=${nombre} > <label for="apellidos">Apellidos</label>
+							<input type="text" name="apellidos" value=${apellidos} >
+							<label for="email">Nuevo Email</label> <input type="email"
+								name="emailNuevo" value=${email} > <label>Roles:</label>
+							<input type="radio" id="admin" value="rol_admin" name="rol">
+							<label class="light" for="Administrador">Administrador</label><br>
+							<input type="radio" id="usuario" value="rol_user" name="rol">
+							<label class="light" for="Usuario">Usuario</label><br> <input
+								type="radio" id="gestor" value="rol_gestor" name="rol">
+							<label class="light" for="Gestor">Gestor</label>
+						</fieldset>
+
+						<button type="submit">Actualizar</button>
+
+					</form>
+			</div>
 		</div>
 	</div>
 </body>
