@@ -12,7 +12,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<img src="fondo.jpg" align="center">
+	<img src="/fondo.jpg" align="center">
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -46,6 +46,6 @@
 	</nav>
 
 	<div class="container">
-		<h3>EQUIPO 1</h3>
+		<h3>EQUIPO 1 ADMIN</h3>
 		<p>Pineapple</p>
 	</div>
