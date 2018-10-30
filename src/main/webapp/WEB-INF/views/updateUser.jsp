@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <link
 	href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
@@ -189,41 +199,49 @@ label.light {
 
 	</div> -->
 
-	<form name='searchForm' action='/searchUser' method='POST'>
-		<h1>Búsqueda de Usuario</h1>
-		<fieldset>
-			<legend>
-				<span class="number">1</span>Introduzca el e-mail del usuario
-			</legend>
-			<label for="name">Introduzca el email:</label> <input type="email"
-				name="email">
-			<button type="submit">Buscar</button>
-		</fieldset>
-	</form>
 
-	<form name='updateForm' action='/editUser' method='POST'>
-		<form>
-			<fieldset>
-				<legend>
-					<span class="number">2</span>Modificar campos
-				</legend>
+	<div class="row">
+		<div class="col-sm-4" style="background-color: lavender;">
+			<form name='searchForm' action='/searchUser' method='POST'>
+				<h1>Búsqueda de Usuario</h1>
+				<fieldset>
+					<legend>
+						<span class="number">1</span>Introduzca el e-mail del usuario
+					</legend>
+					<label for="name">Introduzca el email:</label> <input type="email"
+						name="email">
+					<button type="submit">Buscar</button>
+				</fieldset>
+			</form>
 
-				<label for="email">Email Actual</label> <input type="email"
-					name="emailAntiguo" readonly value=${email} > <label
-					for="nombre">Nombre</label> <input type="text" name="nombre"
-					value=${nombre} > <label for="apellidos">Apellidos</label>
-				<input type="text" name="apellidos" value=${apellidos} > <label
-					for="email">Nuevo Email</label> <input type="email"
-					name="emailNuevo" value=${email} > <label>Roles:</label> <input
-					type="radio" id="admin" value="rol_admin" name="rol"> <label
-					class="light" for="Administrador">Administrador</label><br> <input
-					type="radio" id="usuario" value="rol_user" name="rol"> <label
-					class="light" for="Usuario">Usuario</label><br> <input
-					type="radio" id="gestor" value="rol_gestor" name="rol"> <label
-					class="light" for="Gestor">Gestor</label>
-			</fieldset>
+		</div>
+		<div class="col-sm-8" style="background-color: lavenderblush;">
 
-			<button type="submit">Actualizar</button>
+			<form name='updateForm' action='/editUser' method='POST'>
+				<form>
+					<fieldset>
+						<legend>
+							<span class="number">2</span>Modificar campos
+						</legend>
 
-		</form>
+						<label for="email">Email Actual</label> <input type="email"
+							name="emailAntiguo" readonly value=${email} > <label
+							for="nombre">Nombre</label> <input type="text" name="nombre"
+							value=${nombre} > <label for="apellidos">Apellidos</label>
+						<input type="text" name="apellidos" value=${apellidos} > <label
+							for="email">Nuevo Email</label> <input type="email"
+							name="emailNuevo" value=${email} > <label>Roles:</label>
+						<input type="radio" id="admin" value="rol_admin" name="rol">
+						<label class="light" for="Administrador">Administrador</label><br>
+						<input type="radio" id="usuario" value="rol_user" name="rol">
+						<label class="light" for="Usuario">Usuario</label><br> <input
+							type="radio" id="gestor" value="rol_gestor" name="rol"> <label
+							class="light" for="Gestor">Gestor</label>
+					</fieldset>
+
+					<button type="submit">Actualizar</button>
+
+				</form>
+		</div>
+	</div>
 </body>
