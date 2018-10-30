@@ -208,7 +208,7 @@ label.light {
 
 
 				<form name='searchForm' action='/searchUser' method='POST'>
-					<h4>Busqueda de Usuario</h4>
+					
 					<fieldset>
 						<legend>
 							<span class="number">1</span>Introduzca el e-mail del usuario
@@ -224,7 +224,7 @@ label.light {
 			<div class="col-sm-6" style="background-color: white;">
 
 				<form name='updateForm' action='/editUser' method='POST'>
-					<h4>Datos de Usuario</h4>
+					
 					<fieldset>
 						<legend>
 							<span class="number">2</span>Modificar campos

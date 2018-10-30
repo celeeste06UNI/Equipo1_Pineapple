@@ -191,7 +191,7 @@ label.light {
 		<div class="row">
 			<div class="col-sm-6" style="background-color: white;">
 				<form name='searchForm' action='/deleteSearchUser' method='POST'>
-					<h4>Búsqueda de Usuario</h4>
+					
 					<fieldset>
 						<legend>
 							<span class="number">1</span>Introduzca el e-mail del usuario
@@ -205,7 +205,7 @@ label.light {
 			</div>
 			<div class="col-sm-6" style="background-color: white;">
 				<form name='deleteForm' action='/actionDeleteUser' method='POST'>
-					<h4>Datos de Usuario</h4>
+					
 					<fieldset>
 						<legend>
 							<span class="number">2</span>Datos del usuario
