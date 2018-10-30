@@ -201,13 +201,14 @@ label.light {
 
 	<div class="container">
 		<div class="page-header">
-			<h1>Búsqueda de Usuario</h1>
+			<h1>Modificar de Usuario</h1>
 		</div>
 		<div class="row">
 			<div class="col-sm-6" style="background-color: white;">
 
 
 				<form name='searchForm' action='/searchUser' method='POST'>
+					<h4>Busqueda de Usuario</h4>
 					<fieldset>
 						<legend>
 							<span class="number">1</span>Introduzca el e-mail del usuario
@@ -223,30 +224,30 @@ label.light {
 			<div class="col-sm-6" style="background-color: white;">
 
 				<form name='updateForm' action='/editUser' method='POST'>
-					<form>
-						<fieldset>
-							<legend>
-								<span class="number">2</span>Modificar campos
-							</legend>
+					<h4>Datos de Usuario</h4>
+					<fieldset>
+						<legend>
+							<span class="number">2</span>Modificar campos
+						</legend>
 
-							<label for="email">Email Actual</label> <input type="email"
-								name="emailAntiguo" readonly value=${email} > <label
-								for="nombre">Nombre</label> <input type="text" name="nombre"
-								value=${nombre} > <label for="apellidos">Apellidos</label>
-							<input type="text" name="apellidos" value=${apellidos} >
-							<label for="email">Nuevo Email</label> <input type="email"
-								name="emailNuevo" value=${email} > <label>Roles:</label>
-							<input type="radio" id="admin" value="rol_admin" name="rol">
-							<label class="light" for="Administrador">Administrador</label><br>
-							<input type="radio" id="usuario" value="rol_user" name="rol">
-							<label class="light" for="Usuario">Usuario</label><br> <input
-								type="radio" id="gestor" value="rol_gestor" name="rol">
-							<label class="light" for="Gestor">Gestor</label>
-						</fieldset>
+						<label for="email">Email Actual</label> <input type="email"
+							name="emailAntiguo" readonly value=${email} > <label
+							for="nombre">Nombre</label> <input type="text" name="nombre"
+							value=${nombre} > <label for="apellidos">Apellidos</label>
+						<input type="text" name="apellidos" value=${apellidos} > <label
+							for="email">Nuevo Email</label> <input type="email"
+							name="emailNuevo" value=${email} > <label>Roles:</label>
+						<input type="radio" id="admin" value="rol_admin" name="rol">
+						<label class="light" for="Administrador">Administrador</label><br>
+						<input type="radio" id="usuario" value="rol_user" name="rol">
+						<label class="light" for="Usuario">Usuario</label><br> <input
+							type="radio" id="gestor" value="rol_gestor" name="rol"> <label
+							class="light" for="Gestor">Gestor</label>
+					</fieldset>
 
-						<button type="submit">Actualizar</button>
+					<button type="submit">Actualizar</button>
 
-					</form>
+				</form>
 			</div>
 		</div>
 	</div>

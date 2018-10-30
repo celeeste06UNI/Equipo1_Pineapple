@@ -156,7 +156,7 @@ label.light {
 			</ul>
 		</div>
 	</nav>
-<!-- 	<div class="container">
+	<!-- 	<div class="container">
 		<form name='searchForm' action='/deleteSearchUser' method='POST'>
 
 			<h1>Busqueda de un usuario</h1>
@@ -184,39 +184,44 @@ label.light {
 		</form>
 
 	</div> -->
-	
-	<form name='searchForm' action='/deleteSearchUser' method='POST'>
-		<h1>Búsqueda de Usuario</h1>
-		<fieldset>
-			<legend>
-				<span class="number">1</span>Introduzca el e-mail del usuario
-			</legend>
-				<label for="name">Introduzca el email:</label> <input type="email"
-				name="email">
-			<button type="submit">Buscar</button>
-		</fieldset>
-	</form>
-	
-	<form name='deleteForm' action='/actionDeleteUser' method='POST'>
-		<fieldset>
-			<legend>
-				<span class="number">2</span>Datos del usuario
-			</legend>
-			<label for="nombre">Nombre</label> <input type="text" name="nombre"
-				readonly value=${nombre} >
-				
-			<label for="apellidos">Apellidos</label> <input type="text" name="apellidos"
-				readonly value=${apellidos} >
-				
-			<label for="email">Email</label> <input type="email" name="email"
-				readonly value=${email} >
-				
-			<label for="rol">Rol</label> <input type="text" name="rol"
-				readonly value=${rol} >
-				
-			<button type="submit">Eliminar</button>
-		</fieldset>
-		
-	</form>
+	<div class="container">
+		<div class="page-header">
+			<h1>Eliminar Usuario</h1>
+		</div>
+		<div class="row">
+			<div class="col-sm-6" style="background-color: white;">
+				<form name='searchForm' action='/deleteSearchUser' method='POST'>
+					<h4>Búsqueda de Usuario</h4>
+					<fieldset>
+						<legend>
+							<span class="number">1</span>Introduzca el e-mail del usuario
+						</legend>
+						<label for="name">Introduzca el email:</label> <input type="email"
+							name="email">
+						<button type="submit">Buscar</button>
+					</fieldset>
+				</form>
 
+			</div>
+			<div class="col-sm-6" style="background-color: white;">
+				<form name='deleteForm' action='/actionDeleteUser' method='POST'>
+					<h4>Datos de Usuario</h4>
+					<fieldset>
+						<legend>
+							<span class="number">2</span>Datos del usuario
+						</legend>
+						<label for="nombre">Nombre</label> <input type="text"
+							name="nombre" readonly value=${nombre} > <label
+							for="apellidos">Apellidos</label> <input type="text"
+							name="apellidos" readonly value=${apellidos} > <label
+							for="email">Email</label> <input type="email" name="email"
+							readonly value=${email} > <label for="rol">Rol</label> <input
+							type="text" name="rol" readonly value=${rol} >
+
+						<button type="submit">Eliminar</button>
+					</fieldset>
+
+				</form>
+			</div>
+		</div>
 </body>
