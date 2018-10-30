@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.bson.Document;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,6 +53,8 @@ public class UsuarioController {
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
 		Document empleado=new Document();
 		String contraseña = EmpleadoHelper.generarContraseña();
+		BCryptPasswordEncoder contraseñaCodificada = new BCryptPasswordEncoder();
+		String passwordEncriptada = contraseñaCodificada.encode(contraseña);
 		empleado.put("email", email);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);

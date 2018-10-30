@@ -22,11 +22,14 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import org.apache.commons.lang3.RandomStringUtils;
+
 public class EmpleadoHelper {
 
 	public static String generarContraseña() {
+		String contraseña = RandomStringUtils.randomAlphanumeric(10);
 		
-		return "1234";
+		return contraseña;
 	}
 	
 	public static void sesionEmail(String emailDestino, String contraseña) {
