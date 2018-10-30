@@ -53,13 +53,11 @@ public class UsuarioController {
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
 		Document empleado=new Document();
 		String contraseña = EmpleadoHelper.generarContraseña();
-		BCryptPasswordEncoder contraseñaCodificada = new BCryptPasswordEncoder();
-		String passwordEncriptada = contraseñaCodificada.encode(contraseña);
 		empleado.put("email", email);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
-		empleado.put("password", passwordEncriptada);
+		empleado.put("password", contraseña);
 		DAOEmpleado.insert(empleado);
 		EmpleadoHelper.sesionEmail(email, contraseña);
 		return "admin";
