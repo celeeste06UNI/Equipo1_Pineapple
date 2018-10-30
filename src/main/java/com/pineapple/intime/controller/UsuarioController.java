@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.pineapple.intime.dao.DAOEmpleado;
+import com.pineapple.intime.dominio.EmpleadoHelper;
 
 @Controller
 public class UsuarioController {
@@ -50,12 +51,14 @@ public class UsuarioController {
 	public String saveUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
 		Document empleado=new Document();
+		String contraseña = EmpleadoHelper.generarContraseña();
 		empleado.put("email", email);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
-		
+		empleado.put("password", contraseña);
 		DAOEmpleado.insert(empleado);
+		EmpleadoHelper.sesionEmail(email, contraseña);
 		return "admin";
 	}
 	
