@@ -199,11 +199,15 @@ label.light {
 
 	</div> -->
 
-	<div class = "container">
+	<div class="container">
+		<div class="page-header">
+			<h1>Búsqueda de Usuario</h1>
+		</div>
 		<div class="row">
 			<div class="col-sm-6" style="background-color: white;">
+
+
 				<form name='searchForm' action='/searchUser' method='POST'>
-					<h1>Búsqueda de Usuario</h1>
 					<fieldset>
 						<legend>
 							<span class="number">1</span>Introduzca el e-mail del usuario
@@ -213,6 +217,7 @@ label.light {
 						<button type="submit">Buscar</button>
 					</fieldset>
 				</form>
+
 
 			</div>
 			<div class="col-sm-6" style="background-color: white;">
