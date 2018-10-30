@@ -167,9 +167,9 @@ label.light {
 			<legend>
 				<span class="number">1</span>Información básica
 			</legend>
-			<label for="name">Nombre:</label> <input type="text" name="nombre"> 
-			<label for="name">Apellido:</label><input type="text" name="apellidos"> 
-			<label for="mail">Email:</label> <input type="email" name="email">
+			<label for="name">Nombre:</label> <input type="text" required autocomplete="off" name="nombre"> 
+			<label for="name">Apellido:</label><input type="text" required autocomplete="off" name="apellidos"> 
+			<label for="mail">Email:</label> <input type="email" required autocomplete="off" name="email">
 		</fieldset>
 
 		<fieldset>
