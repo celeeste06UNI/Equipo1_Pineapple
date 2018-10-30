@@ -16,7 +16,7 @@
 	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/main.css">
 
-<title>Insert title here</title>
+<title>Eliminar Usuario</title>
 
 <style type="text/css">
 *, *:before, *:after {

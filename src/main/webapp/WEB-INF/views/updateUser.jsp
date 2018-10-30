@@ -16,7 +16,7 @@
 	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/main.css">
 
-<title>Insert title here</title>
+<title>Modificar Usuario</title>
 
 <style type="text/css">
 *, *:before, *:after {
@@ -167,6 +167,8 @@ label.light {
 			<legend>
 				<span class="number">1</span>Introduzca el e-mail del usuario
 			</legend>
+				<label for="name">Introduzca el email:</label> <input type="email"
+				name="email">
 			<button type="submit">Buscar</button>
 		</fieldset>
 	</form>
@@ -177,7 +179,7 @@ label.light {
 				<span class="number">2</span>Modificar campos
 			</legend>
 			
-			<label for="email">Email</label> <input type="email" name="emailAntiguo"
+			<label for="email">Email Actual</label> <input type="email" name="emailAntiguo"
 				readonly value=${email} >
 			
 			<label for="nombre">Nombre</label> <input type="text" name="nombre"
@@ -186,7 +188,7 @@ label.light {
 			<label for="apellidos">Apellidos</label> <input type="text" name="apellidos"
 				value=${apellidos} >
 				
-			<label for="email">Email</label> <input type="email" name="emailNuevo"
+			<label for="email">Nuevo Email</label> <input type="email" name="emailNuevo"
 				value=${email} >
 			
 			
