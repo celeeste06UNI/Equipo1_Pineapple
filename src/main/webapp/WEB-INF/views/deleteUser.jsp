@@ -169,6 +169,9 @@ label.light {
 			</legend>
 				<label for="name">Introduzca el email:</label> <input type="email"
 				name="email">
+			<script> 
+				alert ("No existe el email"); 
+			</script> 
 			<button type="submit">Buscar</button>
 		</fieldset>
 	</form>
