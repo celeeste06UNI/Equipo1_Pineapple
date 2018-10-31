@@ -170,9 +170,6 @@ label.light {
 				<label for="name">Introduzca el email:</label> <input type="email"
 				name="email"> 
 			<button type="submit">Buscar</button>
-			<script> 
-				alert ("No existe el email"); 
-			</script>
 		</fieldset>
 	</form>
 	
