@@ -7,27 +7,30 @@
   
   <style type="text/css">
   
-  .background-size: cover;
-  body{
+  body, html {
+  height: 100%;
+  }
+  
+.bg {
   /* The image used */
-  background-image: url(http://www.fondos10.net/wp-content/uploads/images/fondos10.net-3d-832.jpg) ;
-            /* Full height */
-            height: 100%;
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-			-webkit-filter: blur(5px);
-  			-moz-filter: blur(5px);
-  			-o-filter: blur(5px);
-  			-ms-filter: blur(5px);
-  			filter: blur(5px);
+  background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg");
 
-        }	
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}	
   
   </style>
   
   <body>
+  
+  <div class="bg"></div>
+
+    <p class="py-5 text-center">This example creates a full page background image. Try to resize the browser window to see how it always will cover the full screen (when scrolled to top), and that it scales nicely on all screen sizes.</p>
    
    
    
