@@ -177,11 +177,11 @@ label.light {
 				<span class="number">2</span>Seleccionar Rol
 			</legend>
 			<label>Roles:</label> 
-			<input type="radio" id="admin" value="rol_admin" name="rol">
+			<input type="radio" id="admin" value="rol_admin" name="rol" checked="false">
 			<label class="light" for="Administrador">Administrador</label><br> 
-			<input type="radio" id="usuario" value="rol_user" name="rol">
+			<input type="radio" id="usuario" value="rol_user" name="rol" checked="false">
 			<label class="light" for="Usuario">Usuario</label><br> 
-			<input type="radio" id="gestor" value="rol_gestor" name="rol">
+			<input type="radio" id="gestor" value="rol_gestor" name="rol" checked="false">
 			<label class="light" for="Gestor">Gestor</label>
 		</fieldset>
 		
