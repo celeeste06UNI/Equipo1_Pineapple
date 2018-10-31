@@ -13,7 +13,7 @@
   
 .bg {
   /* The image used */
-  background-image: url("https://sp.depositphotos.com/18828165/stock-illustration-wave-background.html");
+  background-image: url("https://www.dropbox.com/s/d7iq63b8cb8c0va/fondo.jpg?dl=0");
 
   /* Full height */
   height: 100%;
