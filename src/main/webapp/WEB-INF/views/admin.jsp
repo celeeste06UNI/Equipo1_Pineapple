@@ -5,6 +5,6 @@
     <title>ADMIN</title>
   </head>
   <body>
-    <img src="/images/fondo.jpg" align="center">
+    <img src="../images/fondo.jpg" align="center">
   </body>
 </html>
