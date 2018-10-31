@@ -168,11 +168,11 @@ label.light {
 				<span class="number">1</span>Introduzca el e-mail del usuario
 			</legend>
 				<label for="name">Introduzca el email:</label> <input type="email"
-				name="email">
+				name="email"> 
+			<button type="submit">Buscar</button>
 			<script> 
 				alert ("No existe el email"); 
-			</script> 
-			<button type="submit">Buscar</button>
+			</script>
 		</fieldset>
 	</form>
 	
