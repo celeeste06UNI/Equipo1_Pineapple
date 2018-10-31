@@ -49,3 +49,5 @@
 		<h3>EQUIPO 1 ADMIN</h3>
 		<p>Pineapple</p>
 	</div>
+	</body>
+	</html>
