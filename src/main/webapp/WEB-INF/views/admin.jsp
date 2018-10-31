@@ -13,7 +13,7 @@
   
 .bg {
   /* The image used */
-  background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg");
+  background-image: url("https://sp.depositphotos.com/18828165/stock-illustration-wave-background.html");
 
   /* Full height */
   height: 100%;
