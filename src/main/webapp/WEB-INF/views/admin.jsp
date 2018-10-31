@@ -5,6 +5,6 @@
     <title>Mi pagina de prueba</title>
   </head>
   <body>
-    <img src="/fondo.jpg" align="center">
+    <img src="./fondo.jpg" align="center">
   </body>
 </html>
