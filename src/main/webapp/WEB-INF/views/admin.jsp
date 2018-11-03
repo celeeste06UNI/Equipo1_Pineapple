@@ -13,7 +13,7 @@
   
 .bg {
   /* The image used */
-  background-image: url("https://www.dropbox.com/s/d7iq63b8cb8c0va/fondo.jpg?dl=0");
+  /*background-image: url("https://www.dropbox.com/s/d7iq63b8cb8c0va/fondo.jpg?dl=0");
 
   /* Full height */
   height: 100%;
@@ -30,6 +30,7 @@
   
   <div class="bg"></div>
 
+	<img src="fondo.jpg" class="img-responsive" alt="Cinque Terre">
     
    
    
