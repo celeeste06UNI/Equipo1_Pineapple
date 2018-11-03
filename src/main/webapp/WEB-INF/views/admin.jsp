@@ -10,7 +10,6 @@
   </style>
   
   <body>
-	<div id="container">
 		<img src="/fondo.jpg" alt="Welcome" />
    
    
