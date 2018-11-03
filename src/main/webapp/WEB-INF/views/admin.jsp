@@ -10,7 +10,7 @@
   </style>
   
   <body>
-		<img src="/fondo.jpg" alt="Welcome" />
+		<img src="/Equipo1_Pineapple/src/test/resources/fondo.jpg" alt="Welcome" />
    
    
   </body>
