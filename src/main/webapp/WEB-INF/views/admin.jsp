@@ -27,10 +27,7 @@
   </style>
   
   <body>
-  
-  <div class="bg"></div>
-
-	<img src="fondo.jpg" class="img-responsive" alt="Cinque Terre">
+	<div style="background-image: url(fondo.jpg); height: 200px; width: 400px; border: 1px solid black;">Example of a DIV element with a background image:</div>
     
    
    
