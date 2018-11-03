@@ -27,8 +27,8 @@
   </style>
   
   <body>
-	<div style="background-image: url(/fondo.jpg); height: 200px; width: 400px; border: 1px solid black;">Example of a DIV element with a background image:</div>
-    
+	<div id="container">
+		<img src="fondo.jpg" width="1132" height="800" alt="Welcome" />
    
    
   </body>
