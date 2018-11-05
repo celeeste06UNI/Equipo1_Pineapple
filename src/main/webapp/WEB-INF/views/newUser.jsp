@@ -3,6 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>Nuevo Usuario</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link
 	href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
@@ -16,7 +19,7 @@
 	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/main.css">
 
-<title>Insert title here</title>
+
 
 <style type="text/css">
 *, *:before, *:after {
@@ -139,7 +142,6 @@ label.light {
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-
 					<li><a href="/newUser">Crear</a></li>
 					<li><a href="/deleteUser">Eliminar</a></li>
 					<li><a href="/updateUser">Modificar</a></li>
