@@ -70,6 +70,7 @@ public class HomeController {
 			pagina = "error";
 		}
 		if(doc.get("email").equals(email)) {
+			//Crear objeto para saber quien esta en la sesion
 			if(doc.get("rol").equals("admin")){
 				pagina = "admin";
 			}

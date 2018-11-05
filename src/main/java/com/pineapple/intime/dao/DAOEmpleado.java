@@ -37,8 +37,8 @@ public class DAOEmpleado {
 		
 	}
 	
-	/*ELIMINAR USUARIO*/
-	/*INSERTAR EMPLEADO*/
+	/*ELIMINAR EMPLEADO*/
+	
 	public static void delete(Document empleado) {
 		MongoCollection<Document> dbEmpleado=MongoBroker.get().getCollection("Empleado");
 		MongoCollection<Document> dbRol=MongoBroker.get().getCollection("EmpleadoRol");
@@ -64,7 +64,7 @@ public class DAOEmpleado {
 	/*MODIFICAR USUARIO*/
 	public static void update(String email,Document empleado) {
 		MongoCollection<Document> dbEmpleado= MongoBroker.get().getCollection("Empleado");
-		MongoCollection<Document> dbRol= MongoBroker.get().getCollection("Empleado");
+		MongoCollection<Document> dbRol= MongoBroker.get().getCollection("EmpleadoRol");
 		BsonDocument filter=new BsonDocument();
 		filter.put("email",new BsonString((String) email));
 		updateDatosPersonales(filter,empleado,dbEmpleado);
@@ -88,7 +88,7 @@ public class DAOEmpleado {
 		dbRol.replaceOne(filtro,rol);
 		
 	}
-	
+	/* CARGAR EMPLEADOS*/
 	public static ConcurrentHashMap<String, Document> cargarEmpleados() {
 		MongoCollection<Document> dbEmpleado = MongoBroker.get().getCollection("Empleado");
 		ConcurrentHashMap<String, Document> result=new ConcurrentHashMap<String, Document>();
@@ -108,7 +108,7 @@ public class DAOEmpleado {
 		empleado.put("rol", cargarRol(email));
 		return empleado;
 	}
-
+	/*AUTENTICACION */
 	public static Document autenticar(String email,String password) {		
 		Boolean autenticado=false;
 		Document empleadoAut=new Document();
