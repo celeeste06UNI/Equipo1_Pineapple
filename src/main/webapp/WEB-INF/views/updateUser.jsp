@@ -1,14 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -137,64 +136,49 @@ label.light {
 </head>
 <body>
 
-
 	<nav class="navbar navbar-inverse">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="#">InTime</a>
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">InTime</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+
+						<li><a href="/newUser">Crear</a></li>
+						<li><a href="/deleteUser">Eliminar</a></li>
+						<li><a href="/updateUser">Modificar</a></li>
+					</ul></li>
+				<li><a href="#">Fichajes</a></li>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Gestion Incidencias <span
+						class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Crear</a></li>
+						<li><a href="#">Eliminar</a></li>
+						<li><a href="#">Modificar</a></li>
+					</ul></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
+						Cerrar Sesi�n</a></li>
+			</ul>
 		</div>
-<<<<<<< HEAD
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Home</a></li>
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-=======
 	</nav>
 	<!-- 	<div class="container">
 		<form name='searchForm' action='/searchUser' method='POST'>
->>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
 
-					<li><a href="/newUser">Crear</a></li>
-					<li><a href="/deleteUser">Eliminar</a></li>
-					<li><a href="/updateUser">Modificar</a></li>
-				</ul></li>
-			<li><a href="#">Fichajes</a></li>
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">Gestion Incidencias <span
-					class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="#">Crear</a></li>
-					<li><a href="#">Eliminar</a></li>
-					<li><a href="#">Modificar</a></li>
-				</ul></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-					Cerrar Sesión</a></li>
-		</ul>
-	</div>
-	</nav>
-
-	<form name='searchForm' action='/searchUser' method='POST'>
-		<h1>Búsqueda de Usuario</h1>
-		<fieldset>
-			<legend>
-				<span class="number">1</span>Introduzca el e-mail del usuario
-			</legend>
-				<label for="name">Introduzca el email:</label> <input type="email"
+			<h1>Busqueda de un usuario</h1>
+			<label for="name">Introduzca el email:</label> <input type="email"
 				name="email">
 			<button type="submit">Buscar</button>
-		</fieldset>
-	</form>
-	
-	<form name='updateForm' action='/editUser' method='POST'><form>
-		<fieldset>
-			<legend>
-				<span class="number">2</span>Modificar campos
-			</legend>
+		</form>
+		
+		<form name='updateForm' action='/editUser' method='POST'>
 			
-			<label for="email">Email Actual</label> <input type="email" name="emailAntiguo"
+			<label for="email">Email</label> <input type="email" name="emailAntiguo"
 				readonly value=${email} >
 			
 			<label for="nombre">Nombre</label> <input type="text" name="nombre"
@@ -203,32 +187,18 @@ label.light {
 			<label for="apellidos">Apellidos</label> <input type="text" name="apellidos"
 				value=${apellidos} >
 				
-			<label for="email">Nuevo Email</label> <input type="email" name="emailNuevo"
+			<label for="email">Email</label> <input type="email" name="emailNuevo"
 				value=${email} >
+				
+			<label for="rol">Rol</label> <input type="text" name="rol"
+				value=${rol} >
+				
+			<button type="submit">Actualizar</button>
 			
-			
-			<label>Roles:</label> 
-			<input type="radio" id="admin" value="rol_admin" name="rol">
-			<label class="light" for="Administrador">Administrador</label><br> 
-			<input type="radio" id="usuario" value="rol_user" name="rol">
-			<label class="light" for="Usuario">Usuario</label><br> 
-			<input type="radio" id="gestor" value="rol_gestor" name="rol">
-			<label class="light" for="Gestor">Gestor</label>
-		</fieldset>
-		
-		<button type="submit">Actualizar</button>
-		
-	</form>
+		</form>
 
-<<<<<<< HEAD
-=======
 	</div> -->
->>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
 
-<<<<<<< HEAD
-</body>
-</html>
-=======
 	<div class="container">
 		<div class="page-header">
 			<h1>Modificar de Usuario</h1>
@@ -282,4 +252,3 @@ label.light {
 		</div>
 	</div>
 </body>
->>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
