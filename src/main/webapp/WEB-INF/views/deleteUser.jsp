@@ -15,12 +15,9 @@
 <link href='https://fonts.googleapis.com/css?family=Nunito:400,300'
 	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/main.css">
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
 <title>Eliminar Usuario</title>
-<<<<<<< HEAD
+
 
 <style type="text/css">
 *, *:before, *:after {
@@ -238,7 +235,6 @@ label.light {
 }
 </style>
 
->>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
 </head>
 <body>
 
@@ -248,13 +244,11 @@ label.light {
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">InTime</a>
 		</div>
-<<<<<<< HEAD
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="#">Home</a></li>
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-=======
 	</nav>
 	<!-- 	<div class="container">
 		<form name='searchForm' action='/deleteSearchUser' method='POST'>
@@ -325,7 +319,7 @@ label.light {
 		<div class="row">
 			<div class="col-sm-6" style="background-color: white;">
 				<form name='searchForm' action='/deleteSearchUser' method='POST'>
-					
+
 					<fieldset>
 						<legend>
 							<span class="number">1</span>Introduzca el e-mail del usuario
@@ -335,16 +329,10 @@ label.light {
 						<button type="submit">Buscar</button>
 					</fieldset>
 				</form>
->>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
-
-<<<<<<< HEAD
-</body>
-</html>
-=======
 			</div>
 			<div class="col-sm-6" style="background-color: white;">
 				<form name='deleteForm' action='/actionDeleteUser' method='POST'>
-					
+
 					<fieldset>
 						<legend>
 							<span class="number">2</span>Datos del usuario
@@ -364,4 +352,3 @@ label.light {
 			</div>
 		</div>
 </body>
->>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
