@@ -3,21 +3,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link
-	href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<link rel="stylesheet" href="css/normalize.css">
-<link href='https://fonts.googleapis.com/css?family=Nunito:400,300'
-	rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="css/main.css">
-
 <title>Eliminar Usuario</title>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style type="text/css">
 *, *:before, *:after {
@@ -126,7 +120,6 @@ label.light {
 	}
 }
 </style>
-=======
 <style type="text/css">
 *, *:before, *:after {
 	-moz-box-sizing: border-box;
@@ -249,11 +242,6 @@ label.light {
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-	</nav>
-	<!-- 	<div class="container">
-		<form name='searchForm' action='/deleteSearchUser' method='POST'>
->>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
-
 					<li><a href="/newUser">Crear</a></li>
 					<li><a href="/deleteUser">Eliminar</a></li>
 					<li><a href="/updateUser">Modificar</a></li>
@@ -309,9 +297,8 @@ label.light {
 		
 	</form>
 
-<<<<<<< HEAD
-=======
-	</div> -->
+
+	</div> 
 	<div class="container">
 		<div class="page-header">
 			<h1>Eliminar Usuario</h1>
