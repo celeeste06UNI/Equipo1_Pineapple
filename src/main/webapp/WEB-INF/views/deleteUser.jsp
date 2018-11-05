@@ -137,8 +137,8 @@ label.light {
 					<ul class="dropdown-menu">
 
 						<li><a href="/newUser">Crear</a></li>
-						<li><a href="#">Eliminar</a></li>
-						<li><a href="#">Modificar</a></li>
+						<li><a href="/deleteUser">Eliminar</a></li>
+						<li><a href="/updateUser">Modificar</a></li>
 					</ul></li>
 				<li><a href="#">Fichajes</a></li>
 				<li class="dropdown"><a class="dropdown-toggle"
