@@ -11,19 +11,6 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<link
-	href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<link rel="stylesheet" href="css/normalize.css">
-<link href='https://fonts.googleapis.com/css?family=Nunito:400,300'
-	rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="css/main.css">
-
 <title>Modificar Usuario</title>
 
 <style type="text/css">
@@ -237,11 +224,11 @@ label.light {
 						<input type="text" name="apellidos" value=${apellidos} > <label
 							for="email">Nuevo Email</label> <input type="email"
 							name="emailNuevo" value=${email} > <label>Roles:</label>
-						<input type="radio" id="admin" value="rol_admin" name="rol">
+						<input type="radio" id="admin" value="admin" name="rol">
 						<label class="light" for="Administrador">Administrador</label><br>
-						<input type="radio" id="usuario" value="rol_user" name="rol">
+						<input type="radio" id="usuario" value="user" name="rol">
 						<label class="light" for="Usuario">Usuario</label><br> <input
-							type="radio" id="gestor" value="rol_gestor" name="rol"> <label
+							type="radio" id="gestor" value="incid" name="rol"> <label
 							class="light" for="Gestor">Gestor</label>
 					</fieldset>
 
