@@ -1,13 +1,16 @@
 package com.pineapple.intime.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.jasper.tagplugins.jstl.core.Out;
 import org.bson.Document;
@@ -60,6 +63,21 @@ public class HomeController {
 		model.setViewName("index");
 		return model;
 	}
+	
+	@RequestMapping(value = "/cerrarSesion", method = RequestMethod.GET)
+	protected void cerrarSesion(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        HttpSession sesion = request.getSession(true);
+        
+        //Cerrar sesion
+        sesion.invalidate();
+        
+        //Redirecciono a index.jsp
+        response.sendRedirect("index.jsp");
+    }
+
 	
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
