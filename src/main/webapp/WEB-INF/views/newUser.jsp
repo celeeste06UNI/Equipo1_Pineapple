@@ -149,8 +149,8 @@ label.light {
 				</ul></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="/cerrarSesion"><span
-					class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+			<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
+					Cerrar Sesión</a></li>
 		</ul>
 	</div>
 	</nav>
@@ -161,24 +161,26 @@ label.light {
 			<legend>
 				<span class="number">1</span>Información básica
 			</legend>
+			<label for="name">Nombre:</label> <input type="text" required autocomplete="off" name="nombre"> 
+			<label for="name">Apellido:</label><input type="text" required autocomplete="off" name="apellidos"> 
+			<label for="mail">Email:</label> <input type="email" required autocomplete="off" name="email">
 		</fieldset>
 
 		<fieldset>
 			<legend>
 				<span class="number">2</span>Seleccionar Rol
 			</legend>
-			<label>Roles:</label> <input type="radio" id="admin" value="admin"
-				name="rol" checked="false"> <label class="light"
-				for="Administrador">Administrador</label><br> <input
-				type="radio" id="usuario" value="user" name="rol" checked="false">
-			<label class="light" for="Usuario">Usuario</label><br> <input
-				type="radio" id="gestor" value="incid" name="rol" checked="false">
+			<label>Roles:</label> 
+			<input type="radio" id="admin" value="admin" name="rol" checked="false">
+			<label class="light" for="Administrador">Administrador</label><br> 
+			<input type="radio" id="usuario" value="user" name="rol" checked="false">
+			<label class="light" for="Usuario">Usuario</label><br> 
+			<input type="radio" id="gestor" value="incid" name="rol" checked="false">
 			<label class="light" for="Gestor">Gestor</label>
-
 		</fieldset>
-
+		
 		<button type="submit">Registrar</button>
-
+		
 	</form>
 
 
