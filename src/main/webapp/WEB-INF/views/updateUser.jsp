@@ -224,11 +224,11 @@ label.light {
 						<input type="text" name="apellidos" value=${apellidos} > <label
 							for="email">Nuevo Email</label> <input type="email"
 							name="emailNuevo" value=${email} > <label>Roles:</label>
-						<input type="radio" id="admin" value="rol_admin" name="rol">
+						<input type="radio" id="admin" value="admin" name="rol">
 						<label class="light" for="Administrador">Administrador</label><br>
-						<input type="radio" id="usuario" value="rol_user" name="rol">
+						<input type="radio" id="usuario" value="user" name="rol">
 						<label class="light" for="Usuario">Usuario</label><br> <input
-							type="radio" id="gestor" value="rol_gestor" name="rol"> <label
+							type="radio" id="gestor" value="incid" name="rol"> <label
 							class="light" for="Gestor">Gestor</label>
 					</fieldset>
 
