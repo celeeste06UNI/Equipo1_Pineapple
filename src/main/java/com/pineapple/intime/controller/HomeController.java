@@ -92,12 +92,15 @@ public class HomeController {
 		if(doc.get("email").equals(email)) {
 			session.setAttribute("email",doc.get("email"));
 			if(doc.get("rol").equals("admin")){
+				session.setAttribute("rol",doc.get("rol"));
 				pagina = "admin";
 			}
 			if(doc.get("rol").equals("user")){
+				session.setAttribute("rol",doc.get("rol"));
 				pagina = "user";
 			}
 			if(doc.get("rol").equals("incid")){
+				session.setAttribute("rol",doc.get("rol"));
 				pagina = "incid";
 			}
 		}

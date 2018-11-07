@@ -64,7 +64,7 @@ public class UsuarioController {
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("email");
 		System.out.println(contraseñaVieja + contraseñaNueva + email );
-		return "admin";
+		return "user";
 	}
 	
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
