@@ -178,11 +178,7 @@
 									src="https://static.pexels.com/photos/33972/pexels-photo.jpg"
 									alt="First slide" height="100">
 								<div >
-									<div class="banner-text">
-										<h2>In Time</h2>
-										<p>Aplicación web para la gestión
-										 de los fichajes</p>
-									</div>
+
 								</div>
 							</div>
 						</div>
