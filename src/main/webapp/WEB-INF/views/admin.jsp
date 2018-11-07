@@ -166,8 +166,7 @@
 					</div>
 				</div>
  				<div class="col-md-8 banner-sec">
-					<div id="carouselExampleIndicators" class="carousel slide"
-						data-ride="carousel">
+				
 						<ol class="carousel-indicators">
 						</ol>
 				
@@ -178,7 +177,7 @@
 
 							
 						
-						</div>
+						
 					</div>
 				</div>
 			</div>
