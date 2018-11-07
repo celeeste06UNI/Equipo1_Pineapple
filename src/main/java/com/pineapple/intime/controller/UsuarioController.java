@@ -18,6 +18,8 @@ import com.pineapple.intime.dominio.EmpleadoHelper;
 @Controller
 public class UsuarioController {
 	
+	
+	
 	@RequestMapping(value = "/newUser", method = RequestMethod.GET)
 	public ModelAndView newUser(ModelAndView model) {
 		model.setViewName("newUser");
@@ -46,6 +48,12 @@ public class UsuarioController {
 	public ModelAndView updateUser(ModelAndView model) {
 		model.setViewName("updateUser");
 		return model;
+	}
+	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
+	public String updatePassword(@ModelAttribute("contraseñaVieja") String contraseñaVieja,
+			@ModelAttribute("contraseñaNueva") String contraseñaNueva) {
+		
+		return "admin";
 	}
 	
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)

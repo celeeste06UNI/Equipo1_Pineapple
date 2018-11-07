@@ -34,6 +34,7 @@ import com.pineapple.intime.dao.DAOEmpleado;
 public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
 
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -88,7 +89,7 @@ public class HomeController {
 			pagina = "error";
 		}
 		if(doc.get("email").equals(email)) {
-			//Crear objeto para saber quien esta en la sesion
+			email = (String) doc.get("email");
 			if(doc.get("rol").equals("admin")){
 				pagina = "admin";
 			}
