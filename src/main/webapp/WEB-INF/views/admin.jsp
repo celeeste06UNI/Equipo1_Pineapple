@@ -160,7 +160,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 login-sec">
-					<h2 class="text-center">Interfaz Administrador</h2>
+					<h2 class="text-center">Administrador</h2>
 					<div class="copy-text">
 						Pineapple
 					</div>
@@ -169,6 +169,13 @@
 				
 						<ol class="carousel-indicators">
 						</ol>
+						<div >
+									<div class="banner-text">
+										<h2>In Time</h2>
+										<p>Aplicación web para la gestión
+										 de los fichajes</p>
+									</div>
+								</div>
 					</div>
 				</div>
 			</div>
