@@ -30,8 +30,7 @@ import java.util.List;
 
 @RunWith(Cucumber.class)
 public class annotation {
-
-	WebDriver driver = new FirefoxDriver(); 
+WebDriver driver = new FirefoxDriver();
 	
 	@Given("^Yo navego hacia el sitio web$")
 	public void Yo_navego_hacia_el_sitio_web() {
@@ -39,16 +38,16 @@ public class annotation {
 	}
 
 	@When("^Yo ingreso el email \"([^\"]*)\" y \"([^\"]*)\" entonces$")
-	public void Yo_ingreso_el_email_y_entonces(String arg1, String arg2, DataTable arg3) {
+	public void Yo_ingreso_el_email_y_entonces(String arg1, String arg2, DataTable arg3) throws InterruptedException {
 		driver.findElement(By.name("email")).sendKeys(arg1);
 		driver.findElement(By.name("password")).sendKeys(arg2);
 		driver.findElement(By.id("botonEntrar")).click();
-		
+
 	}
 	
 	
 	@Then("^Yo deberia acceder al sistema del login$")
-	public void Yo_deberia_acceder_al_sistema_del_login() {
+	public void Yo_deberia_acceder_al_sistema_del_login() throws InterruptedException {
 		  if(driver.getCurrentUrl().equalsIgnoreCase(
 			      "https://equipo1pineapple.herokuapp.com/login")){ 
 			         System.out.println("Test Pass");
@@ -58,7 +57,7 @@ public class annotation {
 			   driver.close(); 
 	}
 	
-	@Then("^Yo no deberia acceder al sistema de login$")
+	@Then("^Yo no deberia acceder al sistema de login.$")
 	public void Yo_no_deberia_acceder_al_sistema_de_login() {
 		  if(driver.getCurrentUrl().equalsIgnoreCase(
 			      "https://equipo1pineapple.herokuapp.com/login")){ 
