@@ -71,14 +71,14 @@ public class UsuarioController {
 	public String saveUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
 		Document empleado=new Document();
-		String contraseña = EmpleadoHelper.generarContraseña();
+		String contrasenna = EmpleadoHelper.generarContraseña();
 		empleado.put("email", email);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
-		empleado.put("contraseña", contraseña);
+		empleado.put("contrasenna", contrasenna);
 		DAOEmpleado.insert(empleado);
-		EmpleadoHelper.sesionEmail(email, contraseña);
+		EmpleadoHelper.sesionEmail(email, contrasenna);
 		return "admin";
 	}
 	
