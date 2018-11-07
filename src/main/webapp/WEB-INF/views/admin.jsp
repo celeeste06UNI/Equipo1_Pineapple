@@ -154,7 +154,7 @@
 		</div>
 	</nav>
 
- 				<div class="col-md-8 banner-sec">
+ 				<div class="col-md-8 banner-sec" style="width:23%">
 					<div id="carouselExampleIndicators" class="carousel slide"
 						data-ride="carousel">
 						<ol class="carousel-indicators">
