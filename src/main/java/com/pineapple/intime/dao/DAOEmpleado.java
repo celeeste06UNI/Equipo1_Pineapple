@@ -118,16 +118,16 @@ public class DAOEmpleado {
 		return empleado;
 	}
 	/*AUTENTICACION */
-	public static Document autenticar(String email,String password) {		
+	public static Document autenticar(String email,String contraseña) {		
 		Boolean autenticado=false;
 		Document empleadoAut=new Document();
 		MongoCollection<Document> collection= MongoBroker.get().getCollection("Empleado");
 		Iterator<Document>empleados=collection.find().iterator();
 		while(empleados.hasNext()) {
 			Document doc_empleado=empleados.next();
-			if(doc_empleado.get("email").equals(email) && doc_empleado.get("").equals(password)) {
+			if(doc_empleado.get("email").equals(email) && doc_empleado.get("contraseña").equals(contraseña)) {
 				empleadoAut.append("email", email);
-				empleadoAut.append("password", password);
+				empleadoAut.append("contraseña", contraseña);
 				empleadoAut.append("rol", cargarRol(email));
 			}
 		}
