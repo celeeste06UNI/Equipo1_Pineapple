@@ -153,12 +153,12 @@ label.light {
 				<span class="number">1</span>Introduzca la contraseña actual
 			</legend>
 			<label for="name">Contraseña actual:</label> <input type="text"
-				required autocomplete="off" name="contraseñaVieja">
+				required autocomplete="off" id = "contraseñaVieja" name="contraseñaVieja">
 			<legend>
 				<span class="number">2</span>Introduzca la contraseña nueva
 			</legend>
 			<label for="name">Contraseña nueva:</label> <input type="text"
-				required autocomplete="off" name="contraseñaNueva">
+				required autocomplete="off" id ="contraseñaNueva" name="contraseñaNueva">
 
 		</fieldset>
 		<button type="submit">Registrar</button>
