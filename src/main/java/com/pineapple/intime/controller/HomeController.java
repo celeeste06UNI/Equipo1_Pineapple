@@ -34,6 +34,7 @@ import com.pineapple.intime.dao.DAOEmpleado;
 public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
 
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -81,21 +82,25 @@ public class HomeController {
 	
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password) throws IOException {
+	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password, HttpServletRequest request) throws IOException {
 		String pagina = null;
+		HttpSession session = request.getSession(true);
 		Document doc = DAOEmpleado.autenticar(email,password);
 		if(doc.get("email").equals("error")) {
 			pagina = "error";
 		}
 		if(doc.get("email").equals(email)) {
-			//Crear objeto para saber quien esta en la sesion
+			session.setAttribute("email",doc.get("email"));
 			if(doc.get("rol").equals("admin")){
+				session.setAttribute("rol",doc.get("rol"));
 				pagina = "admin";
 			}
 			if(doc.get("rol").equals("user")){
+				session.setAttribute("rol",doc.get("rol"));
 				pagina = "user";
 			}
 			if(doc.get("rol").equals("incid")){
+				session.setAttribute("rol",doc.get("rol"));
 				pagina = "incid";
 			}
 		}

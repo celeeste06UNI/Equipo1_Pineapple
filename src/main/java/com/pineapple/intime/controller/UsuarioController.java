@@ -3,6 +3,9 @@ package com.pineapple.intime.controller;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.bson.Document;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -17,6 +20,8 @@ import com.pineapple.intime.dominio.EmpleadoHelper;
 
 @Controller
 public class UsuarioController {
+	
+	
 	
 	@RequestMapping(value = "/newUser", method = RequestMethod.GET)
 	public ModelAndView newUser(ModelAndView model) {
@@ -48,18 +53,32 @@ public class UsuarioController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/viewUpdatePassword", method = RequestMethod.GET)
+	public ModelAndView viewUpdatePassword(ModelAndView model) {
+		model.setViewName("updatePassword");
+		return model;
+	}
+	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
+	public String updatePassword(@ModelAttribute("contraseñaVieja") String contraseñaVieja,
+			@ModelAttribute("contraseñaNueva") String contraseñaNueva, HttpServletRequest request) {
+		HttpSession session = request.getSession(true);
+		String email = (String) session.getAttribute("email");
+		DAOEmpleado.updatePassword(email,contraseñaVieja,contraseñaNueva);
+		return "user";
+	}
+	
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
 		Document empleado=new Document();
-		String contraseña = EmpleadoHelper.generarContraseña();
+		String contrasenna = EmpleadoHelper.generarContraseña();
 		empleado.put("email", email);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
-		empleado.put("password", contraseña);
+		empleado.put("contrasenna", contrasenna);
 		DAOEmpleado.insert(empleado);
-		EmpleadoHelper.sesionEmail(email, contraseña);
+		EmpleadoHelper.sesionEmail(email, contrasenna);
 		return "admin";
 	}
 	
