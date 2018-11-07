@@ -154,7 +154,7 @@
 		</div>
 	</nav>
 
- 				<div class="col-md-8 banner-sec" style="width: 100%; height: 100%">
+ 				<div class="col-md-8 banner-sec" style="width: 100%; height: 50%">
 					<div id="carouselExampleIndicators" class="carousel slide"
 						data-ride="carousel">
 						<ol class="carousel-indicators">
