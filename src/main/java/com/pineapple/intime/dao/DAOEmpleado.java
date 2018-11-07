@@ -89,7 +89,7 @@ public class DAOEmpleado {
 		empleado=cargarEmpleado(email);
 		if(contraseñaVieja==empleado.get("contrasenna")) {
 			empleado.remove("contrasenna");
-			empleado.append("contrasenna", contraseñaNueva);
+			empleado.put("contrasenna", contraseñaNueva);
 			dbEmpleado.replaceOne(filter,empleado);
 		}
 		
