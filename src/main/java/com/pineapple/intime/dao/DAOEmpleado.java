@@ -24,7 +24,7 @@ public class DAOEmpleado {
 	private static void insertDatosPersonales(Document empleado, MongoCollection<Document> dbEmpleado) {
 		Document datosPersonales=new Document();
 		datosPersonales.put("email", empleado.get("email"));
-		datosPersonales.put("contraseña",empleado.get("contraseña"));
+		datosPersonales.put("contrasenna",empleado.get("contrasenna"));
 		datosPersonales.put("nombre",empleado.get("nombre"));
 		datosPersonales.put("apellidos",empleado.get("apellidos"));
 		
@@ -49,7 +49,7 @@ public class DAOEmpleado {
 	private static void deleteDatosPersonales(Document empleado, MongoCollection<Document> dbEmpleado) {
 		Document datosPersonales=new Document();
 		datosPersonales.put("email", empleado.get("email"));
-		datosPersonales.put("contraseña",empleado.get("contraseña"));
+		datosPersonales.put("contrasenna",empleado.get("contrasenna"));
 		datosPersonales.put("nombre",empleado.get("nombre"));
 		datosPersonales.put("apellidos",empleado.get("apellidos"));
 		dbEmpleado.deleteOne(datosPersonales);
@@ -84,9 +84,9 @@ public class DAOEmpleado {
 	public static void updatePassword(String email, String contraseñaVieja,String contraseñaNueva) {
 		MongoCollection<Document> dbEmpleado= MongoBroker.get().getCollection("Empleado");
 		BsonDocument filter=new BsonDocument();
-		filter.put("contraseña",new BsonString((String) contraseñaVieja));
+		filter.put("contrasenna",new BsonString((String) contraseñaVieja));
 		Document empleado=new Document();
-		empleado.put("contraseña", contraseñaNueva);
+		empleado.put("contrasenna", contraseñaNueva);
 		dbEmpleado.replaceOne(filter,empleado);
 	}
 	
@@ -118,16 +118,16 @@ public class DAOEmpleado {
 		return empleado;
 	}
 	/*AUTENTICACION */
-	public static Document autenticar(String email,String contraseña) {		
+	public static Document autenticar(String email,String contrasenna) {		
 		Boolean autenticado=false;
 		Document empleadoAut=new Document();
 		MongoCollection<Document> collection= MongoBroker.get().getCollection("Empleado");
 		Iterator<Document>empleados=collection.find().iterator();
 		while(empleados.hasNext()) {
 			Document doc_empleado=empleados.next();
-			if(doc_empleado.get("email").equals(email) && doc_empleado.get("contraseña").equals(contraseña)) {
+			if(doc_empleado.get("email").equals(email) && doc_empleado.get("contraseña").equals(contrasenna)) {
 				empleadoAut.append("email", email);
-				empleadoAut.append("contraseña", contraseña);
+				empleadoAut.append("contrasenna", contrasenna);
 				empleadoAut.append("rol", cargarRol(email));
 			}
 		}
