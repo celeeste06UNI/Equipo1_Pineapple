@@ -31,6 +31,10 @@
 					</ul></li>
 				<li><a href="#">Resolución Incidencias</a></li>
 			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/cerrarSesion"><span
+						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+			</ul>
 		</div>
 	</nav>
 
