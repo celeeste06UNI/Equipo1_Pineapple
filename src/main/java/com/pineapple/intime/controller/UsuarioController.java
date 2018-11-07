@@ -49,6 +49,12 @@ public class UsuarioController {
 		model.setViewName("updateUser");
 		return model;
 	}
+	
+	@RequestMapping(value = "/viewUpdatePassword", method = RequestMethod.GET)
+	public ModelAndView viewUpdatePassword(ModelAndView model) {
+		model.setViewName("updatePassword");
+		return model;
+	}
 	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
 	public String updatePassword(@ModelAttribute("contraseñaVieja") String contraseñaVieja,
 			@ModelAttribute("contraseñaNueva") String contraseñaNueva) {
