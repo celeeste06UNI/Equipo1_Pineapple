@@ -1,23 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<link
-	href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<link rel="stylesheet" href="css/normalize.css">
-<link href='https://fonts.googleapis.com/css?family=Nunito:400,300'
-	rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="css/main.css">
-
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Eliminar Usuario</title>
-
 <style type="text/css">
 *, *:before, *:after {
 	-moz-box-sizing: border-box;
@@ -125,59 +117,52 @@ label.light {
 	}
 }
 </style>
+
 </head>
 <body>
 
-
 	<nav class="navbar navbar-inverse">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="#">InTime</a>
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">InTime</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+
+						<li><a href="/newUser">Crear</a></li>
+						<li><a href="/deleteUser">Eliminar</a></li>
+						<li><a href="/updateUser">Modificar</a></li>
+					</ul></li>
+				<li><a href="#">Fichajes</a></li>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Gestion Incidencias <span
+						class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Crear</a></li>
+						<li><a href="#">Eliminar</a></li>
+						<li><a href="#">Modificar</a></li>
+					</ul></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
+						Cerrar Sesi�n</a></li>
+			</ul>
 		</div>
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Home</a></li>
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-
-					<li><a href="/newUser">Crear</a></li>
-					<li><a href="/deleteUser">Eliminar</a></li>
-					<li><a href="/updateUser">Modificar</a></li>
-				</ul></li>
-			<li><a href="#">Fichajes</a></li>
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">Gestion Incidencias <span
-					class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="#">Crear</a></li>
-					<li><a href="#">Eliminar</a></li>
-					<li><a href="#">Modificar</a></li>
-				</ul></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-					Cerrar Sesión</a></li>
-		</ul>
-	</div>
 	</nav>
+	<!-- 	<div class="container">
+		<form name='searchForm' action='/deleteSearchUser' method='POST'>
 
-	<form name='searchForm' action='/deleteSearchUser' method='POST'>
-		<h1>Búsqueda de Usuario</h1>
-		<fieldset>
-			<legend>
-				<span class="number">1</span>Introduzca el e-mail del usuario
-			</legend>
-				<label for="name">Introduzca el email:</label> <input type="email"
-				name="email"> 
+			<h1>Busqueda de un usuario</h1>
+			<label for="name">Introduzca el email:</label> <input type="email"
+				name="email">
 			<button type="submit">Buscar</button>
-		</fieldset>
-	</form>
-	
-	<form name='deleteForm' action='/actionDeleteUser' method='POST'>
-		<fieldset>
-			<legend>
-				<span class="number">2</span>Datos del usuario
-			</legend>
+		</form>
+		
+		<form name='deleteForm' action='/actionDeleteUser' method='POST'>
+			
 			<label for="nombre">Nombre</label> <input type="text" name="nombre"
 				readonly value=${nombre} >
 				
@@ -191,10 +176,48 @@ label.light {
 				readonly value=${rol} >
 				
 			<button type="submit">Eliminar</button>
-		</fieldset>
-		
-	</form>
+			
+		</form>
 
+	</div> -->
+	<div class="container">
+		<div class="page-header">
+			<h1>Eliminar Usuario</h1>
+		</div>
+		<div class="row">
+			<div class="col-sm-6" style="background-color: white;">
+				<form name='searchForm' action='/deleteSearchUser' method='POST'>
+					
+					<fieldset>
+						<legend>
+							<span class="number">1</span>Introduzca el e-mail del usuario
+						</legend>
+						<label for="name">Introduzca el email:</label> <input type="email"
+							name="email">
+						<button type="submit">Buscar</button>
+					</fieldset>
+				</form>
 
+			</div>
+			<div class="col-sm-6" style="background-color: white;">
+				<form name='deleteForm' action='/actionDeleteUser' method='POST'>
+					
+					<fieldset>
+						<legend>
+							<span class="number">2</span>Datos del usuario
+						</legend>
+						<label for="nombre">Nombre</label> <input type="text"
+							name="nombre" readonly value=${nombre} > <label
+							for="apellidos">Apellidos</label> <input type="text"
+							name="apellidos" readonly value=${apellidos} > <label
+							for="email">Email</label> <input type="email" name="email"
+							readonly value=${email} > <label for="rol">Rol</label> <input
+							type="text" name="rol" readonly value=${rol} >
+
+						<button type="submit">Eliminar</button>
+					</fieldset>
+
+				</form>
+			</div>
+		</div>
 </body>
-</html>
