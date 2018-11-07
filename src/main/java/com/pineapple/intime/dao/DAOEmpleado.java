@@ -81,7 +81,7 @@ public class DAOEmpleado {
 		dbEmpleado.replaceOne(filtro,datosPersonales);
 		
 	}
-	private static void updatePassword(String email, String contraseñaVieja,String contraseñaNueva) {
+	public static void updatePassword(String email, String contraseñaVieja,String contraseñaNueva) {
 		MongoCollection<Document> dbEmpleado= MongoBroker.get().getCollection("Empleado");
 		BsonDocument filter=new BsonDocument();
 		filter.put("contraseña",new BsonString((String) contraseñaVieja));
