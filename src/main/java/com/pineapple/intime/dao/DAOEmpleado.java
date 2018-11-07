@@ -27,6 +27,7 @@ public class DAOEmpleado {
 		datosPersonales.put("password",empleado.get("password"));
 		datosPersonales.put("nombre",empleado.get("nombre"));
 		datosPersonales.put("apellidos",empleado.get("apellidos"));
+		
 		dbEmpleado.insertOne(datosPersonales);
 	}
 	public static void insertRol(Document empleado, MongoCollection<Document> dbRol) {
