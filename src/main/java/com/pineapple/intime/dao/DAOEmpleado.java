@@ -87,11 +87,14 @@ public class DAOEmpleado {
 		filter.put("email", new BsonString(email));
 		Document empleado=new Document();
 		empleado=cargarEmpleado(email);
-		if(contraseñaVieja.equals(empleado.get("contrasenna"))) {
+		empleado.remove("contrasenna");
+		empleado.put("contrasenna", contraseñaNueva);
+		dbEmpleado.replaceOne(filter,empleado);
+/*		if(contraseñaVieja.equals(empleado.get("contrasenna"))) {
 			empleado.remove("contrasenna");
 			empleado.put("contrasenna", contraseñaNueva);
 			dbEmpleado.replaceOne(filter,empleado);
-		}
+		}*/
 	}
 	
 	public static void updateRol(BsonDocument filtro,Document empleado,MongoCollection<Document> dbRol) {
