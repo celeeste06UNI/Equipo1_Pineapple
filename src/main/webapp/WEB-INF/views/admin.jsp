@@ -39,6 +39,7 @@
 	background: #fff;
 	border-radius: 10px;
 	box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1);
+	height:30%;
 }
 
 .carousel-inner {
