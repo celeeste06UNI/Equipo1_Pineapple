@@ -149,8 +149,8 @@ label.light {
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-						Cerrar Sesión</a></li>
+				<li><a href="/cerrarSesion"><span
+						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -195,7 +195,7 @@ label.light {
 
 
 				<form name='searchForm' action='/searchUser' method='POST'>
-					
+
 					<fieldset>
 						<legend>
 							<span class="number">1</span>Introduzca el e-mail del usuario
@@ -211,7 +211,7 @@ label.light {
 			<div class="col-sm-6" style="background-color: white;">
 
 				<form name='updateForm' action='/editUser' method='POST'>
-					
+
 					<fieldset>
 						<legend>
 							<span class="number">2</span>Modificar campos

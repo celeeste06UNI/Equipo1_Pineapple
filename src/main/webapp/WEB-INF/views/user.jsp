@@ -30,6 +30,10 @@
 						<li><a href="#">Modificar</a></li>
 					</ul></li>
 			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/cerrarSesion"><span
+						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+			</ul>
 		</div>
 	</nav>
 
