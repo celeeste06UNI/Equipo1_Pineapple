@@ -82,14 +82,15 @@ public class HomeController {
 	
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password) throws IOException {
+	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password, HttpServletRequest request) throws IOException {
 		String pagina = null;
+		HttpSession session = request.getSession(true);
 		Document doc = DAOEmpleado.autenticar(email,password);
 		if(doc.get("email").equals("error")) {
 			pagina = "error";
 		}
 		if(doc.get("email").equals(email)) {
-			email = (String) doc.get("email");
+			session.setAttribute("email",doc.get("email"));
 			if(doc.get("rol").equals("admin")){
 				pagina = "admin";
 			}

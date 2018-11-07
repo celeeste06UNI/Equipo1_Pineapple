@@ -3,6 +3,9 @@ package com.pineapple.intime.controller;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.bson.Document;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -57,8 +60,10 @@ public class UsuarioController {
 	}
 	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
 	public String updatePassword(@ModelAttribute("contraseñaVieja") String contraseñaVieja,
-			@ModelAttribute("contraseñaNueva") String contraseñaNueva) {
-		
+			@ModelAttribute("contraseñaNueva") String contraseñaNueva, HttpServletRequest request) {
+		HttpSession session = request.getSession(true);
+		String email = (String) session.getAttribute("email");
+		System.out.println(contraseñaVieja + contraseñaNueva + email );
 		return "admin";
 	}
 	
