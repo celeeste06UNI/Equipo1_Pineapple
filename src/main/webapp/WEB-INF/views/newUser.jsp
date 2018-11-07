@@ -140,7 +140,7 @@ label.light {
 				</ul></li>
 			<li><a href="#">Fichajes</a></li>
 			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">Gestion Incidencias <span
+				data-toggle="dropdown" href="#">Gestión Incidencias <span
 					class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a href="#">Crear</a></li>
