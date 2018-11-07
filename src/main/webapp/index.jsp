@@ -131,7 +131,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 login-sec">
-					<h2 class="text-center">Iniciar Sesion</h2>
+					<h2 class="text-center">Iniciar Sesión</h2>
 					<form class="login-form" name='loginForm' action="/login" method='POST'>
 						<div class="form-group">
 							<label for="exampleInputEmail1" class="text-uppercase">Email</label>
@@ -139,16 +139,16 @@
 						</div>
 						
 						<div class="form-group">
-							<label for="exampleInputPassword1" class="text-uppercase">Password</label>
+							<label for="exampleInputPassword1" class="text-uppercase">Contraseña</label>
 							<input name="password" type="password" class="form-control" placeholder="">
 						</div>
 
 
 						<div class="form-check">
 							<label class="form-check-label"> <input type="checkbox"
-								class="form-check-input"> <small>Remember Me</small>
+								class="form-check-input"> <small>Recordar</small>
 							</label>
-							<button id="botonEntrar" type="submit" class="btn btn-login float-right">Submit</button>
+							<button id="botonEntrar" type="submit" class="btn btn-login float-right">Enviar</button>
 						</div>
 
 					</form>
