@@ -169,15 +169,6 @@
 				
 						<ol class="carousel-indicators">
 						</ol>
-				
-							
-								<img class="d-block img-fluid"
-									src="https://static.pexels.com/photos/33972/pexels-photo.jpg"
-									alt="First slide" height="100">
-
-							
-						
-						
 					</div>
 				</div>
 			</div>
