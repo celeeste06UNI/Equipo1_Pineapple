@@ -44,6 +44,7 @@
 
 .carousel-inner {
 	border-radius: 0 10px 10px 0;
+	height:30%;
 }
 
 .carousel-caption {
