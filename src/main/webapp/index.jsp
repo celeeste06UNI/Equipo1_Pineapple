@@ -2,7 +2,7 @@
 <%@ page session="false"%>
 <html>
 <head>
-<title>Incio Sesion</title>
+<title>Incio Sesión</title>
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
