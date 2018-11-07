@@ -63,9 +63,9 @@ public class UsuarioController {
 			@ModelAttribute("contraseñaNueva") String contraseñaNueva, HttpServletRequest request) {
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("email");
-		Document empleado=new Document();
-		empleado.put("email", email);
-		DAOEmpleado.insert(empleado);
+	
+	
+		//DAOEmpleado.updatePassword(email,contraseñaVieja,contraseñaNueva);
 		return "user";
 	}
 	
