@@ -75,9 +75,9 @@ public class DAOEmpleado {
 	private static void updateDatosPersonales(BsonDocument filtro,Document empleado, MongoCollection<Document> dbEmpleado) {
 		Document datosPersonales=new Document();
 		datosPersonales.put("email", empleado.get("email"));
-		datosPersonales.put("password",empleado.get("password"));
+		//datosPersonales.put("password",empleado.get("password"));
 		datosPersonales.put("nombre",empleado.get("nombre"));
-		datosPersonales.put("apellidos",empleado.get("apellido"));
+		datosPersonales.put("apellidos",empleado.get("apellidos"));
 		dbEmpleado.replaceOne(filtro,datosPersonales);
 		
 	}

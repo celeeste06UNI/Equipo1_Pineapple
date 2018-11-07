@@ -14,9 +14,9 @@
 <style type="text/css">
 .login-block {
 	background: #DE6262; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
+	background: -webkit-linear-gradient(to bottom, #FF0000, #FE2E2E);
 	/* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to bottom, #FFB88C, #DE6262);
+	background: linear-gradient(to bottom, #FF0000, #FE2E2E);
 	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	float: left;
 	width: 100%;
@@ -132,16 +132,15 @@
 			<div class="row">
 				<div class="col-md-4 login-sec">
 					<h2 class="text-center">Iniciar Sesion</h2>
-					<form class="login-form" name='loginForm' action="<c:url value='/home'/>"
-					method='POST'>
+					<form class="login-form" name='loginForm' action="/login" method='POST'>
 						<div class="form-group">
-							<label for="exampleInputEmail1" class="text-uppercase">Username</label>
-							<input type="text" class="form-control" placeholder="">
-
+							<label for="exampleInputEmail1" class="text-uppercase">Email</label>
+							<input name="email" type="text" class="form-control" placeholder="">
 						</div>
+						
 						<div class="form-group">
 							<label for="exampleInputPassword1" class="text-uppercase">Password</label>
-							<input type="password" class="form-control" placeholder="">
+							<input name="password" type="password" class="form-control" placeholder="">
 						</div>
 
 
@@ -149,7 +148,7 @@
 							<label class="form-check-label"> <input type="checkbox"
 								class="form-check-input"> <small>Remember Me</small>
 							</label>
-							<button type="submit" class="btn btn-login float-right">Submit</button>
+							<button id="botonEntrar" type="submit" class="btn btn-login float-right">Submit</button>
 						</div>
 
 					</form>
@@ -157,7 +156,7 @@
 						Pineapple
 					</div>
 				</div>
-				<div class="col-md-8 banner-sec">
+<!-- 				<div class="col-md-8 banner-sec">
 					<div id="carouselExampleIndicators" class="carousel slide"
 						data-ride="carousel">
 						<ol class="carousel-indicators">
@@ -171,7 +170,7 @@
 								<img class="d-block img-fluid"
 									src="https://static.pexels.com/photos/33972/pexels-photo.jpg"
 									alt="First slide">
-								<div class="carousel-caption d-none d-md-block">
+								<div >
 									<div class="banner-text">
 										<h2>In Time</h2>
 										<p>Aplicación web para la gestión
@@ -181,7 +180,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 	</section>
 </body>

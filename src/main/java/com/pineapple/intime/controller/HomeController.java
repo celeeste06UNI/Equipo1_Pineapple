@@ -1,13 +1,19 @@
 package com.pineapple.intime.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.apache.jasper.tagplugins.jstl.core.Out;
+import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -50,30 +56,50 @@ public class HomeController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView newContact(ModelAndView model) {
 		model.setViewName("home");
-		//Document obj=DAOEmpleado.load();
+		return model;
+	}
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public ModelAndView index(ModelAndView model) {
+		model.setViewName("index");
 		return model;
 	}
 	
+	@RequestMapping(value = "/cerrarSesion", method = RequestMethod.GET)
+	protected void cerrarSesion(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        HttpSession sesion = request.getSession(true);
+        
+        //Cerrar sesion
+        sesion.invalidate();
+        
+        //Redirecciono a index.jsp
+        response.sendRedirect("index.jsp");
+    }
+
+	
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
-			@ModelAttribute("email") String email, @ModelAttribute("password") String password) {
-		ModelAndView mav = null;
-		
-		//User user = userService.validateUser(login);
-		/*if (null != user) {
-			mav = new ModelAndView("welcome");
-			mav.addObject("firstname", user.getFirstname());
-		} else {
-			mav = new ModelAndView("login");
-			mav.addObject("message", "Username or Password is wrong!!");
-		}*/
-		return mav;
+	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password) throws IOException {
+		String pagina = null;
+		Document doc = DAOEmpleado.autenticar(email,password);
+		if(doc.get("email").equals("error")) {
+			pagina = "error";
+		}
+		if(doc.get("email").equals(email)) {
+			//Crear objeto para saber quien esta en la sesion
+			if(doc.get("rol").equals("admin")){
+				pagina = "admin";
+			}
+			if(doc.get("rol").equals("user")){
+				pagina = "user";
+			}
+			if(doc.get("rol").equals("incid")){
+				pagina = "incid";
+			}
+		}
+		return pagina;
+	
 	}
-	public boolean autenticar(String email,String password) {
-		Boolean autenticado = false;
-		ConcurrentHashMap<Integer,String> empleados=DAOEmpleado.load();
-		return true;
-	}
-
 }
