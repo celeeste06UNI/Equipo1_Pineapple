@@ -166,11 +166,19 @@
 					</div>
 				</div>
  				<div class="col-md-8 banner-sec">
+					<div id="carouselExampleIndicators" class="carousel slide"
+						data-ride="carousel">
+						<ol class="carousel-indicators">
+						</ol>
+				
+							
 								<img class="d-block img-fluid"
 									src="https://static.pexels.com/photos/33972/pexels-photo.jpg"
 									alt="First slide" height="100">
 
+							
 						
+						</div>
 					</div>
 				</div>
 			</div>
