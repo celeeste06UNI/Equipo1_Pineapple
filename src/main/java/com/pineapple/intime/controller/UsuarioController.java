@@ -76,7 +76,7 @@ public class UsuarioController {
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
-		empleado.put("password", contraseña);
+		empleado.put("contraseña", contraseña);
 		DAOEmpleado.insert(empleado);
 		EmpleadoHelper.sesionEmail(email, contraseña);
 		return "admin";
