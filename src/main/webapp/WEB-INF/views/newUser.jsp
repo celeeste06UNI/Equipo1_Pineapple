@@ -3,20 +3,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link
-	href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
+<title>Nuevo Usuario</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<link rel="stylesheet" href="css/normalize.css">
-<link href='https://fonts.googleapis.com/css?family=Nunito:400,300'
-	rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="css/main.css">
-
-<title>Insert title here</title>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style type="text/css">
 *, *:before, *:after {
@@ -139,14 +134,13 @@ label.light {
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-
 					<li><a href="/newUser">Crear</a></li>
 					<li><a href="/deleteUser">Eliminar</a></li>
 					<li><a href="/updateUser">Modificar</a></li>
 				</ul></li>
 			<li><a href="#">Fichajes</a></li>
 			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">Gestion Incidencias <span
+				data-toggle="dropdown" href="#">Gestión Incidencias <span
 					class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a href="#">Crear</a></li>
@@ -155,7 +149,7 @@ label.light {
 				</ul></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
+			<li><a href="/cerrarSesion"><span class="glyphicon glyphicon-log-in"></span>
 					Cerrar Sesión</a></li>
 		</ul>
 	</div>
@@ -167,9 +161,9 @@ label.light {
 			<legend>
 				<span class="number">1</span>Información básica
 			</legend>
-			<label for="name">Nombre:</label> <input type="text" name="nombre"> 
-			<label for="name">Apellido:</label><input type="text" name="apellidos"> 
-			<label for="mail">Email:</label> <input type="email" name="email">
+			<label for="name">Nombre:</label> <input type="text" required autocomplete="off" name="nombre"> 
+			<label for="name">Apellido:</label><input type="text" required autocomplete="off" name="apellidos"> 
+			<label for="mail">Email:</label> <input type="email" required autocomplete="off" name="email">
 		</fieldset>
 
 		<fieldset>
@@ -177,11 +171,11 @@ label.light {
 				<span class="number">2</span>Seleccionar Rol
 			</legend>
 			<label>Roles:</label> 
-			<input type="radio" id="admin" value="rol_admin" name="rol">
+			<input type="radio" id="admin" value="admin" name="rol" checked="false">
 			<label class="light" for="Administrador">Administrador</label><br> 
-			<input type="radio" id="usuario" value="rol_user" name="rol">
+			<input type="radio" id="usuario" value="user" name="rol" checked="false">
 			<label class="light" for="Usuario">Usuario</label><br> 
-			<input type="radio" id="gestor" value="rol_gestor" name="rol">
+			<input type="radio" id="gestor" value="incid" name="rol" checked="false">
 			<label class="light" for="Gestor">Gestor</label>
 		</fieldset>
 		
