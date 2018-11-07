@@ -176,7 +176,7 @@
 							<div class="carousel-item active">
 								<img class="d-block img-fluid"
 									src="https://static.pexels.com/photos/33972/pexels-photo.jpg"
-									alt="First slide">
+									alt="First slide" height="100">
 								<div >
 									<div class="banner-text">
 										<h2>In Time</h2>
