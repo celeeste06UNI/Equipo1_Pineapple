@@ -125,7 +125,7 @@ public class DAOEmpleado {
 		Iterator<Document>empleados=collection.find().iterator();
 		while(empleados.hasNext()) {
 			Document doc_empleado=empleados.next();
-			if(doc_empleado.get("email").equals(email) && doc_empleado.get("contraseña").equals(contrasenna)) {
+			if(doc_empleado.get("email").equals(email) && doc_empleado.get("contrasenna").equals(contrasenna)) {
 				empleadoAut.append("email", email);
 				empleadoAut.append("contrasenna", contrasenna);
 				empleadoAut.append("rol", cargarRol(email));
