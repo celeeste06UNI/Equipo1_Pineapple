@@ -84,10 +84,17 @@ public class DAOEmpleado {
 	public static void updatePassword(String email, String contraseñaVieja,String contraseñaNueva) {
 		MongoCollection<Document> dbEmpleado= MongoBroker.get().getCollection("Empleado");
 		BsonDocument filter=new BsonDocument();
-		filter.put("contrasenna",new BsonString((String) contraseñaVieja));
+		filter.put("email", new BsonString(email));
 		Document empleado=new Document();
-		empleado.put("contrasenna", contraseñaNueva);
-		dbEmpleado.replaceOne(filter,empleado);
+		empleado=cargarEmpleado(email);
+		if(contraseñaVieja==empleado.get("contrasenna")) {
+			empleado.remove("contrasenna");
+			empleado.append("contrasenna", contraseñaNueva);
+			dbEmpleado.replaceOne(filter,empleado);
+		}
+		
+		
+		
 	}
 	
 	public static void updateRol(BsonDocument filtro,Document empleado,MongoCollection<Document> dbRol) {
