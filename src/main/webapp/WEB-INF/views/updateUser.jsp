@@ -217,8 +217,8 @@ label.light {
 							<span class="number">2</span>Modificar campos
 						</legend>
 
-						<label for="email">Email Actual</label> <input type="email"
-							name="emailAntiguo" readonly value=${email} > <label
+					 	<label for="email">Email Actual</label> <input type="hidden"
+							name="emailAntiguo" readonly value=${email} ><label
 							for="nombre">Nombre</label> <input type="text" name="nombre"
 							value=${nombre} > <label for="apellidos">Apellidos</label>
 						<input type="text" name="apellidos" value=${apellidos} > <label
