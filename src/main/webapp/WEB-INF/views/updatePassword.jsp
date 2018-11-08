@@ -149,16 +149,16 @@ label.light {
 	<form name='updatePasswordForm' action='/updatePassword' method='POST'>
 		<h1>${pageContext.request.userPrincipal.name}</h1>
 		<fieldset>
-			<legend>
-				<span class="number">1</span>Introduzca la contraseña actual
-			</legend>
-			<label for="name">Contraseña actual:</label> <input type="text"
-				required autocomplete="off" id = "contraseñaVieja" name="contraseñaVieja">
-			<legend>
-				<span class="number">2</span>Introduzca la contraseña nueva
-			</legend>
-			<label for="name">Contraseña nueva:</label> <input type="text"
-				required autocomplete="off" id ="contraseñaNueva" name="contraseñaNueva">
+			<div class="form-group">
+				<label for="exampleInputPassword1" class="text-uppercase">Contraseña Vieja</label>
+				<input name="passwordVieja" type="password" class="form-control"
+					placeholder="">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1" class="text-uppercase">Contraseña</label>
+				<input name="passwordNueva" type="password" class="form-control"
+					placeholder="">
+			</div>
 
 		</fieldset>
 		<button type="submit">Registrar</button>

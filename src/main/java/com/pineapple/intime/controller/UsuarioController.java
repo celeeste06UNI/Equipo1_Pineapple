@@ -59,8 +59,8 @@ public class UsuarioController {
 		return model;
 	}
 	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
-	public String updatePassword(@ModelAttribute("contraseñaVieja") String contraseñaVieja,
-			@ModelAttribute("contraseñaNueva") String contraseñaNueva, HttpServletRequest request) {
+	public String updatePassword(@ModelAttribute("passwordVieja") String contraseñaVieja,
+			@ModelAttribute("passwordNueva") String contraseñaNueva, HttpServletRequest request) {
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("email");
 		DAOEmpleado.updatePassword(email,contraseñaVieja,contraseñaNueva);
