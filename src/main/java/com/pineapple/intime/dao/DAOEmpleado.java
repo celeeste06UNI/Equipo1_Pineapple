@@ -87,10 +87,15 @@ public class DAOEmpleado {
 		filter.put("email", new BsonString(email));
 		Document empleado=new Document();
 		empleado=cargarEmpleado(email);
-		empleado.remove("rol");
-		empleado.remove("contrasenna");
-		empleado.put("contrasenna", contraseñaNueva);
-		dbEmpleado.replaceOne(filter,empleado);
+		if(empleado.get("contrasenna").equals(contraseñaVieja)) {
+			empleado.remove("rol");
+			empleado.remove("contrasenna");
+			empleado.put("contrasenna", contraseñaNueva);
+			dbEmpleado.replaceOne(filter,empleado);
+		}
+
+		
+		
 		
 		
 		
