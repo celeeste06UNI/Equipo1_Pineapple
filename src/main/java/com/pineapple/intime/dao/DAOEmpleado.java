@@ -73,9 +73,11 @@ public class DAOEmpleado {
 		
 	}
 	private static void updateDatosPersonales(BsonDocument filtro,Document empleado, MongoCollection<Document> dbEmpleado) {
+		Document datosDesactualizados=new Document();
+		datosDesactualizados=cargarEmpleado((String)empleado.get("email"));
 		Document datosPersonales=new Document();
 		datosPersonales.put("email", empleado.get("email"));
-		//datosPersonales.put("password",empleado.get("contraseña"));
+		datosPersonales.put("contrasenna",datosDesactualizados.get("contrasenna"));
 		datosPersonales.put("nombre",empleado.get("nombre"));
 		datosPersonales.put("apellidos",empleado.get("apellidos"));
 		dbEmpleado.replaceOne(filtro,datosPersonales);
@@ -87,14 +89,13 @@ public class DAOEmpleado {
 		filter.put("email", new BsonString(email));
 		Document empleado=new Document();
 		empleado=cargarEmpleado(email);
-		empleado.remove("contrasenna");
-		empleado.put("contrasenna", contraseñaNueva);
-		dbEmpleado.replaceOne(filter,empleado);
-/*		if(contraseñaVieja.equals(empleado.get("contrasenna"))) {
+
+		if(empleado.get("contrasenna").equals(contraseñaVieja)) {
+			empleado.remove("rol");
 			empleado.remove("contrasenna");
 			empleado.put("contrasenna", contraseñaNueva);
 			dbEmpleado.replaceOne(filter,empleado);
-		}*/
+		}
 	}
 	
 	public static void updateRol(BsonDocument filtro,Document empleado,MongoCollection<Document> dbRol) {
