@@ -154,7 +154,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 login-sec">
-					<h2 class="text-center">Usuario</h2>
+					<h2 class="text-center">Gestión de Incidencias</h2>
 					<div class="copy-text">
 						Pineapple
 					</div>
