@@ -147,20 +147,19 @@ label.light {
 	</nav>
 
 	<form name='updatePasswordForm' action='/updatePassword' method='POST'>
-		<h1>${pageContext.request.userPrincipal.name}</h1>
-		<fieldset>
-			<div class="form-group">
-				<label for="exampleInputPassword1" class="text-uppercase">Contraseña Vieja</label>
-				<input name="passwordVieja" type="password" class="form-control"
-					placeholder="">
-			</div>
-			<div class="form-group">
-				<label for="exampleInputPassword1" class="text-uppercase">Contraseña</label>
-				<input name="passwordNueva" type="password" class="form-control"
-					placeholder="">
-			</div>
 
-		</fieldset>
+		<div class="form-group">
+			<label for="exampleInputPassword1" class="text-uppercase">Contraseña
+				Vieja</label> <input name="passwordVieja" type="password"
+				class="form-control" placeholder="">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputPassword1" class="text-uppercase">Contraseña</label>
+			<input name="passwordNueva" type="password" class="form-control"
+				placeholder="">
+		</div>
+
+
 		<button type="submit">Registrar</button>
 
 	</form>
