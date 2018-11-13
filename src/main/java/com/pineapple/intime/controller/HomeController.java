@@ -90,9 +90,9 @@ public class HomeController {
 			pagina = "error";
 		}
 		if(doc.get("email").equals(email)) {
-			session.setAttribute("email",doc.get("email"));
+			session.setAttribute("emailSession",doc.get("email"));
 			if(doc.get("rol").equals("admin")){
-				session.setAttribute("rol",doc.get("rol"));
+				session.setAttribute("rolSession",doc.get("rol"));
 				pagina = "admin";
 			}
 			if(doc.get("rol").equals("user")){
