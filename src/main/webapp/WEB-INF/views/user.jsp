@@ -132,7 +132,7 @@
 			</div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Fichajes</a></li>
+				<li><a href="/fichajeUser">Fichajes</a></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Gestión Incidencias <span
 						class="caret"></span></a>
