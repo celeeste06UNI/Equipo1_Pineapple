@@ -141,7 +141,7 @@ public class DAOEmpleado {
 			}
 			
 			if(!doc_empleado.get("email").equals(email)) {
-				empleadoAut.append("email", "error");
+				//empleadoAut.append("email", "error");
 			}
 		}
 		
