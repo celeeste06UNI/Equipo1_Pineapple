@@ -27,9 +27,9 @@ import org.apache.commons.lang3.RandomStringUtils;
 public class EmpleadoHelper {
 
 	public static String generarContraseña() {
-		String contraseña = RandomStringUtils.randomAlphanumeric(10);
+		String contrasenna = RandomStringUtils.randomAlphanumeric(10);
 		
-		return contraseña;
+		return contrasenna;
 	}
 	
 	public static void sesionEmail(String emailDestino, String contraseña) {
