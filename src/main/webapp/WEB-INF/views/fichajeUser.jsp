@@ -217,9 +217,10 @@ label.light {
 						<legend>
 							<span class="number">2</span>Consultar Fichajes
 						</legend>
-						<label for="name">Introduzca el mes:</label></br/> <input type="mes"
+						<label for="name">Introduzca el mes:<br></label> <input type="mes"
 							name="mes">
 							<br/>
+						
 						<button type="submit">Buscar</button>
 					</fieldset>
 				</form>
