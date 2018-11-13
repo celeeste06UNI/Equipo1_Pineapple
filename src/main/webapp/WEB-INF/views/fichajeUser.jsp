@@ -11,7 +11,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<title>Modificar Usuario</title>
+<title>Realizar Fichaje</title>
 
 <style type="text/css">
 *, *:before, *:after {
@@ -140,7 +140,7 @@ label.light {
 					</ul></li>
 				<li><a href="#">Fichajes</a></li>
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Gestión Incidencias <span
+					data-toggle="dropdown" href="#">Gestion Incidencias <span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Crear</a></li>
@@ -198,11 +198,12 @@ label.light {
 
 					<fieldset>
 						<legend>
-							<span class="number">1</span>Introduzca el e-mail del usuario
+							<span class="number">1</span>Realizar Fichaje
 						</legend>
-						<label for="name">Introduzca el email:</label> <input type="email"
+						<label for="name">Sesión activa:</label> <input type="email"
 							name="email">
-						<button type="submit">Buscar</button>
+						<button type="submit">Entrada</button>
+						<button type="submit">Salida</button>
 					</fieldset>
 				</form>
 
@@ -210,30 +211,16 @@ label.light {
 			</div>
 			<div class="col-sm-6" style="background-color: white;">
 
-				<form name='updateForm' action='/editUser' method='POST'>
+			<form name='searchForm' action='/searchUser' method='POST'>
 
 					<fieldset>
 						<legend>
-							<span class="number">2</span>Modificar campos
+							<span class="number">2</span>Consultar Fichajes
 						</legend>
-
-						<label for="email">Email Actual</label> <input type="email"
-							name="emailAntiguo" readonly value=${email} > <label
-							for="nombre">Nombre</label> <input type="text" name="nombre"
-							value=${nombre} > <label for="apellidos">Apellidos</label>
-						<input type="text" name="apellidos" value=${apellidos} > <label
-							for="email">Nuevo Email</label> <input type="email"
-							name="emailNuevo" value=${email} > <label>Roles:</label>
-						<input type="radio" id="admin" value="admin" name="rol">
-						<label class="light" for="Administrador">Administrador</label><br>
-						<input type="radio" id="usuario" value="user" name="rol">
-						<label class="light" for="Usuario">Usuario</label><br> <input
-							type="radio" id="gestor" value="incid" name="rol"> <label
-							class="light" for="Gestor">Gestor</label>
+						<label for="name">Introduzca el mes:</label> <input type="mes"
+							name="mes">
+						<button type="submit">Buscar</button>
 					</fieldset>
-
-					<button type="submit">Actualizar</button>
-
 				</form>
 			</div>
 		</div>
