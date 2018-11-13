@@ -103,6 +103,8 @@ public class HomeController {
 				session.setAttribute("rol",doc.get("rol"));
 				pagina = "incid";
 			}
+		}else {
+			pagina = "error";
 		}
 		return pagina;
 	
