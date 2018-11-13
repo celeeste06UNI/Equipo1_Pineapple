@@ -188,7 +188,7 @@ label.light {
 
 	<div class="container">
 		<div class="page-header">
-			<h1>Realizar Fichaje</h1>
+			<h1>Gestor de Fichajes</h1>
 		</div>
 		<div class="row">
 			<div class="col-sm-6" style="background-color: white;">
