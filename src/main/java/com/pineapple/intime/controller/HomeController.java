@@ -83,7 +83,8 @@ public class HomeController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password) throws IOException {
 		String pagina = null;
-		Document doc = DAOEmpleado.autenticar(email.toLowerCase(),password);
+		String emailLowerCase=email.toLowerCase();
+		Document doc = DAOEmpleado.autenticar(emailLowerCase,password);
 		if(doc.get("email").equals("error")) {
 			pagina = "error";
 		}
