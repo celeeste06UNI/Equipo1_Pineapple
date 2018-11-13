@@ -86,9 +86,9 @@ public class HomeController {
 		String pagina = null;
 		HttpSession session = request.getSession(true);
 		Document doc = DAOEmpleado.autenticar(email,password);
-		if(doc.get("email").equals("error")) {
+/*		if(doc.get("error").equals("error")) {
 			pagina = "error";
-		}
+		}*/
 		if(doc.get("email").equals(email)) {
 			session.setAttribute("emailSession",doc.get("email"));
 			if(doc.get("rol").equals("admin")){
@@ -103,6 +103,8 @@ public class HomeController {
 				session.setAttribute("rol",doc.get("rol"));
 				pagina = "incid";
 			}
+		}else {
+			pagina = "error";
 		}
 		return pagina;
 	
