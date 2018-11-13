@@ -138,8 +138,10 @@ public class DAOEmpleado {
 				empleadoAut.append("email", email);
 				empleadoAut.append("contrasenna", contrasenna);
 				empleadoAut.append("rol", cargarRol(email));
-			}else {
-				empleadoAut.put("email", "error");
+			}
+			
+			if(!doc_empleado.get("email").equals(email)) {
+				empleadoAut.append("email", "error");
 			}
 		}
 		
