@@ -219,6 +219,7 @@ label.light {
 						</legend>
 						<label for="name">Introduzca el mes:</label></br> <input type="mes"
 							name="mes">
+							</br>
 						<button type="submit">Buscar</button>
 					</fieldset>
 				</form>
