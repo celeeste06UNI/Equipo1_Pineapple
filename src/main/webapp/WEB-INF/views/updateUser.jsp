@@ -188,7 +188,7 @@ label.light {
 
 	<div class="container">
 		<div class="page-header">
-			<h1>Modificar de Usuario</h1>
+			<h1>Modificar Usuario</h1>
 		</div>
 		<div class="row">
 			<div class="col-sm-6" style="background-color: white;">
