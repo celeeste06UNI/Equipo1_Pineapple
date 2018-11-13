@@ -35,6 +35,12 @@ public class UsuarioController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/fichajeUser", method = RequestMethod.GET)
+	public ModelAndView fichajeUser(ModelAndView model) {
+		model.setViewName("fichajeUser");
+		return model;
+	}
+	
 	@RequestMapping(value = "/actionDeleteUser", method = RequestMethod.POST)
 	public String actionDeleteUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
