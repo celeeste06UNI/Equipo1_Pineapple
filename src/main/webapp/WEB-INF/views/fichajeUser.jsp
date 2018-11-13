@@ -188,7 +188,7 @@ label.light {
 
 	<div class="container">
 		<div class="page-header">
-			<h1>Modificar de Usuario</h1>
+			<h1>Realizar Fichaje</h1>
 		</div>
 		<div class="row">
 			<div class="col-sm-6" style="background-color: white;">
@@ -217,7 +217,7 @@ label.light {
 						<legend>
 							<span class="number">2</span>Consultar Fichajes
 						</legend>
-						<label for="name">Introduzca el mes:</label> <input type="mes"
+						<label for="name">Introduzca el mes:</label></br> <input type="mes"
 							name="mes">
 						<button type="submit">Buscar</button>
 					</fieldset>
