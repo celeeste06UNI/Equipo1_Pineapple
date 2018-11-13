@@ -192,8 +192,6 @@ label.light {
 		</div>
 		<div class="row">
 			<div class="col-sm-6" style="background-color: white;">
-
-
 				<form name='searchForm' action='/searchUser' method='POST'>
 
 					<fieldset>
@@ -205,8 +203,6 @@ label.light {
 						<button type="submit">Buscar</button>
 					</fieldset>
 				</form>
-
-
 			</div>
 			<div class="col-sm-6" style="background-color: white;">
 
@@ -216,8 +212,6 @@ label.light {
 						<legend>
 							<span class="number">2</span>Modificar campos
 						</legend>
-
-					 	<!-- <label for="email">Email Actual</label>  -->
 					 	<input type="hidden" name="emailAntiguo" readonly value=${email} >
 						<label for="nombre">Nombre</label> 
 						<input type="text" name="nombre" value=${nombre} >
@@ -226,7 +220,7 @@ label.light {
 						<label for="email">Nuevo Email</label>
 						<input type="email" name="emailNuevo" value=${email} >
 						<label for="rol">Rol</label>
-						<input type="text" name="rol" value=${rol} >
+						<input type="text" name="rolActual" value=${rol} >
 						<label>Roles Disponibles:</label>
 						<input type="radio" id="admin" value="admin" name="rol">
 						<label class="light" for="Administrador">Administrador</label><br>
