@@ -217,19 +217,23 @@ label.light {
 							<span class="number">2</span>Modificar campos
 						</legend>
 
-					 	<!-- <label for="email">Email Actual</label>  --><input type="hidden"
-							name="emailAntiguo" readonly value=${email} ><label
-							for="nombre">Nombre</label> <input type="text" name="nombre"
-							value=${nombre} > <label for="apellidos">Apellidos</label>
-						<input type="text" name="apellidos" value=${apellidos} > <label
-							for="email">Nuevo Email</label> <input type="email"
-							name="emailNuevo" value=${email} > <label>Roles:</label>
+					 	<!-- <label for="email">Email Actual</label>  -->
+					 	<input type="hidden" name="emailAntiguo" readonly value=${email} >
+						<label for="nombre">Nombre</label> 
+						<input type="text" name="nombre" value=${nombre} >
+						<label for="apellidos">Apellidos</label>
+						<input type="text" name="apellidos" value=${apellidos} >
+						<label for="email">Nuevo Email</label>
+						<input type="email" name="emailNuevo" value=${email} >
+						<label for="rol">Rol</label>
+						<input type="text" name="rol" value=${rol} >
+						<label>Roles Disponibles:</label>
 						<input type="radio" id="admin" value="admin" name="rol">
 						<label class="light" for="Administrador">Administrador</label><br>
 						<input type="radio" id="usuario" value="user" name="rol">
-						<label class="light" for="Usuario">Usuario</label><br> <input
-							type="radio" id="gestor" value="incid" name="rol"> <label
-							class="light" for="Gestor">Gestor</label>
+						<label class="light" for="Usuario">Usuario</label><br> 
+						<input type="radio" id="gestor" value="incid" name="rol">
+						<label class="light" for="Gestor">Gestor</label>
 					</fieldset>
 
 					<button type="submit">Actualizar</button>
