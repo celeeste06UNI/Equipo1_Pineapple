@@ -140,7 +140,14 @@
 						<li><a href="/deleteUser">Eliminar</a></li>
 						<li><a href="/updateUser">Modificar</a></li>
 					</ul></li>
-				<li><a href="/fichajeUser">Fichajes</a></li>
+					
+					<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="/fichajeUser">Fichajes<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+
+						<li><a href="/consultaFichaje">Consultar</a></li>
+
+					</ul></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Gestión Incidencias <span
 						class="caret"></span></a>
