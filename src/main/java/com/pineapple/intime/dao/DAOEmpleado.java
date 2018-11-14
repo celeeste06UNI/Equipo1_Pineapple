@@ -11,6 +11,9 @@ import org.bson.conversions.Bson;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
+import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.and;
+import static com.mongodb.client.model.Updates.combine;
 
 
 public class DAOEmpleado {
@@ -38,19 +41,15 @@ public class DAOEmpleado {
 		datosPersonales.put("contrasenna",empleado.get("contrasenna"));
 		datosPersonales.put("nombre",empleado.get("nombre"));
 		datosPersonales.put("apellidos",empleado.get("apellidos"));
-		
 		dbEmpleado.insertOne(datosPersonales);
 	}
 	public static void insertRol(Document empleado, MongoCollection<Document> dbRol) {
 		Document rol=new Document();
 		rol.put("email", empleado.get("email"));
 		rol.put("rol", empleado.get("rol"));
-		dbRol.insertOne(rol);
-		
+		dbRol.insertOne(rol);	
 	}
-	
 	/*ELIMINAR EMPLEADO*/
-	
 	public static void delete(Document empleado) {
 		MongoCollection<Document> dbEmpleado=MongoBroker.get().getCollection("Empleado");
 		MongoCollection<Document> dbRol=MongoBroker.get().getCollection("EmpleadoRol");
@@ -61,14 +60,12 @@ public class DAOEmpleado {
 		Document datosPersonales=new Document();
 		datosPersonales.put("email", empleado.get("email"));
 		dbEmpleado.deleteOne(datosPersonales);
-		
 	}
 	public static void deleteRol(Document empleado, MongoCollection<Document> dbRol) {
 		Document rol=new Document();
 		rol.put("email", empleado.get("email"));
 		rol.put("rol", empleado.get("rol"));
 		dbRol.deleteOne(rol);
-		
 	}
 	/*MODIFICAR USUARIO*/
 	public static void update(String email,Document empleado) {
@@ -78,7 +75,6 @@ public class DAOEmpleado {
 		filter.put("email",new BsonString((String) email));
 		updateDatosPersonales(filter,empleado,dbEmpleado);
 		updateRol(filter,empleado,dbRol);
-		
 	}
 	private static void updateDatosPersonales(BsonDocument filtro,Document empleado, MongoCollection<Document> dbEmpleado) {
 		Document datosDesactualizados=new Document();
@@ -104,6 +100,10 @@ public class DAOEmpleado {
 			empleado.put("contrasenna", contraseñaNueva);
 			dbEmpleado.replaceOne(filter,empleado);
 		}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> branch 'bbdd_integration' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
 	}
 	
 	public static void updateRol(BsonDocument filtro,Document empleado,MongoCollection<Document> dbRol) {
