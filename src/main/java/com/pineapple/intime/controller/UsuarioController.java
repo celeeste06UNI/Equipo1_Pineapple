@@ -110,7 +110,6 @@ public class UsuarioController {
 			model.addObject("rol", "");
 			model.setViewName("updateUser");
 		}
-		
 		return model;
 	}
 	
