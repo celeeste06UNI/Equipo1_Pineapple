@@ -21,8 +21,6 @@ import com.pineapple.intime.dominio.EmpleadoHelper;
 @Controller
 public class UsuarioController {
 	
-	
-	
 	@RequestMapping(value = "/newUser", method = RequestMethod.GET)
 	public ModelAndView newUser(ModelAndView model) {
 		model.setViewName("newUser");
@@ -34,19 +32,7 @@ public class UsuarioController {
 		model.setViewName("deleteUser");
 		return model;
 	}
-	
-	@RequestMapping(value = "/fichajeUser", method = RequestMethod.GET)
-	public ModelAndView fichajeUser(ModelAndView model) {
-		model.setViewName("fichajeUser");
-		return model;
-	}
-	
-	@RequestMapping(value = "/consultaFichaje", method = RequestMethod.GET)
-	public ModelAndView consultaFichaje(ModelAndView model) {
-		model.setViewName("/consultaFichaje");
-		return model;
-	}
-	
+		
 	@RequestMapping(value = "/actionDeleteUser", method = RequestMethod.POST)
 	public String actionDeleteUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
@@ -74,7 +60,7 @@ public class UsuarioController {
 	public String updatePassword(@ModelAttribute("passwordVieja") String contraseñaVieja,
 			@ModelAttribute("passwordNueva") String contraseñaNueva, HttpServletRequest request) {
 		HttpSession session = request.getSession(true);
-		String email = (String) session.getAttribute("email");
+		String email = (String) session.getAttribute("emailSession");
 		DAOEmpleado.updatePassword(email,contraseñaVieja,contraseñaNueva);
 		return "user";
 	}
