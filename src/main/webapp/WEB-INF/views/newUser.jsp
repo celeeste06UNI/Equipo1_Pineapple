@@ -172,8 +172,8 @@ label.light {
 				<span class="number">2</span>Seleccionar Rol
 			</legend>
 			<label>Roles:</label> <input type="radio" id="admin" value="admin"
-				required autocomplete="off" name="rol"> <label
-				class="light" for="Administrador">Administrador</label><br> <input
+				required autocomplete="off" name="rol"> <label class="light"
+				for="Administrador">Administrador</label><br> <input
 				type="radio" id="usuario" value="user" required autocomplete="off"
 				name="rol"> <label class="light" for="Usuario">Usuario</label><br>
 			<input type="radio" id="gestor" value="incid" required
