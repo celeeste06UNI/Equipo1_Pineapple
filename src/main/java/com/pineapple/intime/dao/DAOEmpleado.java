@@ -119,10 +119,14 @@ public class DAOEmpleado {
 	public static Document cargarEmpleado(String email) {
 		MongoCollection<Document> dbEmpleado = MongoBroker.get().getCollection("Empleado");
 		BsonDocument filter=new BsonDocument();
+		Document empleado = new Document();
 		filter.put("email",new BsonString((String) email));
 		MongoCursor<Document> result=dbEmpleado.find(filter).iterator();
-		Document empleado=result.next();
-		empleado.put("rol", cargarRol(email));
+		if(result!=null) {
+			empleado=result.next();
+			empleado.put("rol", cargarRol(email));
+		}
+		
 		return empleado;
 	}
 	/*AUTENTICACION */
