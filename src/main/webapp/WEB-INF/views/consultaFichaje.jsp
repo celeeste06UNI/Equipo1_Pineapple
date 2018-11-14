@@ -40,7 +40,8 @@ h1 {
 
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"],
 	input[type="email"], input[type="number"], input[type="search"], input[type="tel"],
-	input[type="time"], input[type="url"], input[type="mes"], textarea, select {
+	input[type="time"], input[type="url"], input[type="mes"], textarea,
+	select {
 	background: rgba(255, 255, 255, 0.1);
 	border: none;
 	font-size: 16px;
@@ -122,7 +123,7 @@ label.light {
 </style>
 </head>
 <body>
-<nav class="navbar navbar-default" style="background-color: #fdfefe;">
+	<nav class="navbar navbar-default" style="background-color: #fdfefe;">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/cerrarSesion">InTime</a>
@@ -138,8 +139,7 @@ label.light {
 					</ul></li>
 
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Fichajes<span
-						class="caret"></span></a>
+					data-toggle="dropdown" href="#">Fichajes<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="/fichajeUser">Fichar</a></li>
 						<li><a href="/consultaFichaje">Consultar</a></li>
@@ -210,7 +210,7 @@ label.light {
 						<legend>
 							<span class="number">1</span>Realizar Fichaje
 						</legend>
-<!-- 						<label for="name">Sesión activa:</label> <input type="email"
+						<!-- 						<label for="name">Sesión activa:</label> <input type="email"
 							name="email"> -->
 						<button type="submit">Abrir Fichaje</button>
 						<button type="submit">Cerrar Fichaje</button>
@@ -221,15 +221,15 @@ label.light {
 			</div>
 			<div class="col-sm-6" style="background-color: white;">
 
-			<form name='searchForm' action='/searchUser' method='POST'>
+				<form name='searchForm' action='/searchUser' method='POST'>
 
 					<fieldset>
 						<legend>
 							<span class="number">2</span>Consultar Fichajes
 						</legend>
-						<label for="name">Introduzca el mes:<br></label> <input type="mes"
-							name="mes">
-						
+						<label for="name">Introduzca el mes:<br></label> <input
+							type="mes" name="mes">
+
 						<button type="submit">Buscar</button>
 					</fieldset>
 				</form>

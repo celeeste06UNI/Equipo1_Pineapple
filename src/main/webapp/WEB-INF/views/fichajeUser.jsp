@@ -126,10 +126,9 @@ label.light {
 	<nav class="navbar navbar-default" style="background-color: #fdfefe;">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">InTime</a>
+				<a class="navbar-brand" href="/cerrarSesion">InTime</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
 					<ul class="dropdown-menu">
@@ -138,9 +137,16 @@ label.light {
 						<li><a href="/deleteUser">Eliminar</a></li>
 						<li><a href="/updateUser">Modificar</a></li>
 					</ul></li>
-				<li><a href="#">Fichajes</a></li>
+
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Gestion Incidencias <span
+					data-toggle="dropdown" href="#">Fichajes<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="/fichajeUser">Fichar</a></li>
+						<li><a href="/consultaFichaje">Consultar</a></li>
+
+					</ul></li>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Gestión Incidencias <span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Crear</a></li>
@@ -149,8 +155,11 @@ label.light {
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/viewUpdatePassword"><span
+						class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
 				<li><a href="/cerrarSesion"><span
 						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+
 			</ul>
 		</div>
 	</nav>
