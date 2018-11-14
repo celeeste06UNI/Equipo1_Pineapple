@@ -120,12 +120,13 @@ label.light {
 
 </head>
 <body>
-	<nav class="navbar navbar-default" style="background-color: #fdfefe;">
+		<nav class="navbar navbar-default" style="background-color: #fdfefe;">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="/cerrarSesion">InTime</a>
+				<a class="navbar-brand" href="#">InTime</a>
 			</div>
 			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
 					<ul class="dropdown-menu">
@@ -145,8 +146,8 @@ label.light {
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/cerrarSesion"><span class="glyphicon glyphicon-log-in"></span>
-						Cerrar Sesión</a></li>
+				<li><a href="/cerrarSesion"><span
+						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
 			</ul>
 		</div>
 	</nav>
