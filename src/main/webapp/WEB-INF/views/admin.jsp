@@ -158,10 +158,11 @@
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/viewUpdatePassword"><span
+						class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
 				<li><a href="/cerrarSesion"><span
 						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
-				<li><a href="/updatePassword"><span
-						class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
+
 			</ul>
 		</div>
 	</nav>
