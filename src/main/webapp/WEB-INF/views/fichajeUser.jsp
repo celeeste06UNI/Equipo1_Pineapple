@@ -40,7 +40,7 @@ h1 {
 
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"],
 	input[type="email"], input[type="number"], input[type="search"], input[type="tel"],
-	input[type="time"], input[type="url"], textarea, select {
+	input[type="time"], input[type="url"], input[type="mes"], textarea, select {
 	background: rgba(255, 255, 255, 0.1);
 	border: none;
 	font-size: 16px;
