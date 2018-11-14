@@ -209,9 +209,10 @@ label.light {
 						<legend>
 							<span class="number">1</span>Realizar Fichaje
 						</legend>
-						<a href="#" class="btn btn-info" role="button">Link Button</a>
-						<button type="submit">Abrir fichaje</button>
-						<button type="submit">Cerrar fichaje</button>
+						<a align="center" href="#" class="btn btn-info" role="button">Abrir fichaje</a>
+						<a align="center" href="#" class="btn btn-info" role="button">Cerrar fichaje</a>
+<!-- 						<button type="submit">Abrir fichaje</button>
+						<button type="submit">Cerrar fichaje</button> -->
 					</fieldset>
 				</form>
 
