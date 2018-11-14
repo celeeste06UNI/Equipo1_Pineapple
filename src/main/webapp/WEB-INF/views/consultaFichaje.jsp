@@ -210,10 +210,10 @@ label.light {
 						<legend>
 							<span class="number">1</span>Realizar Fichaje
 						</legend>
-						<label for="name">Sesión activa:</label> <input type="email"
-							name="email">
-						<button type="submit">Entrada</button>
-						<button type="submit">Salida</button>
+<!-- 						<label for="name">Sesión activa:</label> <input type="email"
+							name="email"> -->
+						<button type="submit">Abrir Fichaje</button>
+						<button type="submit">Cerrar Fichaje</button>
 					</fieldset>
 				</form>
 
