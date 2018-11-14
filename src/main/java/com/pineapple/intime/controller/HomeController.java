@@ -93,7 +93,7 @@ public class HomeController {
 			pagina = "error";
 		}
 
-		if(doc.get("email").equals(email)) {
+		if(doc.get("email").equals(emailLowerCase)) {
 			session.setAttribute("emailSession",doc.get("email"));
 
 			if(doc.get("rol").equals("admin")){
