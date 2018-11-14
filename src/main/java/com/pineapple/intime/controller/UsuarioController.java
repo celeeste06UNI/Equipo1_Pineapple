@@ -111,7 +111,8 @@ public class UsuarioController {
 	@RequestMapping(value = "/searchUser", method = RequestMethod.POST)
 	public ModelAndView searchUser(ModelAndView model, @ModelAttribute("email") String email) {
 		try {
-			Document empleado = DAOEmpleado.cargarEmpleado(email);
+			String emailBusqueda=email.toLowerCase();
+			Document empleado = DAOEmpleado.cargarEmpleado(emailBusqueda);
 			model.addObject("nombre", empleado.get("nombre"));
 			model.addObject("apellidos", empleado.get("apellidos"));
 			model.addObject("email", empleado.get("email"));
