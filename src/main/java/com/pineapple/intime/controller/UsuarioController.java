@@ -77,8 +77,10 @@ public class UsuarioController {
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
 		empleado.put("contrasenna", contrasenna);
-		DAOEmpleado.insert(empleado);
-		EmpleadoHelper.sesionEmail(email, contrasenna);
+		if(DAOEmpleado.insert(empleado)) {
+			EmpleadoHelper.sesionEmail(email, contrasenna);
+		}
+		
 		return "admin";
 	}
 	

@@ -18,7 +18,8 @@ import static com.mongodb.client.model.Updates.combine;
 public class DAOEmpleado {
 
 	/* INSERTAR EMPLEADO */
-	public static void insert(Document empleado) {
+	public static boolean insert(Document empleado) {
+		
 		MongoCollection<Document> dbEmpleado = MongoBroker.get().getCollection("Empleado");
 		MongoCollection<Document> dbRol = MongoBroker.get().getCollection("EmpleadoRol");
 
@@ -33,6 +34,9 @@ public class DAOEmpleado {
 		if (!(datosPersonales.iterator().hasNext() && rol.iterator().hasNext())) {
 			dbEmpleado.insertOne(empleado);
 			dbRol.insertOne(empleadoRol);
+			return true;
+		}else {
+			return false;
 		}
 	}
 
