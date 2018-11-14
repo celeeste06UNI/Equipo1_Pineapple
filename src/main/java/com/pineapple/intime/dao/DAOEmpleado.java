@@ -142,7 +142,7 @@ public class DAOEmpleado {
 		}
 		
 		if(empleadoAut.isEmpty()) {
-			empleadoAut.append("error", "error");
+			empleadoAut.append("email", "error");
 		}
 		
 		return empleadoAut;
