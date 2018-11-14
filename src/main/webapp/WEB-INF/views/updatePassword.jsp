@@ -122,47 +122,30 @@ label.light {
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="/cerrarSesion">InTime</a>
+
+	<div class="container">
+		<div class="page-header">
+			<h1>Modificar Contraseña</h1>
 		</div>
-		<ul class="nav navbar-nav">
-			<li><a href="#">Fichajes</a></li>
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">Gestion Incidencias <span
-					class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="#">Crear</a></li>
-					<li><a href="#">Eliminar</a></li>
-					<li><a href="#">Modificar</a></li>
-				</ul></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="/cerrarSesion"><span
-					class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
-		</ul>
+
+		<form name='updatePasswordForm' action='/updatePassword' method='POST'>
+
+			<div class="form-group">
+				<label for="exampleInputPassword1" class="text-uppercase">Contraseña
+					Actual</label> <input name="passwordVieja" type="password"
+					class="form-control" required autocomplete="off" placeholder="">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1" class="text-uppercase">Contraseña Nueva</label>
+				<input name="passwordNueva" type="password" required
+					autocomplete="off" class="form-control" placeholder="">
+			</div>
+
+
+			<button type="submit">Modificar</button>
+
+		</form>
 	</div>
-	</nav>
-
-	<form name='updatePasswordForm' action='/updatePassword' method='POST'>
-
-		<div class="form-group">
-			<label for="exampleInputPassword1" class="text-uppercase">Contraseña
-				Vieja</label> <input name="passwordVieja" type="password"
-				class="form-control" required autocomplete="off" placeholder="">
-		</div>
-		<div class="form-group">
-			<label for="exampleInputPassword1" class="text-uppercase">Contraseña</label>
-			<input name="passwordNueva" type="password" required autocomplete="off" class="form-control"
-				placeholder="">
-		</div>
-
-
-		<button type="submit">Registrar</button>
-
-	</form>
-
 
 </body>
 </html>
