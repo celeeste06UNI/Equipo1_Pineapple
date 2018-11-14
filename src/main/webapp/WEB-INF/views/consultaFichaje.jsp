@@ -11,7 +11,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<title>Realizar Fichaje</title>
+<title>Consultar Fichaje</title>
 
 <style type="text/css">
 *, *:before, *:after {
@@ -40,7 +40,7 @@ h1 {
 
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"],
 	input[type="email"], input[type="number"], input[type="search"], input[type="tel"],
-	input[type="time"], input[type="url"], textarea, select {
+	input[type="time"], input[type="url"], input[type="mes"], textarea, select {
 	background: rgba(255, 255, 255, 0.1);
 	border: none;
 	font-size: 16px;
@@ -193,7 +193,18 @@ label.light {
 		<div class="row">
 			<div class="col-sm-6" style="background-color: white;">
 
+			<form name='searchForm' action='/searchUser' method='POST'>
 
+					<fieldset>
+						<legend>
+							<span class="number">1</span>Consultar Fichajes
+						</legend>
+						<label for="name">Introduzca el mes:</label></br> <input type="mes"
+							name="mes">
+						<button type="submit">Buscar</button>
+					</fieldset>
+				</form>
+	<!--  
 				<form name='searchForm' action='/searchUser' method='POST'>
 
 					<fieldset>
@@ -207,10 +218,10 @@ label.light {
 					</fieldset>
 				</form>
 
-
+	-->
 			</div>
 			<div class="col-sm-6" style="background-color: white;">
-
+	<!--  
 			<form name='searchForm' action='/searchUser' method='POST'>
 
 					<fieldset>
@@ -222,6 +233,7 @@ label.light {
 						<button type="submit">Buscar</button>
 					</fieldset>
 				</form>
+	-->
 			</div>
 		</div>
 	</div>
