@@ -16,10 +16,20 @@ public class DAOEmpleado {
 	
 	/*INSERTAR EMPLEADO*/
 	public static void insert(Document empleado) {
+		int contador = 0;
 		MongoCollection<Document> dbEmpleado=MongoBroker.get().getCollection("Empleado");
 		MongoCollection<Document> dbRol=MongoBroker.get().getCollection("EmpleadoRol");
-		insertDatosPersonales(empleado, dbEmpleado);
-		insertRol(empleado,dbRol);
+		MongoCursor<Document> cursor = dbEmpleado.find().iterator();
+		while (cursor.hasNext()) {
+			Document empleadodoc = cursor.next();
+			if(empleadodoc.getString("email").equals(empleado.get("email"))) {
+				contador = contador + 1;
+			}
+		}
+		if(contador <1) {
+			insertDatosPersonales(empleado, dbEmpleado);
+			insertRol(empleado,dbRol);
+		}
 	}
 	private static void insertDatosPersonales(Document empleado, MongoCollection<Document> dbEmpleado) {
 		Document datosPersonales=new Document();
@@ -49,9 +59,6 @@ public class DAOEmpleado {
 	private static void deleteDatosPersonales(Document empleado, MongoCollection<Document> dbEmpleado) {
 		Document datosPersonales=new Document();
 		datosPersonales.put("email", empleado.get("email"));
-		//datosPersonales.put("contrasenna",empleado.get("contrasenna"));
-		//datosPersonales.put("nombre",empleado.get("nombre"));
-		//datosPersonales.put("apellidos",empleado.get("apellidos"));
 		dbEmpleado.deleteOne(datosPersonales);
 		
 	}
