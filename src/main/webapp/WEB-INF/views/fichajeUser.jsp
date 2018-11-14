@@ -203,9 +203,16 @@ label.light {
 		<div class="row">
 			<div class="col-sm-6" style="background-color: white;">
 
-				<a align="center" href="#" class="btn btn-danger" role="button">Abrir
-					fichaje</a> <br> <a align="center" href="#" class="btn btn-danger"
-					role="button">Cerrar fichaje</a>
+				<fieldset>
+					<legend>
+						<span class="number">2</span>Fichajes
+					</legend>
+					<a align="center" href="#" class="btn btn-danger" role="button">Abrir
+						fichaje</a> <br> &nbsp <a align="center" href="#"
+						class="btn btn-danger" role="button">Cerrar fichaje</a>
+				</fieldset>
+
+
 
 
 			</div>
