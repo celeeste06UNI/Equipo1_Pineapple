@@ -40,7 +40,8 @@ h1 {
 
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"],
 	input[type="email"], input[type="number"], input[type="search"], input[type="tel"],
-	input[type="time"], input[type="url"], input[type="mes"], textarea, select {
+	input[type="time"], input[type="url"], input[type="mes"], textarea,
+	select {
 	background: rgba(255, 255, 255, 0.1);
 	border: none;
 	font-size: 16px;
@@ -202,33 +203,23 @@ label.light {
 		<div class="row">
 			<div class="col-sm-6" style="background-color: white;">
 
-
-				<form name='searchForm' action='/searchUser' method='POST'>
-
-					<fieldset>
-						<legend>
-							<span class="number">1</span>Realizar Fichaje
-						</legend>
-						<a align="center" href="#" class="btn btn-info" role="button">Abrir fichaje</a>
-						<a align="center" href="#" class="btn btn-info" role="button">Cerrar fichaje</a>
-<!-- 						<button type="submit">Abrir fichaje</button>
-						<button type="submit">Cerrar fichaje</button> -->
-					</fieldset>
-				</form>
+				<a align="center" href="#" class="btn btn-danger" role="button">Abrir
+					fichaje</a> <br> <a align="center" href="#" class="btn btn-danger"
+					role="button">Cerrar fichaje</a>
 
 
 			</div>
 			<div class="col-sm-6" style="background-color: white;">
 
-			<form name='searchForm' action='/searchUser' method='POST'>
+				<form name='searchForm' action='/searchUser' method='POST'>
 
 					<fieldset>
 						<legend>
 							<span class="number">2</span>Consultar mis Fichajes
 						</legend>
-						<label for="name">Introduzca el mes:<br></label> <input type="mes"
-							name="mes">
-						
+						<label for="name">Introduzca el mes:<br></label> <input
+							type="mes" name="mes">
+
 						<button type="submit">Buscar</button>
 					</fieldset>
 				</form>
