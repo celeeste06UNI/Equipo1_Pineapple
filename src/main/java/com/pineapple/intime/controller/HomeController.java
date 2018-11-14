@@ -101,11 +101,11 @@ public class HomeController {
 				pagina = "admin";
 			}
 			if(doc.get("rol").equals("user")){
-				session.setAttribute("rol",doc.get("rol"));
+				session.setAttribute("rolSession",doc.get("rol"));
 				pagina = "user";
 			}
 			if(doc.get("rol").equals("incid")){
-				session.setAttribute("rol",doc.get("rol"));
+				session.setAttribute("rolSession",doc.get("rol"));
 				pagina = "incid";
 			}
 		}
