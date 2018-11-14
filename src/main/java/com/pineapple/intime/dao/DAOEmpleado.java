@@ -12,6 +12,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 
+
 public class DAOEmpleado {
 	
 	/*INSERTAR EMPLEADO*/
@@ -22,7 +23,7 @@ public class DAOEmpleado {
 		MongoCursor<Document> cursor = dbEmpleado.find().iterator();
 		while (cursor.hasNext()) {
 			Document empleadodoc = cursor.next();
-			if(empleadodoc.getString("email").equals(empleado.get("email"))) {
+			if(!empleadodoc.getString("email").equals(empleado.get("email"))) {
 				contador = contador + 1;
 			}
 		}
