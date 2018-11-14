@@ -209,10 +209,9 @@ label.light {
 						<legend>
 							<span class="number">1</span>Realizar Fichaje
 						</legend>
-						<label for="name">Sesión activa:</label> <input type="email"
-							name="email">
-						<button type="submit">Entrada</button>
-						<button type="submit">Salida</button>
+						<a href="#" class="btn btn-info" role="button">Link Button</a>
+						<button type="submit">Abrir fichaje</button>
+						<button type="submit">Cerrar fichaje</button>
 					</fieldset>
 				</form>
 
