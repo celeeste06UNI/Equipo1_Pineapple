@@ -49,7 +49,7 @@ public class DAOEmpleado {
 	private static void deleteDatosPersonales(Document empleado, MongoCollection<Document> dbEmpleado) {
 		Document datosPersonales=new Document();
 		datosPersonales.put("email", empleado.get("email"));
-		datosPersonales.put("contrasenna",empleado.get("contrasenna"));
+		//datosPersonales.put("contrasenna",empleado.get("contrasenna"));
 		datosPersonales.put("nombre",empleado.get("nombre"));
 		datosPersonales.put("apellidos",empleado.get("apellidos"));
 		dbEmpleado.deleteOne(datosPersonales);
