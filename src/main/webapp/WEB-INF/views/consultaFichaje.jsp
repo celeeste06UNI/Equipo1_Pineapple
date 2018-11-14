@@ -188,7 +188,7 @@ label.light {
 
 	<div class="container">
 		<div class="page-header">
-			<h1>Realizar Fichaje</h1>
+			<h1>Consultar Fichaje</h1>
 		</div>
 		<div class="row">
 			<div class="col-sm-6" style="background-color: white;">
@@ -223,6 +223,16 @@ label.light {
 	-->
 			</div>
 			<div class="col-sm-6" style="background-color: white;">
+			
+					<form name='searchForm' action='/searchUser' method='POST'>
+
+					<fieldset>
+						<legend>
+							<span class="number">2</span>Realizar nueva búsqueda
+						</legend>
+						<button type="submit">Buscar</button>
+					</fieldset>
+				</form>
 	<!--  
 			<form name='searchForm' action='/searchUser' method='POST'>
 
