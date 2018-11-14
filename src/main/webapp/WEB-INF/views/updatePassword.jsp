@@ -151,11 +151,11 @@ label.light {
 		<div class="form-group">
 			<label for="exampleInputPassword1" class="text-uppercase">Contraseña
 				Vieja</label> <input name="passwordVieja" type="password"
-				class="form-control" placeholder="">
+				class="form-control" required autocomplete="off" placeholder="">
 		</div>
 		<div class="form-group">
 			<label for="exampleInputPassword1" class="text-uppercase">Contraseña</label>
-			<input name="passwordNueva" type="password" class="form-control"
+			<input name="passwordNueva" type="password" required autocomplete="off" class="form-control"
 				placeholder="">
 		</div>
 
