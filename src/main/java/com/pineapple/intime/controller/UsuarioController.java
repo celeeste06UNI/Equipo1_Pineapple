@@ -84,7 +84,8 @@ public class UsuarioController {
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
 		Document empleado=new Document();
 		String contrasenna = EmpleadoHelper.generarContraseña();
-		empleado.put("email", email);
+		String emailCreado=email.toLowerCase();
+		empleado.put("email", emailCreado);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
@@ -132,7 +133,8 @@ public class UsuarioController {
 	public ModelAndView deleteSearchUser(ModelAndView model, @ModelAttribute("email") String email) {
 		Document empleado = new Document();
 		try {
-			empleado = DAOEmpleado.cargarEmpleado(email);
+			String emailDelete=email.toLowerCase();
+			empleado = DAOEmpleado.cargarEmpleado(emailDelete);
 			model.addObject("nombre", empleado.get("nombre"));
 			model.addObject("apellidos", empleado.get("apellidos"));
 			model.addObject("email", empleado.get("email"));
