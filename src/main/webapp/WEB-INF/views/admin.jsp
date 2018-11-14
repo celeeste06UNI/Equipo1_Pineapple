@@ -125,7 +125,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse" style="background-color: #e3f2fd;">
+	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/cerrarSesion">InTime</a>
