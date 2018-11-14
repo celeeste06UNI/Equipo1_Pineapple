@@ -205,10 +205,10 @@ label.light {
 
 				<fieldset>
 					<legend>
-						<span class="number">2</span>Fichajes
+						<span class="number">1</span>Fichajes
 					</legend>
 					<a align="center" href="#" class="btn btn-danger" role="button">Abrir
-						fichaje</a> <br> &nbsp <a align="center" href="#"
+						fichaje</a> <br><br><a align="center" href="#"
 						class="btn btn-danger" role="button">Cerrar fichaje</a>
 				</fieldset>
 
