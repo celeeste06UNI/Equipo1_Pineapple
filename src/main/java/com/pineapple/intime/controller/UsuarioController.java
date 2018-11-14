@@ -96,17 +96,21 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/searchUser", method = RequestMethod.POST)
 	public ModelAndView searchUser(ModelAndView model, @ModelAttribute("email") String email) {
-		Document empleado = DAOEmpleado.cargarEmpleado(email);
-		model.addObject("nombre", empleado.get("nombre"));
-		model.addObject("apellidos", empleado.get("apellidos"));
-		model.addObject("email", empleado.get("email"));
-		model.addObject("rol", empleado.get("rol"));
-		model.setViewName("updateUser");
+		try {
+			Document empleado = DAOEmpleado.cargarEmpleado(email);
+			model.addObject("nombre", empleado.get("nombre"));
+			model.addObject("apellidos", empleado.get("apellidos"));
+			model.addObject("email", empleado.get("email"));
+			model.addObject("rol", empleado.get("rol"));
+			model.setViewName("updateUser");
+		}catch(Exception e){
+			model.addObject("nombre","");
+			model.addObject("apellidos", "");
+			model.addObject("email", "");
+			model.addObject("rol", "");
+			model.setViewName("updateUser");
+		}
 		
-	/*	ConcurrentHashMap<String, Document> empleados = DAOEmpleado.cargarEmpleados();
-		Document empleado = empleados.get(email);
-		model.addObject("listPersonal", listPersonal);
-		model.setViewName("personalList");*/
 		return model;
 	}
 	
@@ -127,27 +131,6 @@ public class UsuarioController {
 			model.addObject("rol", "");
 			model.setViewName("deleteUser");
 		}
-		
-		
-/*		if(!empleado.get("error").equals("error")) {
-			model.addObject("nombre", empleado.get("nombre"));
-			model.addObject("apellidos", empleado.get("apellidos"));
-			model.addObject("email", empleado.get("email"));
-			model.addObject("rol", empleado.get("rol"));
-			model.setViewName("deleteUser");
-		}else {
-			model.addObject("nombre", "");
-			model.addObject("apellidos", "");
-			model.addObject("email", "");
-			model.addObject("rol", "");
-			model.setViewName("deleteUser");
-		}*/
-
-		
-	/*	ConcurrentHashMap<String, Document> empleados = DAOEmpleado.cargarEmpleados();
-		Document empleado = empleados.get(email);
-		model.addObject("listPersonal", listPersonal);
-		model.setViewName("personalList");*/
 		return model;
 	}
 	
