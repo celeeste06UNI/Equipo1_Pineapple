@@ -113,11 +113,20 @@ public class UsuarioController {
 	@RequestMapping(value = "/deleteSearchUser", method = RequestMethod.POST)
 	public ModelAndView deleteSearchUser(ModelAndView model, @ModelAttribute("email") String email) {
 		Document empleado = DAOEmpleado.cargarEmpleado(email);
-		model.addObject("nombre", empleado.get("nombre"));
-		model.addObject("apellidos", empleado.get("apellidos"));
-		model.addObject("email", empleado.get("email"));
-		model.addObject("rol", empleado.get("rol"));
-		model.setViewName("deleteUser");
+		if(!empleado.isEmpty()) {
+			model.addObject("nombre", empleado.get("nombre"));
+			model.addObject("apellidos", empleado.get("apellidos"));
+			model.addObject("email", empleado.get("email"));
+			model.addObject("rol", empleado.get("rol"));
+			model.setViewName("deleteUser");
+		}else {
+			model.addObject("nombre", "");
+			model.addObject("apellidos", "");
+			model.addObject("email", "");
+			model.addObject("rol", "");
+			model.setViewName("deleteUser");
+		}
+
 		
 	/*	ConcurrentHashMap<String, Document> empleados = DAOEmpleado.cargarEmpleados();
 		Document empleado = empleados.get(email);
