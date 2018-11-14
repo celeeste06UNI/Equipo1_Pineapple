@@ -127,10 +127,9 @@ label.light {
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#">InTime</a>
+			<a class="navbar-brand" href="/cerrarSesion">InTime</a>
 		</div>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Home</a></li>
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
 				<ul class="dropdown-menu">
@@ -171,11 +170,11 @@ label.light {
 				<span class="number">2</span>Seleccionar Rol
 			</legend>
 			<label>Roles:</label> 
-			<input type="radio" id="admin" value="admin" name="rol" checked="false">
+			<input type="radio" id="admin" value="admin" required autocomplete="off" name="rol" >
 			<label class="light" for="Administrador">Administrador</label><br> 
-			<input type="radio" id="usuario" value="user" name="rol" checked="false">
+			<input type="radio" id="usuario" value="user" required autocomplete="off" name="rol" >
 			<label class="light" for="Usuario">Usuario</label><br> 
-			<input type="radio" id="gestor" value="incid" name="rol" checked="false">
+			<input type="radio" id="gestor" value="incid" required autocomplete="off" name="rol" >
 			<label class="light" for="Gestor">Gestor</label>
 		</fieldset>
 		

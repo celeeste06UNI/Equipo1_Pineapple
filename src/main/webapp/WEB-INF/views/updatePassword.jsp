@@ -125,10 +125,9 @@ label.light {
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="#">InTime</a>
+			<a class="navbar-brand" href="/cerrarSesion">InTime</a>
 		</div>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Home</a></li>
 			<li><a href="#">Fichajes</a></li>
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#">Gestion Incidencias <span
@@ -147,20 +146,19 @@ label.light {
 	</nav>
 
 	<form name='updatePasswordForm' action='/updatePassword' method='POST'>
-		<h1>${pageContext.request.userPrincipal.name}</h1>
-		<fieldset>
-			<legend>
-				<span class="number">1</span>Introduzca la contraseña actual
-			</legend>
-			<label for="name">Contraseña actual:</label> <input type="text"
-				required autocomplete="off" id = "contraseñaVieja" name="contraseñaVieja">
-			<legend>
-				<span class="number">2</span>Introduzca la contraseña nueva
-			</legend>
-			<label for="name">Contraseña nueva:</label> <input type="text"
-				required autocomplete="off" id ="contraseñaNueva" name="contraseñaNueva">
 
-		</fieldset>
+		<div class="form-group">
+			<label for="exampleInputPassword1" class="text-uppercase">Contraseña
+				Vieja</label> <input name="passwordVieja" type="password"
+				class="form-control" required autocomplete="off" placeholder="">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputPassword1" class="text-uppercase">Contraseña</label>
+			<input name="passwordNueva" type="password" required autocomplete="off" class="form-control"
+				placeholder="">
+		</div>
+
+
 		<button type="submit">Registrar</button>
 
 	</form>

@@ -71,8 +71,8 @@ public class UsuarioController {
 		return model;
 	}
 	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
-	public String updatePassword(@ModelAttribute("contraseñaVieja") String contraseñaVieja,
-			@ModelAttribute("contraseñaNueva") String contraseñaNueva, HttpServletRequest request) {
+	public String updatePassword(@ModelAttribute("passwordVieja") String contraseñaVieja,
+			@ModelAttribute("passwordNueva") String contraseñaNueva, HttpServletRequest request) {
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("email");
 		DAOEmpleado.updatePassword(email,contraseñaVieja,contraseñaNueva);
@@ -89,8 +89,10 @@ public class UsuarioController {
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
 		empleado.put("contrasenna", contrasenna);
-		DAOEmpleado.insert(empleado);
-		EmpleadoHelper.sesionEmail(email, contrasenna);
+		if(DAOEmpleado.insert(empleado)) {
+			EmpleadoHelper.sesionEmail(email, contrasenna);
+		}
+		
 		return "admin";
 	}
 	
@@ -108,33 +110,40 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/searchUser", method = RequestMethod.POST)
 	public ModelAndView searchUser(ModelAndView model, @ModelAttribute("email") String email) {
-		Document empleado = DAOEmpleado.cargarEmpleado(email);
-		model.addObject("nombre", empleado.get("nombre"));
-		model.addObject("apellidos", empleado.get("apellidos"));
-		model.addObject("email", empleado.get("email"));
-		model.addObject("rol", empleado.get("rol"));
-		model.setViewName("updateUser");
-		
-	/*	ConcurrentHashMap<String, Document> empleados = DAOEmpleado.cargarEmpleados();
-		Document empleado = empleados.get(email);
-		model.addObject("listPersonal", listPersonal);
-		model.setViewName("personalList");*/
+		try {
+			Document empleado = DAOEmpleado.cargarEmpleado(email);
+			model.addObject("nombre", empleado.get("nombre"));
+			model.addObject("apellidos", empleado.get("apellidos"));
+			model.addObject("email", empleado.get("email"));
+			model.addObject("rol", empleado.get("rol"));
+			model.setViewName("updateUser");
+		}catch(Exception e){
+			model.addObject("nombre","");
+			model.addObject("apellidos", "");
+			model.addObject("email", "");
+			model.addObject("rol", "");
+			model.setViewName("updateUser");
+		}
 		return model;
 	}
 	
 	@RequestMapping(value = "/deleteSearchUser", method = RequestMethod.POST)
 	public ModelAndView deleteSearchUser(ModelAndView model, @ModelAttribute("email") String email) {
-		Document empleado = DAOEmpleado.cargarEmpleado(email);
-		model.addObject("nombre", empleado.get("nombre"));
-		model.addObject("apellidos", empleado.get("apellidos"));
-		model.addObject("email", empleado.get("email"));
-		model.addObject("rol", empleado.get("rol"));
-		model.setViewName("deleteUser");
-		
-	/*	ConcurrentHashMap<String, Document> empleados = DAOEmpleado.cargarEmpleados();
-		Document empleado = empleados.get(email);
-		model.addObject("listPersonal", listPersonal);
-		model.setViewName("personalList");*/
+		Document empleado = new Document();
+		try {
+			empleado = DAOEmpleado.cargarEmpleado(email);
+			model.addObject("nombre", empleado.get("nombre"));
+			model.addObject("apellidos", empleado.get("apellidos"));
+			model.addObject("email", empleado.get("email"));
+			model.addObject("rol", empleado.get("rol"));
+			model.setViewName("deleteUser");
+		}catch(Exception e){
+			model.addObject("nombre", "");
+			model.addObject("apellidos", "");
+			model.addObject("email", "");
+			model.addObject("rol", "");
+			model.setViewName("deleteUser");
+		}
 		return model;
 	}
 	

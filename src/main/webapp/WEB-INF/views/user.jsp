@@ -128,11 +128,15 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">InTime</a>
+				<a class="navbar-brand" href="/cerrarSesion">InTime</a>
 			</div>
 			<ul class="nav navbar-nav">
+<<<<<<< HEAD
 				<li class="active"><a href="#">Home</a></li>
 				<li><a href="/fichajeUser">Fichajes</a></li>
+=======
+				<li><a href="#">Fichajes</a></li>
+>>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Gestión Incidencias <span
 						class="caret"></span></a>
