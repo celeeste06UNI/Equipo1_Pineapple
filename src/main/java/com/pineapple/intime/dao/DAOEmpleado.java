@@ -122,11 +122,10 @@ public class DAOEmpleado {
 		Document empleado = new Document();
 		filter.put("email",new BsonString((String) email));
 		MongoCursor<Document> result=dbEmpleado.find(filter).iterator();
-		if(result!=null) {
-			empleado=result.next();
+		empleado=result.next();
+		if(!empleado.isEmpty()) {
 			empleado.put("rol", cargarRol(email));
 		}
-		
 		return empleado;
 	}
 	/*AUTENTICACION */
