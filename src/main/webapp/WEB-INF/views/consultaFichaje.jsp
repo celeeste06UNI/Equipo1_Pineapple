@@ -200,18 +200,24 @@ label.light {
 		<div class="page-header">
 			<h1>Gestor de Fichajes</h1>
 		</div>
-		<form name='searchForm' action='/searchUser' method='POST'>
+		<div class="row">
 
-			<fieldset>
-				<legend>
-					<span class="number">2</span>Consultar Fichajes
-				</legend>
-				<label for="name">Introduzca el mes:<br></label> <input
-					type="mes" name="mes">
+			<div class="col-sm-6" style="background-color: white;">
 
-				<button type="submit">Buscar</button>
-			</fieldset>
-		</form>
+				<form name='searchForm' action='/searchUser' method='POST'>
+
+					<fieldset>
+						<legend>
+							<span class="number">2</span>Consultar Fichajes
+						</legend>
+						<label for="name">Introduzca el mes:<br></label> <input
+							type="mes" name="mes">
+
+						<button type="submit">Buscar</button>
+					</fieldset>
+				</form>
+			</div>
+			<div class="col-sm-6" style="background-color: white;"></div>
+		</div>
 	</div>
-
 </body>
