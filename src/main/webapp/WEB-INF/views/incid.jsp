@@ -13,8 +13,8 @@
 
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	
-	<style type="text/css">
+
+<style type="text/css">
 .login-block {
 	background: #DE6262; /* fallback for old browsers */
 	background: -webkit-linear-gradient(to bottom, #FF0000, #FE2E2E);
@@ -125,18 +125,13 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-default" style="background-color: #fdfefe;">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/cerrarSesion">InTime</a>
 			</div>
 			<ul class="nav navbar-nav">
-<<<<<<< HEAD
-				<li class="active"><a href="#">Home</a></li>
 				<li><a href="/fichajeUser">Fichajes</a></li>
-=======
-				<li><a href="#">Fichajes</a></li>
->>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Gestión Incidencias <span
 						class="caret"></span></a>
@@ -154,29 +149,26 @@
 		</div>
 	</nav>
 
-<section class="login-block">
+	<section class="login-block">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 login-sec">
 					<h2 class="text-center">Gestión de Incidencias</h2>
-					<div class="copy-text">
-						Pineapple
-					</div>
+					<div class="copy-text">Pineapple</div>
 				</div>
- 				<div class="col-md-8 banner-sec">
-				
-						<ol class="carousel-indicators">
-						</ol>
-						<div >
-									<div class="banner-text">
-										<h2>In Time</h2>
-										<p>Aplicación web para la gestión
-										 de los fichajes</p>
-									</div>
-								</div>
+				<div class="col-md-8 banner-sec">
+
+					<ol class="carousel-indicators">
+					</ol>
+					<div>
+						<div class="banner-text">
+							<h2>In Time</h2>
+							<p>Aplicación web para la gestión de los fichajes</p>
+						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 	</section>
-	</body>
-	</html>
+</body>
+</html>

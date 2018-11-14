@@ -120,8 +120,7 @@ label.light {
 
 </head>
 <body>
-
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-default" style="background-color: #fdfefe;">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/cerrarSesion">InTime</a>
