@@ -6,9 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.bson.BsonDocument;
 import org.bson.BsonString;
 import org.bson.Document;
-import org.bson.conversions.Bson;
 
-import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import static com.mongodb.client.model.Filters.eq;
@@ -100,10 +98,6 @@ public class DAOEmpleado {
 			empleado.put("contrasenna", contraseñaNueva);
 			dbEmpleado.replaceOne(filter,empleado);
 		}
-<<<<<<< HEAD
-=======
-	
->>>>>>> branch 'bbdd_integration' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
 	}
 	
 	public static void updateRol(BsonDocument filtro,Document empleado,MongoCollection<Document> dbRol) {

@@ -82,27 +82,20 @@ public class HomeController {
 	
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-<<<<<<< HEAD
+
 	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password, HttpServletRequest request) throws IOException {
 		String pagina = "error";
 		HttpSession session = request.getSession(true);
-		Document doc = DAOEmpleado.autenticar(email,password);
-=======
-	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password) throws IOException {
-		String pagina = null;
 		String emailLowerCase=email.toLowerCase();
 		Document doc = DAOEmpleado.autenticar(emailLowerCase,password);
->>>>>>> branch 'bbdd_integration' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
+
 		if(doc.get("email").equals("error")) {
 			pagina = "error";
 		}
-<<<<<<< HEAD
+
 		if(doc.get("email").equals(email)) {
 			session.setAttribute("emailSession",doc.get("email"));
-=======
-		if(doc.get("email").equals(emailLowerCase)) {
-			//Crear objeto para saber quien esta en la sesion
->>>>>>> branch 'bbdd_integration' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
+
 			if(doc.get("rol").equals("admin")){
 				session.setAttribute("rolSession",doc.get("rol"));
 				pagina = "admin";
