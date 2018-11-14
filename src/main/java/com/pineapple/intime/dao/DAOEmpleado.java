@@ -6,111 +6,123 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.bson.BsonDocument;
 import org.bson.BsonString;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Updates.combine;
 
-
 public class DAOEmpleado {
-	
-	/*INSERTAR EMPLEADO*/
+
+	/* INSERTAR EMPLEADO */
 	public static void insert(Document empleado) {
-		int contador = 0;
-		MongoCollection<Document> dbEmpleado=MongoBroker.get().getCollection("Empleado");
-		MongoCollection<Document> dbRol=MongoBroker.get().getCollection("EmpleadoRol");
-		MongoCursor<Document> cursor = dbEmpleado.find().iterator();
-		while (cursor.hasNext()) {
-			Document empleadodoc = cursor.next();
-			if(!empleadodoc.getString("email").equals(empleado.get("email"))) {
-				contador = contador + 1;
-			}
-		}
-		if(contador <1) {
-			insertDatosPersonales(empleado, dbEmpleado);
-			insertRol(empleado,dbRol);
+		MongoCollection<Document> dbEmpleado = MongoBroker.get().getCollection("Empleado");
+		MongoCollection<Document> dbRol = MongoBroker.get().getCollection("EmpleadoRol");
+
+		Bson filtroEmail = null;
+		filtroEmail = eq("email", empleado.get("email"));
+		Document empleadoRol = new Document();
+		empleadoRol.append("email", empleado.get("email"));
+		empleadoRol.append("rol", empleado.get("rol"));
+		empleado.remove("rol");
+		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
+		FindIterable<Document> rol = dbEmpleado.find(filtroEmail);
+		if (!(datosPersonales.iterator().hasNext() && rol.iterator().hasNext())) {
+			dbEmpleado.insertOne(empleado);
+			dbRol.insertOne(empleadoRol);
 		}
 	}
+
 	private static void insertDatosPersonales(Document empleado, MongoCollection<Document> dbEmpleado) {
-		Document datosPersonales=new Document();
+		Document datosPersonales = new Document();
 		datosPersonales.put("email", empleado.get("email"));
-		datosPersonales.put("contrasenna",empleado.get("contrasenna"));
-		datosPersonales.put("nombre",empleado.get("nombre"));
-		datosPersonales.put("apellidos",empleado.get("apellidos"));
+		datosPersonales.put("contrasenna", empleado.get("contrasenna"));
+		datosPersonales.put("nombre", empleado.get("nombre"));
+		datosPersonales.put("apellidos", empleado.get("apellidos"));
 		dbEmpleado.insertOne(datosPersonales);
 	}
+
 	public static void insertRol(Document empleado, MongoCollection<Document> dbRol) {
-		Document rol=new Document();
+		Document rol = new Document();
 		rol.put("email", empleado.get("email"));
 		rol.put("rol", empleado.get("rol"));
-		dbRol.insertOne(rol);	
+		dbRol.insertOne(rol);
 	}
-	/*ELIMINAR EMPLEADO*/
+
+	/* ELIMINAR EMPLEADO */
 	public static void delete(Document empleado) {
-		MongoCollection<Document> dbEmpleado=MongoBroker.get().getCollection("Empleado");
-		MongoCollection<Document> dbRol=MongoBroker.get().getCollection("EmpleadoRol");
+		MongoCollection<Document> dbEmpleado = MongoBroker.get().getCollection("Empleado");
+		MongoCollection<Document> dbRol = MongoBroker.get().getCollection("EmpleadoRol");
 		deleteDatosPersonales(empleado, dbEmpleado);
-		deleteRol(empleado,dbRol);
+		deleteRol(empleado, dbRol);
 	}
+
 	private static void deleteDatosPersonales(Document empleado, MongoCollection<Document> dbEmpleado) {
-		Document datosPersonales=new Document();
+		Document datosPersonales = new Document();
 		datosPersonales.put("email", empleado.get("email"));
 		dbEmpleado.deleteOne(datosPersonales);
 	}
+
 	public static void deleteRol(Document empleado, MongoCollection<Document> dbRol) {
-		Document rol=new Document();
+		Document rol = new Document();
 		rol.put("email", empleado.get("email"));
 		rol.put("rol", empleado.get("rol"));
 		dbRol.deleteOne(rol);
 	}
-	/*MODIFICAR USUARIO*/
-	public static void update(String email,Document empleado) {
-		MongoCollection<Document> dbEmpleado= MongoBroker.get().getCollection("Empleado");
-		MongoCollection<Document> dbRol= MongoBroker.get().getCollection("EmpleadoRol");
-		BsonDocument filter=new BsonDocument();
-		filter.put("email",new BsonString((String) email));
-		updateDatosPersonales(filter,empleado,dbEmpleado);
-		updateRol(filter,empleado,dbRol);
-	}
-	private static void updateDatosPersonales(BsonDocument filtro,Document empleado, MongoCollection<Document> dbEmpleado) {
-		Document datosDesactualizados=new Document();
-		datosDesactualizados=cargarEmpleado((String)empleado.get("email"));
-		Document datosPersonales=new Document();
-		datosPersonales.put("email", empleado.get("email"));
-		datosPersonales.put("contrasenna",datosDesactualizados.get("contrasenna"));
-		datosPersonales.put("nombre",empleado.get("nombre"));
-		datosPersonales.put("apellidos",empleado.get("apellidos"));
-		dbEmpleado.replaceOne(filtro,datosPersonales);
-		
-	}
-	public static void updatePassword(String email, String contraseñaVieja,String contraseñaNueva) {
-		MongoCollection<Document> dbEmpleado= MongoBroker.get().getCollection("Empleado");
-		BsonDocument filter=new BsonDocument();
-		filter.put("email", new BsonString(email));
-		Document empleado=new Document();
-		empleado=cargarEmpleado(email);
 
-		if(empleado.get("contrasenna").equals(contraseñaVieja)) {
+	/* MODIFICAR USUARIO */
+	public static void update(String email, Document empleado) {
+		MongoCollection<Document> dbEmpleado = MongoBroker.get().getCollection("Empleado");
+		MongoCollection<Document> dbRol = MongoBroker.get().getCollection("EmpleadoRol");
+		BsonDocument filter = new BsonDocument();
+		filter.put("email", new BsonString((String) email));
+		updateDatosPersonales(filter, empleado, dbEmpleado);
+		updateRol(filter, empleado, dbRol);
+	}
+
+	private static void updateDatosPersonales(BsonDocument filtro, Document empleado,
+			MongoCollection<Document> dbEmpleado) {
+		Document datosDesactualizados = new Document();
+		datosDesactualizados = cargarEmpleado((String) empleado.get("email"));
+		Document datosPersonales = new Document();
+		datosPersonales.put("email", empleado.get("email"));
+		datosPersonales.put("contrasenna", datosDesactualizados.get("contrasenna"));
+		datosPersonales.put("nombre", empleado.get("nombre"));
+		datosPersonales.put("apellidos", empleado.get("apellidos"));
+		dbEmpleado.replaceOne(filtro, datosPersonales);
+
+	}
+
+	public static void updatePassword(String email, String contraseñaVieja, String contraseñaNueva) {
+		MongoCollection<Document> dbEmpleado = MongoBroker.get().getCollection("Empleado");
+		BsonDocument filter = new BsonDocument();
+		filter.put("email", new BsonString(email));
+		Document empleado = new Document();
+		empleado = cargarEmpleado(email);
+
+		if (empleado.get("contrasenna").equals(contraseñaVieja)) {
 			empleado.remove("rol");
 			empleado.remove("contrasenna");
 			empleado.put("contrasenna", contraseñaNueva);
-			dbEmpleado.replaceOne(filter,empleado);
+			dbEmpleado.replaceOne(filter, empleado);
 		}
 	}
-	
-	public static void updateRol(BsonDocument filtro,Document empleado,MongoCollection<Document> dbRol) {
-		Document rol=new Document();
+
+	public static void updateRol(BsonDocument filtro, Document empleado, MongoCollection<Document> dbRol) {
+		Document rol = new Document();
 		rol.put("email", empleado.get("email"));
 		rol.put("rol", empleado.get("rol"));
-		dbRol.replaceOne(filtro,rol);
-		
+		dbRol.replaceOne(filtro, rol);
+
 	}
-	/* CARGAR EMPLEADOS*/
+
+	/* CARGAR EMPLEADOS */
 	public static ConcurrentHashMap<String, Document> cargarEmpleados() {
 		MongoCollection<Document> dbEmpleado = MongoBroker.get().getCollection("Empleado");
-		ConcurrentHashMap<String, Document> result=new ConcurrentHashMap<String, Document>();
+		ConcurrentHashMap<String, Document> result = new ConcurrentHashMap<String, Document>();
 		MongoCursor<Document> cursor = dbEmpleado.find().iterator();
 		while (cursor.hasNext()) {
 			Document empleadodoc = cursor.next();
@@ -118,55 +130,57 @@ public class DAOEmpleado {
 		}
 		return result;
 	}
+
 	public static Document cargarEmpleado(String email) {
 		MongoCollection<Document> dbEmpleado = MongoBroker.get().getCollection("Empleado");
-		BsonDocument filter=new BsonDocument();
-		filter.put("email",new BsonString((String) email));
-		MongoCursor<Document> result=dbEmpleado.find(filter).iterator();
-		Document empleado=result.next();
-		if(empleado.get("email").equals(email)) {
+		BsonDocument filter = new BsonDocument();
+		filter.put("email", new BsonString((String) email));
+		MongoCursor<Document> result = dbEmpleado.find(filter).iterator();
+		Document empleado = result.next();
+		if (empleado.get("email").equals(email)) {
 			empleado.put("rol", cargarRol(email));
 		}
-		if(empleado.isEmpty()) {
+		if (empleado.isEmpty()) {
 			empleado.append("error", "error");
 		}
 		return empleado;
 	}
-	/*AUTENTICACION */
-	public static Document autenticar(String email,String contrasenna) {		
-		Boolean autenticado=false;
-		Document empleadoAut=new Document();
 
-		MongoCollection<Document> collection= MongoBroker.get().getCollection("Empleado");
-		Iterator<Document>empleados=collection.find().iterator();
-		while(empleados.hasNext()) {
-			Document doc_empleado=empleados.next();
-			if(doc_empleado.get("email").equals(email) && doc_empleado.get("contrasenna").equals(contrasenna)) {
+	/* AUTENTICACION */
+	public static Document autenticar(String email, String contrasenna) {
+		Boolean autenticado = false;
+		Document empleadoAut = new Document();
+
+		MongoCollection<Document> collection = MongoBroker.get().getCollection("Empleado");
+		Iterator<Document> empleados = collection.find().iterator();
+		while (empleados.hasNext()) {
+			Document doc_empleado = empleados.next();
+			if (doc_empleado.get("email").equals(email) && doc_empleado.get("contrasenna").equals(contrasenna)) {
 				empleadoAut.append("email", email);
 				empleadoAut.append("contrasenna", contrasenna);
 				empleadoAut.append("rol", cargarRol(email));
 			}
 		}
-		
-		if(empleadoAut.isEmpty()) {
+
+		if (empleadoAut.isEmpty()) {
 			empleadoAut.append("email", "error");
 		}
-		
+
 		return empleadoAut;
 	}
+
 	public static String cargarRol(String email) {
-		String rol="";
-		MongoCollection<Document> dbRol= MongoBroker.get().getCollection("EmpleadoRol");
-		Iterator<Document>roles=dbRol.find().iterator();
-		while(roles.hasNext()) {
-			Document doc_rol=roles.next();
-			if(doc_rol.get("email").equals(email)) {
-				rol=(String) doc_rol.get("rol");
+		String rol = "";
+		MongoCollection<Document> dbRol = MongoBroker.get().getCollection("EmpleadoRol");
+		Iterator<Document> roles = dbRol.find().iterator();
+		while (roles.hasNext()) {
+			Document doc_rol = roles.next();
+			if (doc_rol.get("email").equals(email)) {
+				rol = (String) doc_rol.get("rol");
 			}
 		}
 		return rol;
-		
-		
+
 	}
-	
+
 }
