@@ -124,35 +124,48 @@ label.light {
 <body>
 
 
-	<nav class="navbar navbar-inverse">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="/cerrarSesion">InTime</a>
+<nav class="navbar navbar-default" style="background-color: #fdfefe;">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/cerrarSesion">InTime</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+
+						<li><a href="/newUser">Crear</a></li>
+						<li><a href="/deleteUser">Eliminar</a></li>
+						<li><a href="/updateUser">Modificar</a></li>
+					</ul></li>
+
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Fichajes<span
+						class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="/fichajeUser">Fichar</a></li>
+						<li><a href="/consultaFichaje">Consultar</a></li>
+
+					</ul></li>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Gestión Incidencias <span
+						class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Crear</a></li>
+						<li><a href="#">Eliminar</a></li>
+						<li><a href="#">Modificar</a></li>
+					</ul></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/viewUpdatePassword"><span
+						class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
+				<li><a href="/cerrarSesion"><span
+						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+
+			</ul>
 		</div>
-		<ul class="nav navbar-nav">
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="/newUser">Crear</a></li>
-					<li><a href="/deleteUser">Eliminar</a></li>
-					<li><a href="/updateUser">Modificar</a></li>
-				</ul></li>
-			<li><a href="#">Fichajes</a></li>
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">Gestión Incidencias <span
-					class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="#">Crear</a></li>
-					<li><a href="#">Eliminar</a></li>
-					<li><a href="#">Modificar</a></li>
-				</ul></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="/cerrarSesion"><span class="glyphicon glyphicon-log-in"></span>
-					Cerrar Sesión</a></li>
-		</ul>
-	</div>
 	</nav>
+
 
 	<form name='loginForm' action='/saveUser' method='POST'>
 		<h1>Registro</h1>
@@ -160,26 +173,29 @@ label.light {
 			<legend>
 				<span class="number">1</span>Información básica
 			</legend>
-			<label for="name">Nombre:</label> <input type="text" required autocomplete="off" name="nombre"> 
-			<label for="name">Apellido:</label><input type="text" required autocomplete="off" name="apellidos"> 
-			<label for="mail">Email:</label> <input type="email" required autocomplete="off" name="email">
+			<label for="name">Nombre:</label> <input type="text" required
+				autocomplete="off" name="nombre"> <label for="name">Apellido:</label><input
+				type="text" required autocomplete="off" name="apellidos"> <label
+				for="mail">Email:</label> <input type="email" required
+				autocomplete="off" name="email">
 		</fieldset>
 
 		<fieldset>
 			<legend>
 				<span class="number">2</span>Seleccionar Rol
 			</legend>
-			<label>Roles:</label> 
-			<input type="radio" id="admin" value="admin" required autocomplete="off" name="rol" >
-			<label class="light" for="Administrador">Administrador</label><br> 
-			<input type="radio" id="usuario" value="user" required autocomplete="off" name="rol" >
-			<label class="light" for="Usuario">Usuario</label><br> 
-			<input type="radio" id="gestor" value="incid" required autocomplete="off" name="rol" >
-			<label class="light" for="Gestor">Gestor</label>
+			<label>Roles:</label> <input type="radio" id="admin" value="admin"
+				required autocomplete="off" name="rol"> <label class="light"
+				for="Administrador">Administrador</label><br> <input
+				type="radio" id="usuario" value="user" required autocomplete="off"
+				name="rol"> <label class="light" for="Usuario">Usuario</label><br>
+			<input type="radio" id="gestor" value="incid" required
+				autocomplete="off" name="rol"> <label class="light"
+				for="Gestor">Gestor</label>
 		</fieldset>
-		
+
 		<button type="submit">Registrar</button>
-		
+
 	</form>
 
 

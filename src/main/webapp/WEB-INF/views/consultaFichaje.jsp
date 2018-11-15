@@ -11,7 +11,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<title>Realizar Fichaje</title>
+<title>Gestor Fichajes</title>
 
 <style type="text/css">
 *, *:before, *:after {
@@ -40,7 +40,8 @@ h1 {
 
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"],
 	input[type="email"], input[type="number"], input[type="search"], input[type="tel"],
-	input[type="time"], input[type="url"], input[type="mes"], textarea, select {
+	input[type="time"], input[type="url"], input[type="mes"], textarea,
+	select {
 	background: rgba(255, 255, 255, 0.1);
 	border: none;
 	font-size: 16px;
@@ -122,14 +123,12 @@ label.light {
 </style>
 </head>
 <body>
-
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-default" style="background-color: #fdfefe;">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">InTime</a>
+				<a class="navbar-brand" href="/cerrarSesion">InTime</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
 					<ul class="dropdown-menu">
@@ -138,9 +137,16 @@ label.light {
 						<li><a href="/deleteUser">Eliminar</a></li>
 						<li><a href="/updateUser">Modificar</a></li>
 					</ul></li>
-				<li><a href="#">Fichajes</a></li>
+
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Gestion Incidencias <span
+					data-toggle="dropdown" href="#">Fichajes<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="/fichajeUser">Fichar</a></li>
+						<li><a href="/consultaFichaje">Consultar</a></li>
+
+					</ul></li>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Gestión Incidencias <span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Crear</a></li>
@@ -149,11 +155,15 @@ label.light {
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/viewUpdatePassword"><span
+						class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
 				<li><a href="/cerrarSesion"><span
 						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+
 			</ul>
 		</div>
 	</nav>
+
 	<!-- 	<div class="container">
 		<form name='searchForm' action='/searchUser' method='POST'>
 
@@ -190,40 +200,19 @@ label.light {
 		<div class="page-header">
 			<h1>Gestor de Fichajes</h1>
 		</div>
-		<div class="row">
-			<div class="col-sm-6" style="background-color: white;">
+		<form name='searchForm' action='/searchUser' method='POST'>
 
+			<fieldset>
+				<legend>
+					<span class="number">2</span>Consultar Fichajes
+				</legend>
+				<label for="name">Introduzca el mes:<br></label> <input
+					type="mes" name="mes">
 
-				<form name='searchForm' action='/searchUser' method='POST'>
-
-					<fieldset>
-						<legend>
-							<span class="number">1</span>Realizar Fichaje
-						</legend>
-						<label for="name">Sesión activa:</label> <input type="email"
-							name="email">
-						<button type="submit">Entrada</button>
-						<button type="submit">Salida</button>
-					</fieldset>
-				</form>
-
-
-			</div>
-			<div class="col-sm-6" style="background-color: white;">
-
-			<form name='searchForm' action='/searchUser' method='POST'>
-
-					<fieldset>
-						<legend>
-							<span class="number">2</span>Consultar Fichajes
-						</legend>
-						<label for="name">Introduzca el mes:<br></label> <input type="mes"
-							name="mes">
-						
-						<button type="submit">Buscar</button>
-					</fieldset>
-				</form>
-			</div>
-		</div>
+				<button type="submit">Buscar</button>
+			</fieldset>
+		</form>
 	</div>
+	<div class="col-sm-6" style="background-color: white;"></div>
+
 </body>

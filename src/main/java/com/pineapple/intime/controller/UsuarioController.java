@@ -21,8 +21,6 @@ import com.pineapple.intime.dominio.EmpleadoHelper;
 @Controller
 public class UsuarioController {
 	
-	
-	
 	@RequestMapping(value = "/newUser", method = RequestMethod.GET)
 	public ModelAndView newUser(ModelAndView model) {
 		model.setViewName("newUser");
@@ -34,24 +32,13 @@ public class UsuarioController {
 		model.setViewName("deleteUser");
 		return model;
 	}
-	
-	@RequestMapping(value = "/fichajeUser", method = RequestMethod.GET)
-	public ModelAndView fichajeUser(ModelAndView model) {
-		model.setViewName("fichajeUser");
-		return model;
-	}
-	
-	@RequestMapping(value = "/consultaFichaje", method = RequestMethod.GET)
-	public ModelAndView consultaFichaje(ModelAndView model) {
-		model.setViewName("/consultaFichaje");
-		return model;
-	}
-	
+		
 	@RequestMapping(value = "/actionDeleteUser", method = RequestMethod.POST)
 	public String actionDeleteUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
 		Document empleado=new Document();
-		empleado.put("email", email);
+		String emailLowerCase=email.toLowerCase();
+		empleado.put("email", emailLowerCase);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
@@ -74,7 +61,7 @@ public class UsuarioController {
 	public String updatePassword(@ModelAttribute("passwordVieja") String contraseñaVieja,
 			@ModelAttribute("passwordNueva") String contraseñaNueva, HttpServletRequest request) {
 		HttpSession session = request.getSession(true);
-		String email = (String) session.getAttribute("email");
+		String email = (String) session.getAttribute("emailSession");
 		DAOEmpleado.updatePassword(email,contraseñaVieja,contraseñaNueva);
 		return "user";
 	}
@@ -84,7 +71,8 @@ public class UsuarioController {
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
 		Document empleado=new Document();
 		String contrasenna = EmpleadoHelper.generarContraseña();
-		empleado.put("email", email);
+		String emailLowerCase=email.toLowerCase();
+		empleado.put("email", emailLowerCase);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
@@ -100,7 +88,8 @@ public class UsuarioController {
 	public String editUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("emailAntiguo") String emailAntiguo, @ModelAttribute("emailNuevo") String emailNuevo, @ModelAttribute("rol") String rol) {
 		Document empleado=new Document();
-		empleado.put("email", emailNuevo);
+		String emailLowerCase=emailNuevo.toLowerCase();
+		empleado.put("email", emailLowerCase);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
@@ -110,8 +99,9 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/searchUser", method = RequestMethod.POST)
 	public ModelAndView searchUser(ModelAndView model, @ModelAttribute("email") String email) {
+		String emailLowerCase=email.toLowerCase();
 		try {
-			Document empleado = DAOEmpleado.cargarEmpleado(email);
+			Document empleado = DAOEmpleado.cargarEmpleado(emailLowerCase);
 			model.addObject("nombre", empleado.get("nombre"));
 			model.addObject("apellidos", empleado.get("apellidos"));
 			model.addObject("email", empleado.get("email"));
@@ -130,8 +120,9 @@ public class UsuarioController {
 	@RequestMapping(value = "/deleteSearchUser", method = RequestMethod.POST)
 	public ModelAndView deleteSearchUser(ModelAndView model, @ModelAttribute("email") String email) {
 		Document empleado = new Document();
+		String emailLowerCase=email.toLowerCase();
 		try {
-			empleado = DAOEmpleado.cargarEmpleado(email);
+			empleado = DAOEmpleado.cargarEmpleado(emailLowerCase);
 			model.addObject("nombre", empleado.get("nombre"));
 			model.addObject("apellidos", empleado.get("apellidos"));
 			model.addObject("email", empleado.get("email"));

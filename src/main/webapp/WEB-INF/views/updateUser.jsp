@@ -123,7 +123,7 @@ label.light {
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default" style="background-color: #fdfefe;">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/cerrarSesion">InTime</a>
@@ -137,7 +137,15 @@ label.light {
 						<li><a href="/deleteUser">Eliminar</a></li>
 						<li><a href="/updateUser">Modificar</a></li>
 					</ul></li>
-				<li><a href="#">Fichajes</a></li>
+
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Fichajes<span
+						class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="/fichajeUser">Fichar</a></li>
+						<li><a href="/consultaFichaje">Consultar</a></li>
+
+					</ul></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Gestión Incidencias <span
 						class="caret"></span></a>
@@ -148,11 +156,15 @@ label.light {
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/viewUpdatePassword"><span
+						class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
 				<li><a href="/cerrarSesion"><span
 						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+
 			</ul>
 		</div>
 	</nav>
+
 	<!-- 	<div class="container">
 		<form name='searchForm' action='/searchUser' method='POST'>
 
@@ -211,21 +223,22 @@ label.light {
 						<legend>
 							<span class="number">2</span>Modificar campos
 						</legend>
-					 	<input type="hidden" name="emailAntiguo" readonly value=${email} >
-						<label for="nombre">Nombre</label> 
-						<input type="text" name="nombre" required autocomplete="off" value=${nombre} >
-						<label for="apellidos">Apellidos</label>
-						<input type="text" name="apellidos" required autocomplete="off" value=${apellidos} >
-						<label for="email">Nuevo Email</label>
-						<input type="email" name="emailNuevo" required autocomplete="off" value=${email} >
-						<label for="rol">Rol</label>
-						<input type="text" readonly name="rolActual" required autocomplete="off" value=${rol} >
-						<label>Roles Disponibles:</label>
-						<input type="radio" id="admin" value="admin" required autocomplete="off" name="rol">
-						<label class="light" for="Administrador">Administrador</label><br>
-						<input type="radio" id="usuario" value="user" required autocomplete="off" name="rol">
-						<label class="light" for="Usuario">Usuario</label><br> 
-						<input type="radio" id="gestor" value="incid" required autocomplete="off" name="rol">
+						<input type="hidden" name="emailAntiguo" readonly value=${email} >
+						<label for="nombre">Nombre</label> <input type="text"
+							name="nombre" required autocomplete="off" value=${nombre} >
+						<label for="apellidos">Apellidos</label> <input type="text"
+							name="apellidos" required autocomplete="off" value=${apellidos} >
+						<label for="email">Nuevo Email</label> <input type="email"
+							name="emailNuevo" required autocomplete="off" value=${email} >
+						<label for="rol">Rol</label> <input type="text" readonly
+							name="rolActual" required autocomplete="off" value=${rol} >
+						<label>Roles Disponibles:</label> <input type="radio" id="admin"
+							value="admin" required autocomplete="off" name="rol"> <label
+							class="light" for="Administrador">Administrador</label><br>
+						<input type="radio" id="usuario" value="user" required
+							autocomplete="off" name="rol"> <label class="light"
+							for="Usuario">Usuario</label><br> <input type="radio"
+							id="gestor" value="incid" required autocomplete="off" name="rol">
 						<label class="light" for="Gestor">Gestor</label>
 					</fieldset>
 
