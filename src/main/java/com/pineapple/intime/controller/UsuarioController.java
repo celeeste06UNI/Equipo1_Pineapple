@@ -70,7 +70,11 @@ public class UsuarioController {
 	public String saveUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
 		Document empleado=new Document();
+<<<<<<< HEAD
 		String contrasenna = EmpleadoHelper.generarContraseña();
+=======
+		String contraseña = EmpleadoHelper.generarContraseña();
+>>>>>>> branch 'bbdd_integration' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
 		String emailLowerCase=email.toLowerCase();
 		empleado.put("email", emailLowerCase);
 		empleado.put("rol", rol);
