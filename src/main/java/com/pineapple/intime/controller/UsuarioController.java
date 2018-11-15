@@ -88,7 +88,8 @@ public class UsuarioController {
 	public String editUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("emailAntiguo") String emailAntiguo, @ModelAttribute("emailNuevo") String emailNuevo, @ModelAttribute("rol") String rol) {
 		Document empleado=new Document();
-		empleado.put("email", emailNuevo);
+		String emailLowerCase=emailNuevo.toLowerCase();
+		empleado.put("email", emailLowerCase);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
@@ -98,8 +99,9 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/searchUser", method = RequestMethod.POST)
 	public ModelAndView searchUser(ModelAndView model, @ModelAttribute("email") String email) {
+		String emailLowerCase=email.toLowerCase();
 		try {
-			Document empleado = DAOEmpleado.cargarEmpleado(email);
+			Document empleado = DAOEmpleado.cargarEmpleado(emailLowerCase);
 			model.addObject("nombre", empleado.get("nombre"));
 			model.addObject("apellidos", empleado.get("apellidos"));
 			model.addObject("email", empleado.get("email"));
@@ -118,8 +120,9 @@ public class UsuarioController {
 	@RequestMapping(value = "/deleteSearchUser", method = RequestMethod.POST)
 	public ModelAndView deleteSearchUser(ModelAndView model, @ModelAttribute("email") String email) {
 		Document empleado = new Document();
+		String emailLowerCase=email.toLowerCase();
 		try {
-			empleado = DAOEmpleado.cargarEmpleado(email);
+			empleado = DAOEmpleado.cargarEmpleado(emailLowerCase);
 			model.addObject("nombre", empleado.get("nombre"));
 			model.addObject("apellidos", empleado.get("apellidos"));
 			model.addObject("email", empleado.get("email"));
