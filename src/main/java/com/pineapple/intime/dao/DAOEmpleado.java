@@ -160,7 +160,8 @@ public class DAOEmpleado {
 		while (empleados.hasNext()) {
 			Document doc_empleado = empleados.next();
 			if (doc_empleado.get("email").equals(email) && doc_empleado.get("contrasenna").equals(contrasenna)) {
-				empleadoAut.append("email", email);
+				String emailLowerCase=email.toLowerCase();
+				empleadoAut.append("email", emailLowerCase);
 				empleadoAut.append("contrasenna", contrasenna);
 				empleadoAut.append("rol", cargarRol(email));
 			}

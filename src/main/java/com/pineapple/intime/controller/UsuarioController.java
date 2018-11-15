@@ -37,7 +37,8 @@ public class UsuarioController {
 	public String actionDeleteUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
 		Document empleado=new Document();
-		empleado.put("email", email);
+		String emailLowerCase=email.toLowerCase();
+		empleado.put("email", emailLowerCase);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
@@ -70,7 +71,8 @@ public class UsuarioController {
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
 		Document empleado=new Document();
 		String contrasenna = EmpleadoHelper.generarContraseña();
-		empleado.put("email", email);
+		String emailLowerCase=email.toLowerCase();
+		empleado.put("email", emailLowerCase);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
