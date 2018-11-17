@@ -25,25 +25,31 @@ public class DAOFichaje {
 	public static boolean abrirFichaje(String email) {
 		Boolean fichado=false;
 		Bson fichaje=null;
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Date fecha=new Date();
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+	
 		Bson filtroEmail=null;
 		filtroEmail=eq("email",email);
-		String horaInicio=(String)dateFormat.format(new Date());
+		String horaInicio=(String)hourFormat.format(new Date());
+		String fechaInicio=(String)dateFormat.format(new Date());
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
 		FindIterable<Document> estadoFichaje = dbEstadoFichaje.find(filtroEmail);
     	if(datosPersonales.iterator().hasNext() && estadoFichaje.iterator().hasNext() ) {
-    		fichaje=combine(set("email",email),set("estado","abierto"),set("horaInicio",horaInicio),set("horaFin",""));
+    		fichaje=combine(set("email",email),set("estado","abierto"),set("horaInicio",horaInicio),set("fechaInicio",fechaInicio),set("horaFin",""),set("fechaFin",""));
     		UpdateResult urFichaje=dbEstadoFichaje.updateOne(filtroEmail,fichaje);
+    		
     		if(urFichaje.wasAcknowledged()) {
-    			fichado=true;
+      			fichado=true;
     		}
+  
     	}else if(datosPersonales.iterator().hasNext() && !estadoFichaje.iterator().hasNext()){
     		Document fichajeNuevo=new Document();
     		fichajeNuevo.put("email", email);
     		fichajeNuevo.put("estado", "abierto");
+    		fichajeNuevo.put("fechaInicio", fechaInicio);
     		fichajeNuevo.put("horaInicio", horaInicio);
     		fichajeNuevo.put("horaFin", "");
+    		fichajeNuevo.put("fechaFin", "");
     		dbEstadoFichaje.insertOne(fichajeNuevo);
     		fichado=true;
     	}
@@ -53,23 +59,28 @@ public class DAOFichaje {
 	public static boolean cerrarFichaje(String email) {
 		Boolean fichado=false;
     	Bson fichaje=null;
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Date fecha=new Date();
+    	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+		String horaFin=(String)hourFormat.format(new Date());
+		String fechaFin=(String)dateFormat.format(new Date());
+		
 		Bson filtroEmail=null;
 		filtroEmail=eq("email",email);
-		String horaFin=(String)dateFormat.format(new Date());
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
 		FindIterable<Document> estadoFichaje = dbEstadoFichaje.find(filtroEmail);
-    	if(datosPersonales.iterator().hasNext() && estadoFichaje.iterator().hasNext() && estadoFichaje.iterator().next().get("horaFin").equals("") ) {
+    	if(datosPersonales.iterator().hasNext() && estadoFichaje.iterator().hasNext() && estadoFichaje.iterator().next().get("horaFin").equals("") && estadoFichaje.iterator().next().get("fechaFin").equals("")  ) {
     		
-    		fichaje=combine(set("email",email),set("estado","cerrado"),set("horaFin",horaFin));
+    		fichaje=combine(set("email",email),set("estado","cerrado"),set("horaFin",horaFin),set("fechaFin",fechaFin));
     		UpdateResult urFichaje=dbEstadoFichaje.updateOne(filtroEmail,fichaje);
     		if(urFichaje.wasAcknowledged()) {
     			fichado=true;
     			Document cierreFichaje=estadoFichaje.iterator().next();
     			Document fichajeNuevo=new Document();
 	    		fichajeNuevo.put("email",cierreFichaje.get("email") );
+	    		fichajeNuevo.put("fechaInicio",cierreFichaje.get("fechaInicio") );
 	    		fichajeNuevo.put("horaInicio",cierreFichaje.get("horaInicio") );
+	    		
+	    		fichajeNuevo.put("fechaFin",cierreFichaje.get("fechaFin") );
 	    		fichajeNuevo.put("horaFin",cierreFichaje.get("horaFin") );
 	    		dbFichaje.insertOne(fichajeNuevo);
     		}
@@ -78,6 +89,5 @@ public class DAOFichaje {
     	}
     	return fichado;
 	}
-
 
 }
