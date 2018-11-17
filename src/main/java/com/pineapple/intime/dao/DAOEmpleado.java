@@ -143,11 +143,11 @@ public class DAOEmpleado {
 	}
 	/*AUTENTICACION */
 	public static Document autenticar(String email,String contrasenna) throws Exception {	
-		//String passCifrada = EmpleadoHelper.cifra(contrasenna);
-		//String passHex = EmpleadoHelper.ConvertirHexadecimal(passCifrada);
+		String passCifrada = EmpleadoHelper.cifra(contrasenna);
+		String passHex = EmpleadoHelper.ConvertirHexadecimal(passCifrada);
     	Bson filtroAutenticar=null;
     	Bson filtroRol=null;
-    	filtroAutenticar=and(eq("email",email),eq("contrasenna",contrasenna));
+    	filtroAutenticar=and(eq("email",email),eq("contrasenna",passHex));
     	filtroRol=eq("email",email);
     	FindIterable<Document> datosPersonales=dbEmpleado.find(filtroAutenticar);
     	FindIterable<Document> rol=dbRol.find(filtroRol);
