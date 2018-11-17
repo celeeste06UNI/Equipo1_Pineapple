@@ -58,19 +58,19 @@ public class UsuarioController {
 		return model;
 	}
 	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
-	public String updatePassword(@ModelAttribute("passwordVieja") String contraseñaVieja,
-			@ModelAttribute("passwordNueva") String contraseñaNueva, HttpServletRequest request) {
+	public String updatePassword(@ModelAttribute("passwordVieja") String contrasennaVieja,
+			@ModelAttribute("passwordNueva") String contrasennaNueva, HttpServletRequest request) {
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
-		DAOEmpleado.updatePassword(email,contraseñaVieja,contraseñaNueva);
+		DAOEmpleado.updatePassword(email,contrasennaVieja,contrasennaNueva);
 		return "user";
 	}
 	
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
-			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
+			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) throws Exception {
 		Document empleado=new Document();
-		String contrasenna = EmpleadoHelper.generarContraseña();
+		String contrasenna = EmpleadoHelper.generarContrasenna();
 		String emailLowerCase=email.toLowerCase();
 		empleado.put("email", emailLowerCase);
 		empleado.put("rol", rol);

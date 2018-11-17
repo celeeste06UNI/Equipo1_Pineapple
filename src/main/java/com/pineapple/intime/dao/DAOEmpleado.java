@@ -15,6 +15,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
+import com.pineapple.intime.dominio.EmpleadoHelper;
 
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.and;
@@ -137,7 +138,9 @@ public class DAOEmpleado {
     	return empleado;
 	}
 	/*AUTENTICACION */
-	public static Document autenticar(String email,String contrasenna) {		
+	public static Document autenticar(String email,String contrasenna) throws Exception {	
+		String passCifrada = EmpleadoHelper.cifra(contrasenna);
+		String passHex = EmpleadoHelper.ConvertirHexadecimal(passCifrada);
     	Bson filtroAutenticar=null;
     	Bson filtroRol=null;
     	filtroAutenticar=and(eq("email",email),eq("contrasenna",contrasenna));
