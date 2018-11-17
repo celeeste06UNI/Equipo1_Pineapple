@@ -90,11 +90,15 @@ public class DAOEmpleado {
     	return actualizado;
 	}
 	/*ACTUALIZAR CONTRASEÑA*/
-	public static boolean updatePassword(String email, String contrasennaAntigua,String contrasennaNueva) {
+	public static boolean updatePassword(String email, String contrasennaAntigua,String contrasennaNueva) throws Exception {
+		String passAntCifrada = EmpleadoHelper.cifra(contrasennaAntigua);
+		String passAntHex = EmpleadoHelper.ConvertirHexadecimal(passAntCifrada);
+		String passNuevaCifrada = EmpleadoHelper.cifra(contrasennaNueva);
+		String passNuevaHex = EmpleadoHelper.ConvertirHexadecimal(passNuevaCifrada);
 		Bson filtroEmail=null;
-    	filtroEmail=and(eq("email",email),eq("contrasenna",contrasennaAntigua));
+    	filtroEmail=and(eq("email",email),eq("contrasenna",passAntHex));
     	Bson updatePassword=null;
-    	updatePassword=set("contrasenna",contrasennaNueva);
+    	updatePassword=set("contrasenna",passNuevaHex);
     	FindIterable<Document> datosContrasenna = dbEmpleado.find(filtroEmail);
     	boolean actualizado=false;
     	if(datosContrasenna.iterator().hasNext()) {
