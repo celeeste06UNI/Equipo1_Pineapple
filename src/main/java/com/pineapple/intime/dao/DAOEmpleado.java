@@ -143,7 +143,7 @@ public class DAOEmpleado {
 		String passHex = EmpleadoHelper.ConvertirHexadecimal(passCifrada);
     	Bson filtroAutenticar=null;
     	Bson filtroRol=null;
-    	filtroAutenticar=and(eq("email",email),eq("contrasenna",contrasenna));
+    	filtroAutenticar=and(eq("email",email),eq("contrasenna",passHex));
     	filtroRol=eq("email",email);
     	FindIterable<Document> datosPersonales=dbEmpleado.find(filtroAutenticar);
     	FindIterable<Document> rol=dbRol.find(filtroRol);
