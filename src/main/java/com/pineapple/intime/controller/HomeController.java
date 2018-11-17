@@ -83,7 +83,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 
-	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password, HttpServletRequest request) throws IOException {
+	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password, HttpServletRequest request) throws Exception {
 		String pagina = "error";
 		HttpSession session = request.getSession(true);
 		String emailLowerCase=email.toLowerCase();
