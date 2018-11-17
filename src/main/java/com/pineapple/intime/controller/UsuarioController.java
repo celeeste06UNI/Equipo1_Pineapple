@@ -60,9 +60,13 @@ public class UsuarioController {
 	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
 	public String updatePassword(@ModelAttribute("passwordVieja") String contrasennaVieja,
 			@ModelAttribute("passwordNueva") String contrasennaNueva, HttpServletRequest request) throws Exception {
+		String passAntCifrada = EmpleadoHelper.cifra(contrasennaVieja);
+		String passAntHex = EmpleadoHelper.ConvertirHexadecimal(passAntCifrada);
+		String passNuevaCifrada = EmpleadoHelper.cifra(contrasennaNueva);
+		String passNuevaHex = EmpleadoHelper.ConvertirHexadecimal(passNuevaCifrada);
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
-		DAOEmpleado.updatePassword(email,contrasennaVieja,contrasennaNueva);
+		DAOEmpleado.updatePassword(email,passAntHex,passNuevaHex);
 		return "user";
 	}
 	

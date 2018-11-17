@@ -91,14 +91,14 @@ public class DAOEmpleado {
 	}
 	/*ACTUALIZAR CONTRASEÑA*/
 	public static boolean updatePassword(String email, String contrasennaAntigua,String contrasennaNueva) throws Exception {
-		String passAntCifrada = EmpleadoHelper.cifra(contrasennaAntigua);
-		String passAntHex = EmpleadoHelper.ConvertirHexadecimal(passAntCifrada);
-		String passNuevaCifrada = EmpleadoHelper.cifra(contrasennaNueva);
-		String passNuevaHex = EmpleadoHelper.ConvertirHexadecimal(passNuevaCifrada);
+		//String passAntCifrada = EmpleadoHelper.cifra(contrasennaAntigua);
+		//String passAntHex = EmpleadoHelper.ConvertirHexadecimal(passAntCifrada);
+		//String passNuevaCifrada = EmpleadoHelper.cifra(contrasennaNueva);
+		//String passNuevaHex = EmpleadoHelper.ConvertirHexadecimal(passNuevaCifrada);
 		Bson filtroEmail=null;
-    	filtroEmail=and(eq("email",email),eq("contrasenna",passAntHex));
+    	filtroEmail=and(eq("email",email),eq("contrasenna",contrasennaAntigua));
     	Bson updatePassword=null;
-    	updatePassword=set("contrasenna",passNuevaHex);
+    	updatePassword=set("contrasenna",contrasennaNueva);
     	FindIterable<Document> datosContrasenna = dbEmpleado.find(filtroEmail);
     	boolean actualizado=false;
     	if(datosContrasenna.iterator().hasNext()) {
@@ -143,11 +143,11 @@ public class DAOEmpleado {
 	}
 	/*AUTENTICACION */
 	public static Document autenticar(String email,String contrasenna) throws Exception {	
-		String passCifrada = EmpleadoHelper.cifra(contrasenna);
-		String passHex = EmpleadoHelper.ConvertirHexadecimal(passCifrada);
+		//String passCifrada = EmpleadoHelper.cifra(contrasenna);
+		//String passHex = EmpleadoHelper.ConvertirHexadecimal(passCifrada);
     	Bson filtroAutenticar=null;
     	Bson filtroRol=null;
-    	filtroAutenticar=and(eq("email",email),eq("contrasenna",passHex));
+    	filtroAutenticar=and(eq("email",email),eq("contrasenna",contrasenna));
     	filtroRol=eq("email",email);
     	FindIterable<Document> datosPersonales=dbEmpleado.find(filtroAutenticar);
     	FindIterable<Document> rol=dbRol.find(filtroRol);
