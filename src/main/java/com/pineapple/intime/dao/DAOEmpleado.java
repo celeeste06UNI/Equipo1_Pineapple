@@ -89,12 +89,8 @@ public class DAOEmpleado {
     	}
     	return actualizado;
 	}
-	/*ACTUALIZAR CONTRASEÑA*/
+	/*ACTUALIZAR CONTRASENNA*/
 	public static boolean updatePassword(String email, String contrasennaAntigua,String contrasennaNueva) throws Exception {
-		//String passAntCifrada = EmpleadoHelper.cifra(contrasennaAntigua);
-		//String passAntHex = EmpleadoHelper.ConvertirHexadecimal(passAntCifrada);
-		//String passNuevaCifrada = EmpleadoHelper.cifra(contrasennaNueva);
-		//String passNuevaHex = EmpleadoHelper.ConvertirHexadecimal(passNuevaCifrada);
 		Bson filtroEmail=null;
     	filtroEmail=and(eq("email",email),eq("contrasenna",contrasennaAntigua));
     	Bson updatePassword=null;
