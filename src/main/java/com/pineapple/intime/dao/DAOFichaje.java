@@ -89,5 +89,41 @@ public class DAOFichaje {
     	}
     	return fichado;
 	}
+	public static Document consultarFichajes(String email,String fecha) {
+
+		Bson filtroFichaje=and(eq("email",email),eq("fechaFin",fecha),eq("fechaInicio",fecha));
+		FindIterable<Document> cursor = dbFichaje.find(filtroFichaje);
+		Document resultado=new Document();
+		
+		resultado.put("email", email);
+		Integer cont=0;
+		for (Document doc : cursor) {
+			cont=cont+1;
+			String fichajeInicio=doc.get("fechaInicio")+" "+doc.getString("horaInicio");
+			String fichajeFin=doc.get("fechaFin")+" "+doc.getString("horaFin");
+			String fichaje=fichajeInicio + " "+fichajeFin;
+			resultado.put(cont.toString(), fichaje);
+
+		}
+		return resultado;
+	}
+	public static Document consultarFichajesEmpleado(String email) {
+		Bson filtroEmail=null;
+		filtroEmail=in("email",email);
+		FindIterable<Document> cursor = dbFichaje.find(filtroEmail);
+		Document resultado=new Document();
+		
+		resultado.put("email", email);
+		Integer cont=0;
+		for (Document doc : cursor) {
+			cont=cont+1;
+			String fichajeInicio=doc.get("fechaInicio")+" "+doc.getString("horaInicio");
+			String fichajeFin=doc.get("fechaFin")+" "+doc.getString("horaFin");
+			String fichaje=fichajeInicio + " "+fichajeFin;
+			resultado.put(cont.toString(), fichaje);
+
+		}
+		return resultado;
+	}
 
 }
