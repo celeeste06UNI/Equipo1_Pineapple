@@ -3,6 +3,7 @@ package com.pineapple.intime.dao;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -27,6 +28,8 @@ public class DAOFichaje {
 		Bson fichaje=null;
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
+		hourFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
 	
 		Bson filtroEmail=null;
 		filtroEmail=eq("email",email);
@@ -61,6 +64,9 @@ public class DAOFichaje {
     	Bson fichaje=null;
     	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
+		hourFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
+	
 		String horaFin=(String)hourFormat.format(new Date());
 		String fechaFin=(String)dateFormat.format(new Date());
 		
