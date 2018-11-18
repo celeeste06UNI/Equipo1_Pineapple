@@ -16,37 +16,37 @@ import com.pineapple.intime.dao.DAOFichaje;
 
 @Controller
 public class FichajeController {
-	
+
 	@RequestMapping(value = "/fichajeUser", method = RequestMethod.GET)
 	public ModelAndView fichajeUser(ModelAndView model) {
 		model.setViewName("fichajeUser");
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/consultaFichaje", method = RequestMethod.GET)
 	public ModelAndView consultaFichaje(ModelAndView model) {
 		model.setViewName("/consultaFichaje");
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/abrirFichaje", method = RequestMethod.GET)
-	public String abrirFichaje(HttpServletRequest request) {
+	public String abrirFichaje(ModelAndView model,HttpServletRequest request) {
+		boolean fichado;
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
-		DAOFichaje.inicioFichaje(email);
-		//Que me devuelva true o false. False
-		//en el caso de que no haya cerrado el fichaje anterior y true en el caso
-		//en el que se pueda abrir el fichaje
+		fichado = DAOFichaje.abrirFichaje(email);
+		model.addObject("fichado", fichado);
 		return "fichajeUser";
 	}
-	
+
 	@RequestMapping(value = "/cerrarFichaje", method = RequestMethod.GET)
-	public String cerrarFichaje(HttpServletRequest request) {
+	public String cerrarFichaje(ModelAndView model, HttpServletRequest request) {
+		boolean fichado;
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
-		//DAOFichaje.finFichaje(email);
+		fichado = DAOFichaje.cerrarFichaje(email);
+		model.addObject("fichado", fichado);
 		return "fichajeUser";
 	}
-	
 
 }
