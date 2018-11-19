@@ -80,7 +80,8 @@ button {
 	box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
 	margin-bottom: 10px;
 }
-a {
+
+btn btn-danger {
 	padding: 19px 39px 18px 39px;
 	color: #FFF;
 	background-color: #FE2E2E;
