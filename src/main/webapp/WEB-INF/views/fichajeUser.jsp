@@ -181,13 +181,14 @@ label.light {
 					<legend>
 						<span class="number">1</span>Fichajes
 					</legend>
-					<button on-click="/abrirFichaje" type="button">abrir</button>
-					<button on-click="/cerrarFichaje" type="button">cerrar</button>
 					
-					<!-- <a align="center" href="/abrirFichaje" class="btn btn-danger"
+					<button><a href="/abrirFichaje">abrir</a></button>
+					<button><a href="/cerrarFichaje">cerrar</a></button>
+					
+<!-- 					<a align="center" href="/abrirFichaje" class="btn btn-danger"
 						role="button">Abrir fichaje</a> <br> <br> <a
 						align="center" href="/cerrarFichaje" class="btn btn-danger"
-						role="button">Cerrar fichaje</a> -->
+						role="button">Cerrar fichaje</a>  -->
 				</fieldset>
 
 			</div>
