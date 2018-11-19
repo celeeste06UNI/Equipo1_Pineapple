@@ -128,91 +128,47 @@ label.light {
 </style>
 </head>
 <body>
-
-	<div th:switch="${bool}">
-		<p th:case="'false'"></p>
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="/intime">InTime</a>
-				</div>
-				<ul class="nav navbar-nav">
-
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Usuarios <span class="caret"></span>
-					</a>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Fichajes<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="/fichajeUser">Fichar</a></li>
-							<li><a href="/consultaFichaje">Consultar</a></li>
-
-						</ul></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Gestión Incidencias <span
-							class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Crear</a></li>
-							<li><a href="#">Eliminar</a></li>
-							<li><a href="#">Modificar</a></li>
-						</ul></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/viewUpdatePassword"><span
-							class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
-					<li><a href="/cerrarSesion"><span
-							class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
-
-				</ul>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/intime">InTime</a>
 			</div>
-		</nav>
-		<p th:case="'true'"></p>
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="/intime">InTime</a>
-				</div>
-				<ul class="nav navbar-nav">
+			<ul class="nav navbar-nav">
+			
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
+					<ul class="dropdown-menu">
 
-					<li th:if="${bool}" class="dropdown"><a
-						class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios
-							<span class="caret"></span>
-					</a>
-						<ul class="dropdown-menu">
+						<li><a href="/newUser">Crear</a></li>
+						<li><a href="/deleteUser">Eliminar</a></li>
+						<li><a href="/updateUser">Modificar</a></li>
+					</ul></li>
 
-							<li><a href="/newUser">Crear</a></li>
-							<li><a href="/deleteUser">Eliminar</a></li>
-							<li><a href="/updateUser">Modificar</a></li>
-						</ul></li>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Fichajes<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="/fichajeUser">Fichar</a></li>
+						<li><a href="/consultaFichaje">Consultar</a></li>
 
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Fichajes<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="/fichajeUser">Fichar</a></li>
-							<li><a href="/consultaFichaje">Consultar</a></li>
+					</ul></li>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Gestión Incidencias <span
+						class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Crear</a></li>
+						<li><a href="#">Eliminar</a></li>
+						<li><a href="#">Modificar</a></li>
+					</ul></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/viewUpdatePassword"><span
+						class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
+				<li><a href="/cerrarSesion"><span
+						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
 
-						</ul></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Gestión Incidencias <span
-							class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Crear</a></li>
-							<li><a href="#">Eliminar</a></li>
-							<li><a href="#">Modificar</a></li>
-						</ul></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/viewUpdatePassword"><span
-							class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
-					<li><a href="/cerrarSesion"><span
-							class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
-
-				</ul>
-			</div>
-		</nav>
-	</div>
-
-
+			</ul>
+		</div>
+	</nav>
 
 	<div class="container">
 		<div class="page-header">
@@ -224,12 +180,8 @@ label.light {
 					<legend>
 						<span class="number">1</span>Fichajes
 					</legend>
-					<button>
-						<a style="color: #FFFFFF" href="/abrirFichaje">abrir</a>
-					</button>
-					<button>
-						<a style="color: #FFFFFF" href="/cerrarFichaje">cerrar</a>
-					</button>
+					<button><a style="color:#FFFFFF" href="/abrirFichaje">abrir</a></button>
+					<button><a style="color:#FFFFFF" href="/cerrarFichaje">cerrar</a></button>
 				</fieldset>
 
 			</div>
