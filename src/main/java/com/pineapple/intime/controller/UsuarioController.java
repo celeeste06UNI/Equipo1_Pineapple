@@ -1,6 +1,7 @@
 package com.pineapple.intime.controller;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +38,7 @@ public class UsuarioController {
 	public String actionDeleteUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
 		Document empleado=new Document();
-		String emailLowerCase=email.toLowerCase();
+		String emailLowerCase=email.toLowerCase(new Locale("en", "EN"));
 		empleado.put("email", emailLowerCase);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
@@ -70,13 +71,13 @@ public class UsuarioController {
 		String rolSession = (String) session.getAttribute("rolSession");
 		DAOEmpleado.updatePassword(email,passAntHex,passNuevaHex);
 		
-		if(rolSession.equals("admin")) {
+		if("admin".equals(rolSession)) {
 			pagina = "admin";
 		}
-		if(rolSession.equals("user")) {
+		if("user".equals(rolSession)) {
 			pagina = "user";
 		}
-		if(rolSession.equals("incid")) {
+		if("incid".equals(rolSession)) {
 			pagina = "incid";
 		}
 		return pagina;
@@ -87,7 +88,7 @@ public class UsuarioController {
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) throws Exception {
 		Document empleado=new Document();
 		String contrasenna = EmpleadoHelper.generarContrasenna();
-		String emailLowerCase=email.toLowerCase();
+		String emailLowerCase=email.toLowerCase(new Locale("en", "EN"));
 		empleado.put("email", emailLowerCase);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
@@ -104,7 +105,7 @@ public class UsuarioController {
 	public String editUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("emailAntiguo") String emailAntiguo, @ModelAttribute("emailNuevo") String emailNuevo, @ModelAttribute("rol") String rol) {
 		Document empleado=new Document();
-		String emailLowerCase=emailNuevo.toLowerCase();
+		String emailLowerCase=emailNuevo.toLowerCase(new Locale("en", "EN"));
 		empleado.put("email", emailLowerCase);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
@@ -115,7 +116,7 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/searchUser", method = RequestMethod.POST)
 	public ModelAndView searchUser(ModelAndView model, @ModelAttribute("email") String email) {
-		String emailLowerCase=email.toLowerCase();
+		String emailLowerCase=email.toLowerCase(new Locale("en", "EN"));
 		try {
 			Document empleado = DAOEmpleado.cargarEmpleado(emailLowerCase);
 			model.addObject("nombre", empleado.get("nombre"));
@@ -136,7 +137,7 @@ public class UsuarioController {
 	@RequestMapping(value = "/deleteSearchUser", method = RequestMethod.POST)
 	public ModelAndView deleteSearchUser(ModelAndView model, @ModelAttribute("email") String email) {
 		Document empleado = new Document();
-		String emailLowerCase=email.toLowerCase();
+		String emailLowerCase=email.toLowerCase(new Locale("en", "EN"));
 		try {
 			empleado = DAOEmpleado.cargarEmpleado(emailLowerCase);
 			model.addObject("nombre", empleado.get("nombre"));
