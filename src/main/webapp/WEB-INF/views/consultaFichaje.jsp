@@ -179,10 +179,10 @@ label.light {
 				<legend>
 					<span class="number">2</span>Consultar Fichajes
 				</legend>
-				<label for="name">Introduzca la fecha:<br></label> <input
-							placeholder="yyyy/MM/dd" type="text" name="fecha">
 				<label for="name">Introduzca el email:<br></label> <input
 							placeholder="" type="email" name="emailFichaje">
+				<label for="name">Introduzca la fecha:<br></label> <input
+							placeholder="yyyy/MM/dd" type="text" name="fecha">
 				<button type="submit">Buscar</button>
 			</fieldset>
 		</form>
