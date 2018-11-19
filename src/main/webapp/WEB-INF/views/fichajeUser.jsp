@@ -223,7 +223,7 @@ label.light {
 							<span class="number">2</span>Consultar mis Fichajes
 						</legend>
 						<label for="name">Introduzca la fecha:<br></label> <input
-							placeholder="yyyy/MM/dd" type="fecha" name="fecha">
+							placeholder="yyyy/MM/dd" type="text" name="fecha">
 
 						<button type="submit">Buscar</button>
 					</fieldset>
@@ -231,20 +231,11 @@ label.light {
 			</div>
 		</div>
 		<div class="container" align="left">
-			<table class="table table-hover">
-				<p>Fichajes realizados en la fecha indicada</p>
-				<!-- <th>Id</th> -->
-				<th>Fichaje</th>
-				<th>Fecha inicio/cierre</th>
-				<c:forEach var="fechaFichaje" items="${listDate}">
-					
-					<tr>
-					<c:out value="${fechaFichaje}"/>
-						<td>${fechaFichaje}</td>
-						
-					</tr>
+			<div class="list-group">
+				<c:forEach var="date" items="${listDate}">
+					<a align="center" class="list-group-item">${date}</a>
 				</c:forEach>
-			</table>
+			</div>
 		</div>
 	</div>
 </body>
