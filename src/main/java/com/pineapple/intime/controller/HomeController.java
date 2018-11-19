@@ -70,13 +70,14 @@ public class HomeController {
 		String pagina = "";
 		HttpSession session = request.getSession(true);
 		String rolSession = (String) session.getAttribute("rolSession");
-		if(rolSession.equals("admin")) {
+	
+		if("admin".equals(rolSession)) {
 			pagina = "admin";
 		}
-		if(rolSession.equals("user")) {
+		if("user".equals(rolSession)) {
 			pagina = "user";
 		}
-		if(rolSession.equals("incid")) {
+		if("incid".equals(rolSession)) {
 			pagina = "incid";
 		}
 		return pagina;
@@ -103,7 +104,8 @@ public class HomeController {
 	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password, HttpServletRequest request) throws Exception {
 		String pagina = "error";
 		HttpSession session = request.getSession(true);
-		String emailLowerCase=email.toLowerCase();
+
+		String emailLowerCase=email.toLowerCase(new Locale("en", "EN"));
 		Document doc = DAOEmpleado.autenticar(emailLowerCase,password);
 
 		if(doc.get("email").equals("error")) {
