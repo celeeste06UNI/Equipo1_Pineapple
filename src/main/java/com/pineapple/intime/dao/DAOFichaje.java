@@ -29,8 +29,8 @@ public class DAOFichaje {
 		Bson fichaje = null;
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
-		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
-		hourFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
+		dateFormat.setTimeZone(TimeZone.getTimeZone("Europe/Madrid"));
+		hourFormat.setTimeZone(TimeZone.getTimeZone("Europe/Madrid"));
 
 		Bson filtroEmail = null;
 		filtroEmail = eq("email", email);
@@ -68,8 +68,8 @@ public class DAOFichaje {
 		Bson fichaje = null;
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
-		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
-		hourFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
+		dateFormat.setTimeZone(TimeZone.getTimeZone("Europe/Madrid"));
+		hourFormat.setTimeZone(TimeZone.getTimeZone("Europe/Madrid"));
 		String horaFin = (String) hourFormat.format(new Date());
 		String fechaFin = (String) dateFormat.format(new Date());
 
