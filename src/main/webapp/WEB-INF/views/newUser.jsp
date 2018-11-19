@@ -124,7 +124,7 @@ label.light {
 <body>
 
 
-<nav class="navbar navbar-default" style="background-color: #fdfefe;">
+<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/cerrarSesion">InTime</a>

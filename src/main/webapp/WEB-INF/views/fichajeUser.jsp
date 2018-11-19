@@ -81,6 +81,7 @@ button {
 	margin-bottom: 10px;
 }
 
+
 fieldset {
 	margin-bottom: 10px;
 	border: none;
@@ -124,7 +125,7 @@ label.light {
 </head>
 <body>
 
-	<nav class="navbar navbar-default" style="background-color: #fdfefe;">
+	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/cerrarSesion">InTime</a>
