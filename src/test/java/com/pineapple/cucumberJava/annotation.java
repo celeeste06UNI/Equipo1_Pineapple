@@ -22,13 +22,11 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver; 
 import org.openqa.selenium.support.ui.Select;
 import java.util.List;
-/* 
- *  Clase generada tras la elaboración de las anotaciones del feature
- */
+
 @RunWith(Cucumber.class)
 public class annotation {
 WebDriver driver = new FirefoxDriver();	
-	// Método para comprobar si el sitio web esta disponible 
+
 	@Given("^Yo navego hacia el sitio web$")
 	public void Yo_navego_hacia_el_sitio_web() {
 	      driver.navigate().to("https://equipo1pineapple.herokuapp.com/");
