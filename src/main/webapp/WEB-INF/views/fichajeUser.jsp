@@ -81,20 +81,6 @@ button {
 	margin-bottom: 10px;
 }
 
-.boton {
-	padding: 25px 50px 30px 50px;
-	color: #FFF;
-	background-color: #FE2E2E;
-	font-size: 18px;
-	text-align: center;
-	font-style: normal;
-	border-radius: 5px;
-	width: 100%;
-	border: 2px solid #8A0808;
-	border-width: 1px 1px 3px;
-	box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
-	margin-bottom: 10px;
-}
 
 fieldset {
 	margin-bottom: 10px;
@@ -222,10 +208,10 @@ label.light {
 					<legend>
 						<span class="number">1</span>Fichajes
 					</legend>
-					<a align="center" href="/abrirFichaje" class="boton" role="button">Abrir
+					<a align="center" href="/abrirFichaje" class="btn btn-danger" role="button">Abrir
 						fichaje</a> <br><br>
 					<a align="center" href="/cerrarFichaje"
-						class="boton" role="button">Cerrar fichaje</a>
+						class="btn btn-danger" role="button">Cerrar fichaje</a>
 				</fieldset>
 
 			</div>
