@@ -140,8 +140,6 @@ label.light {
 				<input name="passwordNueva" type="password" required
 					autocomplete="off" class="form-control" placeholder="">
 			</div>
-
-
 			<button type="submit">Modificar</button>
 
 		</form>
