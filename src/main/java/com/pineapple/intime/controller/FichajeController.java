@@ -57,6 +57,7 @@ public class FichajeController {
 	@RequestMapping(value = "/searchFichaje", method = RequestMethod.GET)
 	public ModelAndView searchFichaje(@ModelAttribute("fecha") String fecha,ModelAndView model, HttpServletRequest request) {
 		ArrayList<String> listDate= new ArrayList<String>();
+		listDate.add("Hola");
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
 		Document Document = DAOFichaje.consultarFichajes(email, fecha);
