@@ -58,19 +58,35 @@ public class UsuarioController {
 		return model;
 	}
 	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
-	public String updatePassword(@ModelAttribute("passwordVieja") String contraseñaVieja,
-			@ModelAttribute("passwordNueva") String contraseñaNueva, HttpServletRequest request) {
+	public String updatePassword(@ModelAttribute("passwordVieja") String contrasennaVieja,
+			@ModelAttribute("passwordNueva") String contrasennaNueva, HttpServletRequest request) throws Exception {
+		String pagina = "";
+		String passAntCifrada = EmpleadoHelper.cifra(contrasennaVieja);
+		String passAntHex = EmpleadoHelper.ConvertirHexadecimal(passAntCifrada);
+		String passNuevaCifrada = EmpleadoHelper.cifra(contrasennaNueva);
+		String passNuevaHex = EmpleadoHelper.ConvertirHexadecimal(passNuevaCifrada);
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
-		DAOEmpleado.updatePassword(email,contraseñaVieja,contraseñaNueva);
-		return "user";
+		String rolSession = (String) session.getAttribute("rolSession");
+		DAOEmpleado.updatePassword(email,passAntHex,passNuevaHex);
+		
+		if(rolSession.equals("admin")) {
+			pagina = "admin";
+		}
+		if(rolSession.equals("user")) {
+			pagina = "user";
+		}
+		if(rolSession.equals("incid")) {
+			pagina = "incid";
+		}
+		return pagina;
 	}
 	
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
-			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
+			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) throws Exception {
 		Document empleado=new Document();
-		String contrasenna = EmpleadoHelper.generarContraseña();
+		String contrasenna = EmpleadoHelper.generarContrasenna();
 		String emailLowerCase=email.toLowerCase();
 		empleado.put("email", emailLowerCase);
 		empleado.put("rol", rol);

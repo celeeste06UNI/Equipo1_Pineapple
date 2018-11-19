@@ -65,6 +65,23 @@ public class HomeController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/intime", method = RequestMethod.GET)
+	public String intime(HttpServletRequest request, ModelAndView model) {
+		String pagina = "";
+		HttpSession session = request.getSession(true);
+		String rolSession = (String) session.getAttribute("rolSession");
+		if(rolSession.equals("admin")) {
+			pagina = "admin";
+		}
+		if(rolSession.equals("user")) {
+			pagina = "user";
+		}
+		if(rolSession.equals("incid")) {
+			pagina = "incid";
+		}
+		return pagina;
+	}
+	
 	@RequestMapping(value = "/cerrarSesion", method = RequestMethod.GET)
 	protected void cerrarSesion(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -83,7 +100,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 
-	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password, HttpServletRequest request) throws IOException {
+	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password, HttpServletRequest request) throws Exception {
 		String pagina = "error";
 		HttpSession session = request.getSession(true);
 		String emailLowerCase=email.toLowerCase();
