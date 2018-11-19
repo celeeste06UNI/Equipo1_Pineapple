@@ -176,19 +176,12 @@ label.light {
 		</div>
 		<div class="row">
 			<div class="col-sm-6" style="background-color: white;">
-
 				<fieldset>
 					<legend>
 						<span class="number">1</span>Fichajes
 					</legend>
-					
-					<button><a href="/abrirFichaje">abrir</a></button>
-					<button><a href="/cerrarFichaje">cerrar</a></button>
-					
-<!-- 					<a align="center" href="/abrirFichaje" class="btn btn-danger"
-						role="button">Abrir fichaje</a> <br> <br> <a
-						align="center" href="/cerrarFichaje" class="btn btn-danger"
-						role="button">Cerrar fichaje</a>  -->
+					<button><a href="/abrirFichaje" style="color:#FFFFFF;">abrir</a></button>
+					<button><a href="/cerrarFichaje" style="color:#FFFFFF;">cerrar</a></button>
 				</fieldset>
 
 			</div>

@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pineapple.intime.dao.DAOFichaje;
-import com.pineapple.intime.model.Fichaje;
-
 @Controller
 public class FichajeController {
 
