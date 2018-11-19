@@ -208,30 +208,40 @@ label.light {
 						<span class="number">1</span>Fichajes
 					</legend>
 					<a align="center" href="/abrirFichaje" class="btn btn-danger"
-						role="button">Abrir fichaje</a> <br>
-					<br> <a align="center" href="/cerrarFichaje"
-						class="btn btn-danger" role="button">Cerrar fichaje</a>
+						role="button">Abrir fichaje</a> <br> <br> <a
+						align="center" href="/cerrarFichaje" class="btn btn-danger"
+						role="button">Cerrar fichaje</a>
 				</fieldset>
 
 			</div>
 			<div class="col-sm-6" style="background-color: white;">
 
-				<form name='searchForm' action='/searchUser' method='POST'>
+				<form name='searchFichaje' action='/searchFichaje' method='POST'>
 
 					<fieldset>
 						<legend>
 							<span class="number">2</span>Consultar mis Fichajes
 						</legend>
-						<label for="name">Introduzca el mes:<br></label> <input
-							type="mes" name="mes">
+						<label for="name">Introduzca la fecha:<br></label> <input
+							placeholder="yyyy/MM/dd" type="fecha" name="fecha">
 
 						<button type="submit">Buscar</button>
 					</fieldset>
 				</form>
 			</div>
 		</div>
-		<div th:if="${fichado}">
-			<span th:text="${fichado}"></span>
+		<div class="container" align="left">
+			<table class="table table-hover">
+				<p>Fichajes realizados en la fecha indicada</p>
+				<!-- <th>Id</th> -->
+				<th>Fichaje</th>
+				<th>Fecha inicio/cierre</th>
+				<c:forEach var="fecha" items="${listDate}">
+					<tr>
+						<td>${fecha}</td>
+					</tr>
+				</c:forEach>
+			</table>
 		</div>
 	</div>
 </body>
