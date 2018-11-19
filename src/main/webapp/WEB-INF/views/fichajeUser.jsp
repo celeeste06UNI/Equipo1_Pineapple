@@ -233,7 +233,7 @@ label.light {
 		<div class="container" align="left">
 			<div class="list-group">
 				<c:forEach var="date" items="${listDate}">
-					<p>Lo que sea</p>
+					<p>${date}</p>
 				</c:forEach>
 			</div>
 		</div>
