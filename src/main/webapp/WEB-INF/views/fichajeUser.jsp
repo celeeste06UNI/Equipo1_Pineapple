@@ -236,9 +236,9 @@ label.light {
 				<!-- <th>Id</th> -->
 				<th>Fichaje</th>
 				<th>Fecha inicio/cierre</th>
-				<c:forEach var="fecha" items="${listDate}">
+				<c:forEach var="fechaFichaje" items="${listDate}">
 					<tr>
-						<td>${fecha}</td>
+						<td>${fechaFichaje}</td>
 					</tr>
 				</c:forEach>
 			</table>
