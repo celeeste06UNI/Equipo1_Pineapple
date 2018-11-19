@@ -216,7 +216,7 @@ label.light {
 			</div>
 			<div class="col-sm-6" style="background-color: white;">
 
-				<form name='searchFichaje' action='/searchFichaje' method='POST'>
+				<form name='searchFichaje' action='/searchFichaje' method='GET'>
 
 					<fieldset>
 						<legend>
