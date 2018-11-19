@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import org.bson.Document;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -55,7 +56,7 @@ public class FichajeController {
 	}
 	
 	@RequestMapping(value = "/searchFichaje", method = RequestMethod.GET)
-	public ModelAndView searchFichaje(@ModelAttribute("fecha") String fecha,ModelAndView model, HttpServletRequest request) {
+	public String searchFichaje(@ModelAttribute("fecha") String fecha,Model model, HttpServletRequest request) {
 		ArrayList<String> listDate= new ArrayList<String>();
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
@@ -63,9 +64,8 @@ public class FichajeController {
 		for(Integer i = 1; i<Document.keySet().size();i++) {
 			listDate.add((String) Document.get(""+i+""));
 		}
-		model.addObject("listDate", listDate);
-		model.setViewName("fichajeUser");
-		return model;
+		model.addAttribute("listDate",listDate);
+		return "fichajeUser";
 	}
 
 }

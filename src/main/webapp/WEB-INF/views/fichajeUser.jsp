@@ -232,8 +232,8 @@ label.light {
 		</div>
 		<div class="container" align="left">
 			<div class="list-group">
-				<c:forEach var="date" items="${listDate}">
-					<p>${date}</p>
+				<c:forEach items="${listDate}" var="f" >
+					<p>${f}</p>
 				</c:forEach>
 			</div>
 		</div>
