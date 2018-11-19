@@ -21,7 +21,14 @@ import com.pineapple.intime.dao.DAOFichaje;
 public class FichajeController {
 
 	@RequestMapping(value = "/fichajeUser", method = RequestMethod.GET)
-	public ModelAndView fichajeUser(ModelAndView model) {
+	public ModelAndView fichajeUser(ModelAndView model,HttpServletRequest request) {
+		HttpSession session = request.getSession(true);
+		String rol = (String) session.getAttribute("rolSession");
+		boolean admin = false;
+		if(rol.equals("admin")) {
+			admin = true;
+		}
+		model.addObject("bool",admin);
 		model.setViewName("fichajeUser");
 		return model;
 	}

@@ -135,7 +135,8 @@ label.light {
 				<a class="navbar-brand" href="/intime">InTime</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li class="dropdown"><a class="dropdown-toggle"
+			
+				<li th:if="${bool}" class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 
