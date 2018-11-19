@@ -81,7 +81,7 @@ button {
 	margin-bottom: 10px;
 }
 
-btn btn-danger {
+.boton {
 	padding: 19px 39px 18px 39px;
 	color: #FFF;
 	background-color: #FE2E2E;
@@ -222,10 +222,10 @@ label.light {
 					<legend>
 						<span class="number">1</span>Fichajes
 					</legend>
-					<a align="center" href="/abrirFichaje" class="button" role="button">Abrir
+					<a align="center" href="/abrirFichaje" class="boton" role="button">Abrir
 						fichaje</a> <br><br>
 					<a align="center" href="/cerrarFichaje"
-						class="button" role="button">Cerrar fichaje</a>
+						class="boton" role="button">Cerrar fichaje</a>
 				</fieldset>
 
 			</div>
