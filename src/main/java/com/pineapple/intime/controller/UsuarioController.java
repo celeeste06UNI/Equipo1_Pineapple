@@ -70,13 +70,13 @@ public class UsuarioController {
 		String rolSession = (String) session.getAttribute("rolSession");
 		DAOEmpleado.updatePassword(email,passAntHex,passNuevaHex);
 		
-		if(rolSession=="admin") {
+		if(rolSession.equals("admin")) {
 			pagina = "admin";
 		}
-		if(rolSession=="user") {
+		if(rolSession.equals("user")) {
 			pagina = "user";
 		}
-		if(rolSession=="incid") {
+		if(rolSession.equals("incid")) {
 			pagina = "incid";
 		}
 		return pagina;

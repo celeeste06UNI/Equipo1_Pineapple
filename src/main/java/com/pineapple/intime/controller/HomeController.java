@@ -70,13 +70,13 @@ public class HomeController {
 		String pagina = "";
 		HttpSession session = request.getSession(true);
 		String rolSession = (String) session.getAttribute("rolSession");
-		if(rolSession=="admin") {
+		if(rolSession.equals("admin")) {
 			pagina = "admin";
 		}
-		if(rolSession=="user") {
+		if(rolSession.equals("user")) {
 			pagina = "user";
 		}
-		if(rolSession=="incid") {
+		if(rolSession.equals("incid")) {
 			pagina = "incid";
 		}
 		return pagina;
