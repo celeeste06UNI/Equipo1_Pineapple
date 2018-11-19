@@ -180,8 +180,8 @@ label.light {
 					<legend>
 						<span class="number">1</span>Fichajes
 					</legend>
-					<button><a href="/abrirFichaje" style="color:#FFFFFF;">abrir</a></button>
-					<button><a href="/cerrarFichaje" style="color:#FFFFFF;">cerrar</a></button>
+					<button><a style="color:#FFFFFF" href="/abrirFichaje">abrir</a></button>
+					<button><a style="color:#FFFFFF" href="/cerrarFichaje">cerrar</a></button>
 				</fieldset>
 
 			</div>
