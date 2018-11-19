@@ -1,3 +1,8 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,7 +151,7 @@ label.light {
 
 					</ul></li>
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Gestión Incidencias <span
+					data-toggle="dropdown" href="#">GestiÃ³n Incidencias <span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Crear</a></li>
@@ -156,62 +161,44 @@ label.light {
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/viewUpdatePassword"><span
-						class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
+						class="glyphicon glyphicon-pencil"></span> Modificar ContraseÃ±a</a></li>
 				<li><a href="/cerrarSesion"><span
-						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+						class="glyphicon glyphicon-log-in"></span> Cerrar SesiÃ³n</a></li>
 
 			</ul>
 		</div>
 	</nav>
 
-	<!-- 	<div class="container">
-		<form name='searchForm' action='/searchUser' method='POST'>
-
-			<h1>Busqueda de un usuario</h1>
-			<label for="name">Introduzca el email:</label> <input type="email"
-				name="email">
-			<button type="submit">Buscar</button>
-		</form>
-		
-		<form name='updateForm' action='/editUser' method='POST'>
-			
-			<label for="email">Email</label> <input type="email" name="emailAntiguo"
-				readonly value=${email} >
-			
-			<label for="nombre">Nombre</label> <input type="text" name="nombre"
-				value=${nombre} >
-				
-			<label for="apellidos">Apellidos</label> <input type="text" name="apellidos"
-				value=${apellidos} >
-				
-			<label for="email">Email</label> <input type="email" name="emailNuevo"
-				value=${email} >
-				
-			<label for="rol">Rol</label> <input type="text" name="rol"
-				value=${rol} >
-				
-			<button type="submit">Actualizar</button>
-			
-		</form>
-
-	</div> -->
-
 	<div class="container">
 		<div class="page-header">
 			<h1>Gestor de Fichajes</h1>
 		</div>
-		<form name='searchForm' action='/searchUser' method='POST'>
+		<form name='searchForm' action='/searchFichajeOtro' method='GET'>
 
 			<fieldset>
 				<legend>
 					<span class="number">2</span>Consultar Fichajes
 				</legend>
-				<label for="name">Introduzca el mes:<br></label> <input
-					type="mes" name="mes">
-
+				<label for="name">Introduzca la fecha:<br></label> <input
+							placeholder="yyyy/MM/dd" type="text" name="fecha">
+				<label for="name">Introduzca el email:<br></label> <input
+							placeholder="" type="email" name="emailFichaje">
 				<button type="submit">Buscar</button>
 			</fieldset>
 		</form>
+	</div>
+	<div class="container" align="left">
+		<table class="table table-hover">
+			<p>Fecha de los fichajes</p>
+			<!-- <th>Id</th> -->
+			<th>Fecha de apertura / Fecha de cierre</th>
+
+			<c:forEach var="fechaDelFichaje" items="${listDate}">
+				<tr>
+					<td>${fechaDelFichaje}</td>
+				</tr>
+			</c:forEach>
+		</table>
 	</div>
 	<div class="col-sm-6" style="background-color: white;"></div>
 

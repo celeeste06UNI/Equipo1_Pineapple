@@ -55,7 +55,7 @@ public class FichajeController {
 	}
 	
 	@RequestMapping(value = "/searchFichaje", method = RequestMethod.GET)
-	public ModelAndView searchFichaje(@ModelAttribute("fecha") String fecha,ModelAndView model, HttpServletRequest request) {
+	public ModelAndView searchFichaje(@ModelAttribute("fecha") String fecha, ModelAndView model, HttpServletRequest request) {
 		ArrayList<String> listDate= new ArrayList<String>();
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
@@ -67,5 +67,18 @@ public class FichajeController {
 		model.setViewName("fichajeUser");
 		return model;
 	}
-
+	
+	@RequestMapping(value = "/searchFichajeOtro", method = RequestMethod.GET)
+	public ModelAndView searchFichajeOtro(@ModelAttribute("fecha") String fecha,
+			@ModelAttribute("emailFichaje") String emailFichaje,
+			ModelAndView model, HttpServletRequest request) {
+		ArrayList<String> listDate= new ArrayList<String>();
+		Document Document = DAOFichaje.consultarFichajes(emailFichaje, fecha);
+		for(Integer i = 1; i<Document.keySet().size();i++) {
+			listDate.add((String) Document.get(""+i+""));
+		}
+		model.addObject("listDate", listDate);
+		model.setViewName("consultaFichaje");
+		return model;
+	}
 }

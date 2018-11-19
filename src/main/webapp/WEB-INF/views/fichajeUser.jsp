@@ -169,37 +169,6 @@ label.light {
 			</ul>
 		</div>
 	</nav>
-	<!-- 	<div class="container">
-		<form name='searchForm' action='/searchUser' method='POST'>
-
-			<h1>Busqueda de un usuario</h1>
-			<label for="name">Introduzca el email:</label> <input type="email"
-				name="email">
-			<button type="submit">Buscar</button>
-		</form>
-		
-		<form name='updateForm' action='/editUser' method='POST'>
-			
-			<label for="email">Email</label> <input type="email" name="emailAntiguo"
-				readonly value=${email} >
-			
-			<label for="nombre">Nombre</label> <input type="text" name="nombre"
-				value=${nombre} >
-				
-			<label for="apellidos">Apellidos</label> <input type="text" name="apellidos"
-				value=${apellidos} >
-				
-			<label for="email">Email</label> <input type="email" name="emailNuevo"
-				value=${email} >
-				
-			<label for="rol">Rol</label> <input type="text" name="rol"
-				value=${rol} >
-				
-			<button type="submit">Actualizar</button>
-			
-		</form>
-
-	</div> -->
 
 	<div class="container">
 		<div class="page-header">
