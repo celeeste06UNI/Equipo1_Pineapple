@@ -1,3 +1,10 @@
+<%@taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -147,7 +154,7 @@ label.light {
 
 					</ul></li>
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Gestión Incidencias <span
+					data-toggle="dropdown" href="#">GestiÃ³n Incidencias <span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Crear</a></li>
@@ -157,9 +164,9 @@ label.light {
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/viewUpdatePassword"><span
-						class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
+						class="glyphicon glyphicon-pencil"></span> Modificar ContraseÃ±a</a></li>
 				<li><a href="/cerrarSesion"><span
-						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+						class="glyphicon glyphicon-log-in"></span> Cerrar SesiÃ³n</a></li>
 
 			</ul>
 		</div>
@@ -230,12 +237,18 @@ label.light {
 				</form>
 			</div>
 		</div>
-		<div class="container" align="left">
-			<div class="list-group">
-				<c:forEach items="${listDate}" var="f" >
-					<p>${f}</p>
-				</c:forEach>
-			</div>
-		</div>
+	</div>
+	<div class="container" align="left">
+		<table class="table table-hover">
+			<p>Fecha de los fichajes</p>
+			<!-- <th>Id</th> -->
+			<th>Fecha</th>
+
+			<c:forEach var="fechaDelFichaje" items="${listDate}">
+				<tr>
+					<td>${fechaDelFichaje}</td>
+				</tr>
+			</c:forEach>
+		</table>
 	</div>
 </body>
