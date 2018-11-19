@@ -82,7 +82,7 @@ button {
 }
 
 .boton {
-	padding: 19px 39px 18px 39px;
+	padding: 25px 50px 30px 50px;
 	color: #FFF;
 	background-color: #FE2E2E;
 	font-size: 18px;
