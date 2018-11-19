@@ -237,8 +237,11 @@ label.light {
 				<th>Fichaje</th>
 				<th>Fecha inicio/cierre</th>
 				<c:forEach var="fechaFichaje" items="${listDate}">
+					
 					<tr>
+					<c:out value="${fechaFichaje}"/>
 						<td>${fechaFichaje}</td>
+						
 					</tr>
 				</c:forEach>
 			</table>
