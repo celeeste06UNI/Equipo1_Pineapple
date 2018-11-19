@@ -65,6 +65,23 @@ public class HomeController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/intime", method = RequestMethod.GET)
+	public String intime(HttpServletRequest request, ModelAndView model) {
+		String pagina = "";
+		HttpSession session = request.getSession(true);
+		String rolSession = (String) session.getAttribute("rolSession");
+		if(rolSession=="admin") {
+			pagina = "admin";
+		}
+		if(rolSession=="user") {
+			pagina = "user";
+		}
+		if(rolSession=="incid") {
+			pagina = "incid";
+		}
+		return pagina;
+	}
+	
 	@RequestMapping(value = "/cerrarSesion", method = RequestMethod.GET)
 	protected void cerrarSesion(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
