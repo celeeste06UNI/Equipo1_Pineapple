@@ -28,7 +28,7 @@ public class IncidenciaController {
 	
 	@RequestMapping(value = "/nuevoIncidencia", method = RequestMethod.GET)
 	public ModelAndView nuevoIncidencia(ModelAndView model) {
-		model.setViewName("newUser");
+		model.setViewName("nuevoIncidencia");
 		return model;
 	}
 	
