@@ -184,11 +184,11 @@ label.light {
 			</legend>
 			<label>Tipos:</label>
 			<input type="radio" id="incidFich" value="incidFich" required autocomplete="off" name="tipo"> 
-			<label class="light" for="Administrador">Incidencia de Fichaje</label><br> 
-			<input type="radio" id="usuario" value="user" required autocomplete="off" name="tipo"> 
-			<label class="light" for="Usuario">Vacaciones</label><br>
-			<input type="radio" id="gestor" value="incid" required autocomplete="off" name="tipo"> 
-			<label class="light" for="Gestor">Permisos</label>
+			<label class="light" for="incidFich">Incidencia de Fichaje</label><br> 
+			<input type="radio" id="vacaciones" value="vacaciones" required autocomplete="off" name="tipo"> 
+			<label class="light" for="vacaciones">Vacaciones</label><br>
+			<input type="radio" id="perimisos" value="perimisos" required autocomplete="off" name="tipo"> 
+			<label class="light" for="perimisos">Permisos</label>
 		</fieldset>
 
 		<button type="submit">Crear</button>
