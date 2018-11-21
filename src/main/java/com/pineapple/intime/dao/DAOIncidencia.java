@@ -1,33 +1,14 @@
 package com.pineapple.intime.dao;
 
-<<<<<<< HEAD
 import java.util.concurrent.ConcurrentHashMap;
-
-import org.bson.Document;
-
-public class DAOIncidencia {
-
-	public static ConcurrentHashMap<Integer, Document> consultarIncidencias(String email, String tipo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public static Boolean insert(Document incidencia) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-=======
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import static com.mongodb.client.model.Filters.eq;
-
-import java.util.concurrent.ConcurrentHashMap;
-
 import static com.mongodb.client.model.Filters.and;
+
 public class DAOIncidencia {
 
 	private static MongoCollection<Document> dbIncidencia=MongoBroker.get().getCollection("Empleado");
@@ -61,7 +42,4 @@ public class DAOIncidencia {
 		return result;
 	}
 
-	
-	
->>>>>>> branch 'bbdd_integration' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
 }

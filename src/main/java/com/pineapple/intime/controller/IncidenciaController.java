@@ -32,6 +32,12 @@ public class IncidenciaController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/consultarIncidenciaUser", method = RequestMethod.GET)
+	public ModelAndView consultarIncidenciaUser(ModelAndView model) {
+		model.setViewName("consultarIncidenciaUser");
+		return model;
+	}
+	
 	@RequestMapping(value = "/saveIncidencia", method = RequestMethod.POST)
 	public String saveIncidencia(HttpServletRequest request,@ModelAttribute("asunto") String asunto, @ModelAttribute("descripcion") String descripcion,
 			@ModelAttribute("tipo") String tipo) throws Exception {
@@ -58,7 +64,7 @@ public class IncidenciaController {
 		ArrayList<Incidencia> listIncidencia=new ArrayList<Incidencia>();
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
-		result = DAOIncidencia.consultarIncidencias(email, tipo);
+		result = DAOIncidencia.consultar(email, tipo);
 		for(Integer i = 0; i<result.keySet().size();i++) {
 			Document doc = result.get(i);
 			Incidencia indencia = new Incidencia((String) doc.get("email"), (String) doc.get("estado"),(String) doc.get("asunto"),
@@ -66,7 +72,7 @@ public class IncidenciaController {
 			listIncidencia.add(indencia);
 		}
 		model.addObject("listIncidencia", listIncidencia);
-		model.setViewName("");
+		model.setViewName("consultarIncidenciaUser");
 		return model;
 	}
 
