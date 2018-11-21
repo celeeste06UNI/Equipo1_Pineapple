@@ -29,8 +29,81 @@ public class DAOFichaje {
 		Bson fichaje = null;
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+<<<<<<< HEAD
 		dateFormat.setTimeZone(TimeZone.getTimeZone("Europe/Madrid"));
 		hourFormat.setTimeZone(TimeZone.getTimeZone("Europe/Madrid"));
+=======
+		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
+		hourFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
+	
+		Bson filtroEmail=null;
+		filtroEmail=eq("email",email);
+		String horaInicio=(String)hourFormat.format(new Date());
+		String fechaInicio=(String)dateFormat.format(new Date());
+		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
+		FindIterable<Document> estadoFichaje = dbEstadoFichaje.find(filtroEmail);
+    	if(datosPersonales.iterator().hasNext() && estadoFichaje.iterator().hasNext() && estadoFichaje.iterator().next().get("fechaInicio").equals("") ) {
+    		fichaje=combine(set("email",email),set("estado","abierto"),set("horaInicio",horaInicio),set("fechaInicio",fechaInicio),set("horaFin",""),set("fechaFin",""));
+    		UpdateResult urFichaje=dbEstadoFichaje.updateOne(filtroEmail,fichaje);
+    		
+    		if(urFichaje.wasAcknowledged()) {
+      			fichado=true;
+    		}
+  
+    	}else if(datosPersonales.iterator().hasNext() && !estadoFichaje.iterator().hasNext()){
+    		Document fichajeNuevo=new Document();
+    		fichajeNuevo.put("email", email);
+    		fichajeNuevo.put("estado", "abierto");
+    		fichajeNuevo.put("fechaInicio", fechaInicio);
+    		fichajeNuevo.put("horaInicio", horaInicio);
+    		fichajeNuevo.put("horaFin", "");
+    		fichajeNuevo.put("fechaFin", "");
+    		dbEstadoFichaje.insertOne(fichajeNuevo);
+    		fichado=true;
+    	}
+    	return fichado;
+		
+	}
+	public static boolean cerrarFichaje(String email) {
+		Boolean fichado=false;
+    	Bson fichaje=null;
+    	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
+		hourFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
+	
+		String horaFin=(String)hourFormat.format(new Date());
+		String fechaFin=(String)dateFormat.format(new Date());
+		
+		Bson filtroEmail=null;
+		filtroEmail=eq("email",email);
+		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
+		FindIterable<Document> estadoFichaje = dbEstadoFichaje.find(filtroEmail);
+    	if(datosPersonales.iterator().hasNext() && estadoFichaje.iterator().hasNext() && estadoFichaje.iterator().next().get("horaFin").equals("") && estadoFichaje.iterator().next().get("fechaFin").equals("")  ) {
+    		
+    		fichaje=combine(set("email",email),set("estado","cerrado"),set("horaFin",horaFin),set("fechaFin",fechaFin));
+    		UpdateResult urFichaje=dbEstadoFichaje.updateOne(filtroEmail,fichaje);
+    		if(urFichaje.wasAcknowledged()) {
+    			fichado=true;
+    			Document cierreFichaje=estadoFichaje.iterator().next();
+    			Document fichajeNuevo=new Document();
+	    		fichajeNuevo.put("email",cierreFichaje.get("email") );
+	    		fichajeNuevo.put("fechaInicio",cierreFichaje.get("fechaInicio") );
+	    		fichajeNuevo.put("horaInicio",cierreFichaje.get("horaInicio") );
+	    		fichajeNuevo.put("fechaFin",cierreFichaje.get("fechaFin") );
+	    		fichajeNuevo.put("horaFin",cierreFichaje.get("horaFin") );
+	    		dbFichaje.insertOne(fichajeNuevo);
+	    		Bson fichajeCerrado=null;
+	    		fichajeCerrado=combine(set("email",email),set("estado","cerrado"),set("fechaInicio",""),set("horaInicio",""),set("fechaFin",""),set("horaFin",""));
+	    		dbEstadoFichaje.updateOne(filtroEmail,fichajeCerrado);
+    		}
+    	}else if(datosPersonales.iterator().hasNext() && !estadoFichaje.iterator().hasNext()){
+    		fichado=false;
+    	}
+    	return fichado;
+	}
+	public static Document consultarFichajes(String email,String fecha) {
+>>>>>>> branch 'bbdd_integration' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
 
 		Bson filtroEmail = null;
 		filtroEmail = eq("email", email);

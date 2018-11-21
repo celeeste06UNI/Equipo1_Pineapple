@@ -23,10 +23,28 @@ import static com.mongodb.client.model.Updates.combine;
 import static com.mongodb.client.model.Updates.set;
 
 public class DAOEmpleado {
+<<<<<<< HEAD
 	private static MongoCollection<Document> dbEmpleado = MongoBroker.get().getCollection("Empleado");
 	private static MongoCollection<Document> dbRol = MongoBroker.get().getCollection("EmpleadoRol");
 
 	/* INSERTAR EMPLEADO */
+=======
+	private static MongoCollection<Document> dbEmpleado=MongoBroker.get().getCollection("Empleado");
+	private static MongoCollection<Document> dbRol=MongoBroker.get().getCollection("EmpleadoRol");
+	
+	public static boolean buscarEmpleado(String email) {
+		Bson filtroEmpleado=null;
+		Bson filtroRol=null;
+		filtroEmpleado=and(eq("email",email));
+		if(dbEmpleado.find(filtroEmpleado).iterator().hasNext() && dbRol.find(filtroRol).iterator().hasNext()) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+	/*INSERTAR EMPLEADO*/
+>>>>>>> branch 'bbdd_integration' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
 	public static boolean insert(Document empleado) {
 		Bson filtroEmail = null;
 		filtroEmail = eq("email", empleado.get("email"));
