@@ -216,13 +216,21 @@ label.light {
 						<legend>
 							<span class="number">2</span>Datos del usuario
 						</legend>
+						
 						<label for="nombre">Nombre</label> <input type="text"
-							name="nombre" readonly value=${nombre} > <label
-							for="apellidos">Apellidos</label> <input type="text"
-							name="apellidos" readonly value=${apellidos} > <label
-							for="email">Email</label> <input type="email" name="email"
-							readonly value=${email} > <label for="rol">Rol</label> <input
-							type="text" name="rol" readonly value=${rol} >
+						name="nombre" readonly value=${nombre} >
+						
+						 <label for="apellidos">Apellidos</label> <input type="text"
+						name="apellidos" readonly value=${apellidos} >			
+						
+						<label for="dni">DNI </label> <input type="text" 
+						 name="dni" readonly value=${dni}>
+						
+						<label for="email">Email</label> <input type="email" name="email"
+						readonly value=${email} > 
+						
+						<label for="rol">Rol</label> <input
+						type="text" name="rol" readonly value=${rol} >
 
 						<button type="submit">Eliminar</button>
 					</fieldset>
