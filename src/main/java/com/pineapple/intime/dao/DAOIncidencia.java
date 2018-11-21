@@ -17,10 +17,10 @@ public class DAOIncidencia {
 	
 	public static boolean insert(Document incidencia) {
 		boolean insertado=false;
-		if(DAOEmpleado.buscarEmpleado((String) incidencia.get("email"))) {
+		//if(DAOEmpleado.buscarEmpleado((String) incidencia.get("email"))) {
 			dbIncidencia.insertOne(incidencia);
-			insertado=true;
-		}
+			//insertado=true;
+		//}
 		return insertado;
 	}
 	
