@@ -65,12 +65,12 @@ public class IncidenciaController {
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
 		result = DAOIncidencia.consultar(email, tipo);
-		for(Integer i = 0; i<result.keySet().size();i++) {
+		/*for(Integer i = 0; i<result.keySet().size();i++) {
 			Document doc = result.get(i);
 			Incidencia indencia = new Incidencia((String) doc.get("email"), (String) doc.get("estado"),(String) doc.get("asunto"),
 					(String) doc.get("descripcion"),(String) doc.get("tipo"),(String) doc.get("fecha"));
 			listIncidencia.add(indencia);
-		}
+		}*/
 		model.addObject("listIncidencia", listIncidencia);
 		model.setViewName("consultarIncidenciaUser");
 		return model;
