@@ -16,7 +16,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<title>Gestor Fichajes</title>
+<title>Consultar Incidencia</title>
 
 <style type="text/css">
 *, *:before, *:after {
@@ -155,8 +155,7 @@ label.light {
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Crear</a></li>
-						<li><a href="#">Eliminar</a></li>
-						<li><a href="#">Modificar</a></li>
+						<li><a href="/consultarIncidenciaUser">Consultar</a></li>
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
@@ -173,45 +172,43 @@ label.light {
 		<div class="page-header">
 			<h1>Gestor de Fichajes</h1>
 		</div>
-		<form name='searchForm' action='/searchFichajeOtro' method='GET'>
+		<form name='searchForm' action='/buscarIncidenciaTipo' method='GET'>
 
 			<fieldset>
+				
 				<legend>
-					<span class="number">2</span>Consultar Fichajes
-				</legend>
-				<label for="name">Introduzca el email:<br></label> <input
-							placeholder="" type="email" name="emailFichaje">
-				<label for="name">Introduzca la fecha:<br></label> <input
-							placeholder="yyyy/MM/dd" type="text" name="fecha">
+				<span class="number">1</span>Seleccionar Tipo de Incidencia
+			</legend>
+			<label>Incidencias:</label> <input type="radio" id="permiso" value="permiso"
+				required autocomplete="off" name="tipo"> <label class="light"
+				for="Permisos">Permiso</label><br> 
+				<input
+				type="radio" id="baja" value="baja" required autocomplete="off"
+				name="tipo"> <label class="light" for="baja">Baja</label><br>
+			
+			<input type="radio" id="vacaciones" value="vacaciones" required
+				autocomplete="off" name="tipo"> <label class="light"
+				for="vacaciones">Vacaciones</label>
+				
 				<button type="submit">Buscar</button>
 			</fieldset>
 		</form>
 	</div>
+	
 	<div class="container" align="left">
 		<table class="table table-hover">
-			<p>Incidencias según el tipo seleccionado</p>
-			
-			<th>estado</th>
-			<th>asunto</th>
-			<th>descripcion</th>
-			<th>tipo</th>
-			<th>fecha</th>
-			
-			<c:forEach var="fichaje" items="${listIncidencia}">
+			<p>Fecha de los fichajes</p>
+			<!-- <th>Id</th> -->
+			<th>Fecha de apertura / Fecha de cierre</th>
+
+			<c:forEach var="fechaDelFichaje" items="${listDate}">
 				<tr>
-					<td>${fichaje.estado}</td>
-					<td>${fichaje.asunto}</td>
-					<td>${fichaje.descripcion}</td>
-					<td>${fichaje.tipo}</td>
-					<td>${fichaje.fecha}</td>
-					<td><a
-							href="<c:url value='/editIncidencias?email=${fichaje.email}&estado=${fichaje.estado}&asunto=${fichaje.asunto}&descripcion=${fichaje.descripcion}&tipo=${fichaje.tipo}&fecha=${fichaje.fecha}' />">Editar</a>
-							- <a
-							href="<c:url value='/deleteIncidencias?email=${fichaje.email}&estado=${fichaje.estado}&asunto=${fichaje.asunto}&descripcion=${fichaje.descripcion}&tipo=${fichaje.tipo}&fecha=${fichaje.fecha}' />">Eliminar</a></td>
+					<td>${fechaDelFichaje}</td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
+	
 	<div class="col-sm-6" style="background-color: white;"></div>
 
 </body>
