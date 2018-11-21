@@ -175,7 +175,7 @@ label.light {
 			<label for="name">Asunto:</label> <input type="text" required
 				autocomplete="off" name="asunto"> 
 			<label for="name">Descripción:</label><input
-				type="textarea" required autocomplete="off" name="descripcion">
+				type="text" required autocomplete="off" name="descripcion">
 		</fieldset>
 
 		<fieldset>
