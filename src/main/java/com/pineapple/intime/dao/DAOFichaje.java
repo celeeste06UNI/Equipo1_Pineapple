@@ -143,5 +143,9 @@ public class DAOFichaje {
 		}
 		return resultado;
 	}
+	
+	public String toString() {
+		return null;
+	}
 
 }

@@ -97,8 +97,6 @@ public class HomeController {
         response.sendRedirect("index.jsp");
     }
 
-	
-
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 
 	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password, HttpServletRequest request) throws Exception {

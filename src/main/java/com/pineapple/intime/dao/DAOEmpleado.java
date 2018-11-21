@@ -51,7 +51,7 @@ public class DAOEmpleado {
 		filtroEmail = eq("email", empleado.get("email"));
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
 		FindIterable<Document> rol = dbEmpleado.find(filtroEmail);
-		if ((datosPersonales.iterator().hasNext() && rol.iterator().hasNext())) {
+		if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
 			DeleteResult drDatos = dbEmpleado.deleteMany(filtroEmail);
 			DeleteResult drRol = dbRol.deleteMany(filtroEmail);
 			if (drDatos.wasAcknowledged() && drRol.wasAcknowledged()) {
@@ -158,6 +158,10 @@ public class DAOEmpleado {
 
 		}
 		return result;
+	}
+	
+	public String toString() {
+		return null;
 	}
 
 }
