@@ -175,21 +175,17 @@ label.light {
 		<form name='searchForm' action='/buscarIncidenciaTipo' method='GET'>
 
 			<fieldset>
-				
-				<legend>
-				<span class="number">1</span>Seleccionar Tipo de Incidencia
+			<legend>
+				<span class="number">2</span>Seleccionar el tipo
 			</legend>
-			<label>Incidencias:</label> <input type="radio" id="permiso" value="permiso"
-				required autocomplete="off" name="tipo"> <label class="light"
-				for="Permisos">Permiso</label><br> 
-				<input
-				type="radio" id="baja" value="baja" required autocomplete="off"
-				name="tipo"> <label class="light" for="baja">Baja</label><br>
-			
-			<input type="radio" id="vacaciones" value="vacaciones" required
-				autocomplete="off" name="tipo"> <label class="light"
-				for="vacaciones">Vacaciones</label>
-				
+			<label>Tipos:</label>
+			<input type="radio" id="incidFich" value="incidFich" required autocomplete="off" name="tipo"> 
+			<label class="light" for="incidFich">Incidencia de Fichaje</label><br> 
+			<input type="radio" id="vacaciones" value="vacaciones" required autocomplete="off" name="tipo"> 
+			<label class="light" for="vacaciones">Vacaciones</label><br>
+			<input type="radio" id="perimisos" value="perimisos" required autocomplete="off" name="tipo"> 
+			<label class="light" for="perimisos">Permisos</label>
+		</fieldset>
 				<button type="submit">Buscar</button>
 			</fieldset>
 		</form>
