@@ -204,6 +204,7 @@ label.light {
 			<th>descripcion</th>
 			<th>tipo</th>
 			<th>fecha</th>
+			<th>Editar-Modificar</th>
 			
 			<c:forEach var="fichaje" items="${listIncidencia}">
 				<tr>
