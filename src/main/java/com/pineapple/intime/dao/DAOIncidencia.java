@@ -11,7 +11,7 @@ import static com.mongodb.client.model.Filters.and;
 
 public class DAOIncidencia {
 
-	private static MongoCollection<Document> dbIncidencia=MongoBroker.get().getCollection("Empleado");
+	private static MongoCollection<Document> dbIncidencia=MongoBroker.get().getCollection("Incidencia");
 	
 	
 	
