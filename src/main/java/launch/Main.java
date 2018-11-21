@@ -38,4 +38,9 @@ public class Main {
 		tomcat.start();
 		tomcat.getServer().await();
 	}
+	
+	public String toString() {
+		return null;
+	}
+	
 }

@@ -15,23 +15,18 @@ import cucumber.annotation.en.When;
 import cucumber.junit.Cucumber;
 import cucumber.runtime.PendingException;
 import cucumber.table.DataTable;
-
-
 import org.openqa.selenium.By; 
 import org.openqa.selenium.WebDriver; 
 import org.openqa.selenium.WebElement; 
 import org.openqa.selenium.*; 
 import org.openqa.selenium.firefox.FirefoxDriver; 
 import org.openqa.selenium.support.ui.Select;
-
-
-
 import java.util.List;
 
 @RunWith(Cucumber.class)
 public class annotation {
-WebDriver driver = new FirefoxDriver();
-	
+WebDriver driver = new FirefoxDriver();	
+
 	@Given("^Yo navego hacia el sitio web$")
 	public void Yo_navego_hacia_el_sitio_web() {
 	      driver.navigate().to("https://equipo1pineapple.herokuapp.com/");

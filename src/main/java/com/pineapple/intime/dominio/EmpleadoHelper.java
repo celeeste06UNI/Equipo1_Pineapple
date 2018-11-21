@@ -4,11 +4,17 @@ import java.util.Properties;
 
 import javax.mail.Session;
 import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import java.security.Key;
+import java.security.MessageDigest;
 import java.util.Date;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.spec.SecretKeySpec;
 import javax.mail.Authenticator;
 import javax.mail.BodyPart;
 import javax.mail.Message;
@@ -25,17 +31,24 @@ import javax.mail.internet.MimeMultipart;
 import org.apache.commons.lang3.RandomStringUtils;
 
 public class EmpleadoHelper {
+	
+	private static final String UNICODE_FORMAT = "ISO-8859-1";	
 
-	public static String generarContraseña() {
-		String contrasenna = RandomStringUtils.randomAlphanumeric(10);
+
+	public static String generarContrasenna() throws Exception {
+		String passHex = null;
 		
-		return contrasenna;
+		String passCifrada = cifra(RandomStringUtils.randomAlphanumeric(10));
+
+		return passHex = ConvertirHexadecimal(passCifrada);
 	}
 	
-	public static void sesionEmail(String emailDestino, String contraseña) {
+	public static void sesionEmail(String emailDestino, String contrasenna) throws Exception {
 		final String fromEmail = "intime.uclm.esi@gmail.com"; // requires valid gmail id
 		final String password = "admin_1234"; // correct password for gmail id
 		final String toEmail = emailDestino; // can be any email id
+		String passNoHex = ConvertirCadena(contrasenna);
+		String passDescifrada = descifra(passNoHex);
 
 		System.out.println("TLSEmail Start");
 		Properties props = new Properties();
@@ -53,7 +66,7 @@ public class EmpleadoHelper {
 		};
 		Session session = Session.getInstance(props, auth);
 		
-		sendEmail(session, toEmail, "Contraseña app InTime", "Su contraseña es:" + contraseña);
+		sendEmail(session, toEmail, "Contraseña app InTime", "Su contraseña es:" + passDescifrada);
 		
 	}
 
@@ -83,6 +96,64 @@ public class EmpleadoHelper {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static String ConvertirHexadecimal (String pass) {
+		return String.format("%040x", new BigInteger(1, pass.getBytes()));
+	}
+	
+	public static String ConvertirCadena(String hex) {
+	    
+	    String noHex= null;
+		
+	    String rephex = hex.replaceAll("^(00)+", "");
+	    byte[] bytes = new byte[rephex.length() / 2];
+	    for (int i = 0; i < rephex.length(); i += 2) {
+	        bytes[i / 2] = (byte) ((Character.digit(rephex.charAt(i), 16) << 4) + Character.digit(rephex.charAt(i + 1), 16));
+	    }
+
+	    return noHex = new String(bytes);
+	}
+	
+
+
+	public static String cifra(String sinCifrar) throws Exception {
+		String cifrarString = null;
+		final byte[] bytes = sinCifrar.getBytes("UTF-8");
+		final Cipher aes = obtieneCipher(true);
+		final byte[] cifrado = aes.doFinal(bytes);
+		return cifrarString = new String(cifrado, UNICODE_FORMAT);
+	}
+	
+	public static String descifra(String cifrado) throws Exception {
+		String sinCifrar = null;
+		final Cipher aes = obtieneCipher(false);
+		byte[] cifradoByte = cifrado.getBytes(UNICODE_FORMAT);
+		final byte[] bytes = aes.doFinal(cifradoByte);
+		return sinCifrar = new String(bytes, "UTF-8");
+	}
+	
+	private static Cipher obtieneCipher(boolean paraCifrar) throws Exception {
+		KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+		keyGenerator.init(128);
+		Key frase = keyGenerator.generateKey();
+		String frase2 = frase.getFormat();
+		final MessageDigest digest = MessageDigest.getInstance("SHA");
+		digest.update(frase2.getBytes("UTF-8"));
+		final SecretKeySpec key = new SecretKeySpec(digest.digest(), 0, 16, "AES");
+
+		final Cipher aes = Cipher.getInstance("AES/ECB/PKCS5Padding");
+		if (paraCifrar) {
+			aes.init(Cipher.ENCRYPT_MODE, key);
+		} else {
+			aes.init(Cipher.DECRYPT_MODE, key);
+		}
+
+		return aes;
+	}
+	
+	public String toString() {
+		return null;
 	}
 
 }

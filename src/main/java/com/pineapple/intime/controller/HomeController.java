@@ -65,6 +65,24 @@ public class HomeController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/intime", method = RequestMethod.GET)
+	public String intime(HttpServletRequest request, ModelAndView model) {
+		String pagina = "";
+		HttpSession session = request.getSession(true);
+		String rolSession = (String) session.getAttribute("rolSession");
+	
+		if("admin".equals(rolSession)) {
+			pagina = "admin";
+		}
+		if("user".equals(rolSession)) {
+			pagina = "user";
+		}
+		if("incid".equals(rolSession)) {
+			pagina = "incid";
+		}
+		return pagina;
+	}
+	
 	@RequestMapping(value = "/cerrarSesion", method = RequestMethod.GET)
 	protected void cerrarSesion(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -79,14 +97,13 @@ public class HomeController {
         response.sendRedirect("index.jsp");
     }
 
-	
-
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 
-	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password, HttpServletRequest request) throws IOException {
+	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password, HttpServletRequest request) throws Exception {
 		String pagina = "error";
 		HttpSession session = request.getSession(true);
-		String emailLowerCase=email.toLowerCase();
+
+		String emailLowerCase=email.toLowerCase(new Locale("en", "EN"));
 		Document doc = DAOEmpleado.autenticar(emailLowerCase,password);
 
 		if(doc.get("email").equals("error")) {
