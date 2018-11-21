@@ -31,7 +31,7 @@ public class MongoBroker {
 		return false;
 	}
 	private static class MongoBrokerHolder {
-		static MongoBroker singleton=new MongoBroker();
+	 static MongoBroker singleton=new MongoBroker();
 	}
 	
 	public static MongoBroker get() {
