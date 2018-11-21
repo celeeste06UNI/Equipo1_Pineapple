@@ -228,6 +228,10 @@ label.light {
 							name="nombre" required autocomplete="off" value=${nombre} >
 						<label for="apellidos">Apellidos</label> <input type="text"
 							name="apellidos" required autocomplete="off" value=${apellidos} >
+						
+						<label for="dni">DNI </label> <input type="text" 
+						name="dni" required autocomplete="off" value=${dni}>
+		
 						<label for="email">Nuevo Email</label> <input type="email"
 							name="emailNuevo" required autocomplete="off" value=${email} >
 						<label for="rol">Rol</label> <input type="text" readonly
