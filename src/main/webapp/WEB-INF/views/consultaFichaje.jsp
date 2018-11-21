@@ -177,7 +177,7 @@ label.light {
 
 			<fieldset>
 				<legend>
-					<span class="number">2</span>Consultar Fichajes
+					<span class="number">1</span>Consultar Fichajes
 				</legend>
 				<label for="name">Introduzca el email:<br></label> <input
 							placeholder="" type="email" name="emailFichaje">
