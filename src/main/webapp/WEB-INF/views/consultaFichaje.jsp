@@ -189,29 +189,18 @@ label.light {
 	</div>
 	<div class="container" align="left">
 		<table class="table table-hover">
-			<p>Incidencias según el tipo seleccionado</p>
-			
-			<th>estado</th>
-			<th>asunto</th>
-			<th>descripcion</th>
-			<th>tipo</th>
-			<th>fecha</th>
-			
-			<c:forEach var="fichaje" items="${listIncidencia}">
+			<p>Fecha de los fichajes</p>
+			<!-- <th>Id</th> -->
+			<th>Fecha de apertura / Fecha de cierre</th>
+
+			<c:forEach var="fechaDelFichaje" items="${listDate}">
 				<tr>
-					<td>${fichaje.estado}</td>
-					<td>${fichaje.asunto}</td>
-					<td>${fichaje.descripcion}</td>
-					<td>${fichaje.tipo}</td>
-					<td>${fichaje.fecha}</td>
-					<td><a
-							href="<c:url value='/editIncidencias?email=${fichaje.email}&estado=${fichaje.estado}&asunto=${fichaje.asunto}&descripcion=${fichaje.descripcion}&tipo=${fichaje.tipo}&fecha=${fichaje.fecha}' />">Editar</a>
-							- <a
-							href="<c:url value='/deleteIncidencias?email=${fichaje.email}&estado=${fichaje.estado}&asunto=${fichaje.asunto}&descripcion=${fichaje.descripcion}&tipo=${fichaje.tipo}&fecha=${fichaje.fecha}' />">Eliminar</a></td>
+					<td>${fechaDelFichaje}</td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
+
 	<div class="col-sm-6" style="background-color: white;"></div>
 
 </body>
