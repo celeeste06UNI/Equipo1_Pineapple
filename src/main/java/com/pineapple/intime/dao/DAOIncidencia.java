@@ -28,7 +28,7 @@ public class DAOIncidencia {
 		ConcurrentHashMap<Integer,Document> result=new ConcurrentHashMap<Integer,Document>();
 		Bson filtro=null;
 		
-		if(DAOEmpleado.buscarEmpleado(email)) {
+		//if(DAOEmpleado.buscarEmpleado(email)) {
 			filtro=and(eq("email",email),eq("tipo",tipo));
 			int cont=-1;
 			FindIterable<Document> incidencias = dbIncidencia.find(filtro);
@@ -36,9 +36,9 @@ public class DAOIncidencia {
 				cont++;
 				result.put(cont, incidencias.iterator().next());
 			}
-		}else {
-			result.put(0, new Document("email","error"));
-		}
+		//}else {
+		//	result.put(0, new Document("email","error"));
+		//}
 		return result;
 	}
 
