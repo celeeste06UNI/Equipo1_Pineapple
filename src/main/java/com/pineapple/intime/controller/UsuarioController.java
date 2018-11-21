@@ -155,6 +155,12 @@ public class UsuarioController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/consultarIncidenciaUser", method = RequestMethod.GET)
+	public ModelAndView consultarIncidenciaUser(ModelAndView model) {
+		model.setViewName("consultarIncidenciaUser");
+		return model;
+	}
+	
 	
 	
 
