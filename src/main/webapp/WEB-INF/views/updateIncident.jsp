@@ -170,31 +170,30 @@ label.light {
 		<h1>Modificar Incidencia</h1>
 		<fieldset>
 			<legend>
-				<span class="number">1</span>Información básica
+				<span class="number">1</span>Modificar Incidencia
 			</legend>
-			<label for="name">Asunto:</label> <input type="text" required
-				autocomplete="off" name="asunto"> 
-			<label for="name">Descripción:</label><input
-				type="textarea" required autocomplete="off" name="descripcion">
+			<label for="asunto">Asunto:</label> <input type="text" required
+				autocomplete="off" name="asunto" value=${asunto}> 
+			<label for="descripción">Descripción:</label><input
+				type="textarea" required autocomplete="off" name="descripcion" value=${descripción}>
 		</fieldset>
-
 		<fieldset>
-			<legend>
-				<span class="number">2</span>Seleccionar el tipo
-			</legend>
-			<label>Tipos:</label>
-			<input type="radio" id="incidFich" value="incidFich" required autocomplete="off" name="tipo"> 
-			<label class="light" for="Administrador">Incidencia de Fichaje</label><br> 
-			<input type="radio" id="usuario" value="user" required autocomplete="off" name="tipo"> 
-			<label class="light" for="Usuario">Vacaciones</label><br>
-			<input type="radio" id="gestor" value="incid" required autocomplete="off" name="tipo"> 
-			<label class="light" for="Gestor">Permisos</label>
+			<label for="rol">Tipo</label> <input type="text" readonly
+  				name="TipolActual" required autocomplete="off" value=${tipo} >
+			<label>Tipos:</label> <input type="radio" id="incidencia"
+				value="incident" required autocomplete="off" name="tipo"> <label
+				class="light" for="Incidencia">Incidencia por Fichaje</label><br>
+			<input type="radio" id="permisos" value="per" required
+				autocomplete="off" name="tipo"> <label class="light"
+				for="Permisos">Permisos</label><br> <input type="radio"
+				id="vacaciones" value="vac" required autocomplete="off" name="tipo">
+			<label class="light" for="Vacaciones">Vacaciones</label>
 		</fieldset>
 
-		<button type="submit">Modificar</button>
+		<button type="submit">Actualizar</button>
+
 
 	</form>
-
 
 </body>
 </html>
