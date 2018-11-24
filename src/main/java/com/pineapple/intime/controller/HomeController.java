@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 
 import org.apache.jasper.tagplugins.jstl.core.Out;
 import org.bson.Document;
@@ -108,6 +109,7 @@ public class HomeController {
 
 		if(doc.get("email").equals("error")) {
 			pagina = "error";
+			JOptionPane.showMessageDialog(null, "Error, Usuario/Password incorrectos");
 		}
 
 		if(doc.get("email").equals(emailLowerCase)) {
