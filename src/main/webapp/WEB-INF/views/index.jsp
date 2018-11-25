@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <html>
@@ -124,7 +126,7 @@
 
 <body>
 
-<!-- 	<input type="button" value="Cancelar" id="cancelar" name="cancelar"
+	<!-- 	<input type="button" value="Cancelar" id="cancelar" name="cancelar"
 		onclick="self.location.href = 'home'" /> -->
 
 	<section class="login-block">
@@ -132,30 +134,33 @@
 			<div class="row">
 				<div class="col-md-4 login-sec">
 					<h2 class="text-center">Iniciar Sesión</h2>
-					<form class="login-form" name='loginForm' action="/login" method='POST'>
+					<form class="login-form" name='loginForm' action="/login"
+						method='POST'>
 						<div class="form-group">
 							<label for="exampleInputEmail1" class="text-uppercase">Email</label>
-							<input name="email" type="text" class="form-control" placeholder="">
+							<input name="email" type="text" class="form-control"
+								placeholder="">
 						</div>
-						
+
 						<div class="form-group">
 							<label for="exampleInputPassword1" class="text-uppercase">Contraseña</label>
-							<input name="password" type="password" class="form-control" placeholder="">
+							<input name="password" type="password" class="form-control"
+								placeholder="">
 						</div>
 
 
 						<div class="form-check">
-							<label class="form-check-label"><small>"${correcto}"</small>
-							</label>
-							<button id="botonEntrar" type="submit" class="btn btn-login float-right">Enviar</button>
+							<a><span class="glyphicon glyphicon-user"> </span>
+								${correcto}</a>
+							
+							<button id="botonEntrar" type="submit"
+								class="btn btn-login float-right">Enviar</button>
 						</div>
 
 					</form>
-					<div class="copy-text">
-						Pineapple
-					</div>
+					<div class="copy-text">Pineapple</div>
 				</div>
- 				<div class="col-md-8 banner-sec">
+				<div class="col-md-8 banner-sec">
 					<div id="carouselExampleIndicators" class="carousel slide"
 						data-ride="carousel">
 						<ol class="carousel-indicators">
@@ -165,11 +170,10 @@
 								<img class="d-block img-fluid"
 									src="https://static.pexels.com/photos/33972/pexels-photo.jpg"
 									alt="First slide">
-								<div >
+								<div>
 									<div class="banner-text">
 										<h2>In Time</h2>
-										<p>Aplicación web para la gestión
-										 de los fichajes</p>
+										<p>Aplicación web para la gestión de los fichajes</p>
 									</div>
 								</div>
 							</div>
