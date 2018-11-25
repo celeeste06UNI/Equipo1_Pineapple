@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -61,7 +62,7 @@ public class IncidenciaController {
 	@RequestMapping(value = "/buscarIncidenciaTipo", method = RequestMethod.GET)
 	public ModelAndView buscarIncidenciaTipo(HttpServletRequest request, ModelAndView model, @ModelAttribute("tipo") String tipo) {	
 		ConcurrentHashMap<Integer, Document> result=new ConcurrentHashMap<Integer, Document>();
-		ArrayList<Incidencia> listIncidencia=new ArrayList<Incidencia>();
+		List<Incidencia> listIncidencia = null;
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
 		result = DAOIncidencia.consultar(email, tipo);
