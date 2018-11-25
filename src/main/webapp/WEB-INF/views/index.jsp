@@ -150,8 +150,8 @@
 
 
 						<div class="form-check">
-							<a><span style="color:blue"> </span>
-								${correcto}</a>
+							<a><span style="color:blue"> ${correcto}</span>
+								</a>
 							
 							<button id="botonEntrar" type="submit"
 								class="btn btn-login float-right">Enviar</button>
