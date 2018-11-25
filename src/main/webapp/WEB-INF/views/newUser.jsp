@@ -5,7 +5,7 @@
 <head>
 <script type="text/javascript">
 	function pregunta() {
-		if (confirm("¿Desea crear la regla?")) {
+		if (confirm("¿Desea guardar el usuario?")) {
 			document.loginForm.submit()
 		}
 	}

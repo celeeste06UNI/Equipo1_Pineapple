@@ -6,7 +6,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<script type="text/javascript">
+	function pregunta() {
+		if (confirm("¿Desea consultar el fichaje de ${emailFichaje}?")) {
+			document.searchForm.submit()
+		}
+	}
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -183,7 +189,8 @@ label.light {
 							placeholder="" type="email" name="emailFichaje">
 				<label for="name">Introduzca la fecha:<br></label> <input
 							placeholder="yyyy/MM/dd" type="text" name="fecha">
-				<button type="submit">Buscar</button>
+				<input type="button" onclick="pregunta()" value="Buscar">
+				<!-- <button type="submit">Buscar</button> -->
 			</fieldset>
 		</form>
 	</div>
