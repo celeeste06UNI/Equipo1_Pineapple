@@ -150,7 +150,7 @@
 
 
 						<div class="form-check">
-							<a><span class="glyphicon glyphicon-user"> </span>
+							<a><span style="color:blue"> </span>
 								${correcto}</a>
 							
 							<button id="botonEntrar" type="submit"
