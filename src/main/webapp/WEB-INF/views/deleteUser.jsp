@@ -9,6 +9,20 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	function pregunta() {
+		if (confirm("¿Desea buscar el usuario?")) {
+			document.searchForm.submit()
+		}
+	}
+</script>
+<script type="text/javascript">
+	function preguntaDelete() {
+		if (confirm("¿Desea eliminar el usuario?")) {
+			document.searchForm.submit()
+		}
+	}
+</script>
 <title>Eliminar Usuario</title>
 <style type="text/css">
 *, *:before, *:after {
@@ -120,7 +134,7 @@ label.light {
 
 </head>
 <body>
-<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/intime">InTime</a>
@@ -136,8 +150,7 @@ label.light {
 					</ul></li>
 
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Fichajes<span
-						class="caret"></span></a>
+					data-toggle="dropdown" href="#">Fichajes<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="/fichajeUser">Fichar</a></li>
 						<li><a href="/consultaFichaje">Consultar</a></li>
@@ -197,21 +210,22 @@ label.light {
 		<div class="row">
 			<div class="col-sm-6" style="background-color: white;">
 				<form name='searchForm' action='/deleteSearchUser' method='POST'>
-					
+
 					<fieldset>
 						<legend>
 							<span class="number">1</span>Introduzca el e-mail del usuario
 						</legend>
 						<label for="name">Introduzca el email:</label> <input type="email"
 							name="email">
-						<button type="submit">Buscar</button>
+						<input type="button" onclick="pregunta()" value="Buscar">
+						<!-- <button type="submit">Buscar</button> -->
 					</fieldset>
 				</form>
 
 			</div>
 			<div class="col-sm-6" style="background-color: white;">
 				<form name='deleteForm' action='/actionDeleteUser' method='POST'>
-					
+
 					<fieldset>
 						<legend>
 							<span class="number">2</span>Datos del usuario
@@ -224,7 +238,8 @@ label.light {
 							readonly value=${email} > <label for="rol">Rol</label> <input
 							type="text" name="rol" readonly value=${rol} >
 
-						<button type="submit">Eliminar</button>
+						<!-- <button type="submit">Eliminar</button> -->
+						<input type="button" onclick="preguntaDelete()" value="Eliminar">
 					</fieldset>
 
 				</form>
