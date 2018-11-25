@@ -100,14 +100,17 @@ public class HomeController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 
-	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password, HttpServletRequest request) throws Exception {
+	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password, 
+			HttpServletRequest request, ModelAndView model) throws Exception {
 		String pagina = "error";
 		HttpSession session = request.getSession(true);
 		String emailLowerCase=email.toLowerCase();
 		Document doc = DAOEmpleado.autenticar(emailLowerCase,password);
 
 		if(doc.get("email").equals("error")) {
-			pagina = "error";
+			model.addObject("correcto", "Usuario o contraseña incorrecto");
+			//model.setViewName("personalUpdate");
+			pagina = "index";
 		}
 
 		if(doc.get("email").equals(emailLowerCase)) {

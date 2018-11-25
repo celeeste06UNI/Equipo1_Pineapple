@@ -145,8 +145,7 @@
 
 
 						<div class="form-check">
-							<label class="form-check-label"> <input type="checkbox"
-								class="form-check-input"> <small>Recordar</small>
+							<label class="form-check-label"><small>"${correcto}"</small>
 							</label>
 							<button id="botonEntrar" type="submit" class="btn btn-login float-right">Enviar</button>
 						</div>
