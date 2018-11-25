@@ -175,33 +175,33 @@ label.light {
 		<form name='searchForm' action='/buscarIncidenciaTipo' method='GET'>
 
 			<fieldset>
-			<legend>
-				<span class="number">2</span>Seleccionar el tipo
-			</legend>
-			<label>Tipos:</label>
-			<input type="radio" id="incidFich" value="incidFich" required autocomplete="off" name="tipo"> 
-			<label class="light" for="incidFich">Incidencia de Fichaje</label><br> 
-			<input type="radio" id="vacaciones" value="vacaciones" required autocomplete="off" name="tipo"> 
-			<label class="light" for="vacaciones">Vacaciones</label><br>
-			<input type="radio" id="perimisos" value="perimisos" required autocomplete="off" name="tipo"> 
-			<label class="light" for="perimisos">Permisos</label>
-		</fieldset>
-				<button type="submit">Buscar</button>
+				<legend>
+					<span class="number">2</span>Seleccionar el tipo
+				</legend>
+				<label>Tipos:</label> <input type="radio" id="incidFich"
+					value="incidFich" required autocomplete="off" name="tipo">
+				<label class="light" for="incidFich">Incidencia de Fichaje</label><br>
+				<input type="radio" id="vacaciones" value="vacaciones" required
+					autocomplete="off" name="tipo"> <label class="light"
+					for="vacaciones">Vacaciones</label><br> <input type="radio"
+					id="perimisos" value="perimisos" required autocomplete="off"
+					name="tipo"> <label class="light" for="perimisos">Permisos</label>
 			</fieldset>
+			<button type="submit">Buscar</button>
 		</form>
 	</div>
-	
-		<div class="container" align="left">
+
+	<div class="container" align="left">
 		<table class="table table-hover">
 			<p>Incidencias según el tipo seleccionado</p>
-			
+
 			<th>estado</th>
 			<th>asunto</th>
 			<th>descripcion</th>
 			<th>tipo</th>
 			<th>fecha</th>
 			<th>Editar-Modificar</th>
-			
+
 			<c:forEach var="fichaje" items="${listIncidencia}">
 				<tr>
 					<td>${fichaje.estado}</td>
@@ -210,14 +210,14 @@ label.light {
 					<td>${fichaje.tipo}</td>
 					<td>${fichaje.fecha}</td>
 					<td><a
-							href="<c:url value='/editIncidencias?email=${fichaje.email}&estado=${fichaje.estado}&asunto=${fichaje.asunto}&descripcion=${fichaje.descripcion}&tipo=${fichaje.tipo}&fecha=${fichaje.fecha}' />">Editar</a>
-							- <a 
-							href="<c:url value='/deleteIncidencias?email=${fichaje.email}&estado=${fichaje.estado}&asunto=${fichaje.asunto}&descripcion=${fichaje.descripcion}&tipo=${fichaje.tipo}&fecha=${fichaje.fecha}' />">Eliminar</a></td>
+						href="<c:url value='/editIncidencias?email=${fichaje.email}&estado=${fichaje.estado}&asunto=${fichaje.asunto}&descripcion=${fichaje.descripcion}&tipo=${fichaje.tipo}&fecha=${fichaje.fecha}' />">Editar</a>
+						- <a
+						href="<c:url value='/deleteIncidencias?email=${fichaje.email}&estado=${fichaje.estado}&asunto=${fichaje.asunto}&descripcion=${fichaje.descripcion}&tipo=${fichaje.tipo}&fecha=${fichaje.fecha}' />">Eliminar</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
-	
+
 	<div class="col-sm-6" style="background-color: white;"></div>
 
 </body>
