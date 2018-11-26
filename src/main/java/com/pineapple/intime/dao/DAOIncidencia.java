@@ -8,6 +8,7 @@ import org.bson.conversions.Bson;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
+import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
 import com.pineapple.intime.model.Incidencia;
 
@@ -38,6 +39,16 @@ public class DAOIncidencia {
 				update=combine(set("email",email),set("estado",estado),set("asunto",asunto),set("descripcion",descripcion),set("tipo",tipo),set("fecha",fecha));
 		filtro=and(eq("email",email),eq("fecha",fecha));
 		UpdateResult urIncidencia = dbIncidencia.updateOne(filtro, update);
+		if(urIncidencia.wasAcknowledged()) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	public static boolean delete(String email,String estado,String asunto,String descripcion,String tipo,String fecha) {
+		Bson filtro=null;
+		filtro=and(eq("email",email),eq("fecha",fecha));
+		DeleteResult urIncidencia = dbIncidencia.deleteOne(filtro);
 		if(urIncidencia.wasAcknowledged()) {
 			return true;
 		}else {
