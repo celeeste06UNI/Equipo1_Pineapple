@@ -109,7 +109,6 @@ public class HomeController {
 
 		if(doc.get("email").equals("error")) {
 			pagina = "error";
-			JOptionPane.showMessageDialog(null, "Error, Usuario/Password incorrectos");
 		}
 
 		if(doc.get("email").equals(emailLowerCase)) {
