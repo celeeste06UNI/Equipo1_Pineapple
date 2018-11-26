@@ -1,5 +1,6 @@
 package com.pineapple.intime.dao;
 
+import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -7,10 +8,14 @@ import org.bson.conversions.Bson;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
+import com.mongodb.client.result.UpdateResult;
+import com.pineapple.intime.model.Incidencia;
 
 import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.or;
 import static com.mongodb.client.model.Filters.and;
-
+import static com.mongodb.client.model.Updates.set;
+import static com.mongodb.client.model.Updates.combine;
 public class DAOIncidencia {
 
 	private static MongoCollection<Document> dbIncidencia=MongoBroker.get().getCollection("Incidencia");
@@ -27,6 +32,18 @@ public class DAOIncidencia {
 		}
 		
 	}
+	public static boolean update(String email,String estado,String asunto,String descripcion,String tipo,String fecha) {
+		Bson filtro=null;
+		Bson update=null;
+				update=combine(set("email",email),set("estado",estado),set("asunto",asunto),set("descripcion",descripcion),set("tipo",tipo),set("fecha",fecha));
+		filtro=and(eq("email",email),eq("fecha",fecha));
+		UpdateResult urIncidencia = dbIncidencia.updateOne(filtro, update);
+		if(urIncidencia.wasAcknowledged()) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 	
 	public static boolean insert(Document incidencia) {
 		boolean insertado=false;
@@ -37,22 +54,27 @@ public class DAOIncidencia {
 		return insertado;
 	}
 	
-	public static ConcurrentHashMap<Integer,Document> consultar(String email,String tipo){
-		ConcurrentHashMap<Integer,Document> result=new ConcurrentHashMap<Integer,Document>();
+	public static ArrayList<Incidencia> consultar(String email,String tipo){
+		ArrayList<Incidencia> i=new ArrayList<Incidencia> ();
 		Bson filtro=null;
 		
 		//if(DAOEmpleado.buscarEmpleado(email)) {
-			filtro=and(eq("email",email),eq("tipo",tipo));
+			filtro=and(or(eq("email",email),eq("dni",email)),eq("tipo",tipo));
 			int cont=-1;
 			FindIterable<Document> incidencias = dbIncidencia.find(filtro);
-			while(incidencias.iterator().hasNext()) {
+			for (Document inc: incidencias) {
 				cont++;
-				result.put(cont, incidencias.iterator().next());
+				Incidencia incidencia=new Incidencia(inc.getString("email"),inc.getString("estado"),inc.getString("asunto"),inc.getString("descripcion"),
+						inc.getString("tipo"),inc.getString("fecha"));
+				
+				i.add(incidencia);
+			
 			}
+			
 		//}else {
 		//	result.put(0, new Document("email","error"));
 		//}
-		return result;
+		return i;
 	}
 
 }
