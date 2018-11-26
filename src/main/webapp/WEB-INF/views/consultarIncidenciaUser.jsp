@@ -6,7 +6,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>consultar incidencia</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -15,8 +16,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<title>Consultar Incidencia</title>
 
 <style type="text/css">
 *, *:before, *:after {
