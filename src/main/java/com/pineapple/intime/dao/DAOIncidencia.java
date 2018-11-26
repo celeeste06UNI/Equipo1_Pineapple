@@ -41,4 +41,10 @@ public class DAOIncidencia {
 		return i;
 	}
 
+	public static void eliminar(String email, String estado, String asunto, String descripcion, String tipo,
+			String fecha) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

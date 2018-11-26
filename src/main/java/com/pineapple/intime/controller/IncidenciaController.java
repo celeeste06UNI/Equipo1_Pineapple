@@ -65,5 +65,37 @@ public class IncidenciaController {
 		model.setViewName("consultarIncidenciaUser");
 		return model;
 	}
+	
+	@RequestMapping(value = "/deleteIncidencias", method = RequestMethod.GET)
+	public ModelAndView deleteIncidencias(HttpServletRequest request, ModelAndView model) {	
+		String email = request.getParameter("email");
+		String estado = request.getParameter("estado");
+		String asunto = request.getParameter("asunto");
+		String descripcion = request.getParameter("descripcion");
+		String tipo = request.getParameter("tipo");
+		String fecha = request.getParameter("fecha");
+		DAOIncidencia.eliminar(email, estado, asunto, descripcion, tipo, fecha);
+		model.setViewName("consultarIncidenciaUser");
+		return model;
+	}
+	
+	@RequestMapping(value = "/editIncidencias", method = RequestMethod.GET)
+	public ModelAndView editIncidencias(HttpServletRequest request, ModelAndView model) {	
+		String email = request.getParameter("email");
+		String estado = request.getParameter("estado");
+		String asunto = request.getParameter("asunto");
+		String descripcion = request.getParameter("descripcion");
+		String tipo = request.getParameter("tipo");
+		String fecha = request.getParameter("fecha");
+		model.setViewName("updateIncidencia");
+		model.addObject("email",email);
+		model.addObject("estado",estado);
+		model.addObject("asunto",asunto);
+		model.addObject("descripcion",descripcion);
+		model.addObject("tipo",tipo);
+		model.addObject("fecha",fecha);
+		
+		return model;
+	}
 
 }
