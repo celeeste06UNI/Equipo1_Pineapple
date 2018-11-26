@@ -5,6 +5,8 @@ import org.bson.conversions.Bson;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
+
 import static com.mongodb.client.model.Filters.eq;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -14,7 +16,18 @@ public class DAOIncidencia {
 
 	private static MongoCollection<Document> dbIncidencia=MongoBroker.get().getCollection("Empleado");
 	
-	
+	public static MongoCursor<Document> buscarIncidencias(String email,String tipo){
+		MongoCursor<Document> m = null;
+		if(DAOEmpleado.buscarEmpleado(email)) {
+			Bson filtro=null;
+			filtro=and(eq("email",email),eq("tipo",tipo));
+			m=dbIncidencia.find(filtro).iterator();
+			return m;
+		}else {
+			return m;
+		}
+		
+	}
 	
 	public static boolean insert(Document incidencia) {
 		boolean insertado=false;
