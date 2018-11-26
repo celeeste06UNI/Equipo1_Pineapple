@@ -174,8 +174,10 @@ label.light {
 			</legend>
 			<label for="asunto">Asunto:</label> <input type="text" required
 				autocomplete="off" name="asunto" value=${asunto}> 
-			<label for="descripción">Descripción:</label><input
-				type="textarea" required autocomplete="off" name="descripcion" value=${descripción}>
+			<label for="descripcion">Descripción:</label>
+			<textarea class="form-control" rows="5" id="descripcion" name="descripcion">${descripcion}</textarea>
+			<!-- <input
+				type="textarea" required autocomplete="off" name="descripcion" value=${descripcion}> -->
 		</fieldset>
 		<fieldset>
 			<label for="rol">Estado</label> <input type="text" readonly
