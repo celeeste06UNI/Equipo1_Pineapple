@@ -182,11 +182,14 @@ label.light {
 				type="textarea" required autocomplete="off" name="descripcion" value=${descripcion}> -->
 		</fieldset>
 		<fieldset>
-			<label for="rol">Estado</label> 
-			<textarea class="form-control" rows="2" id="estado" name="estado">${estado}</textarea>
+			<label for="estado">Estado</label> 
+			<textarea readonly class="form-control" rows="2" id="estado" name="estado">${estado}</textarea>
+			
+			<label for="tipoModi">Tipo</label> 
+			<textarea readonly class="form-control" rows="2" id="tipo" name="tipo">${tipo}</textarea>
 			<!-- <input type="text" readonly
   				name="EstadoActual" required autocomplete="off" value=${estado} > -->
-			<label>Tipos:</label> <input type="radio" id="incidencia"
+			<label>Tipos Disponibles:</label> <input type="radio" id="incidencia"
 				value="incident" required autocomplete="off" name="tipo"> <label
 				class="light" for="Incidencia">Incidencia por Fichaje</label><br>
 			<input type="radio" id="permisos" value="per" required
