@@ -187,6 +187,9 @@ label.light {
 			
 			<label for="tipoModi">Tipo</label> 
 			<textarea readonly class="form-control" rows="2" id="tipo" name="tipo">${tipo}</textarea>
+			
+			<label for="fechaMod">Fecha</label> 
+			<textarea readonly class="form-control" rows="1" id="fecha" name="fecha">${fecha}</textarea>
 			<!-- <input type="text" readonly
   				name="EstadoActual" required autocomplete="off" value=${estado} > -->
 			<label>Tipos Disponibles:</label> <input type="radio" id="incidencia"
