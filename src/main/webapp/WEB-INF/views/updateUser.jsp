@@ -123,13 +123,12 @@ label.light {
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">InTime</a>
+				<a class="navbar-brand" href="/intime">InTime</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
 					<ul class="dropdown-menu">
@@ -138,9 +137,17 @@ label.light {
 						<li><a href="/deleteUser">Eliminar</a></li>
 						<li><a href="/updateUser">Modificar</a></li>
 					</ul></li>
-				<li><a href="#">Fichajes</a></li>
+
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Gestion Incidencias <span
+					data-toggle="dropdown" href="#">Fichajes<span
+						class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="/fichajeUser">Fichar</a></li>
+						<li><a href="/consultaFichaje">Consultar</a></li>
+
+					</ul></li>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Gestión Incidencias <span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Crear</a></li>
@@ -149,11 +156,15 @@ label.light {
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/viewUpdatePassword"><span
+						class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
 				<li><a href="/cerrarSesion"><span
 						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+
 			</ul>
 		</div>
 	</nav>
+
 	<!-- 	<div class="container">
 		<form name='searchForm' action='/searchUser' method='POST'>
 
@@ -188,12 +199,10 @@ label.light {
 
 	<div class="container">
 		<div class="page-header">
-			<h1>Modificar de Usuario</h1>
+			<h1>Modificar Usuario</h1>
 		</div>
 		<div class="row">
 			<div class="col-sm-6" style="background-color: white;">
-
-
 				<form name='searchForm' action='/searchUser' method='POST'>
 
 					<fieldset>
@@ -205,8 +214,6 @@ label.light {
 						<button type="submit">Buscar</button>
 					</fieldset>
 				</form>
-
-
 			</div>
 			<div class="col-sm-6" style="background-color: white;">
 
@@ -216,20 +223,23 @@ label.light {
 						<legend>
 							<span class="number">2</span>Modificar campos
 						</legend>
-
-						<label for="email">Email Actual</label> <input type="email"
-							name="emailAntiguo" readonly value=${email} > <label
-							for="nombre">Nombre</label> <input type="text" name="nombre"
-							value=${nombre} > <label for="apellidos">Apellidos</label>
-						<input type="text" name="apellidos" value=${apellidos} > <label
-							for="email">Nuevo Email</label> <input type="email"
-							name="emailNuevo" value=${email} > <label>Roles:</label>
-						<input type="radio" id="admin" value="admin" name="rol">
-						<label class="light" for="Administrador">Administrador</label><br>
-						<input type="radio" id="usuario" value="user" name="rol">
-						<label class="light" for="Usuario">Usuario</label><br> <input
-							type="radio" id="gestor" value="incid" name="rol"> <label
-							class="light" for="Gestor">Gestor</label>
+						<input type="hidden" name="emailAntiguo" readonly value=${email} >
+						<label for="nombre">Nombre</label> <input type="text"
+							name="nombre" required autocomplete="off" value=${nombre} >
+						<label for="apellidos">Apellidos</label> <input type="text"
+							name="apellidos" required autocomplete="off" value=${apellidos} >
+						<label for="email">Nuevo Email</label> <input type="email"
+							name="emailNuevo" required autocomplete="off" value=${email} >
+						<label for="rol">Rol</label> <input type="text" readonly
+							name="rolActual" required autocomplete="off" value=${rol} >
+						<label>Roles Disponibles:</label> <input type="radio" id="admin"
+							value="admin" required autocomplete="off" name="rol"> <label
+							class="light" for="Administrador">Administrador</label><br>
+						<input type="radio" id="usuario" value="user" required
+							autocomplete="off" name="rol"> <label class="light"
+							for="Usuario">Usuario</label><br> <input type="radio"
+							id="gestor" value="incid" required autocomplete="off" name="rol">
+						<label class="light" for="Gestor">Gestor</label>
 					</fieldset>
 
 					<button type="submit">Actualizar</button>

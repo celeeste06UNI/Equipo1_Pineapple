@@ -34,6 +34,7 @@ import com.pineapple.intime.dao.DAOEmpleado;
 public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
 
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -64,6 +65,23 @@ public class HomeController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/intime", method = RequestMethod.GET)
+	public String intime(HttpServletRequest request, ModelAndView model) {
+		String pagina = "";
+		HttpSession session = request.getSession(true);
+		String rolSession = (String) session.getAttribute("rolSession");
+		if(rolSession.equals("admin")) {
+			pagina = "admin";
+		}
+		if(rolSession.equals("user")) {
+			pagina = "user";
+		}
+		if(rolSession.equals("incid")) {
+			pagina = "incid";
+		}
+		return pagina;
+	}
+	
 	@RequestMapping(value = "/cerrarSesion", method = RequestMethod.GET)
 	protected void cerrarSesion(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -81,26 +99,40 @@ public class HomeController {
 	
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password) throws IOException {
-		String pagina = null;
+
+	public ModelAndView loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password, 
+			HttpServletRequest request, ModelAndView model) throws Exception {
+		String pagina = "error";
+		HttpSession session = request.getSession(true);
 		String emailLowerCase=email.toLowerCase();
 		Document doc = DAOEmpleado.autenticar(emailLowerCase,password);
+
 		if(doc.get("email").equals("error")) {
-			pagina = "error";
+			model.addObject("correcto", "Usuario o contraseña incorrecto");
+			model.setViewName("index");
+			//pagina = "index";
 		}
+
 		if(doc.get("email").equals(emailLowerCase)) {
-			//Crear objeto para saber quien esta en la sesion
+			session.setAttribute("emailSession",doc.get("email"));
+
 			if(doc.get("rol").equals("admin")){
-				pagina = "admin";
+				session.setAttribute("rolSession",doc.get("rol"));
+				model.setViewName("admin");
+				//pagina = "admin";
 			}
 			if(doc.get("rol").equals("user")){
-				pagina = "user";
+				session.setAttribute("rolSession",doc.get("rol"));
+				model.setViewName("user");
+				//pagina = "user";
 			}
 			if(doc.get("rol").equals("incid")){
-				pagina = "incid";
+				session.setAttribute("rolSession",doc.get("rol"));
+				model.setViewName("incid");
+				//pagina = "incid";
 			}
 		}
-		return pagina;
+		return model;
 	
 	}
 }

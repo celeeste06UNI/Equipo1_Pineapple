@@ -3,14 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type="text/javascript">
-	function pregunta() {
-		if (confirm("¿Desea guardar el usuario?")) {
-			document.loginForm.submit()
-		}
-	}
-</script>
-<title>Nuevo Usuario</title>
+<title>Nueva Incidencia</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -173,34 +166,32 @@ label.light {
 	</nav>
 
 
-	<form name='loginForm' action='/saveUser' method='POST'>
-		<h1>Registro</h1>
+	<form name='IncidenciaForm' action='/saveIncidencia' method='POST'>
+		<h1>Nueva Incidencia</h1>
 		<fieldset>
 			<legend>
 				<span class="number">1</span>Información básica
 			</legend>
-			<label for="name">Nombre:</label> <input type="text" required
-				autocomplete="off" name="nombre"> <label for="name">Apellido:</label><input
-				type="text" required autocomplete="off" name="apellidos"> <label
-				for="mail">Email:</label> <input type="email" required
-				autocomplete="off" name="email">
+			<label for="name">Asunto:</label> <input type="text" required
+				autocomplete="off" name="asunto"> 
+			<label for="name">Descripción:</label><input
+				type="text" required autocomplete="off" name="descripcion">
 		</fieldset>
 
 		<fieldset>
 			<legend>
-				<span class="number">2</span>Seleccionar Rol
+				<span class="number">2</span>Seleccionar el tipo
 			</legend>
-			<label>Roles:</label> <input type="radio" id="admin" value="admin"
-				required autocomplete="off" name="rol"> <label class="light"
-				for="Administrador">Administrador</label><br> <input
-				type="radio" id="usuario" value="user" required autocomplete="off"
-				name="rol"> <label class="light" for="Usuario">Usuario</label><br>
-			<input type="radio" id="gestor" value="incid" required
-				autocomplete="off" name="rol"> <label class="light"
-				for="Gestor">Gestor</label>
+			<label>Tipos:</label>
+			<input type="radio" id="incidFich" value="incidFich" required autocomplete="off" name="tipo"> 
+			<label class="light" for="incidFich">Incidencia de Fichaje</label><br> 
+			<input type="radio" id="vacaciones" value="vacaciones" required autocomplete="off" name="tipo"> 
+			<label class="light" for="vacaciones">Vacaciones</label><br>
+			<input type="radio" id="perimisos" value="permisos" required autocomplete="off" name="tipo"> 
+			<label class="light" for="perimisos">Permisos</label>
 		</fieldset>
-		<input type="button" onclick="pregunta()" value="Registrar">
-<!-- 		<button type="submit">Registrar</button> -->
+
+		<button type="submit">Crear</button>
 
 	</form>
 

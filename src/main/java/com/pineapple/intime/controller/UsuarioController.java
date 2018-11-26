@@ -3,6 +3,9 @@ package com.pineapple.intime.controller;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.bson.Document;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -29,7 +32,7 @@ public class UsuarioController {
 		model.setViewName("deleteUser");
 		return model;
 	}
-	
+		
 	@RequestMapping(value = "/actionDeleteUser", method = RequestMethod.POST)
 	public String actionDeleteUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
@@ -49,19 +52,51 @@ public class UsuarioController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/viewUpdatePassword", method = RequestMethod.GET)
+	public ModelAndView viewUpdatePassword(ModelAndView model) {
+		model.setViewName("updatePassword");
+		return model;
+	}
+	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
+	public String updatePassword(@ModelAttribute("passwordVieja") String contrasennaVieja,
+			@ModelAttribute("passwordNueva") String contrasennaNueva, HttpServletRequest request) throws Exception {
+		String pagina = "";
+		String passAntCifrada = EmpleadoHelper.cifra(contrasennaVieja);
+		String passAntHex = EmpleadoHelper.ConvertirHexadecimal(passAntCifrada);
+		String passNuevaCifrada = EmpleadoHelper.cifra(contrasennaNueva);
+		String passNuevaHex = EmpleadoHelper.ConvertirHexadecimal(passNuevaCifrada);
+		HttpSession session = request.getSession(true);
+		String email = (String) session.getAttribute("emailSession");
+		String rolSession = (String) session.getAttribute("rolSession");
+		DAOEmpleado.updatePassword(email,passAntHex,passNuevaHex);
+		
+		if(rolSession.equals("admin")) {
+			pagina = "admin";
+		}
+		if(rolSession.equals("user")) {
+			pagina = "user";
+		}
+		if(rolSession.equals("incid")) {
+			pagina = "incid";
+		}
+		return pagina;
+	}
+	
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
-			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
+			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) throws Exception {
 		Document empleado=new Document();
-		String contraseña = EmpleadoHelper.generarContraseña();
+		String contrasenna = EmpleadoHelper.generarContrasenna();
 		String emailLowerCase=email.toLowerCase();
 		empleado.put("email", emailLowerCase);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
-		empleado.put("password", contraseña);
-		DAOEmpleado.insert(empleado);
-		EmpleadoHelper.sesionEmail(email, contraseña);
+		empleado.put("contrasenna", contrasenna);
+		if(DAOEmpleado.insert(empleado)) {
+			EmpleadoHelper.sesionEmail(email, contrasenna);
+		}
+		
 		return "admin";
 	}
 	
@@ -80,33 +115,42 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/searchUser", method = RequestMethod.POST)
 	public ModelAndView searchUser(ModelAndView model, @ModelAttribute("email") String email) {
-		Document empleado = DAOEmpleado.cargarEmpleado(email);
-		model.addObject("nombre", empleado.get("nombre"));
-		model.addObject("apellidos", empleado.get("apellidos"));
-		model.addObject("email", empleado.get("email"));
-		model.addObject("rol", empleado.get("rol"));
-		model.setViewName("updateUser");
-		
-	/*	ConcurrentHashMap<String, Document> empleados = DAOEmpleado.cargarEmpleados();
-		Document empleado = empleados.get(email);
-		model.addObject("listPersonal", listPersonal);
-		model.setViewName("personalList");*/
+		String emailLowerCase=email.toLowerCase();
+		try {
+			Document empleado = DAOEmpleado.cargarEmpleado(emailLowerCase);
+			model.addObject("nombre", empleado.get("nombre"));
+			model.addObject("apellidos", empleado.get("apellidos"));
+			model.addObject("email", empleado.get("email"));
+			model.addObject("rol", empleado.get("rol"));
+			model.setViewName("updateUser");
+		}catch(Exception e){
+			model.addObject("nombre","");
+			model.addObject("apellidos", "");
+			model.addObject("email", "");
+			model.addObject("rol", "");
+			model.setViewName("updateUser");
+		}
 		return model;
 	}
 	
 	@RequestMapping(value = "/deleteSearchUser", method = RequestMethod.POST)
 	public ModelAndView deleteSearchUser(ModelAndView model, @ModelAttribute("email") String email) {
-		Document empleado = DAOEmpleado.cargarEmpleado(email);
-		model.addObject("nombre", empleado.get("nombre"));
-		model.addObject("apellidos", empleado.get("apellidos"));
-		model.addObject("email", empleado.get("email"));
-		model.addObject("rol", empleado.get("rol"));
-		model.setViewName("deleteUser");
-		
-	/*	ConcurrentHashMap<String, Document> empleados = DAOEmpleado.cargarEmpleados();
-		Document empleado = empleados.get(email);
-		model.addObject("listPersonal", listPersonal);
-		model.setViewName("personalList");*/
+		Document empleado = new Document();
+		String emailLowerCase=email.toLowerCase();
+		try {
+			empleado = DAOEmpleado.cargarEmpleado(emailLowerCase);
+			model.addObject("nombre", empleado.get("nombre"));
+			model.addObject("apellidos", empleado.get("apellidos"));
+			model.addObject("email", empleado.get("email"));
+			model.addObject("rol", empleado.get("rol"));
+			model.setViewName("deleteUser");
+		}catch(Exception e){
+			model.addObject("nombre", "");
+			model.addObject("apellidos", "");
+			model.addObject("email", "");
+			model.addObject("rol", "");
+			model.setViewName("deleteUser");
+		}
 		return model;
 	}
 	

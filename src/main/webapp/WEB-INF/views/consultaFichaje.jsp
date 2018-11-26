@@ -1,6 +1,18 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script type="text/javascript">
+	function pregunta() {
+		if (confirm("Â¿Desea consultar los fichajes?"})) {
+			document.searchForm.submit()
+		}
+	}
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -9,21 +21,9 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	function pregunta() {
-		if (confirm("¿Desea buscar el usuario?")) {
-			document.searchForm.submit()
-		}
-	}
-</script>
-<script type="text/javascript">
-	function preguntaDelete() {
-		if (confirm("¿Desea eliminar el usuario?")) {
-			document.searchForm.submit()
-		}
-	}
-</script>
-<title>Eliminar Usuario</title>
+
+<title>Gestor Fichajes</title>
+
 <style type="text/css">
 *, *:before, *:after {
 	-moz-box-sizing: border-box;
@@ -51,7 +51,8 @@ h1 {
 
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"],
 	input[type="email"], input[type="number"], input[type="search"], input[type="tel"],
-	input[type="time"], input[type="url"], textarea, select {
+	input[type="time"], input[type="url"], input[type="mes"], textarea,
+	select {
 	background: rgba(255, 255, 255, 0.1);
 	border: none;
 	font-size: 16px;
@@ -131,7 +132,6 @@ label.light {
 	}
 }
 </style>
-
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -157,7 +157,7 @@ label.light {
 
 					</ul></li>
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Gestión Incidencias <span
+					data-toggle="dropdown" href="#">GestiÃ³n Incidencias <span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Crear</a></li>
@@ -167,82 +167,47 @@ label.light {
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/viewUpdatePassword"><span
-						class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
+						class="glyphicon glyphicon-pencil"></span> Modificar ContraseÃ±a</a></li>
 				<li><a href="/cerrarSesion"><span
-						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+						class="glyphicon glyphicon-log-in"></span> Cerrar SesiÃ³n</a></li>
 
 			</ul>
 		</div>
 	</nav>
 
-	<!-- 	<div class="container">
-		<form name='searchForm' action='/deleteSearchUser' method='POST'>
-
-			<h1>Busqueda de un usuario</h1>
-			<label for="name">Introduzca el email:</label> <input type="email"
-				name="email">
-			<button type="submit">Buscar</button>
-		</form>
-		
-		<form name='deleteForm' action='/actionDeleteUser' method='POST'>
-			
-			<label for="nombre">Nombre</label> <input type="text" name="nombre"
-				readonly value=${nombre} >
-				
-			<label for="apellidos">Apellidos</label> <input type="text" name="apellidos"
-				readonly value=${apellidos} >
-				
-			<label for="email">Email</label> <input type="email" name="email"
-				readonly value=${email} >
-				
-			<label for="rol">Rol</label> <input type="text" name="rol"
-				readonly value=${rol} >
-				
-			<button type="submit">Eliminar</button>
-			
-		</form>
-
-	</div> -->
 	<div class="container">
 		<div class="page-header">
-			<h1>Eliminar Usuario</h1>
+			<h1>Gestor de Fichajes</h1>
 		</div>
-		<div class="row">
-			<div class="col-sm-6" style="background-color: white;">
-				<form name='searchForm' action='/deleteSearchUser' method='POST'>
+		<form name='searchForm' action='/searchFichajeOtro' method='GET'>
 
-					<fieldset>
-						<legend>
-							<span class="number">1</span>Introduzca el e-mail del usuario
-						</legend>
-						<label for="name">Introduzca el email:</label> <input type="email"
-							name="email">
-						<input type="button" onclick="pregunta()" value="Buscar">
-						<!-- <button type="submit">Buscar</button> -->
-					</fieldset>
-				</form>
+			<fieldset>
+				<legend>
+					<span class="number">2</span>Consultar Fichajes
+				</legend>
+				<label for="name">Introduzca el email:<br></label> <input
+							placeholder="" type="email" name="emailFichaje">
+				<label for="name">Introduzca la fecha:<br></label> <input
+							placeholder="yyyy/MM/dd" type="text" name="fecha">
+				<input type="button" onclick="pregunta()" value="Buscar">
+				<!-- <button type="submit">Buscar</button> -->
+			</fieldset>
+		</form>
+	</div>
+	<div class="container" align="left">
+		<table class="table table-hover">
+			<p>Fecha de los fichajes</p>
+			<!-- <th>Id</th> -->
+			<th>Fecha de apertura / Fecha de cierre</th>
 
-			</div>
-			<div class="col-sm-6" style="background-color: white;">
-				<form name='deleteForm' action='/actionDeleteUser' method='POST'>
+			<c:forEach var="fechaDelFichaje" items="${listDate}">
+				<tr>
+					<td>${fechaDelFichaje}</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
 
-					<fieldset>
-						<legend>
-							<span class="number">2</span>Datos del usuario
-						</legend>
-						<label for="nombre">Nombre</label> <input type="text"
-							name="nombre" readonly value=${nombre} > <label
-							for="apellidos">Apellidos</label> <input type="text"
-							name="apellidos" readonly value=${apellidos} > <label
-							for="email">Email</label> <input type="email" name="email"
-							readonly value=${email} > <label for="rol">Rol</label> <input
-							type="text" name="rol" readonly value=${rol} >
+	<div class="col-sm-6" style="background-color: white;"></div>
 
-						<!-- <button type="submit">Eliminar</button> -->
-						<input type="button" onclick="preguntaDelete()" value="Eliminar">
-					</fieldset>
-
-				</form>
-			</div>
-		</div>
 </body>
