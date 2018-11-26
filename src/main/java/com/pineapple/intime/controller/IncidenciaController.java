@@ -81,19 +81,19 @@ public class IncidenciaController {
 	
 	@RequestMapping(value = "/editIncidencias", method = RequestMethod.GET)
 	public ModelAndView editIncidencias(HttpServletRequest request, ModelAndView model) {	
-		String email = request.getParameter("email");
-		String estado = request.getParameter("estado");
-		String asunto = request.getParameter("asunto");
-		String descripcion = request.getParameter("descripcion");
-		String tipo = request.getParameter("tipo");
-		String fecha = request.getParameter("fecha");
+		String email1 = request.getParameter("email");
+		String estado1 = request.getParameter("estado");
+		String asunto1 = request.getParameter("asunto");
+		String descripcion1 = request.getParameter("descripcion");
+		String tipo1 = request.getParameter("tipo");
+		String fecha1 = request.getParameter("fecha");
 		model.setViewName("updateIncidencia");
-		model.addObject("email",email);
-		model.addObject("estado",estado);
-		model.addObject("asunto",asunto);
-		model.addObject("descripcion",descripcion);
-		model.addObject("tipo",tipo);
-		model.addObject("fecha",fecha);
+		model.addObject("email",email1);
+		model.addObject("estado",estado1);
+		model.addObject("asunto",asunto1);
+		model.addObject("descripcion",descripcion1);
+		model.addObject("tipo",tipo1);
+		model.addObject("fecha",fecha1);
 		
 		return model;
 	}
