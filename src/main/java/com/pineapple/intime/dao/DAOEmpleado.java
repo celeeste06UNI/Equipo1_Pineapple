@@ -23,7 +23,7 @@ import static com.mongodb.client.model.Updates.combine;
 import static com.mongodb.client.model.Updates.set;
 
 public class DAOEmpleado {
-	private static MongoCollection<Document> dbEmpleado = MongoBroker.get().getCollection("Empleado");
+	private static MongoCollection<Document> dbEmpleado = MongoBroker.get().getCollection("Test");
 	private static MongoCollection<Document> dbRol = MongoBroker.get().getCollection("EmpleadoRol");
 
 	/* INSERTAR EMPLEADO */
