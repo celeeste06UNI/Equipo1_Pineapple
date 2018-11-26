@@ -17,10 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.pineapple.intime.dao.DAOEmpleado;
-import com.pineapple.intime.dao.DAOFichaje;
 import com.pineapple.intime.dao.DAOIncidencia;
-import com.pineapple.intime.dominio.EmpleadoHelper;
 import com.pineapple.intime.model.Incidencia;
 
 @Controller
@@ -60,20 +57,10 @@ public class IncidenciaController {
 	
 	@RequestMapping(value = "/buscarIncidenciaTipo", method = RequestMethod.GET)
 	public ModelAndView buscarIncidenciaTipo(HttpServletRequest request, ModelAndView model, @ModelAttribute("tipo") String tipo) {	
-		ConcurrentHashMap<Integer, Document> result=new ConcurrentHashMap<Integer, Document>();
 		ArrayList<Incidencia> listIncidencia=new ArrayList<Incidencia>();
 		HttpSession session = request.getSession(true);
-/*		String email = (String) session.getAttribute("emailSession");
-		result = DAOIncidencia.consultar(email, tipo);
-		for(Integer i = 0; i<result.keySet().size();i++) {
-			Document doc = result.get(i);
-			Incidencia indencia = new Incidencia((String) doc.get("email"), (String) doc.get("estado"),(String) doc.get("asunto"),
-					(String) doc.get("descripcion"),(String) doc.get("tipo"),(String) doc.get("fecha"));
-			listIncidencia.add(indencia);
-		}*/
-		Incidencia prueba = new Incidencia("hola", "hola","hola",
-				"hola","hola","hola");
-		listIncidencia.add(prueba);
+		String email = (String) session.getAttribute("emailSession");
+		listIncidencia = DAOIncidencia.consultar(email, tipo);
 		model.addObject("listIncidencia", listIncidencia);
 		model.setViewName("consultarIncidenciaUser");
 		return model;
