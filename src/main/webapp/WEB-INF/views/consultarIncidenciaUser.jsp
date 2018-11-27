@@ -128,8 +128,11 @@ label.light {
 </style>
 </head>
 <body>
-	<input type="button" onclick="history.back()" name="volver atrás"
-		value="volver atrás">
+	<div class="container">
+		<input type="button" class="btn btn-primary" onclick="history.back()"
+			name="volver atrás" value="volver atrás">
+	</div>
+
 	<!-- 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
