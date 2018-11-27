@@ -198,11 +198,11 @@ label.light {
 			<textarea readonly class="form-control" rows="2" id="estadoAn"
 				name="estadoAn">${estado}</textarea>
 			<label>Estados Disponibles:</label> <input type="radio" id="estado"
-				value="incident" required autocomplete="off" name="tipo"> <label
+				value="incidFich" required autocomplete="off" name="tipo"> <label
 				class="light" for="denegada">Denegada</label><br> <input
-				type="radio" id="permisos" value="per" required autocomplete="off"
+				type="radio" id="permisos" value="permisos" required autocomplete="off"
 				name="tipo"> <label class="light" for="aceptada">Aceptada</label><br>
-			<input type="radio" id="vacaciones" value="vac" required
+			<input type="radio" id="vacaciones" value="vacaciones" required
 				autocomplete="off" name="tipo"> <label class="light"
 				for="Vacaciones">Vacaciones</label>
 		</fieldset>
