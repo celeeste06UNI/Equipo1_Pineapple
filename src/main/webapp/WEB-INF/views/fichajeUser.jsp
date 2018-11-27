@@ -128,7 +128,22 @@ label.light {
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-default">
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
+
+	<div class="row">
+		<div align="left" class="col-sm-2">
+			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
+		</div>
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8"></div>
+	</div>
+	<!-- 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/intime">InTime</a>
@@ -169,7 +184,7 @@ label.light {
 			</ul>
 		</div>
 	</nav>
-
+ -->
 	<div class="container">
 		<div class="page-header">
 			<h1>Gestor de Fichajes</h1>
@@ -180,8 +195,12 @@ label.light {
 					<legend>
 						<span class="number">1</span>Fichajes
 					</legend>
-					<button><a style="color:#FFFFFF" href="/abrirFichaje">abrir</a></button>
-					<button><a style="color:#FFFFFF" href="/cerrarFichaje">cerrar</a></button>
+					<button>
+						<a style="color: #FFFFFF" href="/abrirFichaje">abrir</a>
+					</button>
+					<button>
+						<a style="color: #FFFFFF" href="/cerrarFichaje">cerrar</a>
+					</button>
 				</fieldset>
 
 			</div>
