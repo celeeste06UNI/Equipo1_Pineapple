@@ -187,8 +187,8 @@ label.light {
 			<label class="light" for="incidFich">Incidencia de Fichaje</label><br> 
 			<input type="radio" id="vacaciones" value="vacaciones" required autocomplete="off" name="tipo"> 
 			<label class="light" for="vacaciones">Vacaciones</label><br>
-			<input type="radio" id="perimisos" value="permisos" required autocomplete="off" name="tipo"> 
-			<label class="light" for="perimisos">Permisos</label>
+			<input type="radio" id="permisos" value="permisos" required autocomplete="off" name="tipo"> 
+			<label class="light" for="permisos">Permisos</label>
 		</fieldset>
 
 		<button type="submit">Crear</button>
