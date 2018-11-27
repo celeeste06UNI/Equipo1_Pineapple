@@ -201,7 +201,7 @@ label.light {
 			<label>Tipos Disponibles:</label> <input type="radio" id="incidencia"
 				value="incidFich" required autocomplete="off" name="tipo"> <label
 				class="light" for="Incidencia">Incidencia por Fichaje</label><br>
-			<input type="radio" id="permisos" value="per" required
+			<input type="radio" id="permisos" value="permisos" required
 				autocomplete="off" name="tipo"> <label class="light"
 				for="Permisos">Permisos</label><br> <input type="radio"
 				id="vacaciones" value="vacaciones" required autocomplete="off" name="tipo">
