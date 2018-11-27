@@ -138,7 +138,7 @@ label.light {
 
 	<div class="row">
 		<div align="left" class="col-sm-2">
-			&nbsp<button><a style="color:#FFFFFF" href="/intime">atrás</a></button>
+			&nbsp<button class = "btn btn-danger"><a style="color:#FFFFFF" href="/intime">atrás</a></button>
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"></div>
