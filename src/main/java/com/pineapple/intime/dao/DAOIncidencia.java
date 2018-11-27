@@ -65,21 +65,21 @@ public class DAOIncidencia {
 		return insertado;
 	}
 	
-	public static ArrayList<Incidencia> consultar(String email,String tipo){
+	public static ArrayList<Incidencia> consultar(String email,String tipo,String rol){
 		ArrayList<Incidencia> i=new ArrayList<Incidencia> ();
 		Bson filtro=null;
-		
-		//if(DAOEmpleado.buscarEmpleado(email)) {
+		if(rol.equals("incid")) {
+			filtro=and(or(eq("email",email),eq("dni",email)));
+		}else {
 			filtro=and(or(eq("email",email),eq("dni",email)),eq("tipo",tipo));
-			int cont=-1;
+		}
+		//if(DAOEmpleado.buscarEmpleado(email)) {
+
 			FindIterable<Document> incidencias = dbIncidencia.find(filtro);
 			for (Document inc: incidencias) {
-				cont++;
 				Incidencia incidencia=new Incidencia(inc.getString("email"),inc.getString("estado"),inc.getString("asunto"),inc.getString("descripcion"),
 						inc.getString("tipo"),inc.getString("fecha"));
-				
 				i.add(incidencia);
-			
 			}
 			
 		//}else {
