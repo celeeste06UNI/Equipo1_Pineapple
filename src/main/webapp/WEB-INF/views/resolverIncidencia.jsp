@@ -184,8 +184,8 @@ label.light {
 				<input type="radio" id="vacaciones" value="vacaciones" required
 					autocomplete="off" name="tipo"> <label class="light"
 					for="vacaciones">Vacaciones</label><br> <input type="radio"
-					id="perimisos" value="perimisos" required autocomplete="off"
-					name="tipo"> <label class="light" for="perimisos">Permisos</label>
+					id="permisos" value="permisos" required autocomplete="off"
+					name="tipo"> <label class="light" for="permisos">Permisos</label>
 			</fieldset>
 			<button type="submit">Buscar</button>
 		</form>
