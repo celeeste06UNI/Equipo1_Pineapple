@@ -8,7 +8,7 @@
 <head>
 <script type="text/javascript">
 	function pregunta() {
-		if (confirm("¿Desea consultar los fichajes?"})) {
+		if (confirm("¿Desea consultar los fichajes?")) {
 			document.searchForm.submit()
 		}
 	}
