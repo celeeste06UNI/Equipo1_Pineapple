@@ -7,18 +7,10 @@ import org.bson.conversions.Bson;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
-<<<<<<< HEAD
 import com.pineapple.intime.model.Incidencia;
-
-import static com.mongodb.client.model.Filters.eq;
-import static com.mongodb.client.model.Filters.and;
-=======
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
-import com.pineapple.intime.model.Incidencia;
->>>>>>> branch 'bbdd_integration' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
-
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.or;
 import static com.mongodb.client.model.Filters.and;
@@ -26,10 +18,6 @@ import static com.mongodb.client.model.Updates.set;
 import static com.mongodb.client.model.Updates.combine;
 public class DAOIncidencia {
 
-<<<<<<< HEAD
-	private static MongoCollection<Document> dbIncidencia = MongoBroker.get().getCollection("Incidencia");
-
-=======
 	private static MongoCollection<Document> dbIncidencia=MongoBroker.get().getCollection("Incidencia");
 	
 	public static MongoCursor<Document> buscarIncidencias(String email,String tipo){
@@ -67,7 +55,7 @@ public class DAOIncidencia {
 		}
 	}
 	
->>>>>>> branch 'bbdd_integration' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
+
 	public static boolean insert(Document incidencia) {
 		boolean insertado = false;
 		// if(DAOEmpleado.buscarEmpleado((String) incidencia.get("email"))) {
@@ -76,29 +64,8 @@ public class DAOIncidencia {
 		// }
 		return insertado;
 	}
-<<<<<<< HEAD
 
-	public static ArrayList<Incidencia> consultar(String email, String tipo, String rol) {
-		ArrayList<Incidencia> i = new ArrayList<Incidencia>();
-		Bson filtro = null;
-		filtro = and(eq("email", email), eq("tipo", tipo));
-		int cont = -1;
-		FindIterable<Document> incidencias = dbIncidencia.find(filtro);
-		for (Document inc : incidencias) {
-			cont++;
-			Incidencia incidencia = new Incidencia(inc.getString("email"), inc.getString("estado"),
-					inc.getString("asunto"), inc.getString("descripcion"), inc.getString("tipo"),
-					inc.getString("fecha"));
-			i.add(incidencia);
-		}
-		return i;
-	}
 
-	public static void eliminar(String email, String estado, String asunto, String descripcion, String tipo,
-			String fecha) {
-		// TODO Auto-generated method stub
-		
-=======
 	
 	public static ArrayList<Incidencia> consultar(String email,String tipo,String rol){
 		ArrayList<Incidencia> i=new ArrayList<Incidencia> ();
@@ -121,7 +88,7 @@ public class DAOIncidencia {
 		//	result.put(0, new Document("email","error"));
 		//}
 		return i;
->>>>>>> branch 'bbdd_integration' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
+
 	}
 
 }

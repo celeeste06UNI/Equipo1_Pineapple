@@ -82,7 +82,7 @@ public class IncidenciaController {
 		String descripcion = request.getParameter("descripcion");
 		String tipo = request.getParameter("tipo");
 		String fecha = request.getParameter("fecha");
-		DAOIncidencia.eliminar(email, estado, asunto, descripcion, tipo, fecha);
+		DAOIncidencia.delete(email, estado, asunto, descripcion, tipo, fecha);
 		model.setViewName("consultarIncidenciaUser");
 		return model;
 	}
