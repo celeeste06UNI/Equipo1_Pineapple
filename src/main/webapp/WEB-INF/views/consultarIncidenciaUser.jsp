@@ -128,7 +128,9 @@ label.light {
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-default">
+	<input type="button" onclick="history.back()" name="volver atrás"
+		value="volver atrás">
+	<!-- 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/intime">InTime</a>
@@ -154,8 +156,8 @@ label.light {
 					data-toggle="dropdown" href="#">Gestión Incidencias <span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Crear</a></li>
-						<li><a href="/consultarIncidenciaUser">Consultar</a></li>
+						<li><a href="/nuevoIncidencia">Crear</a></li>
+						<li><a href="/consultarIncidenciaUser">Eliminar/Modificar</a></li>
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
@@ -166,7 +168,7 @@ label.light {
 
 			</ul>
 		</div>
-	</nav>
+	</nav> -->
 
 	<div class="container">
 		<div class="page-header">

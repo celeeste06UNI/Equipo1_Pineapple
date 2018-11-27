@@ -160,9 +160,8 @@ label.light {
 					data-toggle="dropdown" href="#">Gestión Incidencias <span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Crear</a></li>
-						<li><a href="#">Eliminar</a></li>
-						<li><a href="#">Modificar</a></li>
+						<li><a href="/nuevoIncidencia">Crear</a></li>
+						<li><a href="/consultarIncidenciaUser">Eliminar/Modificar</a></li>
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
@@ -186,10 +185,10 @@ label.light {
 					<span class="number">2</span>Consultar Fichajes
 				</legend>
 				<label for="name">Introduzca el email:<br></label> <input
-							placeholder="" type="email" name="emailFichaje">
-				<label for="name">Introduzca la fecha:<br></label> <input
-							placeholder="yyyy/MM/dd" type="text" name="fecha">
-				<input type="button" onclick="pregunta()" value="Buscar">
+					placeholder="" type="email" name="emailFichaje"> <label
+					for="name">Introduzca la fecha:<br></label> <input
+					placeholder="yyyy/MM/dd" type="text" name="fecha"> <input
+					type="button" onclick="pregunta()" value="Buscar">
 				<!-- <button type="submit">Buscar</button> -->
 			</fieldset>
 		</form>
