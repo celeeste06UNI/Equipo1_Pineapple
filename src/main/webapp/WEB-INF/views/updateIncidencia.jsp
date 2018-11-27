@@ -166,7 +166,7 @@ label.light {
 	</nav>
 
 
-	<form name='IncidenciaForm' action='/ModifyIncidencia' method='POST'>
+	<form name='IncidenciaForm' action='/updateIn' method='POST'>
 		<h1>Modificar Incidencia</h1>
 		<fieldset>
 			<legend>
@@ -196,8 +196,8 @@ label.light {
   				name="EstadoActual" required autocomplete="off" value=${estado} > -->
 
 			<label for="tipoModi">Tipo</label>
-			<textarea readonly class="form-control" rows="2" id="tipo"
-				name="tipo">${tipo}</textarea>
+			<textarea readonly class="form-control" rows="2" id="tipoAn"
+				name="tipoAn">${tipo}</textarea>
 			<label>Tipos Disponibles:</label> <input type="radio" id="incidencia"
 				value="incident" required autocomplete="off" name="tipo"> <label
 				class="light" for="Incidencia">Incidencia por Fichaje</label><br>
