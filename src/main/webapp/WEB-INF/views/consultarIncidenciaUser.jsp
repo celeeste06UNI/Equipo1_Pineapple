@@ -138,8 +138,8 @@ label.light {
 
 	<div class="row">
 		<div align="left" class="col-sm-2">
-			&nbsp<input type="button" class="btn btn-primary" onclick="history.back()"
-				name="volver atrás" value="volver atrás">
+			&nbsp<input type="button" class="btn btn-danger" onclick="history.back()"
+				name="volver atrás" value="atrás">
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"></div>
