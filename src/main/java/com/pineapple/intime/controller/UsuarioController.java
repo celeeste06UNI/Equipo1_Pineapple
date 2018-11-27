@@ -26,6 +26,8 @@ public class UsuarioController {
 		String rolSession = (String) session.getAttribute("rolSession");
 		if (rolSession.equals("admin")) {
 			model.setViewName("newUser");
+		}else {
+			model.setViewName(rolSession);
 		}
 		return model;
 	}
