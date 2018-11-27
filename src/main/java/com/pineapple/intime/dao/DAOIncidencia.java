@@ -25,7 +25,7 @@ public class DAOIncidencia {
 		return insertado;
 	}
 
-	public static ArrayList<Incidencia> consultar(String email, String tipo) {
+	public static ArrayList<Incidencia> consultar(String email, String tipo, String rol) {
 		ArrayList<Incidencia> i = new ArrayList<Incidencia>();
 		Bson filtro = null;
 		filtro = and(eq("email", email), eq("tipo", tipo));

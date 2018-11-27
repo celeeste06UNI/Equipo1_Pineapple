@@ -66,22 +66,13 @@ public class IncidenciaController {
 		ArrayList<Incidencia> listIncidencia=new ArrayList<Incidencia>();
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
-		listIncidencia = DAOIncidencia.consultar(email, tipo);
+		String rol = (String) session.getAttribute("rolSession");
+		listIncidencia = DAOIncidencia.consultar(email, tipo,rol);
 		model.addObject("listIncidencia", listIncidencia);
 		model.setViewName("consultarIncidenciaUser");
 		return model;
 	}
 	
-	@RequestMapping(value = "/buscarIncidenciaTipoEmail", method = RequestMethod.GET)
-	public ModelAndView buscarIncidenciaTipoEmail(HttpServletRequest request, ModelAndView model, @ModelAttribute("tipo") String tipo 
-			, @ModelAttribute("emailBuscarIncidencia") String email) {	
-		ArrayList<Incidencia> listIncidencia=new ArrayList<Incidencia>();
-		HttpSession session = request.getSession(true);
-		listIncidencia = DAOIncidencia.consultar(email, tipo);
-		model.addObject("listIncidencia", listIncidencia);
-		model.setViewName("resolverIncidencia");
-		return model;
-	}
 	
 	@RequestMapping(value = "/deleteIncidencias", method = RequestMethod.GET)
 	public ModelAndView deleteIncidencias(HttpServletRequest request, ModelAndView model) {	

@@ -172,7 +172,7 @@ label.light {
 		<div class="page-header">
 			<h1>Gestor de Fichajes</h1>
 		</div>
-		<form name='searchForm' action='/buscarIncidenciaTipoEmail' method='GET'>
+		<form name='searchForm' action='/buscarIncidenciaTipo' method='GET'>
 
 			<fieldset>
 				<legend>
