@@ -71,7 +71,7 @@ public class DAOIncidencia {
 		ArrayList<Incidencia> i=new ArrayList<Incidencia> ();
 		Bson filtro=null;
 		if(rol.equals("incid")) {
-			filtro=and(or(eq("email",email),eq("dni",email)));
+			filtro=eq("tipo",tipo);
 		}else {
 			filtro=and(or(eq("email",email),eq("dni",email)),eq("tipo",tipo));
 		}
