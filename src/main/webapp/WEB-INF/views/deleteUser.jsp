@@ -134,7 +134,22 @@ label.light {
 
 </head>
 <body>
-	<nav class="navbar navbar-default">
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
+
+	<div class="row">
+		<div align="left" class="col-sm-2">
+			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
+		</div>
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8"></div>
+	</div>
+	<!-- <nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/intime">InTime</a>
@@ -174,7 +189,7 @@ label.light {
 			</ul>
 		</div>
 	</nav>
-
+ -->
 	<!-- 	<div class="container">
 		<form name='searchForm' action='/deleteSearchUser' method='POST'>
 
@@ -216,8 +231,8 @@ label.light {
 							<span class="number">1</span>Introduzca el e-mail del usuario
 						</legend>
 						<label for="name">Introduzca el email:</label> <input type="email"
-							name="email">
-						<input type="button" onclick="pregunta()" value="Buscar">
+							name="email"> <input type="button" onclick="pregunta()"
+							value="Buscar">
 						<!-- <button type="submit">Buscar</button> -->
 					</fieldset>
 				</form>
