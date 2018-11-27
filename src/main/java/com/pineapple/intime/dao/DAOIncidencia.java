@@ -33,11 +33,15 @@ public class DAOIncidencia {
 		}
 		
 	}
-	public static boolean update(String email,String estado,String asunto,String descripcion,String tipo,String fecha) {
+	public static boolean update(String email,String estado,String asunto,String descripcion,String tipo,String fecha,String rol) {
 		Bson filtro=null;
 		Bson update=null;
-				update=combine(set("email",email),set("estado",estado),set("asunto",asunto),set("descripcion",descripcion),set("tipo",tipo),set("fecha",fecha));
 		filtro=and(eq("email",email),eq("fecha",fecha));
+		if(rol.equals("incid")) {
+			update=combine(set("estado",estado));
+		}else {
+			update=combine(set("asunto",asunto),set("descripcion",descripcion),set("tipo",tipo));
+		}
 		UpdateResult urIncidencia = dbIncidencia.updateOne(filtro, update);
 		if(urIncidencia.wasAcknowledged()) {
 			return true;
@@ -66,7 +70,7 @@ public class DAOIncidencia {
 	}
 	
 	public static ArrayList<Incidencia> consultar(String email,String tipo,String rol){
-		ArrayList<Incidencia> i=new ArrayList<Incidencia> ();
+		ArrayList<Incidencia> result=new ArrayList<Incidencia> ();
 		Bson filtro=null;
 		if(rol.equals("incid")) {
 			filtro=and(or(eq("email",email),eq("dni",email)));
@@ -79,13 +83,13 @@ public class DAOIncidencia {
 			for (Document inc: incidencias) {
 				Incidencia incidencia=new Incidencia(inc.getString("email"),inc.getString("estado"),inc.getString("asunto"),inc.getString("descripcion"),
 						inc.getString("tipo"),inc.getString("fecha"));
-				i.add(incidencia);
+				result.add(incidencia);
 			}
 			
 		//}else {
 		//	result.put(0, new Document("email","error"));
 		//}
-		return i;
+		return result;
 	}
 
 }
