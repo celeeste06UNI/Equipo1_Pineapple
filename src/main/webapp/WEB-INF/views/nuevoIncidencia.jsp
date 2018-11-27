@@ -122,9 +122,23 @@ label.light {
 </style>
 </head>
 <body>
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
 
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
 
-	<nav class="navbar navbar-default">
+	<div class="row">
+		<div align="left" class="col-sm-2">
+			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
+		</div>
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8"></div>
+	</div>
+
+	<!-- <nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="/intime">InTime</a>
@@ -163,7 +177,7 @@ label.light {
 
 		</ul>
 	</div>
-	</nav>
+	</nav> -->
 
 
 	<form name='IncidenciaForm' action='/saveIncidencia' method='POST'>
@@ -173,8 +187,7 @@ label.light {
 				<span class="number">1</span>Información básica
 			</legend>
 			<label for="name">Asunto:</label> <input type="text" required
-				autocomplete="off" name="asunto"> 
-			<label for="name">Descripción:</label><input
+				autocomplete="off" name="asunto"> <label for="name">Descripción:</label><input
 				type="text" required autocomplete="off" name="descripcion">
 		</fieldset>
 
@@ -182,13 +195,14 @@ label.light {
 			<legend>
 				<span class="number">2</span>Seleccionar el tipo
 			</legend>
-			<label>Tipos:</label>
-			<input type="radio" id="incidFich" value="incidFich" required autocomplete="off" name="tipo"> 
-			<label class="light" for="incidFich">Incidencia de Fichaje</label><br> 
-			<input type="radio" id="vacaciones" value="vacaciones" required autocomplete="off" name="tipo"> 
-			<label class="light" for="vacaciones">Vacaciones</label><br>
-			<input type="radio" id="permisos" value="permisos" required autocomplete="off" name="tipo"> 
-			<label class="light" for="permisos">Permisos</label>
+			<label>Tipos:</label> <input type="radio" id="incidFich"
+				value="incidFich" required autocomplete="off" name="tipo"> <label
+				class="light" for="incidFich">Incidencia de Fichaje</label><br>
+			<input type="radio" id="vacaciones" value="vacaciones" required
+				autocomplete="off" name="tipo"> <label class="light"
+				for="vacaciones">Vacaciones</label><br> <input type="radio"
+				id="permisos" value="permisos" required autocomplete="off"
+				name="tipo"> <label class="light" for="permisos">Permisos</label>
 		</fieldset>
 
 		<button type="submit">Crear</button>

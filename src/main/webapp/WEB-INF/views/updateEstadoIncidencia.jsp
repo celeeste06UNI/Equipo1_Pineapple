@@ -123,8 +123,22 @@ label.light {
 </head>
 <body>
 
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
 
-	<nav class="navbar navbar-default">
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
+
+	<div class="row">
+		<div align="left" class="col-sm-2">
+			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
+		</div>
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8"></div>
+	</div>
+	<!-- <nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="/intime">InTime</a>
@@ -163,7 +177,7 @@ label.light {
 
 		</ul>
 	</div>
-	</nav>
+	</nav> -->
 
 
 	<form name='IncidenciaForm' action='/updateIn' method='GET'>
@@ -200,11 +214,11 @@ label.light {
 			<label>Estados Disponibles:</label> <input type="radio" id="estado"
 				value="incidFich" required autocomplete="off" name="tipo"> <label
 				class="light" for="denegada">Denegada</label><br> <input
-				type="radio" id="permisos" value="permisos" required autocomplete="off"
-				name="tipo"> <label class="light" for="aceptada">Aceptada</label><br>
-			<input type="radio" id="vacaciones" value="vacaciones" required
+				type="radio" id="permisos" value="permisos" required
 				autocomplete="off" name="tipo"> <label class="light"
-				for="Vacaciones">Vacaciones</label>
+				for="aceptada">Aceptada</label><br> <input type="radio"
+				id="vacaciones" value="vacaciones" required autocomplete="off"
+				name="tipo"> <label class="light" for="Vacaciones">Vacaciones</label>
 		</fieldset>
 
 		<button type="submit">Actualizar</button>
