@@ -30,7 +30,7 @@ public class DAOEmpleado {
 	public static boolean buscarEmpleado(String email) {
 		Bson filtroEmpleado=null;
 		Bson filtroRol=null;
-		filtroEmpleado=and(eq("email",email));
+		filtroEmpleado=eq("email",email);
 		if(dbEmpleado.find(filtroEmpleado).iterator().hasNext() && dbRol.find(filtroRol).iterator().hasNext()) {
 			return true;
 		}else {

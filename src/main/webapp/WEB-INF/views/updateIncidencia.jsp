@@ -172,26 +172,32 @@ label.light {
 			<legend>
 				<span class="number">1</span>Modificar Incidencia
 			</legend>
-			<label for="asunto">Asunto:</label> 
+			<label for="asunto">Asunto:</label>
 			<textarea class="form-control" rows="3" id="asunto" name="asunto">${asunto}</textarea>
 			<!-- <input type="text" required
-				autocomplete="off" name="asunto" value=${asunto}> --> 
+				autocomplete="off" name="asunto" value=${asunto}> -->
 			<label for="descripcion">Descripción:</label>
-			<textarea class="form-control" rows="5" id="descripcion" name="descripcion">${descripcion}</textarea>
+			<textarea class="form-control" rows="5" id="descripcion"
+				name="descripcion">${descripcion}</textarea>
 			<!-- <input
 				type="textarea" required autocomplete="off" name="descripcion" value=${descripcion}> -->
 		</fieldset>
 		<fieldset>
-			<label for="estado">Estado</label> 
-			<textarea readonly class="form-control" rows="2" id="estado" name="estado">${estado}</textarea>
-			
-			<label for="tipoModi">Tipo</label> 
-			<textarea readonly class="form-control" rows="2" id="tipo" name="tipo">${tipo}</textarea>
-			
-			<label for="fechaMod">Fecha</label> 
-			<textarea readonly class="form-control" rows="1" id="fecha" name="fecha">${fecha}</textarea>
+			<label for="estado">Estado</label>
+			<textarea readonly class="form-control" rows="2" id="estado"
+				name="estado">${estado}</textarea>
+
+
+
+			<label for="fechaMod">Fecha</label>
+			<textarea readonly class="form-control" rows="1" id="fecha"
+				name="fecha">${fecha}</textarea>
 			<!-- <input type="text" readonly
   				name="EstadoActual" required autocomplete="off" value=${estado} > -->
+
+			<label for="tipoModi">Tipo</label>
+			<textarea readonly class="form-control" rows="2" id="tipo"
+				name="tipo">${tipo}</textarea>
 			<label>Tipos Disponibles:</label> <input type="radio" id="incidencia"
 				value="incident" required autocomplete="off" name="tipo"> <label
 				class="light" for="Incidencia">Incidencia por Fichaje</label><br>
