@@ -136,11 +136,10 @@
 					data-toggle="dropdown" href="#">Gestión Incidencias <span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Crear</a></li>
-						<li><a href="#">Eliminar</a></li>
-						<li><a href="#">Modificar</a></li>
+						<li><a href="/nuevoIncidencia">Crear</a></li>
+						<li><a href="/consultarIncidenciaUser">Eliminar/Modificar</a></li>
 					</ul></li>
-				<li><a href="#">Resolución Incidencias</a></li>
+				<li><a href="/resolverIncidencia">Resolución Incidencias</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/cerrarSesion"><span

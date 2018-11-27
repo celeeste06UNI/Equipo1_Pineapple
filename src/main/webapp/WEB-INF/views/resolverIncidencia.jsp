@@ -9,7 +9,7 @@
     "http://www.w3.org/TR/html4/loose.dtd">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>consultar incidencia</title>
+<title>resolver incidencia</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -172,7 +172,7 @@ label.light {
 		<div class="page-header">
 			<h1>Gestor de Fichajes</h1>
 		</div>
-		<form name='searchForm' action='/buscarIncidenciaTipo' method='GET'>
+		<form name='searchForm' action='/buscarIncidenciaTipoEmail' method='GET'>
 
 			<fieldset>
 				<legend>
@@ -211,7 +211,8 @@ label.light {
 					<td>${fichaje.fecha}</td>
 					<td><a
 						href="<c:url value='/editIncidencias?email=${fichaje.email}&estado=${fichaje.estado}&asunto=${fichaje.asunto}&descripcion=${fichaje.descripcion}&tipo=${fichaje.tipo}&fecha=${fichaje.fecha}' />">Editar</a>
-						</td>
+						- <a
+						href="<c:url value='/deleteIncidencias?email=${fichaje.email}&estado=${fichaje.estado}&asunto=${fichaje.asunto}&descripcion=${fichaje.descripcion}&tipo=${fichaje.tipo}&fecha=${fichaje.fecha}' />">Eliminar</a></td>
 				</tr>
 			</c:forEach>
 		</table>
