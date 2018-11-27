@@ -166,7 +166,7 @@ label.light {
 	</nav>
 
 
-	<form name='IncidenciaForm' action='/updateIn' method='POST'>
+	<form name='IncidenciaForm' action='/updateIn' method='GET'>
 		<h1>Modificar Incidencia</h1>
 		<fieldset>
 			<legend>
