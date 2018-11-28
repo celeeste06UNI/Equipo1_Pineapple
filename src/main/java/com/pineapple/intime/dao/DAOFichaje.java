@@ -71,7 +71,7 @@ public class DAOFichaje {
 		DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
 		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
 		hourFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
-
+		
 		String horaFin = (String) hourFormat.format(new Date());
 		String fechaFin = (String) dateFormat.format(new Date());
 
