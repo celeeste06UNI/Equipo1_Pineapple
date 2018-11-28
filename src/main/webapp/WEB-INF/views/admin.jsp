@@ -186,7 +186,7 @@
 	<section class="login-block">
 
 		<!-- class="login-block" -->
-		<div class="container" style ="background-color:#cb3234">
+		<div class="container" style ="background-color:#cb3234;margin-top:0px">
 
 			<div class="row">
 				<div class="col-md-4 login-sec">
