@@ -203,7 +203,7 @@
 
 		<!-- class="login-block" -->
 		<div class="container"
-			style="background-color: #cb3234; margin-top: 0px; border-style: solid; border-width: 4px;  border-color: red;">
+			style="margin-top: 0px; border-style: solid; border-width: 4px;  border-color: red;">
 
 			<div class="row">
 				<div class="col-md-4 login-sec">
