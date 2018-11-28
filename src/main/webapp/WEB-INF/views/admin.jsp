@@ -16,11 +16,11 @@
 
 <style type="text/css">
 .login-block {
-	background: #FFFFFF;  *//* fallback for old browsers */
+	background: #FFFFFF; */ /* fallback for old browsers */
 	/* background: -webkit-linear-gradient(to bottom, #FF0000, #FE2E2E);
 	/* Chrome 10-25, Safari 5.1-6 */
 	/* background: linear-gradient(to bottom, #FF0000, #FE2E2E); */
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	float: left;
 	width: 100%;
 	padding: 50px 0;
@@ -164,6 +164,23 @@
 			</ul>
 		</div>
 	</nav>
+
+	<div class="container">
+		<div class="btn-group">
+			<button type="button" class="btn btn-default dropdown-toggle"
+				data-toggle="dropdown">
+				Título del botón <span class="caret"></span>
+			</button>
+
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">Acción #1</a></li>
+				<li><a href="#">Acción #2</a></li>
+				<li><a href="#">Acción #3</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Acción #4</a></li>
+			</ul>
+		</div>
+	</div>
 
 	<section class="login-block">
 
