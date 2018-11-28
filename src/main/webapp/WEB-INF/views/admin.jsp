@@ -170,7 +170,7 @@
 		<div class="btn-group">
 			<div class="btn-group">
 				<button type="button" class="btn btn-default dropdown-toggle btn-lg"
-					data-toggle="dropdown" >
+					data-toggle="dropdown">
 					Usuario <span class="caret"></span>
 				</button>
 
@@ -180,7 +180,6 @@
 					<li><a href="/updateUser">Modificar</a></li>
 				</ul>
 			</div>
-			&nbsp
 			<div class="btn-group">
 				<button type="button" class="btn btn-default dropdown-toggle btn-lg"
 					data-toggle="dropdown">
@@ -193,7 +192,35 @@
 					<li><a href="/updateUser">Modificar</a></li>
 				</ul>
 			</div>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle btn-lg"
+					data-toggle="dropdown">
+					Gestión Incidencias<span class="caret"></span>
+				</button>
+
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="/newUser">Crear</a></li>
+					<li><a href="/deleteUser">Eliminar</a></li>
+					<li><a href="/updateUser">Modificar</a></li>
+				</ul>
+			</div>
+			<div class="btn-group" align= "right">
+				<button type="button" class="btn btn-default dropdown-toggle btn-lg"
+					data-toggle="dropdown">
+					Modificar Contraseña <span class="caret"></span>
+				</button>
+			</div>
+			<div class="btn-group"  align= "right">
+				<button type="button" class="btn btn-default dropdown-toggle btn-lg"
+					data-toggle="dropdown">
+					Cerrar <span class="caret"></span>
+				</button>
+			</div>
 		</div>
+
+
+
+
 
 
 
@@ -203,12 +230,12 @@
 
 		<!-- class="login-block" -->
 		<div class="container"
-			style="background-color: #E36B6C; margin-top: 0px ">
+			style="background-color: #E36B6C; margin-top: 0px">
 
 			<div class="row">
 				<div class="col-md-4 login-sec">
-					<h2 class="text-center" style="color:#fff">Administrador</h2>
-					<div class="copy-text" style="color:#fff">Pineapple</div>
+					<h2 class="text-center" style="color: #fff">Administrador</h2>
+					<div class="copy-text" style="color: #fff">Pineapple</div>
 				</div>
 				<div class="col-md-8 banner-sec">
 
