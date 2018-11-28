@@ -166,7 +166,7 @@
 	</nav>
  -->
 	<section class="login-block">
-		<div class="container">
+		<div>
 			<nav class="navbar navbar-default">
 				<div class="container-fluid">
 					<div class="navbar-header">
