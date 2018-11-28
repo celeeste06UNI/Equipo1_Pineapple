@@ -216,6 +216,8 @@ label.light {
 			</c:forEach>
 		</table>
 	</div>
+	
+	  <!-- Modal -->
 	  <div id="myModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
 
@@ -223,7 +225,7 @@ label.light {
         <div class="modal-content">
           <div class="modal-header">
             <h4 class="modal-title">Fichaje abierto</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
 
         </div>
