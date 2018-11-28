@@ -94,10 +94,11 @@ public class DAOFichaje {
 
 				fichajeNuevo.put("fechaFin", cierreFichaje.get("fechaFin"));
 				fichajeNuevo.put("horaFin", cierreFichaje.get("horaFin"));
+				fichajeNuevo.put("tiempo", CalculoTiempo(cierreFichaje.get("horaInicio"), cierreFichaje.get("horaFin")));
 				dbFichaje.insertOne(fichajeNuevo);
 				Bson fichajeCerrado = null;
 				fichajeCerrado = combine(set("email", email), set("estado", "cerrado"), set("fechaInicio", ""),
-						set("horaInicio", ""), set("fechaFin", ""), set("horaFin", ""));
+						set("horaInicio", ""), set("fechaFin", ""), set("horaFin", ""), set("tiempo", ""));
 				dbEstadoFichaje.updateOne(filtroEmail, fichajeCerrado);
 			}
 		} else if (datosPersonales.iterator().hasNext() && !estadoFichaje.iterator().hasNext()) {
@@ -146,6 +147,15 @@ public class DAOFichaje {
 	
 	public String toString() {
 		return null;
+	}
+	
+	public static String CalculoTiempo (Object apertura, Object cierre) {
+		
+		int tiempo = (int) ((((Date) apertura).getTime() - ((Date) cierre).getTime())/1000);
+		
+		String tiempo2 = Integer.toString(tiempo);
+		
+		return tiempo2;
 	}
 
 }
