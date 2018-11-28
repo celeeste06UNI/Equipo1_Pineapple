@@ -167,27 +167,27 @@
 
 	<section class="login-block">
 
+		<!-- class="login-block" -->
+		<div class="container">
 
-		<!-- <div class="container"> -->
+			<div class="row">
+				<div class="col-md-4 login-sec">
+					<h2 class="text-center">Administrador</h2>
+					<div class="copy-text">Pineapple</div>
+				</div>
+				<div class="col-md-8 banner-sec">
 
-		<div class="row">
-			<div class="col-md-4 login-sec">
-				<h2 class="text-center">Administrador</h2>
-				<div class="copy-text">Pineapple</div>
-			</div>
-			<div class="col-md-8 banner-sec">
-
-				<ol class="carousel-indicators">
-				</ol>
-				<div>
-					<div class="banner-text">
-						<h2>In Time</h2>
-						<p>Aplicación web para la gestión de los fichajes</p>
+					<ol class="carousel-indicators">
+					</ol>
+					<div>
+						<div class="banner-text">
+							<h2>In Time</h2>
+							<p>Aplicación web para la gestión de los fichajes</p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- </div> -->
 	</section>
 </body>
 </html>
