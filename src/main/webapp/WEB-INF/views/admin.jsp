@@ -168,7 +168,7 @@
 
 	<div class="container">
 		<div class="row" align="center">
-			<div class="col-md-8 login-sec">
+			<div class="col-md-8">
 				<div class="btn-group">
 					<button type="button"
 						class="btn btn-default dropdown-toggle btn-lg"
@@ -210,7 +210,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-md-4 banner-sec">
+			<div class="col-md-4">
 				<button type="button"
 					class="btn btn-default dropdown-toggle" align="center">
 					Modificar Contraseña</button>
