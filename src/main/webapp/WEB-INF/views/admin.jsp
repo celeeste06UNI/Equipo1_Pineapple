@@ -125,7 +125,7 @@
 </head>
 <body>
 
-	<!-- 	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/intime">InTime</a>
@@ -164,88 +164,30 @@
 			</ul>
 		</div>
 	</nav>
- -->
+
 	<section class="login-block">
-		<div>
-			<nav class="navbar navbar-default">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<a class="navbar-brand" href="/intime">InTime</a>
-					</div>
-					<ul class="nav navbar-nav">
-						<li class="dropdown"><a class="dropdown-toggle"
-							data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-
-								<li><a href="/newUser">Crear</a></li>
-								<li><a href="/deleteUser">Eliminar</a></li>
-								<li><a href="/updateUser">Modificar</a></li>
-							</ul></li>
-
-						<li class="dropdown"><a class="dropdown-toggle"
-							data-toggle="dropdown" href="#">Fichajes<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="/fichajeUser">Fichar</a></li>
-								<li><a href="/consultaFichaje">Consultar</a></li>
-
-							</ul></li>
-						<li class="dropdown"><a class="dropdown-toggle"
-							data-toggle="dropdown" href="#">Gestión Incidencias <span
-								class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="/nuevoIncidencia">Crear</a></li>
-								<li><a href="/consultarIncidenciaUser">Eliminar/Modificar</a></li>
-							</ul></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/viewUpdatePassword"><span
-								class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
-						<li><a href="/cerrarSesion"><span
-								class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
-
-					</ul>
-				</div>
-			</nav>
-		</div>
 
 
-		<!-- <div class="container">
-			<div class="btn-group">
-				<button type="button" class="btn btn-default dropdown-toggle"
-					data-toggle="dropdown">
-					Título del botón <span class="caret"></span>
-				</button>
+		<!-- <div class="container"> -->
 
-				<ul class="dropdown-menu" role="menu">
-					<li><a href="#">Acción #1</a></li>
-					<li><a href="#">Acción #2</a></li>
-					<li><a href="#">Acción #3</a></li>
-					<li class="divider"></li>
-					<li><a href="#">Acción #4</a></li>
-				</ul>
+		<div class="row">
+			<div class="col-md-4 login-sec">
+				<h2 class="text-center">Administrador</h2>
+				<div class="copy-text">Pineapple</div>
 			</div>
-		</div> -->
+			<div class="col-md-8 banner-sec">
 
-		<div class="container">
-
-			<div class="row">
-				<div class="col-md-4 login-sec">
-					<h2 class="text-center">Administrador</h2>
-					<div class="copy-text">Pineapple</div>
-				</div>
-				<div class="col-md-8 banner-sec">
-
-					<ol class="carousel-indicators">
-					</ol>
-					<div>
-						<div class="banner-text">
-							<h2>In Time</h2>
-							<p>Aplicación web para la gestión de los fichajes</p>
-						</div>
+				<ol class="carousel-indicators">
+				</ol>
+				<div>
+					<div class="banner-text">
+						<h2>In Time</h2>
+						<p>Aplicación web para la gestión de los fichajes</p>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!-- </div> -->
 	</section>
 </body>
 </html>
