@@ -170,8 +170,7 @@
 		<div class="row" style="margin-bottom: 5px">
 			<div class="col-md-8" align="left">
 				<div class="btn-group">
-					<button type="button"
-						class="btn dropdown-toggle"
+					<button type="button" class="btn dropdown-toggle"
 						data-toggle="dropdown">
 						Usuario <span class="caret"></span>
 					</button>
@@ -184,39 +183,34 @@
 				</div>
 				<div class="btn-group">
 
-					<button type="button"
-						class="btn dropdown-toggle"
+					<button type="button" class="btn dropdown-toggle"
 						data-toggle="dropdown">
 						Fichajes <span class="caret"></span>
 					</button>
 
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="/newUser">Crear</a></li>
-						<li><a href="/deleteUser">Eliminar</a></li>
-						<li><a href="/updateUser">Modificar</a></li>
+						<li><a href="/fichajeUser">Fichar</a></li>
+						<li><a href="/consultarFichaje">Consultar</a></li>
 					</ul>
 				</div>
 				<div class="btn-group">
-					<button type="button"
-						class="btn dropdown-toggle"
+					<button type="button" class="btn dropdown-toggle"
 						data-toggle="dropdown">
 						Gestion Incidencias<span class="caret"></span>
 					</button>
 
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="/newUser">Crear</a></li>
-						<li><a href="/deleteUser">Eliminar</a></li>
-						<li><a href="/updateUser">Modificar</a></li>
+						<li><a href="/nuevoIncidencia">Crear</a></li>
+						<li><a href="/consultarIncidenciaUser">Eliminar/Modificar</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-md-4" align="right">
-				<button type="button"
-					class="btn dropdown-toggle">
-					Modificar Contraseña</button>
-				<button type="button"
-					class="btn dropdown-toggle">
-					Cerrar</button>
+				<button type="button" class="btn dropdown-toggle">
+					<a style="color: #FFFFFF" href="/viewUpdatePassword">Modificar
+						Contraseña</a>
+				</button>
+				<button type="button" class="btn dropdown-toggle">Cerrar</button>
 			</div>
 		</div>
 
