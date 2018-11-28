@@ -207,20 +207,6 @@
 
 		</div>
 
-		<button type="button" class="btn btn-default dropdown-toggle btn-lg"
-			data-toggle="dropdown" align= "right">
-			Modificar Contraseña <span class="caret"></span>
-		</button>
-
-
-		<button type="button" class="btn btn-default dropdown-toggle btn-lg"
-			data-toggle="dropdown"  align= "right">
-			Cerrar <span class="caret"></span>
-		</button>
-
-
-
-
 
 
 	</div>
@@ -235,6 +221,16 @@
 				<div class="col-md-4 login-sec">
 					<h2 class="text-center" style="color: #fff">Administrador</h2>
 					<div class="copy-text" style="color: #fff">Pineapple</div>
+					<div class="container" style="margin-top: 15px">
+						<button type="button"
+							class="btn btn-default dropdown-toggle">
+							Modificar Contraseña<span class="caret"></span>
+						</button>
+						<button type="button"
+							class="btn btn-default dropdown-toggle">
+							Cerrar<span class="caret"></span>
+						</button>
+					</div>
 				</div>
 				<div class="col-md-8 banner-sec">
 
