@@ -83,7 +83,7 @@
 	content: " ";
 	width: 100px;
 	height: 5px;
-	background: #FEB58A;
+	background: #fff;
 	display: block;
 	margin-top: 20px;
 	border-radius: 3px;
@@ -203,12 +203,12 @@
 
 		<!-- class="login-block" -->
 		<div class="container"
-			style="margin-top: 0px; border-style: solid; border-width: 3px;  border-color: red;">
+			style="background-color: #cb3234; margin-top: 0px ">
 
 			<div class="row">
 				<div class="col-md-4 login-sec">
-					<h2 class="text-center">Administrador</h2>
-					<div class="copy-text">Pineapple</div>
+					<h2 class="text-center" style="color:#fff">Administrador</h2>
+					<div class="copy-text" style="color:#fff">Pineapple</div>
 				</div>
 				<div class="col-md-8 banner-sec">
 
