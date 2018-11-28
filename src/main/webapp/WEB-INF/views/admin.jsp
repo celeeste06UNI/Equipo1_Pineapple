@@ -169,7 +169,7 @@
 	<div class="container">
 		<div class="btn-group">
 			<div class="btn-group">
-				<button type="button" style= "color:#A4A4A4" class="dropdown-toggle btn-lg"
+				<button type="button" class="btn btn-default dropdown-toggle btn-lg"
 					data-toggle="dropdown" >
 					Usuario <span class="caret"></span>
 				</button>
@@ -182,7 +182,7 @@
 			</div>
 			&nbsp
 			<div class="btn-group">
-				<button type="button" class="btn btn-primary dropdown-toggle btn-lg"
+				<button type="button" class="btn btn-default dropdown-toggle btn-lg"
 					data-toggle="dropdown">
 					Fichajes <span class="caret"></span>
 				</button>
