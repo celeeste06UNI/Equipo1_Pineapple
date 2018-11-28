@@ -41,6 +41,12 @@
 	/* box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1); */
 }
 
+.containerNav {
+	background: #fff;
+	border-radius: 10px;
+	/* box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1); */
+}
+
 .carousel-inner {
 	border-radius: 0 10px 10px 0;
 }
@@ -165,7 +171,7 @@
 		</div>
 	</nav>
 
-	<div class="container">
+	<div class="containerNav">
 		<div class="btn-group">
 			<button type="button" class="btn btn-default dropdown-toggle"
 				data-toggle="dropdown">
