@@ -181,12 +181,12 @@ label.light {
 					<legend>
 						<span class="number">1</span>Fichajes
 					</legend>
-					<button type="button" data-togle="modal" data-target="#myModal"><a style="color:#FFFFFF" href="/abrirFichaje">abrir</a></button>
+					<button type="button" data-toggle="modal" data-target="#myModal" ><a style="color:#FFFFFF" href="/abrirFichaje">abrir</a></button>
 					<button><a style="color:#FFFFFF" href="/cerrarFichaje">cerrar</a></button>
 				</fieldset>
 
 			</div>
-			<div class="col-sm-6" style="background-color: white;">
+			<div class="col-sm-6" style="background-col white;">
 
 				<form name='searchFichaje' action='/searchFichaje' method='GET'>
 
@@ -217,18 +217,23 @@ label.light {
 		</table>
 	</div>
 	
-	  <!-- Modal -->
-	  <div id="myModal" class="modal fade" role="dialog">
+	
+	   <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
             <h4 class="modal-title">Fichaje abierto</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <button data-bind="click: anyadir" class="btn float-right">Aceptar</button>
           </div>
 
-        
+        </div>
+
       </div>
-	</div>
+     </div>
+	
+	
+	
 </body>
