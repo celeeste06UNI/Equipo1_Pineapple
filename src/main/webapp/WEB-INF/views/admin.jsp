@@ -38,7 +38,7 @@
 .container {
 	background: #fff;
 	border-radius: 10px;
-	box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1);
+	/* box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1); */
 }
 
 .carousel-inner {
@@ -125,7 +125,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/intime">InTime</a>
