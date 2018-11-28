@@ -200,7 +200,7 @@
 					<button type="button"
 						class="btn btn-default dropdown-toggle"
 						data-toggle="dropdown">
-						Incidencias<span class="caret"></span>
+						Gestion Incidencias<span class="caret"></span>
 					</button>
 
 					<ul class="dropdown-menu" role="menu">
