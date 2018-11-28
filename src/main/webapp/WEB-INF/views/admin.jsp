@@ -206,18 +206,18 @@
 			</div>
 
 		</div>
-		<div class="btn-group" align="right">
-			<button type="button" class="btn btn-default dropdown-toggle btn-lg"
-				data-toggle="dropdown">
-				Modificar Contraseña <span class="caret"></span>
-			</button>
-		</div>
-		<div class="btn-group" align="right">
-			<button type="button" class="btn btn-default dropdown-toggle btn-lg"
-				data-toggle="dropdown">
-				Cerrar <span class="caret"></span>
-			</button>
-		</div>
+
+		<button type="button" class="btn btn-default dropdown-toggle btn-lg"
+			data-toggle="dropdown">
+			Modificar Contraseña <span class="caret"></span>
+		</button>
+
+
+		<button type="button" class="btn btn-default dropdown-toggle btn-lg"
+			data-toggle="dropdown">
+			Cerrar <span class="caret"></span>
+		</button>
+
 
 
 
