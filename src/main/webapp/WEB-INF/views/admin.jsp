@@ -125,7 +125,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse">
+	<!-- <nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/intime">InTime</a>
@@ -163,11 +163,11 @@
 
 			</ul>
 		</div>
-	</nav>
+	</nav> -->
 
 	<div class="container">
 		<div class="btn-group">
-			<button type="button" class="btn btn-default dropdown-toggle"
+			<button type="button" class="btn btn-danger dropdown-toggle"
 				data-toggle="dropdown">
 				Título del botón <span class="caret"></span>
 			</button>
