@@ -106,9 +106,9 @@ public class DAOFichaje {
 		return fichado;
 	}
 
-	public static Document consultarFichajes(String email, String fecha) {
+	public static Document consultarFichajes(String email, String fecha1, String fecha2) {
 
-		Bson filtroFichaje = and(eq("email", email), eq("fechaFin", fecha), eq("fechaInicio", fecha));
+		Bson filtroFichaje = and(eq("email", email), eq("fechaFin", fecha2), eq("fechaInicio", fecha1));
 		FindIterable<Document> cursor = dbFichaje.find(filtroFichaje);
 		Document resultado = new Document();
 
