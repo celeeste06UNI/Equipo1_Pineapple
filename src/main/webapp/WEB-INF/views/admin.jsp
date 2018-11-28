@@ -180,6 +180,7 @@
 					<li><a href="/updateUser">Modificar</a></li>
 				</ul>
 			</div>
+			&nbsp
 			<div class="btn-group">
 				<button type="button" class="btn btn-danger dropdown-toggle"
 					data-toggle="dropdown">
