@@ -166,8 +166,8 @@
 		</div>
 	</nav> -->
 
-	<div class="container" style= "border-bottom-style: solid; border-width: 4px; border-color:black">
-		<div class="row" >
+	<div class="container" style= "border-bottom-style: solid; border-width: 2px; border-color:black">
+		<div class="row" style="margin-bottom: 5px">
 			<div class="col-md-8" align="left">
 				<div class="btn-group">
 					<button type="button"
