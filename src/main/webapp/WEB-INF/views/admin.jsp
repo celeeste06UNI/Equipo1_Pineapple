@@ -36,7 +36,7 @@
 }
 
 .container {
-	background: #fff;
+	background: #cb3234;
 	border-radius: 10px;
 	/* box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1); */
 }
@@ -167,7 +167,7 @@
 
 	<div class="container">
 		<div class="btn-group">
-			<button type="button" class="btn btn-danger dropdown-toggle"
+			<button type="button" class="btn btn-default dropdown-toggle"
 				data-toggle="dropdown">
 				Título del botón <span class="caret"></span>
 			</button>
