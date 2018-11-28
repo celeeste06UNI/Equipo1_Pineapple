@@ -220,11 +220,11 @@
 			<div class="row">
 				<div class="col-md-4 login-sec">
 					<h2 class="text-center" style="color: #fff">Administrador</h2>
-					<div class="copy-text" style="color: #fff">Pineapple</div>
-
-					<button style="margin-top: 50px" type="button" class="btn btn-default dropdown-toggle">
+					<h6 class="text-center" style="color: #fff">Pineapple</h6>
+					
+					<button style="margin-top: 150px" type="button" class="btn btn-default dropdown-toggle">
 						Modificar Contraseña</button>
-					<button style="margin-top: 50px" type="button" class="btn btn-default dropdown-toggle">
+					<button style="margin-top: 150px" type="button" class="btn btn-default dropdown-toggle">
 						Cerrar</button>
 
 				</div>
