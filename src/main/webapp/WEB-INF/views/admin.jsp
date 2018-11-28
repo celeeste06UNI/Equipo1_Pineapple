@@ -169,8 +169,8 @@
 	<div class="container">
 		<div class="btn-group">
 			<div class="btn-group">
-				<button type="button" class="btn btn-primary dropdown-toggle btn-lg"
-					data-toggle="dropdown">
+				<button type="button" style= "color:#A4A4A4" class="dropdown-toggle btn-lg"
+					data-toggle="dropdown" >
 					Usuario <span class="caret"></span>
 				</button>
 
@@ -203,7 +203,7 @@
 
 		<!-- class="login-block" -->
 		<div class="container"
-			style="background-color: #cb3234; margin-top: 0px ">
+			style="background-color: #E36B6C; margin-top: 0px ">
 
 			<div class="row">
 				<div class="col-md-4 login-sec">
