@@ -166,7 +166,7 @@
 		</div>
 	</nav> -->
 
-	<div class="container" style= "border-bottom-style: solid; border-width: 2px; border-color:#B1B0AF">
+	<div class="container">
 		<div class="row" style="margin-bottom: 5px">
 			<div class="col-md-8" align="left">
 				<div class="btn-group">
