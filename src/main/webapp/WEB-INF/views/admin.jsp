@@ -166,21 +166,22 @@
 	</nav>
 
 	<section class="login-block">
-		<div class="btn-group">
-			<button type="button" class="btn btn-default dropdown-toggle"
-				data-toggle="dropdown">
-				Título del botón <span class="caret"></span>
-			</button>
 
-			<ul class="dropdown-menu" role="menu">
-				<li><a href="#">Acción #1</a></li>
-				<li><a href="#">Acción #2</a></li>
-				<li><a href="#">Acción #3</a></li>
-				<li class="divider"></li>
-				<li><a href="#">Acción #4</a></li>
-			</ul>
-		</div>
 		<div class="container">
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle"
+					data-toggle="dropdown">
+					Título del botón <span class="caret"></span>
+				</button>
+
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="#">Acción #1</a></li>
+					<li><a href="#">Acción #2</a></li>
+					<li><a href="#">Acción #3</a></li>
+					<li class="divider"></li>
+					<li><a href="#">Acción #4</a></li>
+				</ul>
+			</div>
 			<div class="row">
 				<div class="col-md-4 login-sec">
 					<h2 class="text-center">Administrador</h2>
