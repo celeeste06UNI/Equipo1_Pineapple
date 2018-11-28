@@ -38,7 +38,7 @@
 .container {
 	background: #fff;
 	border-radius: 10px;
-	margin-top: 500px;
+	margin-top: 80px;
 	/* box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1); */
 }
 
