@@ -225,14 +225,29 @@ label.light {
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Fichaje abierto</h4>
+            <h4 class="modal-title">Add Vigilancia</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-striped" style="margin-top:50px;">
+                <tr>
+                    <td><b>Nombre paciente</b></td>
+                </tr>
+                <tr>
+                    <td><b>Pulsera</b></td>
+                </tr>
+                <tr>
+                    <td><b>Enfermedad</b></td>
+                </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            -
             <button data-bind="click: anyadir" class="btn float-right">Aceptar</button>
           </div>
-
         </div>
 
       </div>
-     </div>
 	
 	
 	
