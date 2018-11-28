@@ -171,7 +171,7 @@
 			<div class="col-md-8" align="left">
 				<div class="btn-group">
 					<button type="button"
-						class="btn btn-default dropdown-toggle"
+						class="btn dropdown-toggle"
 						data-toggle="dropdown">
 						Usuario <span class="caret"></span>
 					</button>
@@ -185,7 +185,7 @@
 				<div class="btn-group">
 
 					<button type="button"
-						class="btn btn-default dropdown-toggle"
+						class="btn dropdown-toggle"
 						data-toggle="dropdown">
 						Fichajes <span class="caret"></span>
 					</button>
@@ -198,7 +198,7 @@
 				</div>
 				<div class="btn-group">
 					<button type="button"
-						class="btn btn-default dropdown-toggle"
+						class="btn dropdown-toggle"
 						data-toggle="dropdown">
 						Gestion Incidencias<span class="caret"></span>
 					</button>
@@ -212,10 +212,10 @@
 			</div>
 			<div class="col-md-4" align="right">
 				<button type="button"
-					class="btn btn-default dropdown-toggle">
+					class="btn dropdown-toggle">
 					Modificar Contraseña</button>
 				<button type="button"
-					class="btn btn-default dropdown-toggle">
+					class="btn dropdown-toggle">
 					Cerrar</button>
 			</div>
 		</div>
