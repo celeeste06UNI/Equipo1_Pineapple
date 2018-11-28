@@ -207,10 +207,12 @@
 			</div>
 			<div class="col-md-4" align="right">
 				<button type="button" class="btn dropdown-toggle">
-					<a style="color: #FFFFFF" href="/viewUpdatePassword">Modificar
+					<a style="color: black" href="/viewUpdatePassword">Modificar
 						Contraseña</a>
 				</button>
-				<button type="button" class="btn dropdown-toggle">Cerrar</button>
+				<button type="button" class="btn dropdown-toggle">
+					<a style="color: black" href="/cerrarSesion">Cerrar Sesión
+				</button>
 			</div>
 		</div>
 
