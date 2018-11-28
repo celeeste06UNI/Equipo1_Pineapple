@@ -167,11 +167,11 @@
 	</nav> -->
 
 	<div class="container">
-		<div class="row" align="center">
-			<div class="col-md-8">
+		<div class="row" >
+			<div class="col-md-8" align="left">
 				<div class="btn-group">
 					<button type="button"
-						class="btn btn-default dropdown-toggle btn-lg"
+						class="btn btn-default dropdown-toggle"
 						data-toggle="dropdown">
 						Usuario <span class="caret"></span>
 					</button>
@@ -185,7 +185,7 @@
 				<div class="btn-group">
 
 					<button type="button"
-						class="btn btn-default dropdown-toggle btn-lg"
+						class="btn btn-default dropdown-toggle"
 						data-toggle="dropdown">
 						Fichajes <span class="caret"></span>
 					</button>
@@ -198,7 +198,7 @@
 				</div>
 				<div class="btn-group">
 					<button type="button"
-						class="btn btn-default dropdown-toggle btn-lg"
+						class="btn btn-default dropdown-toggle"
 						data-toggle="dropdown">
 						Incidencias<span class="caret"></span>
 					</button>
@@ -210,12 +210,12 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-4" align="right">
 				<button type="button"
-					class="btn btn-default dropdown-toggle" align="center">
+					class="btn btn-default dropdown-toggle">
 					Modificar Contraseña</button>
 				<button type="button"
-					class="btn btn-default dropdown-toggle" align="center">
+					class="btn btn-default dropdown-toggle">
 					Cerrar</button>
 			</div>
 		</div>
