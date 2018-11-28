@@ -229,7 +229,7 @@
 		<div class="container"
 			style="background-color: #E36B6C; margin-top: 0px">
 
-			<div class="row" align="center">
+			<div class="row">
 				<div class="col-md-4 login-sec">
 					<h2 class="text-center" style="color: #fff">Administrador</h2>
 					<h6 class="text-center" style="color: #fff">Pineapple</h6>
