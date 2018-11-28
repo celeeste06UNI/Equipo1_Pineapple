@@ -168,25 +168,41 @@
 
 	<div class="container">
 		<div class="btn-group">
-			<button type="button" class="btn btn-default dropdown-toggle"
-				data-toggle="dropdown">
-				Título del botón <span class="caret"></span>
-			</button>
+			<div class="btn-group">
+				<button type="button" class="btn btn-danger dropdown-toggle"
+					data-toggle="dropdown">
+					Usuario <span class="caret"></span>
+				</button>
 
-			<ul class="dropdown-menu" role="menu">
-				<li><a href="#">Acción #1</a></li>
-				<li><a href="#">Acción #2</a></li>
-				<li><a href="#">Acción #3</a></li>
-				<li class="divider"></li>
-				<li><a href="#">Acción #4</a></li>
-			</ul>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="/newUser">Crear</a></li>
+					<li><a href="/deleteUser">Eliminar</a></li>
+					<li><a href="/updateUser">Modificar</a></li>
+				</ul>
+			</div>
+			<div class="btn-group">
+				<button type="button" class="btn btn-danger dropdown-toggle"
+					data-toggle="dropdown">
+					Fichajes <span class="caret"></span>
+				</button>
+
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="/newUser">Crear</a></li>
+					<li><a href="/deleteUser">Eliminar</a></li>
+					<li><a href="/updateUser">Modificar</a></li>
+				</ul>
+			</div>
 		</div>
+
+
+
 	</div>
 
 	<section class="login-block">
 
 		<!-- class="login-block" -->
-		<div class="container" style ="background-color:#cb3234;margin-top:0px">
+		<div class="container"
+			style="background-color: #cb3234; margin-top: 0px">
 
 			<div class="row">
 				<div class="col-md-4 login-sec">
