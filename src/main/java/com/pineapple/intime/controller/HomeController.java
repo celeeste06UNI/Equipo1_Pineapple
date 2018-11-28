@@ -106,6 +106,7 @@ public class HomeController {
 		HttpSession session = request.getSession(true);
 		String emailLowerCase=email.toLowerCase();
 		Document doc = DAOEmpleado.autenticar(emailLowerCase,password);
+		model.addObject("correcto", "");
 
 		if(doc.get("email").equals("error")) {
 			model.addObject("correcto", "Usuario o contraseña incorrecto");
