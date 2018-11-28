@@ -208,13 +208,13 @@
 		</div>
 
 		<button type="button" class="btn btn-default dropdown-toggle btn-lg"
-			data-toggle="dropdown">
+			data-toggle="dropdown" align= "right">
 			Modificar Contraseña <span class="caret"></span>
 		</button>
 
 
 		<button type="button" class="btn btn-default dropdown-toggle btn-lg"
-			data-toggle="dropdown">
+			data-toggle="dropdown"  align= "right">
 			Cerrar <span class="caret"></span>
 		</button>
 
