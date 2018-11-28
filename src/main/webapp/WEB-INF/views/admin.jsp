@@ -166,45 +166,48 @@
 	</nav>
  -->
 	<section class="login-block">
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="/intime">InTime</a>
+		<div class="container">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="/intime">InTime</a>
+					</div>
+					<ul class="nav navbar-nav">
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+
+								<li><a href="/newUser">Crear</a></li>
+								<li><a href="/deleteUser">Eliminar</a></li>
+								<li><a href="/updateUser">Modificar</a></li>
+							</ul></li>
+
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Fichajes<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="/fichajeUser">Fichar</a></li>
+								<li><a href="/consultaFichaje">Consultar</a></li>
+
+							</ul></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Gestión Incidencias <span
+								class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="/nuevoIncidencia">Crear</a></li>
+								<li><a href="/consultarIncidenciaUser">Eliminar/Modificar</a></li>
+							</ul></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/viewUpdatePassword"><span
+								class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
+						<li><a href="/cerrarSesion"><span
+								class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+
+					</ul>
 				</div>
-				<ul class="nav navbar-nav">
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
-						<ul class="dropdown-menu">
+			</nav>
+		</div>
 
-							<li><a href="/newUser">Crear</a></li>
-							<li><a href="/deleteUser">Eliminar</a></li>
-							<li><a href="/updateUser">Modificar</a></li>
-						</ul></li>
-
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Fichajes<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="/fichajeUser">Fichar</a></li>
-							<li><a href="/consultaFichaje">Consultar</a></li>
-
-						</ul></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Gestión Incidencias <span
-							class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="/nuevoIncidencia">Crear</a></li>
-							<li><a href="/consultarIncidenciaUser">Eliminar/Modificar</a></li>
-						</ul></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/viewUpdatePassword"><span
-							class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
-					<li><a href="/cerrarSesion"><span
-							class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
-
-				</ul>
-			</div>
-		</nav>
 
 		<!-- <div class="container">
 			<div class="btn-group">
