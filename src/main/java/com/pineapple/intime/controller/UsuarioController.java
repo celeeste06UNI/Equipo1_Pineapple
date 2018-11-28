@@ -26,7 +26,7 @@ public class UsuarioController {
 		String rolSession = (String) session.getAttribute("rolSession");
 		if (rolSession.equals("admin")) {
 			model.setViewName("newUser");
-		}else {
+		} else {
 			model.setViewName(rolSession);
 		}
 		return model;
@@ -76,15 +76,15 @@ public class UsuarioController {
 	public ModelAndView viewUpdatePassword(HttpServletRequest request, ModelAndView model) {
 		HttpSession session = request.getSession(true);
 		String rolSession = (String) session.getAttribute("rolSession");
-		if (rolSession.equals("admin")) {
-			model.setViewName("updatePassword");
-		}
+
+		model.setViewName("updatePassword");
 
 		return model;
 	}
 
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
-	public ModelAndView saveUser(HttpServletRequest request, ModelAndView model,@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
+	public ModelAndView saveUser(HttpServletRequest request, ModelAndView model,
+			@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) throws Exception {
 		HttpSession session = request.getSession(true);
 		String rolSession = (String) session.getAttribute("rolSession");
@@ -102,7 +102,6 @@ public class UsuarioController {
 			}
 			model.setViewName("admin");
 		}
-		
 
 		return model;
 	}
