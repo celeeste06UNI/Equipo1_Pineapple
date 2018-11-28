@@ -222,9 +222,9 @@
 					<h2 class="text-center" style="color: #fff">Administrador</h2>
 					<div class="copy-text" style="color: #fff">Pineapple</div>
 
-					<button type="button" class="btn btn-default dropdown-toggle">
+					<button style="margin-top: 50px" type="button" class="btn btn-default dropdown-toggle">
 						Modificar Contraseña</button>
-					<button type="button" class="btn btn-default dropdown-toggle">
+					<button style="margin-top: 50px" type="button" class="btn btn-default dropdown-toggle">
 						Cerrar</button>
 
 				</div>
