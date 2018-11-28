@@ -181,7 +181,7 @@ label.light {
 					<legend>
 						<span class="number">1</span>Fichajes
 					</legend>
-					<button type="button" data-togle="modal" data-target="#myModal"><a style="color:#FFFFFF" href="/abrirFichaje">abrir</a></button>
+					<button type="button" class="btn float-right" data-togle="modal" data-target="#myModal"><a style="color:#FFFFFF" href="/abrirFichaje">abrir</a></button>
 					<button><a style="color:#FFFFFF" href="/cerrarFichaje">cerrar</a></button>
 				</fieldset>
 
