@@ -178,7 +178,7 @@
 
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="/fichajeUser">Fichar</a></li>
-						<li><a href="/consultarFichaje">Consultar</a></li>
+						<li><a href="/consultaFichaje">Consultar</a></li>
 					</ul>
 				</div>
 				<div class="btn-group">
