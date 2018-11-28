@@ -166,7 +166,6 @@
 	</nav>
 
 	<section class="login-block">
-
 		<div class="container">
 			<div class="btn-group">
 				<button type="button" class="btn btn-default dropdown-toggle"
@@ -182,6 +181,10 @@
 					<li><a href="#">Acción #4</a></li>
 				</ul>
 			</div>
+		</div>
+
+		<div class="container">
+
 			<div class="row">
 				<div class="col-md-4 login-sec">
 					<h2 class="text-center">Administrador</h2>
