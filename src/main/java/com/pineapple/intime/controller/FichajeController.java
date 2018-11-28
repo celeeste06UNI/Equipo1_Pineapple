@@ -55,11 +55,11 @@ public class FichajeController {
 	}
 	
 	@RequestMapping(value = "/searchFichaje", method = RequestMethod.GET)
-	public ModelAndView searchFichaje(@ModelAttribute("fecha") String fecha, ModelAndView model, HttpServletRequest request) {
+	public ModelAndView searchFichaje(@ModelAttribute("fecha") String fecha1, @ModelAttribute("fecha") String fecha2,ModelAndView model, HttpServletRequest request) {
 		ArrayList<String> listDate= new ArrayList<String>();
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
-		Document Document = DAOFichaje.consultarFichajes(email, fecha);
+		Document Document = DAOFichaje.consultarFichajes(email, fecha1, fecha2);
 		for(Integer i = 1; i<Document.keySet().size();i++) {
 			listDate.add((String) Document.get(""+i+""));
 		}
