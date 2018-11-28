@@ -36,7 +36,7 @@
 }
 
 .container {
-	background: #cb3234;
+	background: #fff;
 	border-radius: 10px;
 	/* box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1); */
 }
@@ -185,7 +185,7 @@
 	<section class="login-block">
 
 		<!-- class="login-block" -->
-		<div class="container">
+		<div class="container" style ="background-color:#cb3234">
 
 			<div class="row">
 				<div class="col-md-4 login-sec">
