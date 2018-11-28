@@ -2,6 +2,7 @@ package com.pineapple.intime.dao;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -13,11 +14,13 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.result.UpdateResult;
 
 import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.gte;
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Updates.combine;
 import static com.mongodb.client.model.Updates.set;
 import static com.mongodb.client.model.Updates.max;
 import static com.mongodb.client.model.Filters.in;
+import static com.mongodb.client.model.Filters.lte;
 
 public class DAOFichaje {
 	private static MongoCollection<Document> dbEstadoFichaje = MongoBroker.get().getCollection("EstadoFichaje");
@@ -106,6 +109,28 @@ public class DAOFichaje {
 		}
 		return fichado;
 	}
+	
+    public static void consultarFichajes(String email,String fechaInicio,String fechaFin,MongoCollection<Document> testFichaje) {
+    	Bson filtroFechaInicio=null;
+    	Bson filtroFechaFin=null;
+    	filtroFechaInicio=and(gte("fechaInicio",fechaInicio),gte("horaInicio","00:00:00"));
+    	filtroFechaFin=and(lte("fechaFin",fechaFin),lte("horaFin","23:59:59"));
+    	Bson filtro=null;
+    	filtro=and(filtroFechaInicio,filtroFechaFin);
+    	FindIterable<Document> fichajes=testFichaje.find(filtro);
+    	
+    	ArrayList<String> result=new ArrayList<String>();
+    	for (Document doc : fichajes) {
+    		//System.out.println(doc.toString());
+    		for(String keys : doc.keySet()) {
+    			System.out.println("");
+    			if(!keys.equals("_id"))
+    				result.add((String)doc.get(""+keys));
+    		}
+    	}
+    	System.out.println(result);
+    	
+    }
 
 	public static Document consultarFichajes(String email, String fecha) {
 
