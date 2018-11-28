@@ -21,6 +21,9 @@ public class DAOIncidencia {
 
 	private static MongoCollection<Document> dbIncidencia=MongoBroker.get().getCollection("Incidencia");
 	
+	
+	
+	
 	public static MongoCursor<Document> buscarIncidencias(String email,String tipo){
 		MongoCursor<Document> m = null;
 		if(DAOEmpleado.buscarEmpleado(email)) {
