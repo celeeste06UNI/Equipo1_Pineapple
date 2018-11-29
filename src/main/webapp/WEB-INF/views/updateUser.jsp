@@ -223,7 +223,7 @@ label.light {
 						<legend>
 							<span class="number">1</span>Introduzca el e-mail del usuario
 						</legend>
-						<label for="name">Introduzca el email:</label> <input type="email"
+						<label for="name">Introduzca el email:</label> <input type="text"
 							name="email">
 						<button type="submit">Buscar</button>
 					</fieldset>
