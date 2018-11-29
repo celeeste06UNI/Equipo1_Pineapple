@@ -212,9 +212,9 @@ label.light {
 						<legend>
 							<span class="number">2</span>Consultar mis Fichajes
 						</legend>
-						<label for="name">Introduzca la fecha inicio:<br></label> <input
+						<label for="fechaI">Introduzca la fecha inicio:<br></label> <input
 							placeholder="yyyy/MM/dd" type="text" name="fechaI"> <label
-							for="name">Introduzca la fecha fin:<br></label> <input
+							for="fechaF">Introduzca la fecha fin:<br></label> <input
 							placeholder="yyyy/MM/dd" type="text" name="fechaF">
 
 						<button type="submit">Buscar</button>
@@ -228,8 +228,12 @@ label.light {
 			<p>Fecha de los fichajes</p>
 			<!-- <th>Id</th> -->
 			<th>Fecha de apertura / Fecha de cierre</th>
+			<tr>
+				<td>${listDate}</td>
+			</tr>
 
 			<c:forEach var="fechaDelFichaje" items="${listDate}">
+
 				<tr>
 					<td>${fechaDelFichaje}</td>
 				</tr>
