@@ -121,8 +121,6 @@ public class DAOFichaje {
     	filtroFechaFin=and(lte("fechaFin",fechaFin),lte("horaFin","23:59:59"));
     	filtroEmail=or(eq("email",email),eq("dni",email));
     	filtroIncidencia=and(filtroFechaInicio,filtroFechaFin,filtroEmail);
-    	
-    	
     	FindIterable<Document> fichajes=dbFichaje.find(filtroIncidencia);
     	
     	
