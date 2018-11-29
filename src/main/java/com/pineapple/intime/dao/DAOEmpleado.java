@@ -71,8 +71,6 @@ public class DAOEmpleado {
 		Bson filtroEmail = null;
 		Bson updateRol = combine(set("email", empleado.get("email")), set("rol", empleado.get("rol")));
 		Bson updateDatos = null;
-		Iterator<Entry<String, Object>> iterador = empleado.entrySet().iterator();
-
 		updateDatos = combine(set("email", empleado.get("email")), set("nombre", empleado.get("nombre")),
 				set("apellidos", empleado.get("apellidos")));
 		
