@@ -14,6 +14,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.result.UpdateResult;
 
 import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.or;
 import static com.mongodb.client.model.Filters.gte;
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Updates.combine;
@@ -36,7 +37,7 @@ public class DAOFichaje {
 		hourFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
 
 		Bson filtroEmail = null;
-		filtroEmail = eq("email", email);
+		filtroEmail = or(eq("email", email),eq("dni",email));
 		String horaInicio = (String) hourFormat.format(new Date());
 		String fechaInicio = (String) dateFormat.format(new Date());
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
@@ -78,7 +79,7 @@ public class DAOFichaje {
 		String fechaFin = (String) dateFormat.format(new Date());
 
 		Bson filtroEmail = null;
-		filtroEmail = eq("email", email);
+		filtroEmail = or(eq("email", email),eq("dni",email));
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
 		FindIterable<Document> estadoFichaje = dbEstadoFichaje.find(filtroEmail);
 		if (datosPersonales.iterator().hasNext() && estadoFichaje.iterator().hasNext()
@@ -153,7 +154,7 @@ public class DAOFichaje {
 
 	public static Document consultarFichajesEmpleado(String email) {
 		Bson filtroEmail = null;
-		filtroEmail = in("email", email);
+		filtroEmail = or(eq("email", email),eq("dni",email));
 		FindIterable<Document> cursor = dbFichaje.find(filtroEmail);
 		Document resultado = new Document();
 

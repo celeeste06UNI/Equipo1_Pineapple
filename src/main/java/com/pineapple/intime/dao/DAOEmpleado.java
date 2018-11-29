@@ -28,13 +28,7 @@ public class DAOEmpleado {
 	private static MongoCollection<Document> dbEmpleado=MongoBroker.get().getCollection("Empleado");
 	private static MongoCollection<Document> dbRol=MongoBroker.get().getCollection("EmpleadoRol");
 
-	public static FindIterable<Document> buscarEmpleado(Document empleado) {
-		Bson filtroEmpleado=null;
-		filtroEmpleado=or(eq("email",empleado.get("email")),eq("dni",empleado.get("dni")));
-		FindIterable<Document> ite= dbEmpleado.find(filtroEmpleado);
-		return ite;
-		
-	}
+
 	/*INSERTAR EMPLEADO*/
 	public static boolean insert(Document empleado) {
 		Bson filtroEmail = null;
@@ -57,7 +51,7 @@ public class DAOEmpleado {
 	/* ELIMINAR EMPLEADO */
 	public static boolean delete(Document empleado) {
 		Bson filtroEmail = null;
-		filtroEmail = eq("email", empleado.get("email"));
+		filtroEmail = or(eq("email", empleado.get("email")),eq("dni",empleado.get("dni")));
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
 		FindIterable<Document> rol = dbEmpleado.find(filtroEmail);
 		if ((datosPersonales.iterator().hasNext() && rol.iterator().hasNext())) {
@@ -81,7 +75,9 @@ public class DAOEmpleado {
 
 		updateDatos = combine(set("email", empleado.get("email")), set("nombre", empleado.get("nombre")),
 				set("apellidos", empleado.get("apellidos")));
-		filtroEmail = eq("email", email);
+		
+		filtroEmail = or(eq("email", email),eq("dni",email));
+		
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
 		FindIterable<Document> rol = dbEmpleado.find(filtroEmail);
 		boolean actualizado = false;
@@ -131,9 +127,9 @@ public class DAOEmpleado {
 	}
 
 	/* CARGAR DATOS DE UN EMPLEADO */
-	public static Document cargarEmpleado(String email) {
+	public static Document cargarEmpleado(String emp) {
 		Bson filtroEmail = null;
-		filtroEmail = eq("email", email);
+		filtroEmail = or(eq("email", emp),eq("dni",emp));
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
 		FindIterable<Document> rol = dbEmpleado.find(filtroEmail);
 

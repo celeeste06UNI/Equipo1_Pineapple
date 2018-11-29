@@ -24,22 +24,22 @@ public class DAOIncidencia {
 	
 	
 	
-	public static MongoCursor<Document> buscarIncidencias(String email,String tipo){
-		MongoCursor<Document> m = null;
-		if(DAOEmpleado.buscarEmpleado(email)) {
-			Bson filtro=null;
-			filtro=and(eq("email",email),eq("tipo",tipo));
-			m=dbIncidencia.find(filtro).iterator();
-			return m;
-		}else {
-			return m;
-		}
-		
-	}
+//	public static MongoCursor<Document> buscarIncidencias(String email,String tipo){
+//		MongoCursor<Document> m = null;
+//		if(DAOEmpleado.buscarEmpleado(email)) {
+//			Bson filtro=null;
+//			filtro=and(eq("email",email),eq("tipo",tipo));
+//			m=dbIncidencia.find(filtro).iterator();
+//			return m;
+//		}else {
+//			return m;
+//		}
+//		
+//	}
 	public static boolean update(String email,String estado,String asunto,String descripcion,String tipo,String fecha,String rol) {
 		Bson filtro=null;
 		Bson update=null;
-		filtro=and(eq("email",email),eq("fecha",fecha));
+		filtro=and(or(eq("email",email),eq("dni",email)),eq("fecha",fecha));
 		if(rol.equals("incid")) {
 			update=combine(set("estado",estado));
 		}else {
@@ -54,7 +54,7 @@ public class DAOIncidencia {
 	}
 	public static boolean delete(String email,String estado,String asunto,String descripcion,String tipo,String fecha) {
 		Bson filtro=null;
-		filtro=and(eq("email",email),eq("fecha",fecha));
+		filtro=and(or(eq("email",email),eq("dni",email)),eq("fecha",fecha));
 		DeleteResult urIncidencia = dbIncidencia.deleteOne(filtro);
 		if(urIncidencia.wasAcknowledged()) {
 			return true;
