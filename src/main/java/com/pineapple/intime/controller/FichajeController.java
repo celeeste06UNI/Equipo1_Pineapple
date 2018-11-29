@@ -65,8 +65,10 @@ public class FichajeController {
 	
 	@RequestMapping(value = "/searchFichajeOtro", method = RequestMethod.POST)
 	public ModelAndView searchFichajeOtro(@ModelAttribute("fechaI") String fechaI, @ModelAttribute("emailFichaje") String emailFichaje,
-			@ModelAttribute("fechaF") String fechaF, ModelAndView model) {
-		ArrayList<String> result = DAOFichaje.consultarFichajes(emailFichaje, fechaI, fechaF);
+			@ModelAttribute("fechaF") String fechaF, ModelAndView model, HttpServletRequest request) {
+		String email = (String) request.getAttribute("emailFichaje");
+		ArrayList<String> result = DAOFichaje.consultarFichajes(email, fechaI, fechaF);
+		
 		model.addObject("listDate", result);
 		model.setViewName("consultaFichaje");
 		return model;
