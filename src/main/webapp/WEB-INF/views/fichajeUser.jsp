@@ -364,7 +364,7 @@ label.light {
 
 					</legend>
 
-					<button><a style="color:#FFFFFF" href="/abrirFichaje">abrir</a></button>
+					<button style="color:#FFFFF" href="/abrirFichaje">abrir</button>
 
 					<button><a style="color:#FFFFFF" href="/cerrarFichaje">cerrar</a></button>
 
