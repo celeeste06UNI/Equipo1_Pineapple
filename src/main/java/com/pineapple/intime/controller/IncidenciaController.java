@@ -110,12 +110,13 @@ public class IncidenciaController {
 	public ModelAndView updateIn(HttpServletRequest request, ModelAndView model) {	
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
+		String rol = (String) session.getAttribute("rolSession");
 		String estado1 = request.getParameter("estado");
 		String asunto1 = request.getParameter("asunto");
 		String descripcion1 = request.getParameter("descripcion");
 		String tipo1 = request.getParameter("tipo");
 		String fecha1 = request.getParameter("fecha");
-		DAOIncidencia.update(email, estado1, asunto1, descripcion1, tipo1, fecha1);
+		DAOIncidencia.update(email, estado1, asunto1, descripcion1, tipo1, fecha1, rol);
 		model.setViewName("updateIncidencia");
 	
 		

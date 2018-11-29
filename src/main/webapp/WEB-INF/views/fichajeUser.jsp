@@ -212,8 +212,10 @@ label.light {
 						<legend>
 							<span class="number">2</span>Consultar mis Fichajes
 						</legend>
-						<label for="name">Introduzca la fecha:<br></label> <input
-							placeholder="yyyy/MM/dd" type="text" name="fecha">
+						<label for="name">Introduzca la fecha inicio:<br></label> <input
+							placeholder="yyyy/MM/dd" type="text" name="fechaI"> <label
+							for="name">Introduzca la fecha fin:<br></label> <input
+							placeholder="yyyy/MM/dd" type="text" name="fechaF">
 
 						<button type="submit">Buscar</button>
 					</fieldset>

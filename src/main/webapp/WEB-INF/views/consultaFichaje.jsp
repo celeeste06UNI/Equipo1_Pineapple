@@ -201,8 +201,12 @@ label.light {
 				</legend>
 				<label for="name">Introduzca el email:<br></label> <input
 					placeholder="" type="email" name="emailFichaje"> <label
-					for="name">Introduzca la fecha:<br></label> <input
-					placeholder="yyyy/MM/dd" type="text" name="fecha"> <input
+					for="name">Introduzca la fecha de inicio:<br></label> <input
+					placeholder="yyyy/MM/dd" type="text" name="fechaI"> 
+					<label
+					for="name">Introduzca la fecha de fin:<br></label> <input
+					placeholder="yyyy/MM/dd" type="text" name="fechaF">
+					<input
 					type="button" onclick="pregunta()" value="Buscar">
 				<!-- <button type="submit">Buscar</button> -->
 			</fieldset>

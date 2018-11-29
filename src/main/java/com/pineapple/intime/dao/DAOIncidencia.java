@@ -94,12 +94,8 @@ public class DAOIncidencia {
 		//}else {
 		//	result.put(0, new Document("email","error"));
 		//}
-<<<<<<< HEAD
-		return i;
-
-=======
 		return result;
->>>>>>> branch 'bbdd_integration' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
+
 	}
 
 }
