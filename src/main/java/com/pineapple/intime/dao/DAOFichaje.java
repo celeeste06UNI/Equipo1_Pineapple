@@ -114,20 +114,28 @@ public class DAOFichaje {
     	Bson filtroFechaInicio=null;
     	Bson filtroFechaFin=null;
     	Bson filtroIncidencia=null;
+    	Bson filtroEmail=null;
     	ArrayList<String> result=new ArrayList<String>();
     	
     	filtroFechaInicio=and(gte("fechaInicio",fechaInicio),gte("horaInicio","00:00:00"));
     	filtroFechaFin=and(lte("fechaFin",fechaFin),lte("horaFin","23:59:59"));
-    	filtroIncidencia=and(filtroFechaInicio,filtroFechaFin);
+    	filtroEmail=or(eq("email",email),eq("dni",email));
+    	filtroIncidencia=and(filtroFechaInicio,filtroFechaFin,filtroEmail);
+    	
+    	
     	FindIterable<Document> fichajes=dbFichaje.find(filtroIncidencia);
     	
     	
+    	
     	for (Document doc : fichajes) {
+    		String fichaje="";
     		for (String keys : doc.keySet()) {
     			if(!keys.equals("_id")) {
-					result.add((String) doc.get(""+keys));
+    				fichaje=fichaje+doc.get(""+keys)+" ";
+					
 				}
     		}
+    		result.add((String) fichaje);
     	}
     	return result;
     	
