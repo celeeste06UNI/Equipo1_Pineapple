@@ -228,10 +228,6 @@ label.light {
 			<p>Fecha de los fichajes</p>
 			<!-- <th>Id</th> -->
 			<th>Fecha de apertura / Fecha de cierre</th>
-			<tr>
-				<td>${listDate}</td>
-			</tr>
-
 			<c:forEach var="fechaDelFichaje" items="${listDate}">
 
 				<tr>

@@ -58,9 +58,8 @@ public class FichajeController {
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
 		ArrayList<String> result = DAOFichaje.consultarFichajes(email, fechaI, fechaF);
-		model.setViewName("fichajeUser");
 		model.addObject("listDate", result);
-		
+		model.setViewName("fichajeUser");
 		return model;
 	}
 	
