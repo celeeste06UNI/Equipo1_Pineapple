@@ -131,7 +131,7 @@ public class DAOFichaje {
 					
 				}
     		}
-    		result.add((String) fichaje);
+    		result.add((String) fichaje.substring(0, fichaje.length()-2));
     	}
     	return result;
     	
