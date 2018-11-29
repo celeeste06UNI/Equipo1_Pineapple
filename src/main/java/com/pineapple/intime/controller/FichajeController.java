@@ -63,7 +63,7 @@ public class FichajeController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/searchFichajeOtro", method = RequestMethod.GET)
+	@RequestMapping(value = "/searchFichajeOtro", method = RequestMethod.POST)
 	public ModelAndView searchFichajeOtro(@ModelAttribute("fechaI") String fechaI, @ModelAttribute("emailFichaje") String emailFichaje,
 			@ModelAttribute("fechaF") String fechaF, ModelAndView model) {
 		ArrayList<String> result = DAOFichaje.consultarFichajes(emailFichaje, fechaI, fechaF);
