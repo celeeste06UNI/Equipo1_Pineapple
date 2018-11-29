@@ -19,6 +19,7 @@ import com.pineapple.intime.dominio.EmpleadoHelper;
 
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.and;
+import static com.mongodb.client.model.Filters.or;
 import static com.mongodb.client.model.Updates.combine;
 import static com.mongodb.client.model.Updates.set;
 
@@ -26,22 +27,12 @@ public class DAOEmpleado {
 
 	private static MongoCollection<Document> dbEmpleado=MongoBroker.get().getCollection("Empleado");
 	private static MongoCollection<Document> dbRol=MongoBroker.get().getCollection("EmpleadoRol");
-	
-	public static boolean buscarEmpleado(String email) {
-		Bson filtroEmpleado=null;
-		Bson filtroRol=null;
-		filtroEmpleado=eq("email",email);
-		if(dbEmpleado.find(filtroEmpleado).iterator().hasNext() && dbRol.find(filtroRol).iterator().hasNext()) {
-			return true;
-		}else {
-			return false;
-		}
-		
-	}
+
+
 	/*INSERTAR EMPLEADO*/
 	public static boolean insert(Document empleado) {
 		Bson filtroEmail = null;
-		filtroEmail = eq("email", empleado.get("email"));
+		filtroEmail = or(eq("email", empleado.get("email")),eq("dni",empleado.get("dni")));
 		Document empleadoRol = new Document();
 		empleadoRol.append("email", empleado.get("email"));
 		empleadoRol.append("rol", empleado.get("rol"));
@@ -60,7 +51,7 @@ public class DAOEmpleado {
 	/* ELIMINAR EMPLEADO */
 	public static boolean delete(Document empleado) {
 		Bson filtroEmail = null;
-		filtroEmail = eq("email", empleado.get("email"));
+		filtroEmail = or(eq("email", empleado.get("email")),eq("dni",empleado.get("dni")));
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
 		FindIterable<Document> rol = dbEmpleado.find(filtroEmail);
 		if ((datosPersonales.iterator().hasNext() && rol.iterator().hasNext())) {
@@ -84,7 +75,9 @@ public class DAOEmpleado {
 
 		updateDatos = combine(set("email", empleado.get("email")), set("nombre", empleado.get("nombre")),
 				set("apellidos", empleado.get("apellidos")));
-		filtroEmail = eq("email", email);
+		
+		filtroEmail = or(eq("email", email),eq("dni",email));
+		
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
 		FindIterable<Document> rol = dbEmpleado.find(filtroEmail);
 		boolean actualizado = false;
@@ -134,9 +127,9 @@ public class DAOEmpleado {
 	}
 
 	/* CARGAR DATOS DE UN EMPLEADO */
-	public static Document cargarEmpleado(String email) {
+	public static Document cargarEmpleado(String emp) {
 		Bson filtroEmail = null;
-		filtroEmail = eq("email", email);
+		filtroEmail = or(eq("email", emp),eq("dni",emp));
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
 		FindIterable<Document> rol = dbEmpleado.find(filtroEmail);
 

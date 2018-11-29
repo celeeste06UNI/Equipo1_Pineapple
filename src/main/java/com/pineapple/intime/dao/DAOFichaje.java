@@ -2,6 +2,7 @@ package com.pineapple.intime.dao;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -13,11 +14,13 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.result.UpdateResult;
 
 import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.or;
+import static com.mongodb.client.model.Filters.gte;
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Updates.combine;
 import static com.mongodb.client.model.Updates.set;
-import static com.mongodb.client.model.Updates.max;
 import static com.mongodb.client.model.Filters.in;
+import static com.mongodb.client.model.Filters.lte;
 
 public class DAOFichaje {
 	private static MongoCollection<Document> dbEstadoFichaje = MongoBroker.get().getCollection("EstadoFichaje");
@@ -34,7 +37,7 @@ public class DAOFichaje {
 		hourFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
 
 		Bson filtroEmail = null;
-		filtroEmail = eq("email", email);
+		filtroEmail = or(eq("email", email),eq("dni",email));
 		String horaInicio = (String) hourFormat.format(new Date());
 		String fechaInicio = (String) dateFormat.format(new Date());
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
@@ -71,12 +74,12 @@ public class DAOFichaje {
 		DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
 		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
 		hourFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
-
+		
 		String horaFin = (String) hourFormat.format(new Date());
 		String fechaFin = (String) dateFormat.format(new Date());
 
 		Bson filtroEmail = null;
-		filtroEmail = eq("email", email);
+		filtroEmail = or(eq("email", email),eq("dni",email));
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
 		FindIterable<Document> estadoFichaje = dbEstadoFichaje.find(filtroEmail);
 		if (datosPersonales.iterator().hasNext() && estadoFichaje.iterator().hasNext()
@@ -106,29 +109,52 @@ public class DAOFichaje {
 		}
 		return fichado;
 	}
+	
+    public static ArrayList<String> consultarFichajes(String email,String fechaInicio,String fechaFin,MongoCollection<Document> testFichaje) {
+    	Bson filtroFechaInicio=null;
+    	Bson filtroFechaFin=null;
+    	Bson filtroIncidencia=null;
+    	ArrayList<String> result=new ArrayList<String>();
+    	
+    	filtroFechaInicio=and(gte("fechaInicio",fechaInicio),gte("horaInicio","00:00:00"));
+    	filtroFechaFin=and(lte("fechaFin",fechaFin),lte("horaFin","23:59:59"));
+    	filtroIncidencia=and(filtroFechaInicio,filtroFechaFin);
+    	FindIterable<Document> fichajes=testFichaje.find(filtroIncidencia);
+    	
+    	
+    	for (Document doc : fichajes) {
+    		for (String keys : doc.keySet()) {
+    			if(!keys.equals("_id")) {
+					result.add((String) doc.get(""+keys));
+				}
+    		}
+    	}
+    	return result;
+    	
+    }
 
-	public static Document consultarFichajes(String email, String fecha) {
-
-		Bson filtroFichaje = and(eq("email", email), eq("fechaFin", fecha), eq("fechaInicio", fecha));
-		FindIterable<Document> cursor = dbFichaje.find(filtroFichaje);
-		Document resultado = new Document();
-
-		resultado.put("email", email);
-		Integer cont = 0;
-		for (Document doc : cursor) {
-			cont = cont + 1;
-			String fichajeInicio = doc.get("fechaInicio") + " " + doc.getString("horaInicio");
-			String fichajeFin = doc.get("fechaFin") + " " + doc.getString("horaFin");
-			String fichaje = fichajeInicio + " - " + fichajeFin;
-			resultado.put(cont.toString(), fichaje);
-
-		}
-		return resultado;
-	}
+//	public static Document consultarFichajes(String email, String fecha) {
+//
+//		Bson filtroFichaje = and(eq("email", email), eq("fechaFin", fecha), eq("fechaInicio", fecha));
+//		FindIterable<Document> cursor = dbFichaje.find(filtroFichaje);
+//		Document resultado = new Document();
+//
+//		resultado.put("email", email);
+//		Integer cont = 0;
+//		for (Document doc : cursor) {
+//			cont = cont + 1;
+//			String fichajeInicio = doc.get("fechaInicio") + " " + doc.getString("horaInicio");
+//			String fichajeFin = doc.get("fechaFin") + " " + doc.getString("horaFin");
+//			String fichaje = fichajeInicio + " - " + fichajeFin;
+//			resultado.put(cont.toString(), fichaje);
+//
+//		}
+//		return resultado;
+//	}
 
 	public static Document consultarFichajesEmpleado(String email) {
 		Bson filtroEmail = null;
-		filtroEmail = in("email", email);
+		filtroEmail = or(eq("email", email),eq("dni",email));
 		FindIterable<Document> cursor = dbFichaje.find(filtroEmail);
 		Document resultado = new Document();
 
