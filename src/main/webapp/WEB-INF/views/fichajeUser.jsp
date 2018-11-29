@@ -366,7 +366,7 @@ label.light {
 
 					<a style="color:#FFFFFF" href="/abrirFichaje"><button>abrir</button></a>
 
-					<button><a style="color:#FFFFFF" href="/cerrarFichaje">cerrar</a></button>
+					<a style="color:#FFFFFF" href="/cerrarFichaje"><button>cerrar</button></a>
 
 				</fieldset>
 
@@ -433,5 +433,20 @@ label.light {
 		</table>
 
 	</div>
+
+ <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Fichaje abierto</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+        </div>
+      </div>
+     </div>
+
 
 </body>
