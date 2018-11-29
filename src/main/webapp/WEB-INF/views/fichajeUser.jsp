@@ -364,15 +364,41 @@ label.light {
 
 					</legend>
 
-					<a style="color:#FFFFFF" href="/abrirFichaje" data-toggle="modal" data-target="#myModal"><button>abrir</button></a>
+					<a style="color:#FFFFFF" href="/abrirFichaje"><button>abrir</button></a>
 
 					<a style="color:#FFFFFF" href="/cerrarFichaje"><button>cerrar</button></a>
 
 				</fieldset>
 
+			<!-- Modal -->
+			  <div class="modal fade" id="myModal" role="dialog">
+			    <div class="modal-dialog">
+			    
+			      <!-- Modal content-->
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal">&times;</button>
+			          <h4 class="modal-title">Modal Header</h4>
+			        </div>
+			        <div class="modal-body">
+			          <p>Apertura fichaje</p>
+			        </div>
+			        <div class="modal-footer">
+			          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        </div>
+			      </div>
+			      
+			    </div>
+			  </div>
 
 
 			</div>
+
+
+
+
+
+
 
 			<div class="col-sm-6" style="background-color: white;">
 
@@ -433,6 +459,7 @@ label.light {
 		</table>
 
 	</div>
+
 
 
 
