@@ -144,7 +144,7 @@ label.light {
 
 	<div class="row">
 		<div align="left" class="col-sm-2">
-			&nbsp&nbsp<a style="color:#cc0000" href="/intime">atrás</a>
+			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"></div>
@@ -202,13 +202,11 @@ label.light {
 				<label for="name">Introduzca el email:<br></label> <input
 					placeholder="" type="email" name="emailFichaje"> <label
 					for="fechaI">Introduzca la fecha de inicio:<br></label> <input
-					placeholder="yyyy/MM/dd" type="text" name="fechaI"> 
-					<label
+					placeholder="yyyy/MM/dd" type="text" name="fechaI"> <label
 					for="fechaF">Introduzca la fecha de fin:<br></label> <input
-					placeholder="yyyy/MM/dd" type="text" name="fechaF">
-					<input
-					type="button" onclick="pregunta()" value="Buscar">
-				<!-- <button type="submit">Buscar</button> -->
+					placeholder="yyyy/MM/dd" type="text" name="fechaF"> 
+					<!--<input type="button" onclick="pregunta()" value="Buscar"> -->
+				<button type="submit">Buscar</button>
 			</fieldset>
 		</form>
 	</div>

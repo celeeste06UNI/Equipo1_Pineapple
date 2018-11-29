@@ -229,7 +229,6 @@ label.light {
 			<!-- <th>Id</th> -->
 			<th>Email - Fecha de apertura - Fecha de cierre</th>
 			<c:forEach var="fechaDelFichaje" items="${listDate}">
-
 				<tr>
 					<td>${fechaDelFichaje}</td>
 				</tr>
