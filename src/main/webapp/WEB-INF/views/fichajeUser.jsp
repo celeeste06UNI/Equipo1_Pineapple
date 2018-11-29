@@ -364,7 +364,7 @@ label.light {
 
 					</legend>
 
-					<button><a style="color:#FFFFFF" href="/abrirFichaje">abrir</a></button>
+					<button type="button" data-toggle="modal" data-target="#myModal"><a style="color:#FFFFFF" href="/abrirFichaje">abrir</a></button>
 
 					<button><a style="color:#FFFFFF" href="/cerrarFichaje">cerrar</a></button>
 
@@ -434,4 +434,16 @@ label.light {
 
 	</div>
 
+	<!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Add Vigilancia</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+      </div>
 </body>
