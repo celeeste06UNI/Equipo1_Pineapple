@@ -110,7 +110,7 @@ public class DAOFichaje {
 		return fichado;
 	}
 	
-    public static ArrayList<String> consultarFichajes(String email,String fechaInicio,String fechaFin,MongoCollection<Document> testFichaje) {
+    public static ArrayList<String> consultarFichajes(String email,String fechaInicio,String fechaFin) {
     	Bson filtroFechaInicio=null;
     	Bson filtroFechaFin=null;
     	Bson filtroIncidencia=null;
@@ -119,7 +119,7 @@ public class DAOFichaje {
     	filtroFechaInicio=and(gte("fechaInicio",fechaInicio),gte("horaInicio","00:00:00"));
     	filtroFechaFin=and(lte("fechaFin",fechaFin),lte("horaFin","23:59:59"));
     	filtroIncidencia=and(filtroFechaInicio,filtroFechaFin);
-    	FindIterable<Document> fichajes=testFichaje.find(filtroIncidencia);
+    	FindIterable<Document> fichajes=dbFichaje.find(filtroIncidencia);
     	
     	
     	for (Document doc : fichajes) {
