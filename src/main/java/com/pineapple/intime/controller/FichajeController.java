@@ -67,13 +67,9 @@ public class FichajeController {
 	public ModelAndView searchFichajeOtro(@ModelAttribute("fechaI") String fechaI,
 			@ModelAttribute("emailFichaje") String emailFichaje,
 			ModelAndView model, HttpServletRequest request, @ModelAttribute("fechaF") String fechaF) {
-		ArrayList<String> listDate= new ArrayList<String>();
 		ArrayList<String> result = DAOFichaje.consultarFichajes(emailFichaje, fechaI, fechaF);
-		for(int i = 0; i<result.size(); i++) {
-			listDate.add(result.get(i));
-		}
 		model.setViewName("consultaFichaje");
-		model.addObject("listDate", listDate);
+		model.addObject("listDate", result);
 		
 		return model;
 	}
