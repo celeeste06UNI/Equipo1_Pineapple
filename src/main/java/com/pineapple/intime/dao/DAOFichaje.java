@@ -127,7 +127,7 @@ public class DAOFichaje {
     		String fichaje="";
     		for (String keys : doc.keySet()) {
     			if(!keys.equals("_id")) {
-    				fichaje=fichaje+doc.get(""+keys)+" ";
+    				fichaje=fichaje+doc.get(""+keys)+" - ";
 					
 				}
     		}
