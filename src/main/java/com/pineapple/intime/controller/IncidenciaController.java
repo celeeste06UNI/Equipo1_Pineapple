@@ -117,7 +117,7 @@ public class IncidenciaController {
 		String tipo1 = request.getParameter("tipo");
 		String fecha1 = request.getParameter("fecha");
 		DAOIncidencia.update(email, estado1, asunto1, descripcion1, tipo1, fecha1, rol);
-		model.setViewName("updateIncidencia");
+		model.setViewName("consultarIncidenciaUser");
 	
 		
 		return model;
