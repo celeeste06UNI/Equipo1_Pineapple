@@ -115,7 +115,9 @@ public class HomeController {
 		}
 
 		if(doc.get("email").equals(emailLowerCase)) {
+			Document docEmp = DAOEmpleado.cargarEmpleado(emailLowerCase);
 			session.setAttribute("emailSession",doc.get("email"));
+			session.setAttribute("dniSession", docEmp.get("dni"));
 
 			if(doc.get("rol").equals("admin")){
 				session.setAttribute("rolSession",doc.get("rol"));

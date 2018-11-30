@@ -27,7 +27,7 @@ public class DAOFichaje {
 	private static MongoCollection<Document> dbFichaje = MongoBroker.get().getCollection("Fichaje");
 	private static MongoCollection<Document> dbEmpleado = MongoBroker.get().getCollection("Empleado");
 
-	public static boolean abrirFichaje(String email) {
+	public static boolean abrirFichaje(String email, String dni) {
 		Boolean fichado = false;
 		Bson fichaje = null;
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
@@ -55,6 +55,7 @@ public class DAOFichaje {
 		} else if (datosPersonales.iterator().hasNext() && !estadoFichaje.iterator().hasNext()) {
 			Document fichajeNuevo = new Document();
 			fichajeNuevo.put("email", email);
+			fichajeNuevo.put("dni", dni);
 			fichajeNuevo.put("estado", "abierto");
 			fichajeNuevo.put("fechaInicio", fechaInicio);
 			fichajeNuevo.put("horaInicio", horaInicio);

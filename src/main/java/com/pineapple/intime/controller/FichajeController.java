@@ -38,7 +38,8 @@ public class FichajeController {
 		boolean fichado;
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
-		fichado = DAOFichaje.abrirFichaje(email);
+		String dni = (String) session.getAttribute("emailSession");
+		fichado = DAOFichaje.abrirFichaje(email, dni);
 		model.addObject("fichado", fichado);
 		return "fichajeUser";
 	}
