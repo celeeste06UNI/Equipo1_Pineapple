@@ -187,7 +187,7 @@ label.light {
 		<div class="page-header">
 			<h1>Gestor de Fichajes</h1>
 		</div>
-		<form name='searchForm' action='/buscarIncidenciaTipo' method='GET'>
+		<form name='searchForm' action='/buscarIncidenciaTipoE' method='GET'>
 
 			<fieldset>
 				<legend>

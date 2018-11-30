@@ -73,6 +73,17 @@ public class IncidenciaController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/buscarIncidenciaTipoE", method = RequestMethod.GET)
+	public ModelAndView buscarIncidenciaTipoE(HttpServletRequest request, ModelAndView model, @ModelAttribute("tipo") String tipo) {	
+		ArrayList<Incidencia> listIncidencia=new ArrayList<Incidencia>();
+		HttpSession session = request.getSession(true);
+		String email = (String) session.getAttribute("emailSession");
+		String rol = (String) session.getAttribute("rolSession");
+		listIncidencia = DAOIncidencia.consultar(email, tipo,rol);
+		model.addObject("listIncidencia", listIncidencia);
+		model.setViewName("resolverIncidencia");
+		return model;
+	}
 	
 	@RequestMapping(value = "/deleteIncidencias", method = RequestMethod.GET)
 	public ModelAndView deleteIncidencias(HttpServletRequest request, ModelAndView model) {	
