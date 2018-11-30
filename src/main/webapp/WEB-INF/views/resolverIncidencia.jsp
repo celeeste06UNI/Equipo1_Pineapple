@@ -225,7 +225,7 @@ label.light {
 					<td>${fichaje.tipo}</td>
 					<td>${fichaje.fecha}</td>
 					<td><a
-						href="<c:url value='/editIncidencias?email=${fichaje.email}&estado=${fichaje.estado}&asunto=${fichaje.asunto}&descripcion=${fichaje.descripcion}&tipo=${fichaje.tipo}&fecha=${fichaje.fecha}' />">Editar</a>
+						href="<c:url value='/editIncidenciasE?email=${fichaje.email}&estado=${fichaje.estado}&asunto=${fichaje.asunto}&descripcion=${fichaje.descripcion}&tipo=${fichaje.tipo}&fecha=${fichaje.fecha}' />">Editar</a>
 						- <a
 						href="<c:url value='/deleteIncidencias?email=${fichaje.email}&estado=${fichaje.estado}&asunto=${fichaje.asunto}&descripcion=${fichaje.descripcion}&tipo=${fichaje.tipo}&fecha=${fichaje.fecha}' />">Eliminar</a></td>
 				</tr>
