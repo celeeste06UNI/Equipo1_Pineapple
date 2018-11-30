@@ -167,10 +167,10 @@ label.light {
 			<textarea readonly class="form-control" rows="2" id="estadoAn"
 				name="estadoAn">${estado}</textarea>
 			<label>Estados Disponibles:</label> <input type="radio" id="denegada"
-				value="denegada" required autocomplete="off" name="denegada"> <label
+				value="denegada" required autocomplete="off" name="estado"> <label
 				class="light" for="denegada">Denegada</label><br> <input
 				type="radio" id="aceptada" value="aceptada" required
-				autocomplete="off" name="aceptada"> <label class="light"
+				autocomplete="off" name="estado"> <label class="light"
 				for="aceptada">Aceptada</label><br> 
 		</fieldset>
 
