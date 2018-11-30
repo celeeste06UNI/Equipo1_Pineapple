@@ -130,7 +130,7 @@ public class UsuarioController {
 			model.addObject("nombre", empleado.get("nombre"));
 			model.addObject("apellidos", empleado.get("apellidos"));
 			model.addObject("email", empleado.get("email"));
-			model.addObject("rolActual", empleado.get("rol"));
+			model.addObject("rol", empleado.get("rol"));
 			model.setViewName("updateUser");
 		} catch (Exception e) {
 			model.addObject("nombre", "");

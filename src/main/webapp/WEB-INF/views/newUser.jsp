@@ -152,7 +152,6 @@ label.light {
 	</div>
 
 	<form name='loginForm' action='/saveUser' method='POST'>
-		<h1>Registro</h1>
 		<fieldset>
 			<legend>
 				<span class="number">1</span>Información básica

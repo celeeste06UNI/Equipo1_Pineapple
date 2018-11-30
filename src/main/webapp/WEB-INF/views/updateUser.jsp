@@ -170,7 +170,7 @@ label.light {
 							name="apellidos" required autocomplete="off" value=${apellidos} >
 						<label for="email">Email/dni</label> <input type="email"
 							name="emailNuevo" required autocomplete="off" value=${email} >
-						<label for="rol">Rol</label> <input type="text" readonly
+						<label for="rolActual">Rol</label> <input type="text" readonly
 							name="rolActual" required autocomplete="off" value=${rol} >
 						<label>Roles Disponibles:</label> <input type="radio" id="admin"
 							value="admin" required autocomplete="off" name="rol"> <label

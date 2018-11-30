@@ -129,7 +129,7 @@ public class DAOEmpleado {
 		Bson filtroEmail = null;
 		filtroEmail = or(eq("email", emp),eq("dni",emp));
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
-		FindIterable<Document> rol = dbEmpleado.find(filtroEmail);
+		FindIterable<Document> rol = dbRol.find(filtroEmail);
 
 		Document empleado = new Document();
 		if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
