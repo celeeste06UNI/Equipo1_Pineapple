@@ -202,9 +202,9 @@ label.light {
 				<label for="emailF">Email:<br></label> <input
 					placeholder="email" type="text" name="emailF"><label
 					for="fechaI">Introduzca la fecha inicio:<br></label> <input
-					placeholder="yyyy/MM/dd" type="text" name="fechaI"> <label
+					placeholder="yyyy/MM/dd" type="text" name="fechaIn"> <label
 					for="fechaF">Introduzca la fecha fin:<br></label> <input
-					placeholder="yyyy/MM/dd" type="text" name="fechaF">
+					placeholder="yyyy/MM/dd" type="text" name="fechaFi">
 
 				<button type="submit">Buscar</button>
 			</fieldset>
