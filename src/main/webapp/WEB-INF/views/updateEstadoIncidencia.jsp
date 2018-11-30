@@ -138,48 +138,7 @@ label.light {
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"></div>
 	</div>
-	<!-- <nav class="navbar navbar-default">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="/intime">InTime</a>
-		</div>
-		<ul class="nav navbar-nav">
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-
-					<li><a href="/newUser">Crear</a></li>
-					<li><a href="/deleteUser">Eliminar</a></li>
-					<li><a href="/updateUser">Modificar</a></li>
-				</ul></li>
-
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">Fichajes<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="/fichajeUser">Fichar</a></li>
-					<li><a href="/consultaFichaje">Consultar</a></li>
-
-				</ul></li>
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">Gestión Incidencias <span
-					class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="#">Crear</a></li>
-					<li><a href="#">Eliminar</a></li>
-					<li><a href="#">Modificar</a></li>
-				</ul></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="/viewUpdatePassword"><span
-					class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
-			<li><a href="/cerrarSesion"><span
-					class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
-
-		</ul>
-	</div>
-	</nav> -->
-
-
+	
 	<form name='IncidenciaForm' action='/updateIn' method='GET'>
 		<h1>Modificar Incidencia</h1>
 		<fieldset>
@@ -188,13 +147,9 @@ label.light {
 			</legend>
 			<label for="asunto">Asunto:</label>
 			<textarea class="form-control" rows="3" id="asunto" name="asunto">${asunto}</textarea>
-			<!-- <input type="text" required
-				autocomplete="off" name="asunto" value=${asunto}> -->
 			<label for="descripcion">Descripción:</label>
 			<textarea class="form-control" rows="5" id="descripcion"
 				name="descripcion">${descripcion}</textarea>
-			<!-- <input
-				type="textarea" required autocomplete="off" name="descripcion" value=${descripcion}> -->
 		</fieldset>
 		<fieldset>
 

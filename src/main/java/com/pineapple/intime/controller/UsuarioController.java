@@ -84,8 +84,9 @@ public class UsuarioController {
 
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 	public ModelAndView saveUser(HttpServletRequest request, ModelAndView model,
-			@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
-			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) throws Exception {
+			@ModelAttribute("dni") String dni, @ModelAttribute("nombre") String nombre,
+			@ModelAttribute("apellidos") String apellidos, @ModelAttribute("email") String email,
+			@ModelAttribute("rol") String rol) throws Exception {
 		HttpSession session = request.getSession(true);
 		String rolSession = (String) session.getAttribute("rolSession");
 		if (rolSession.equals("admin")) {
@@ -93,6 +94,7 @@ public class UsuarioController {
 			String contrasenna = EmpleadoHelper.generarContrasenna();
 			String emailLowerCase = email.toLowerCase();
 			empleado.put("email", emailLowerCase);
+			empleado.put("dni", dni);
 			empleado.put("rol", rol);
 			empleado.put("nombre", nombre);
 			empleado.put("apellidos", apellidos);
@@ -128,7 +130,7 @@ public class UsuarioController {
 			model.addObject("nombre", empleado.get("nombre"));
 			model.addObject("apellidos", empleado.get("apellidos"));
 			model.addObject("email", empleado.get("email"));
-			model.addObject("rol", empleado.get("rol"));
+			model.addObject("rolActual", empleado.get("rol"));
 			model.setViewName("updateUser");
 		} catch (Exception e) {
 			model.addObject("nombre", "");
