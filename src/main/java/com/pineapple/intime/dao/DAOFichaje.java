@@ -23,6 +23,7 @@ public class DAOFichaje {
 	private static MongoCollection<Document> dbEstadoFichaje = MongoBroker.get().getCollection("EstadoFichaje");
 	private static MongoCollection<Document> dbFichaje = MongoBroker.get().getCollection("Fichaje");
 	private static MongoCollection<Document> dbEmpleado = MongoBroker.get().getCollection("Empleado");
+	private static MongoCollection<Document> dbFichajeHoras = MongoBroker.get().getCollection("FichajeHoras");
 
 	public static boolean abrirFichaje(String email) {
 		Boolean fichado = false;
@@ -95,7 +96,7 @@ public class DAOFichaje {
 				fichajeNuevo.put("fechaFin", cierreFichaje.get("fechaFin"));
 				fichajeNuevo.put("horaFin", cierreFichaje.get("horaFin"));
 				fichajeNuevo.put("tiempo", CalculoTiempo(cierreFichaje.get("horaInicio"), cierreFichaje.get("horaFin")));
-				dbFichaje.insertOne(fichajeNuevo);
+				dbFichajeHoras.insertOne(fichajeNuevo);
 				Bson fichajeCerrado = null;
 				fichajeCerrado = combine(set("email", email), set("estado", "cerrado"), set("fechaInicio", ""),
 						set("horaInicio", ""), set("fechaFin", ""), set("horaFin", ""), set("tiempo", ""));
