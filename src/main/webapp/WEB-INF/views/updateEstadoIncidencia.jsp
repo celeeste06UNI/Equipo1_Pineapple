@@ -138,7 +138,7 @@ label.light {
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"></div>
 	</div>
-	
+
 	<form name='IncidenciaForm' action='/updateIn' method='GET'>
 		<h1>Modificar Incidencia</h1>
 		<fieldset>
@@ -146,9 +146,9 @@ label.light {
 				<span class="number">1</span>Modificar Incidencia
 			</legend>
 			<label for="asunto">Asunto:</label>
-			<textarea class="form-control" rows="3" id="asunto" name="asunto">${asunto}</textarea>
+			<textarea class="form-control" readonly rows="3" id="asunto" name="asunto">${asunto}</textarea>
 			<label for="descripcion">Descripción:</label>
-			<textarea class="form-control" rows="5" id="descripcion"
+			<textarea class="form-control" rows="5" id="descripcion" readonly
 				name="descripcion">${descripcion}</textarea>
 		</fieldset>
 		<fieldset>
