@@ -69,8 +69,9 @@ public class FichajeController {
 			@ModelAttribute("emailF") String emailF, @ModelAttribute("fechaFi") String fechaFi, ModelAndView model,
 			HttpServletRequest request) {
 		ArrayList<String> result = DAOFichaje.consultarFichajes(emailF, fechaIn, fechaFi);
-		model.addObject("listDate", result);
+		model.addObject("listDateOtro", result);
 		model.setViewName("consultaFichaje");
+		//LAS QUE TIENEN FECHA DE AYER NO ME LAS MUESTRA... Y SOLO ME MUESTRA LAS DE UN DIA 
 		return model;
 	}
 
