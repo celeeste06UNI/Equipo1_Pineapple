@@ -186,7 +186,7 @@
 
 			<div class="row">
 				<div class="col-md-4 login-sec">
-					<h2 class="text-center" style="color: #fff">Administrador</h2>
+					<h2 class="text-center" style="color: #fff">Gestor de Incidencias</h2>
 					<h6 class="text-center" style="color: #fff">Pineapple</h6>
 				</div>
 				<div class="col-md-8 banner-sec">
