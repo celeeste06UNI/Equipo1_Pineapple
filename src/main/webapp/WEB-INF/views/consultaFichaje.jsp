@@ -193,19 +193,19 @@ label.light {
 		<div class="page-header">
 			<h1>Gestor de Fichajes</h1>
 		</div>
-		<form name='searchForm' action='/searchFichajeOtro' method='POST'>
+		<form name='searchFichaje' action='/searchFichajeOtro' method='GET'>
 
 			<fieldset>
 				<legend>
-					<span class="number">2</span>Consultar Fichajes
+					<span class="number">2</span>Consultar mis Fichajes
 				</legend>
-				<label for="name">Introduzca el email:<br></label> <input
-					placeholder="" type="email" name="emailFichaje"> <label
-					for="fechaI">Introduzca la fecha de inicio:<br></label> <input
+				<label for="emailF">Email:<br></label> <input
+					placeholder="email" type="text" name="emailF"><label
+					for="fechaI">Introduzca la fecha inicio:<br></label> <input
 					placeholder="yyyy/MM/dd" type="text" name="fechaI"> <label
-					for="fechaF">Introduzca la fecha de fin:<br></label> <input
+					for="fechaF">Introduzca la fecha fin:<br></label> <input
 					placeholder="yyyy/MM/dd" type="text" name="fechaF">
-				<!--<input type="button" onclick="pregunta()" value="Buscar"> -->
+
 				<button type="submit">Buscar</button>
 			</fieldset>
 		</form>

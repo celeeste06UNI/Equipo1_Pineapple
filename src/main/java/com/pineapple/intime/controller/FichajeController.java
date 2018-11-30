@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pineapple.intime.dao.DAOFichaje;
+
 @Controller
 public class FichajeController {
 
@@ -33,7 +34,7 @@ public class FichajeController {
 	}
 
 	@RequestMapping(value = "/abrirFichaje", method = RequestMethod.GET)
-	public String abrirFichaje(ModelAndView model,HttpServletRequest request) {
+	public String abrirFichaje(ModelAndView model, HttpServletRequest request) {
 		boolean fichado;
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
@@ -51,9 +52,9 @@ public class FichajeController {
 		model.addObject("fichado", fichado);
 		return "fichajeUser";
 	}
-	
+
 	@RequestMapping(value = "/searchFichaje", method = RequestMethod.GET)
-	public ModelAndView searchFichaje(@ModelAttribute("fechaI") String fechaI, @ModelAttribute("fechaF") String fechaF, 
+	public ModelAndView searchFichaje(@ModelAttribute("fechaI") String fechaI, @ModelAttribute("fechaF") String fechaF,
 			ModelAndView model, HttpServletRequest request) {
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
@@ -62,15 +63,15 @@ public class FichajeController {
 		model.setViewName("fichajeUser");
 		return model;
 	}
-	
-	@RequestMapping(value = "/searchFichajeOtro", method = RequestMethod.POST)
-	public ModelAndView searchFichajeOtro(@ModelAttribute("fechaI") String fechaI, @ModelAttribute("emailFichaje") String emailFichaje,
-			@ModelAttribute("fechaF") String fechaF, ModelAndView model, HttpServletRequest request) {
-		String email = (String) request.getAttribute("emailFichaje");
-		ArrayList<String> result = DAOFichaje.consultarFichajes(email, fechaI, fechaF);
-		
+
+	@RequestMapping(value = "/searchFichajeOtro", method = RequestMethod.GET)
+	public ModelAndView searchFichajeOtro(@ModelAttribute("fechaI") String fechaI,
+			@ModelAttribute("emailF") String emailF, @ModelAttribute("fechaF") String fechaF, ModelAndView model,
+			HttpServletRequest request) {
+		ArrayList<String> result = DAOFichaje.consultarFichajes(emailF, fechaI, fechaF);
 		model.addObject("listDate", result);
 		model.setViewName("consultaFichaje");
 		return model;
 	}
+
 }
