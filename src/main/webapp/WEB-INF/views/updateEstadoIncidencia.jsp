@@ -146,9 +146,9 @@ label.light {
 				<span class="number">1</span>Modificar Incidencia
 			</legend>
 			<label for="asunto">Asunto:</label>
-			<textarea class="form-control" readonly rows="3" id="asunto" name="asunto">${asunto}</textarea>
+			<textarea readonly class="form-control" rows="3" id="asunto" name="asunto">${asunto}</textarea>
 			<label for="descripcion">Descripción:</label>
-			<textarea class="form-control" rows="5" id="descripcion" readonly
+			<textarea readonly class="form-control" rows="5" id="descripcion" readonly
 				name="descripcion">${descripcion}</textarea>
 		</fieldset>
 		<fieldset>
