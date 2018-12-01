@@ -13,7 +13,7 @@
 
 <style type="text/css">
 .login-block {
-	background: #F03006; /* fallback for old browsers */
+	background: #E36B6C; /* fallback for old browsers */
 	/* background: -webkit-linear-gradient(to bottom, #FF0000, #FE2E2E); */
 	/* Chrome 10-25, Safari 5.1-6 */
 	/* background: linear-gradient(to bottom, #FF0000, #FE2E2E); */
