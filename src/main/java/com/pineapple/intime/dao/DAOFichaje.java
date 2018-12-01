@@ -46,7 +46,9 @@ public class DAOFichaje {
 		FindIterable<Document> estadoFichaje = dbEstadoFichaje.find(filtroEmail);
 		if (datosPersonales.iterator().hasNext() && estadoFichaje.iterator().hasNext()
 				&& estadoFichaje.iterator().next().get("fechaInicio").equals("")) {
-			fichaje = combine(set("email", email), set("estado", "abierto"), set("horaInicio", horaInicio),
+			Document empleado=DAOEmpleado.cargarEmpleado(email);
+			
+			fichaje = combine(set("email", email),set("dni",empleado.get("dni")), set("estado", "abierto"), set("horaInicio", horaInicio),
 					set("fechaInicio", fechaInicio), set("horaFin", ""), set("fechaFin", ""));
 			UpdateResult urFichaje = dbEstadoFichaje.updateOne(filtroEmail, fichaje);
 
@@ -96,10 +98,12 @@ public class DAOFichaje {
 				Document cierreFichaje = estadoFichaje.iterator().next();
 				Document fichajeNuevo = new Document();
 				fichajeNuevo.put("email", cierreFichaje.get("email"));
+				fichajeNuevo.put("dni",cierreFichaje.get("dni"));
 				fichajeNuevo.put("fechaInicio", cierreFichaje.get("fechaInicio"));
 				fichajeNuevo.put("horaInicio", cierreFichaje.get("horaInicio"));
 				fichajeNuevo.put("fechaFin", cierreFichaje.get("fechaFin"));
 				fichajeNuevo.put("horaFin", cierreFichaje.get("horaFin"));
+				
 				fichajeNuevo.put("tiempo",EmpleadoHelper.CalculoTiempo(cierreFichaje.get("horaFin"), cierreFichaje.get("horaInicio")));
 				
 				dbFichaje.insertOne(fichajeNuevo);
