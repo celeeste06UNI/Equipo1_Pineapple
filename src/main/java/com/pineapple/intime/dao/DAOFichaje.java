@@ -111,7 +111,7 @@ public class DAOFichaje {
 	}
 	
     public static ArrayList<String> consultarFichajes(String email,String fechaInicio,String fechaFin) {
-    	Bson filtroFechaInicio=null;
+     	Bson filtroFechaInicio=null;
     	Bson filtroFechaFin=null;
     	Bson filtroIncidencia=null;
     	Bson filtroEmail=null;
@@ -122,8 +122,6 @@ public class DAOFichaje {
     	filtroEmail=or(eq("email",email),eq("dni",email));
     	filtroIncidencia=and(filtroFechaInicio,filtroFechaFin,filtroEmail);
     	FindIterable<Document> fichajes=dbFichaje.find(filtroIncidencia);
-    	
-    	
     	
     	for (Document doc : fichajes) {
     		String fichaje="";
@@ -136,7 +134,6 @@ public class DAOFichaje {
     		result.add((String) fichaje);
     	}
     	return result;
-    	
     }
 
 //	public static Document consultarFichajes(String email, String fecha) {
