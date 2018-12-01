@@ -47,10 +47,7 @@ public class UsuarioController {
 	public ModelAndView actionDeleteUser(ModelAndView model, HttpServletRequest request,
 			@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
-<<<<<<< HEAD
-		Document empleado=new Document();
-		String emailLowerCase=email.toLowerCase(new Locale("en", "EN"));
-=======
+
 		HttpSession session = request.getSession(true);
 		String rolSession = (String) session.getAttribute("rolSession");
 		if (rolSession.equals("admin")) {
@@ -88,10 +85,9 @@ public class UsuarioController {
 	}
 
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
-	public ModelAndView saveUser(HttpServletRequest request, ModelAndView model,
-			@ModelAttribute("dni") String dni, @ModelAttribute("nombre") String nombre,
-			@ModelAttribute("apellidos") String apellidos, @ModelAttribute("email") String email,
-			@ModelAttribute("rol") String rol) throws Exception {
+	public ModelAndView saveUser(HttpServletRequest request, ModelAndView model, @ModelAttribute("dni") String dni,
+			@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
+			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) throws Exception {
 		HttpSession session = request.getSession(true);
 		String rolSession = (String) session.getAttribute("rolSession");
 		if (rolSession.equals("admin")) {
@@ -113,61 +109,8 @@ public class UsuarioController {
 		return model;
 	}
 
-	@RequestMapping(value = "/editUser", method = RequestMethod.POST)
-	public String editUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
-			@ModelAttribute("emailAntiguo") String emailAntiguo, @ModelAttribute("emailNuevo") String emailNuevo,
-			@ModelAttribute("rol") String rol) {
-		Document empleado = new Document();
-		String emailLowerCase = emailNuevo.toLowerCase();
->>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
-		empleado.put("email", emailLowerCase);
-		empleado.put("rol", rol);
-		empleado.put("nombre", nombre);
-		empleado.put("apellidos", apellidos);
-		DAOEmpleado.update(emailAntiguo, empleado);
-		return "admin";
-	}
 
-	@RequestMapping(value = "/searchUser", method = RequestMethod.POST)
-	public ModelAndView searchUser(ModelAndView model, @ModelAttribute("email") String email) {
-		String emailLowerCase = email.toLowerCase();
-		try {
-			Document empleado = DAOEmpleado.cargarEmpleado(emailLowerCase);
-			model.addObject("nombre", empleado.get("nombre"));
-			model.addObject("apellidos", empleado.get("apellidos"));
-			model.addObject("email", empleado.get("email"));
-			model.addObject("rol", empleado.get("rol"));
-			model.setViewName("updateUser");
-		} catch (Exception e) {
-			model.addObject("nombre", "");
-			model.addObject("apellidos", "");
-			model.addObject("email", "");
-			model.addObject("rol", "");
-			model.setViewName("updateUser");
-		}
-		return model;
-	}
 
-	@RequestMapping(value = "/deleteSearchUser", method = RequestMethod.POST)
-	public ModelAndView deleteSearchUser(ModelAndView model, @ModelAttribute("email") String email) {
-		Document empleado = new Document();
-		String emailLowerCase = email.toLowerCase();
-		try {
-			empleado = DAOEmpleado.cargarEmpleado(emailLowerCase);
-			model.addObject("nombre", empleado.get("nombre"));
-			model.addObject("apellidos", empleado.get("apellidos"));
-			model.addObject("email", empleado.get("email"));
-			model.addObject("rol", empleado.get("rol"));
-			model.setViewName("deleteUser");
-		} catch (Exception e) {
-			model.addObject("nombre", "");
-			model.addObject("apellidos", "");
-			model.addObject("email", "");
-			model.addObject("rol", "");
-			model.setViewName("deleteUser");
-		}
-		return model;
-	}
 
 	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
 	public String updatePassword(@ModelAttribute("passwordVieja") String contrasennaVieja,
@@ -180,58 +123,45 @@ public class UsuarioController {
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
 		String rolSession = (String) session.getAttribute("rolSession");
-<<<<<<< HEAD
 		DAOEmpleado.updatePassword(email,passAntHex,passNuevaHex);
 		
 		if("admin".equals(rolSession)) {
-=======
-		DAOEmpleado.updatePassword(email, passAntHex, passNuevaHex);
-
-		if (rolSession.equals("admin")) {
->>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
 			pagina = "admin";
 		}
-<<<<<<< HEAD
+
 		if("user".equals(rolSession)) {
-=======
-		if (rolSession.equals("user")) {
->>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
 			pagina = "user";
-		}
-<<<<<<< HEAD
+		}	
 		if("incid".equals(rolSession)) {
-=======
-		if (rolSession.equals("incid")) {
->>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
 			pagina = "incid";
 		}
 		return pagina;
 	}
-<<<<<<< HEAD
-	
-	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
+
+
 	public String saveUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) throws Exception {
-		Document empleado=new Document();
+		Document empleado = new Document();
 		String contrasenna = EmpleadoHelper.generarContrasenna();
-		String emailLowerCase=email.toLowerCase(new Locale("en", "EN"));
+		String emailLowerCase = email.toLowerCase(new Locale("en", "EN"));
 		empleado.put("email", emailLowerCase);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
 		empleado.put("contrasenna", contrasenna);
-		if(DAOEmpleado.insert(empleado)) {
+		if (DAOEmpleado.insert(empleado)) {
 			EmpleadoHelper.sesionEmail(email, contrasenna);
 		}
-		
+
 		return "admin";
 	}
-	
+
 	@RequestMapping(value = "/editUser", method = RequestMethod.POST)
 	public String editUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
-			@ModelAttribute("emailAntiguo") String emailAntiguo, @ModelAttribute("emailNuevo") String emailNuevo, @ModelAttribute("rol") String rol) {
-		Document empleado=new Document();
-		String emailLowerCase=emailNuevo.toLowerCase(new Locale("en", "EN"));
+			@ModelAttribute("emailAntiguo") String emailAntiguo, @ModelAttribute("emailNuevo") String emailNuevo,
+			@ModelAttribute("rol") String rol) {
+		Document empleado = new Document();
+		String emailLowerCase = emailNuevo.toLowerCase(new Locale("en", "EN"));
 		empleado.put("email", emailLowerCase);
 		empleado.put("rol", rol);
 		empleado.put("nombre", nombre);
@@ -239,10 +169,10 @@ public class UsuarioController {
 		DAOEmpleado.update(emailAntiguo, empleado);
 		return "admin";
 	}
-	
+
 	@RequestMapping(value = "/searchUser", method = RequestMethod.POST)
 	public ModelAndView searchUser(ModelAndView model, @ModelAttribute("email") String email) {
-		String emailLowerCase=email.toLowerCase(new Locale("en", "EN"));
+		String emailLowerCase = email.toLowerCase(new Locale("en", "EN"));
 		try {
 			Document empleado = DAOEmpleado.cargarEmpleado(emailLowerCase);
 			model.addObject("nombre", empleado.get("nombre"));
@@ -250,8 +180,8 @@ public class UsuarioController {
 			model.addObject("email", empleado.get("email"));
 			model.addObject("rol", empleado.get("rol"));
 			model.setViewName("updateUser");
-		}catch(Exception e){
-			model.addObject("nombre","");
+		} catch (Exception e) {
+			model.addObject("nombre", "");
 			model.addObject("apellidos", "");
 			model.addObject("email", "");
 			model.addObject("rol", "");
@@ -259,7 +189,7 @@ public class UsuarioController {
 		}
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/deleteSearchUser", method = RequestMethod.POST)
 	public ModelAndView deleteSearchUser(ModelAndView model, @ModelAttribute("email") String email) {
 		Document empleado = new Document();
@@ -280,10 +210,4 @@ public class UsuarioController {
 		}
 		return model;
 	}
-	
-	
-	
-=======
->>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
-
 }

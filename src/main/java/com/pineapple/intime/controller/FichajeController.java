@@ -18,10 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.pineapple.intime.dao.DAOFichaje;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
 @Controller
 public class FichajeController {
 
