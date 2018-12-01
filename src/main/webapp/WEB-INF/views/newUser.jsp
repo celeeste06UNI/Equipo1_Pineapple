@@ -139,7 +139,7 @@ label.light {
 
 	<div class="row">
 		<div align="left" class="col-sm-2">
-			<a style="color: #cc0000" href="/intime"><input type="button" value="Atrás"></a>
+			<a class="glyphicon glyphicon-align-left" style="color: #cc0000" href="/intime"><input type="button" value="Atrás"></a>
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"></div>
