@@ -1,6 +1,7 @@
 package com.pineapple.intime.dao;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
@@ -64,7 +65,7 @@ public class DAOFichaje {
 
 	}
 
-	public static boolean cerrarFichaje(String email) {
+	public static boolean cerrarFichaje(String email) throws ParseException {
 		Boolean fichado = false;
 		Bson fichaje = null;
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
@@ -96,8 +97,9 @@ public class DAOFichaje {
 
 				fichajeNuevo.put("fechaFin", cierreFichaje.get("fechaFin"));
 				fichajeNuevo.put("horaFin", cierreFichaje.get("horaFin"));
-				//String tiempo = CalculoTiempo(cierreFichaje.get("horaInicio"),cierreFichaje.get("horaFin"));
-				fichajeNuevo.put("tiempo", cierreFichaje.get(CalculoTiempo(cierreFichaje.get("horaInicio"),cierreFichaje.get("horaFin"))));
+				String horaInicio = cierreFichaje.getString("horaInicio");
+				String tiempo = CalculoTiempo(horaInicio, horaFin);
+				fichajeNuevo.put("tiempo", cierreFichaje.get("tiempo"));
 				dbTest.insertOne(fichajeNuevo);
 				Bson fichajeCerrado = null;
 				fichajeCerrado = combine(set("email", email), set("estado", "cerrado"), set("fechaInicio", ""),
@@ -152,9 +154,14 @@ public class DAOFichaje {
 		return null;
 	}
 	
-	public static String CalculoTiempo (Object apertura, Object cierre) {
+	public static String CalculoTiempo (String apertura, String cierre) throws ParseException {
 		
-		int tiempo = (int) ((((Date) apertura).getTime() - ((Date) cierre).getTime())/1000);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+		
+		Date apertura2 = dateFormat.parse(apertura);
+		Date cierre2 = dateFormat.parse(cierre);
+		
+		int tiempo = (int) (((apertura2).getTime() - (cierre2).getTime())/1000);
 		
 		String tiempo2 = Integer.toString(tiempo);
 		
