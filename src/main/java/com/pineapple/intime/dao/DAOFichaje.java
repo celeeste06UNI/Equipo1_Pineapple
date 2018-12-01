@@ -41,7 +41,7 @@ public class DAOFichaje {
 		if (datosPersonales.iterator().hasNext() && estadoFichaje.iterator().hasNext()
 				&& estadoFichaje.iterator().next().get("fechaInicio").equals("")) {
 			fichaje = combine(set("email", email), set("estado", "abierto"), set("horaInicio", horaInicio),
-					set("fechaInicio", fechaInicio), set("horaFin", ""), set("fechaFin", ""));
+					set("fechaInicio", fechaInicio), set("horaFin", ""), set("fechaFin", ""), set("tiempo", ""));
 			UpdateResult urFichaje = dbEstadoFichaje.updateOne(filtroEmail, fichaje);
 
 			if (urFichaje.wasAcknowledged()) {
@@ -56,6 +56,7 @@ public class DAOFichaje {
 			fichajeNuevo.put("horaInicio", horaInicio);
 			fichajeNuevo.put("horaFin", "");
 			fichajeNuevo.put("fechaFin", "");
+			fichajeNuevo.put("tiempo", "");
 			dbEstadoFichaje.insertOne(fichajeNuevo);
 			fichado = true;
 		}
