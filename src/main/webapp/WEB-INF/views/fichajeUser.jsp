@@ -86,6 +86,7 @@ button {
 	margin-bottom: 10px;
 }
 
+
 fieldset {
 	margin-bottom: 10px;
 	border: none;
@@ -186,7 +187,7 @@ label.light {
 		<table class="table table-hover">
 			<p>Fecha de los fichajes</p>
 			<!-- <th>Id</th> -->
-			<th>Email - Fecha de apertura - Fecha de cierre</th>
+			<th>Email - Fecha de apertura - Fecha de cierre - Tiempo trabajado</th>
 			<c:forEach var="fechaDelFichaje" items="${listDate}">
 				<tr>
 					<td>${fechaDelFichaje}</td>

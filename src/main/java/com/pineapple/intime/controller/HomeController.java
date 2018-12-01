@@ -70,13 +70,14 @@ public class HomeController {
 		String pagina = "";
 		HttpSession session = request.getSession(true);
 		String rolSession = (String) session.getAttribute("rolSession");
-		if(rolSession.equals("admin")) {
+	
+		if("admin".equals(rolSession)) {
 			pagina = "admin";
 		}
-		if(rolSession.equals("user")) {
+		if("user".equals(rolSession)) {
 			pagina = "user";
 		}
-		if(rolSession.equals("incid")) {
+		if("incid".equals(rolSession)) {
 			pagina = "incid";
 		}
 		return pagina;
@@ -96,15 +97,14 @@ public class HomeController {
         response.sendRedirect("index.jsp");
     }
 
-	
-
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 
 	public ModelAndView loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password, 
 			HttpServletRequest request, ModelAndView model) throws Exception {
 		String pagina = "error";
 		HttpSession session = request.getSession(true);
-		String emailLowerCase=email.toLowerCase();
+
+		String emailLowerCase=email.toLowerCase(new Locale("en", "EN"));
 		Document doc = DAOEmpleado.autenticar(emailLowerCase,password);
 		model.addObject("correcto", "");
 

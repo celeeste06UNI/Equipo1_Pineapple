@@ -7,6 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.Key;
 import java.security.MessageDigest;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.activation.DataHandler;
@@ -30,16 +31,19 @@ import javax.mail.internet.MimeMultipart;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
+import com.steadystate.css.parser.ParseException;
+
 public class EmpleadoHelper {
 	
 	private static final String UNICODE_FORMAT = "ISO-8859-1";	
 
 
 	public static String generarContrasenna() throws Exception {
-		String passCifrada = cifra(RandomStringUtils.randomAlphanumeric(10));
-		String passHex = ConvertirHexadecimal(passCifrada);
+		String passHex = null;
 		
-		return passHex;
+		String passCifrada = cifra(RandomStringUtils.randomAlphanumeric(10));
+
+		return passHex = ConvertirHexadecimal(passCifrada);
 	}
 	
 	public static void sesionEmail(String emailDestino, String contrasenna) throws Exception {
@@ -102,31 +106,34 @@ public class EmpleadoHelper {
 	}
 	
 	public static String ConvertirCadena(String hex) {
-	    hex = hex.replaceAll("^(00)+", "");
-	    byte[] bytes = new byte[hex.length() / 2];
-	    for (int i = 0; i < hex.length(); i += 2) {
-	        bytes[i / 2] = (byte) ((Character.digit(hex.charAt(i), 16) << 4) + Character.digit(hex.charAt(i + 1), 16));
+	    
+	    String noHex= null;
+		
+	    String rephex = hex.replaceAll("^(00)+", "");
+	    byte[] bytes = new byte[rephex.length() / 2];
+	    for (int i = 0; i < rephex.length(); i += 2) {
+	        bytes[i / 2] = (byte) ((Character.digit(rephex.charAt(i), 16) << 4) + Character.digit(rephex.charAt(i + 1), 16));
 	    }
-	    String NoHex =new String(bytes);
-	    return NoHex;
+
+	    return noHex = new String(bytes);
 	}
 	
 
 
 	public static String cifra(String sinCifrar) throws Exception {
+		String cifrarString = null;
 		final byte[] bytes = sinCifrar.getBytes("UTF-8");
 		final Cipher aes = obtieneCipher(true);
 		final byte[] cifrado = aes.doFinal(bytes);
-		String cifrarString = new String(cifrado, UNICODE_FORMAT);
-		return cifrarString;
+		return cifrarString = new String(cifrado, UNICODE_FORMAT);
 	}
 	
 	public static String descifra(String cifrado) throws Exception {
+		String sinCifrar = null;
 		final Cipher aes = obtieneCipher(false);
 		byte[] cifradoByte = cifrado.getBytes(UNICODE_FORMAT);
 		final byte[] bytes = aes.doFinal(cifradoByte);
-		final String sinCifrar = new String(bytes, "UTF-8");
-		return sinCifrar;
+		return sinCifrar = new String(bytes, "UTF-8");
 	}
 	
 	private static Cipher obtieneCipher(boolean paraCifrar) throws Exception {
@@ -146,6 +153,31 @@ public class EmpleadoHelper {
 		}
 
 		return aes;
+	}
+	
+	public String toString() {
+		return null;
+	}
+	
+	public static String CalculoTiempo (Object apertura, Object cierre) throws ParseException, java.text.ParseException {
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+		
+		Date Dateapertura = dateFormat.parse((String) apertura);
+		Date DateCierre = dateFormat.parse((String) cierre);
+		
+		int tiempo  = (int) ((((Dateapertura).getTime() - (DateCierre).getTime())/1000));
+		int horas = tiempo/3600;
+		int minutos = (tiempo-(3600*horas))/60;
+		int segundos = tiempo-((horas*3600)+(minutos*60));
+		
+		String SH = String.valueOf(horas);
+		String SM = String.valueOf(minutos);
+		String SS = String.valueOf(segundos);
+		
+		String jornada = SH + " h " + SM + " min " + SS + " seg ";
+		
+		return jornada;
 	}
 
 }

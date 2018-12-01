@@ -1,0 +1,112 @@
+src/main/java/com/pineapple/intime/controller/FichajeController.java:21:	headerCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/FichajeController.java:24:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/FichajeController.java:30:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/FichajeController.java:36:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/FichajeController.java:46:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/FichajeController.java:56:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/FichajeController.java:70:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/HomeController.java:36:	fieldCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/HomeController.java:58:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/HomeController.java:63:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/HomeController.java:69:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/HomeController.java:73:	Position literals first in String comparisons
+src/main/java/com/pineapple/intime/controller/HomeController.java:76:	Position literals first in String comparisons
+src/main/java/com/pineapple/intime/controller/HomeController.java:79:	Position literals first in String comparisons
+src/main/java/com/pineapple/intime/controller/HomeController.java:86:	protectedMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/HomeController.java:89:	Avoid unused local variables such as 'out'.
+src/main/java/com/pineapple/intime/controller/HomeController.java:103:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/HomeController.java:106:	When doing a String.toLowerCase()/toUpperCase() call, use a Locale
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:22:	headerCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:25:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:31:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:37:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:40:	When doing a String.toLowerCase()/toUpperCase() call, use a Locale
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:50:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:56:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:61:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:73:	Position literals first in String comparisons
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:76:	Position literals first in String comparisons
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:79:	Position literals first in String comparisons
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:86:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:90:	When doing a String.toLowerCase()/toUpperCase() call, use a Locale
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:104:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:107:	When doing a String.toLowerCase()/toUpperCase() call, use a Locale
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:117:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:118:	When doing a String.toLowerCase()/toUpperCase() call, use a Locale
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:137:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/controller/UsuarioController.java:139:	When doing a String.toLowerCase()/toUpperCase() call, use a Locale
+src/main/java/com/pineapple/intime/dao/DAOEmpleado.java:25:	All methods are static.  Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+src/main/java/com/pineapple/intime/dao/DAOEmpleado.java:25:	headerCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/DAOEmpleado.java:26:	fieldCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/DAOEmpleado.java:27:	fieldCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/DAOEmpleado.java:30:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/DAOEmpleado.java:39:	Avoid if (x != y) ..; else ..;
+src/main/java/com/pineapple/intime/dao/DAOEmpleado.java:49:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/DAOEmpleado.java:54:	Useless parentheses.
+src/main/java/com/pineapple/intime/dao/DAOEmpleado.java:67:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/DAOEmpleado.java:71:	Avoid unused local variables such as 'iterador'.
+src/main/java/com/pineapple/intime/dao/DAOEmpleado.java:92:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/DAOEmpleado.java:113:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/DAOEmpleado.java:125:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/DAOEmpleado.java:142:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/DAOFichaje.java:22:	All methods are static.  Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+src/main/java/com/pineapple/intime/dao/DAOFichaje.java:22:	headerCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/DAOFichaje.java:23:	fieldCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/DAOFichaje.java:24:	fieldCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/DAOFichaje.java:25:	fieldCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/DAOFichaje.java:27:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/DAOFichaje.java:30:	When instantiating a SimpleDateFormat object, specify a Locale
+src/main/java/com/pineapple/intime/dao/DAOFichaje.java:31:	When instantiating a SimpleDateFormat object, specify a Locale
+src/main/java/com/pineapple/intime/dao/DAOFichaje.java:66:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/DAOFichaje.java:69:	When instantiating a SimpleDateFormat object, specify a Locale
+src/main/java/com/pineapple/intime/dao/DAOFichaje.java:70:	When instantiating a SimpleDateFormat object, specify a Locale
+src/main/java/com/pineapple/intime/dao/DAOFichaje.java:109:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/DAOFichaje.java:128:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/MongoBroker.java:12:	headerCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/MongoBroker.java:13:	fieldCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/MongoBroker.java:14:	Perhaps 'uri' could be replaced by a local variable.
+src/main/java/com/pineapple/intime/dao/MongoBroker.java:14:	Private field 'uri' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/com/pineapple/intime/dao/MongoBroker.java:14:	fieldCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/MongoBroker.java:15:	Private field 'client' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/com/pineapple/intime/dao/MongoBroker.java:15:	fieldCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/MongoBroker.java:16:	Private field 'database' could be made final; it is only initialized in the declaration or constructor.
+src/main/java/com/pineapple/intime/dao/MongoBroker.java:16:	fieldCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/MongoBroker.java:25:	Avoid unused private methods such as 'exists()'.
+src/main/java/com/pineapple/intime/dao/MongoBroker.java:33:	headerCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/MongoBroker.java:34:	Avoid instantiation through private constructors from outside of the constructors class.
+src/main/java/com/pineapple/intime/dao/MongoBroker.java:34:	To avoid mistakes add a comment at the beginning of the singleton field if you want a default access modifier
+src/main/java/com/pineapple/intime/dao/MongoBroker.java:34:	fieldCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/MongoBroker.java:37:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dao/MongoBroker.java:40:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dominio/EmpleadoHelper.java:33:	All methods are static.  Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+src/main/java/com/pineapple/intime/dominio/EmpleadoHelper.java:33:	headerCommentRequirement Required
+src/main/java/com/pineapple/intime/dominio/EmpleadoHelper.java:35:	fieldCommentRequirement Required
+src/main/java/com/pineapple/intime/dominio/EmpleadoHelper.java:38:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dominio/EmpleadoHelper.java:42:	Consider simply returning the value vs storing it in local variable 'passHex'
+src/main/java/com/pineapple/intime/dominio/EmpleadoHelper.java:45:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dominio/EmpleadoHelper.java:62:	protectedMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dominio/EmpleadoHelper.java:72:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dominio/EmpleadoHelper.java:100:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dominio/EmpleadoHelper.java:104:	Avoid reassigning parameters such as 'hex'
+src/main/java/com/pineapple/intime/dominio/EmpleadoHelper.java:104:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dominio/EmpleadoHelper.java:111:	Consider simply returning the value vs storing it in local variable 'NoHex'
+src/main/java/com/pineapple/intime/dominio/EmpleadoHelper.java:116:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dominio/EmpleadoHelper.java:121:	Consider simply returning the value vs storing it in local variable 'cifrarString'
+src/main/java/com/pineapple/intime/dominio/EmpleadoHelper.java:124:	publicMethodCommentRequirement Required
+src/main/java/com/pineapple/intime/dominio/EmpleadoHelper.java:129:	Consider simply returning the value vs storing it in local variable 'sinCifrar'
+src/main/java/launch/Main.java:11:	All methods are static.  Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+src/main/java/launch/Main.java:11:	headerCommentRequirement Required
+src/main/java/launch/Main.java:13:	publicMethodCommentRequirement Required
+src/main/java/servlet/HelloServlet.java:16:	headerCommentRequirement Required
+src/main/java/servlet/HelloServlet.java:19:	protectedMethodCommentRequirement Required
+src/test/java/com/pineapple/cucumberJava/annotation.java:32:	headerCommentRequirement Required
+src/test/java/com/pineapple/cucumberJava/annotation.java:33:	To avoid mistakes add a comment at the beginning of the driver field if you want a default access modifier
+src/test/java/com/pineapple/cucumberJava/annotation.java:33:	fieldCommentRequirement Required
+src/test/java/com/pineapple/cucumberJava/annotation.java:36:	publicMethodCommentRequirement Required
+src/test/java/com/pineapple/cucumberJava/annotation.java:41:	publicMethodCommentRequirement Required
+src/test/java/com/pineapple/cucumberJava/annotation.java:50:	publicMethodCommentRequirement Required
+src/test/java/com/pineapple/cucumberJava/annotation.java:61:	publicMethodCommentRequirement Required
+src/test/java/com/pineapple/cucumberJava/cucumberIngresaUsuario.java:10:	headerCommentRequirement Required
+src/test/java/com/pineapple/cucumberJava/cucumberLoginCorrecto.java:7:	headerCommentRequirement Required
+src/test/java/com/pineapple/intime/test.java:7:	headerCommentRequirement Required
+src/test/java/com/pineapple/intime/test.java:10:	publicMethodCommentRequirement Required
