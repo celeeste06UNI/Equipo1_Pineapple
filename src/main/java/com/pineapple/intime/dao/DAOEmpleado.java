@@ -51,13 +51,15 @@ public class DAOEmpleado {
 	/* ELIMINAR EMPLEADO */
 	public static boolean delete(Document empleado) {
 		Bson filtroEmail = null;
+		Bson filtroRol=null;
 		filtroEmail = or(eq("email", empleado.get("email")),eq("dni",empleado.get("dni")));
+		filtroRol=(eq("email",empleado.get("email")));
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
-		FindIterable<Document> rol = dbRol.find(filtroEmail);
+		FindIterable<Document> rol = dbRol.find(filtroRol);
 
 		if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
 			DeleteResult drDatos = dbEmpleado.deleteMany(filtroEmail);
-			DeleteResult drRol = dbRol.deleteMany(filtroEmail);
+			DeleteResult drRol = dbRol.deleteMany(filtroRol);
 			if (drDatos.wasAcknowledged() && drRol.wasAcknowledged()) {
 				return true;
 			}
