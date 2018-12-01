@@ -7,6 +7,8 @@ import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.Key;
 import java.security.MessageDigest;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.activation.DataHandler;
@@ -154,6 +156,20 @@ public class EmpleadoHelper {
 	
 	public String toString() {
 		return null;
+	}
+	
+	public static String CalculoTiempo (Object apertura, Object cierre) throws ParseException {
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+		
+		Date Dateapertura = dateFormat.parse((String) apertura);
+		Date DateCierre = dateFormat.parse((String) cierre);
+		
+		int tiempo = (int) (((Dateapertura).getTime() - (DateCierre).getTime())/1000);
+		
+		String segundos = Integer.toString(tiempo);
+		
+		return segundos;
 	}
 
 }

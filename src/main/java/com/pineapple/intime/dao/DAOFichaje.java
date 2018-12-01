@@ -12,6 +12,7 @@ import org.bson.conversions.Bson;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.result.UpdateResult;
+import com.pineapple.intime.dominio.EmpleadoHelper;
 
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.and;
@@ -97,7 +98,7 @@ public class DAOFichaje {
 
 				fichajeNuevo.put("fechaFin", cierreFichaje.get("fechaFin"));
 				fichajeNuevo.put("horaFin", cierreFichaje.get("horaFin"));
-				fichajeNuevo.put("tiempo",CalculoTiempo(cierreFichaje.get("horaFin"), cierreFichaje.get("horaInicio")));
+				fichajeNuevo.put("tiempo",EmpleadoHelper.CalculoTiempo(cierreFichaje.get("horaFin"), cierreFichaje.get("horaInicio")));
 				dbTest.insertOne(fichajeNuevo);
 				Bson fichajeCerrado = null;
 				fichajeCerrado = combine(set("email", email), set("estado", "cerrado"), set("fechaInicio", ""),
@@ -123,7 +124,7 @@ public class DAOFichaje {
 			String fichajeInicio = doc.get("fechaInicio") + " " + doc.getString("horaInicio");
 			String fichajeFin = doc.get("fechaFin") + " " + doc.getString("horaFin");
 			String tiempo = doc.getString("tiempo");
-			String fichaje = fichajeInicio + " - " + fichajeFin + " - " + tiempo ;
+			String fichaje = fichajeInicio + " - " + fichajeFin + " - " + tiempo + " segundos " ;
 			resultado.put(cont.toString(), fichaje);
 
 		}
@@ -143,7 +144,7 @@ public class DAOFichaje {
 			String fichajeInicio = doc.get("fechaInicio") + " " + doc.getString("horaInicio");
 			String fichajeFin = doc.get("fechaFin") + " " + doc.getString("horaFin");
 			String tiempo = doc.getString("tiempo");
-			String fichaje = fichajeInicio + " - " + fichajeFin + " - " + tiempo ;
+			String fichaje = fichajeInicio + " - " + fichajeFin + " - " + tiempo + " segundos ";
 			resultado.put(cont.toString(), fichaje);
 
 		}
@@ -152,20 +153,6 @@ public class DAOFichaje {
 	
 	public String toString() {
 		return null;
-	}
-	
-	public static String CalculoTiempo (Object apertura, Object cierre) throws ParseException {
-		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-		
-		Date apertura2 = dateFormat.parse((String) apertura);
-		Date cierre2 = dateFormat.parse((String) cierre);
-		
-		int tiempo = (int) (((apertura2).getTime() - (cierre2).getTime())/1000);
-		
-		String tiempo2 = Integer.toString(tiempo);
-		
-		return tiempo2;
 	}
 
 }
