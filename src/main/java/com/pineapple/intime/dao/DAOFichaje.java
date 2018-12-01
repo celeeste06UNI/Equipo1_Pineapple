@@ -12,6 +12,8 @@ import org.bson.conversions.Bson;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.result.UpdateResult;
+import com.pineapple.intime.dominio.EmpleadoHelper;
+import com.steadystate.css.parser.ParseException;
 
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.or;
@@ -67,7 +69,7 @@ public class DAOFichaje {
 
 	}
 
-	public static boolean cerrarFichaje(String email) {
+	public static boolean cerrarFichaje(String email) throws ParseException, java.text.ParseException {
 		Boolean fichado = false;
 		Bson fichaje = null;
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
@@ -98,10 +100,12 @@ public class DAOFichaje {
 				fichajeNuevo.put("horaInicio", cierreFichaje.get("horaInicio"));
 				fichajeNuevo.put("fechaFin", cierreFichaje.get("fechaFin"));
 				fichajeNuevo.put("horaFin", cierreFichaje.get("horaFin"));
+				fichajeNuevo.put("tiempo",EmpleadoHelper.CalculoTiempo(cierreFichaje.get("horaFin"), cierreFichaje.get("horaInicio")));
+				
 				dbFichaje.insertOne(fichajeNuevo);
 				Bson fichajeCerrado = null;
 				fichajeCerrado = combine(set("email", email), set("estado", "cerrado"), set("fechaInicio", ""),
-						set("horaInicio", ""), set("fechaFin", ""), set("horaFin", ""));
+						set("horaInicio", ""), set("fechaFin", ""), set("horaFin", ""), set("tiempo", ""));
 				dbEstadoFichaje.updateOne(filtroEmail, fichajeCerrado);
 			}
 		} else if (datosPersonales.iterator().hasNext() && !estadoFichaje.iterator().hasNext()) {
