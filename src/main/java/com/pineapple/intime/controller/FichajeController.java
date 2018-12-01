@@ -1,6 +1,7 @@
 package com.pineapple.intime.controller;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -45,7 +46,7 @@ public class FichajeController {
 	}
 
 	@RequestMapping(value = "/cerrarFichaje", method = RequestMethod.GET)
-	public String cerrarFichaje(ModelAndView model, HttpServletRequest request) {
+	public String cerrarFichaje(ModelAndView model, HttpServletRequest request) throws ParseException {
 		boolean fichado;
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
