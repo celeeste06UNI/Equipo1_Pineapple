@@ -13,10 +13,10 @@
 
 <style type="text/css">
 .login-block {
-	background: #DE6262; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to bottom, #FF0000, #FE2E2E);
+	background: #E36B6C; /* fallback for old browsers */
+	/* background: -webkit-linear-gradient(to bottom, #FF0000, #FE2E2E); */
 	/* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to bottom, #FF0000, #FE2E2E);
+	/* background: linear-gradient(to bottom, #FF0000, #FE2E2E); */
 	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	float: left;
 	width: 100%;
@@ -124,7 +124,7 @@
 
 <body>
 
-<!-- 	<input type="button" value="Cancelar" id="cancelar" name="cancelar"
+	<!-- 	<input type="button" value="Cancelar" id="cancelar" name="cancelar"
 		onclick="self.location.href = 'home'" /> -->
 
 	<section class="login-block">
@@ -132,30 +132,32 @@
 			<div class="row">
 				<div class="col-md-4 login-sec">
 					<h2 class="text-center">Iniciar Sesión</h2>
-					<form class="login-form" name='loginForm' action="/login" method='POST'>
+					<form class="login-form" name='loginForm' action="/login"
+						method='POST'>
 						<div class="form-group">
 							<label for="exampleInputEmail1" class="text-uppercase">Email</label>
-							<input name="email" type="text" class="form-control" placeholder="">
+							<input name="email" type="text" class="form-control"
+								placeholder="">
 						</div>
-						
+
 						<div class="form-group">
 							<label for="exampleInputPassword1" class="text-uppercase">Contraseña</label>
-							<input name="password" type="password" class="form-control" placeholder="">
+							<input name="password" type="password" class="form-control"
+								placeholder="">
 						</div>
 
 
 						<div class="form-check">
 							<label class="form-check-label"><small>"${correcto}"</small>
 							</label>
-							<button id="botonEntrar" type="submit" class="btn btn-login float-right">Enviar</button>
+							<button id="botonEntrar" type="submit"
+								class="btn btn-login float-right">Enviar</button>
 						</div>
 
 					</form>
-					<div class="copy-text">
-						Pineapple
-					</div>
+					<div class="copy-text">Pineapple</div>
 				</div>
- 				<div class="col-md-8 banner-sec">
+				<div class="col-md-8 banner-sec">
 					<div id="carouselExampleIndicators" class="carousel slide"
 						data-ride="carousel">
 						<ol class="carousel-indicators">
@@ -165,11 +167,10 @@
 								<img class="d-block img-fluid"
 									src="https://static.pexels.com/photos/33972/pexels-photo.jpg"
 									alt="First slide">
-								<div >
+								<div>
 									<div class="banner-text">
 										<h2>In Time</h2>
-										<p>Aplicación web para la gestión
-										 de los fichajes</p>
+										<p>Aplicación web para la gestión de los fichajes</p>
 									</div>
 								</div>
 							</div>

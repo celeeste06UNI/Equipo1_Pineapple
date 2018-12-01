@@ -134,75 +134,22 @@ label.light {
 
 </head>
 <body>
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/intime">InTime</a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
-					<ul class="dropdown-menu">
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
 
-						<li><a href="/newUser">Crear</a></li>
-						<li><a href="/deleteUser">Eliminar</a></li>
-						<li><a href="/updateUser">Modificar</a></li>
-					</ul></li>
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
 
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Fichajes<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="/fichajeUser">Fichar</a></li>
-						<li><a href="/consultaFichaje">Consultar</a></li>
-
-					</ul></li>
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Gestión Incidencias <span
-						class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Crear</a></li>
-						<li><a href="#">Eliminar</a></li>
-						<li><a href="#">Modificar</a></li>
-					</ul></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/viewUpdatePassword"><span
-						class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
-				<li><a href="/cerrarSesion"><span
-						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
-
-			</ul>
+	<div class="row">
+		<div align="left" class="col-sm-2">
+			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
 		</div>
-	</nav>
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8"></div>
+	</div>
 
-	<!-- 	<div class="container">
-		<form name='searchForm' action='/deleteSearchUser' method='POST'>
-
-			<h1>Busqueda de un usuario</h1>
-			<label for="name">Introduzca el email:</label> <input type="email"
-				name="email">
-			<button type="submit">Buscar</button>
-		</form>
-		
-		<form name='deleteForm' action='/actionDeleteUser' method='POST'>
-			
-			<label for="nombre">Nombre</label> <input type="text" name="nombre"
-				readonly value=${nombre} >
-				
-			<label for="apellidos">Apellidos</label> <input type="text" name="apellidos"
-				readonly value=${apellidos} >
-				
-			<label for="email">Email</label> <input type="email" name="email"
-				readonly value=${email} >
-				
-			<label for="rol">Rol</label> <input type="text" name="rol"
-				readonly value=${rol} >
-				
-			<button type="submit">Eliminar</button>
-			
-		</form>
-
-	</div> -->
 	<div class="container">
 		<div class="page-header">
 			<h1>Eliminar Usuario</h1>
@@ -216,9 +163,8 @@ label.light {
 							<span class="number">1</span>Introduzca el e-mail del usuario
 						</legend>
 						<label for="name">Introduzca el email:</label> <input type="email"
-							name="email">
-						<input type="button" onclick="pregunta()" value="Buscar">
-						<!-- <button type="submit">Buscar</button> -->
+							name="email"> <input type="button" onclick="pregunta()"
+							value="Buscar">
 					</fieldset>
 				</form>
 
@@ -237,12 +183,11 @@ label.light {
 							for="email">Email</label> <input type="email" name="email"
 							readonly value=${email} > <label for="rol">Rol</label> <input
 							type="text" name="rol" readonly value=${rol} >
-
-						<!-- <button type="submit">Eliminar</button> -->
 						<input type="button" onclick="preguntaDelete()" value="Eliminar">
 					</fieldset>
 
 				</form>
 			</div>
 		</div>
+	</div>
 </body>

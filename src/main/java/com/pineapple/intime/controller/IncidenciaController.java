@@ -17,10 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.pineapple.intime.dao.DAOEmpleado;
-import com.pineapple.intime.dao.DAOFichaje;
 import com.pineapple.intime.dao.DAOIncidencia;
-import com.pineapple.intime.dominio.EmpleadoHelper;
 import com.pineapple.intime.model.Incidencia;
 
 @Controller
@@ -35,6 +32,12 @@ public class IncidenciaController {
 	@RequestMapping(value = "/consultarIncidenciaUser", method = RequestMethod.GET)
 	public ModelAndView consultarIncidenciaUser(ModelAndView model) {
 		model.setViewName("consultarIncidenciaUser");
+		return model;
+	}
+	
+	@RequestMapping(value = "/resolverIncidencia", method = RequestMethod.GET)
+	public ModelAndView resolverIncidencia(ModelAndView model) {
+		model.setViewName("resolverIncidencia");
 		return model;
 	}
 	
@@ -60,22 +63,92 @@ public class IncidenciaController {
 	
 	@RequestMapping(value = "/buscarIncidenciaTipo", method = RequestMethod.GET)
 	public ModelAndView buscarIncidenciaTipo(HttpServletRequest request, ModelAndView model, @ModelAttribute("tipo") String tipo) {	
-		ConcurrentHashMap<Integer, Document> result=new ConcurrentHashMap<Integer, Document>();
 		ArrayList<Incidencia> listIncidencia=new ArrayList<Incidencia>();
 		HttpSession session = request.getSession(true);
-/*		String email = (String) session.getAttribute("emailSession");
-		result = DAOIncidencia.consultar(email, tipo);
-		for(Integer i = 0; i<result.keySet().size();i++) {
-			Document doc = result.get(i);
-			Incidencia indencia = new Incidencia((String) doc.get("email"), (String) doc.get("estado"),(String) doc.get("asunto"),
-					(String) doc.get("descripcion"),(String) doc.get("tipo"),(String) doc.get("fecha"));
-			listIncidencia.add(indencia);
-		}*/
-		Incidencia prueba = new Incidencia("hola", "hola","hola",
-				"hola","hola","hola");
-		listIncidencia.add(prueba);
+		String email = (String) session.getAttribute("emailSession");
+		String rol = (String) session.getAttribute("rolSession");
+		listIncidencia = DAOIncidencia.consultar(email, tipo,rol);
 		model.addObject("listIncidencia", listIncidencia);
 		model.setViewName("consultarIncidenciaUser");
+		return model;
+	}
+	
+	@RequestMapping(value = "/buscarIncidenciaTipoE", method = RequestMethod.GET)
+	public ModelAndView buscarIncidenciaTipoE(HttpServletRequest request, ModelAndView model, @ModelAttribute("tipo") String tipoE) {	
+		ArrayList<Incidencia> listIncidencia=new ArrayList<Incidencia>();
+		HttpSession session = request.getSession(true);
+		String emailE = (String) session.getAttribute("emailSession");
+		String rolE = (String) session.getAttribute("rolSession");
+		listIncidencia = DAOIncidencia.consultar(emailE, tipoE,rolE);
+		model.addObject("listIncidencia", listIncidencia);
+		model.setViewName("resolverIncidencia");
+		return model;
+	}
+	
+	@RequestMapping(value = "/deleteIncidencias", method = RequestMethod.GET)
+	public ModelAndView deleteIncidencias(HttpServletRequest request, ModelAndView model) {	
+		String email = request.getParameter("email");
+		String estado = request.getParameter("estado");
+		String asunto = request.getParameter("asunto");
+		String descripcion = request.getParameter("descripcion");
+		String tipo = request.getParameter("tipo");
+		String fecha = request.getParameter("fecha");
+		DAOIncidencia.delete(email, estado, asunto, descripcion, tipo, fecha);
+		model.setViewName("consultarIncidenciaUser");
+		return model;
+	}
+	
+	@RequestMapping(value = "/editIncidencias", method = RequestMethod.GET)
+	public ModelAndView editIncidencias(HttpServletRequest request, ModelAndView model) {	
+		String emailI = request.getParameter("email");
+		String estadoI = request.getParameter("estado");
+		String asuntoI = request.getParameter("asunto");
+		String descripcionI = request.getParameter("descripcion");
+		String tipoI = request.getParameter("tipo");
+		String fechaI = request.getParameter("fecha");
+		model.setViewName("updateIncidencia");
+		model.addObject("email",emailI);
+		model.addObject("estado",estadoI);
+		model.addObject("asunto",asuntoI);
+		model.addObject("descripcion",descripcionI);
+		model.addObject("tipo",tipoI);
+		model.addObject("fecha",fechaI);
+		
+		return model;
+	}
+	@RequestMapping(value = "/editIncidenciasE", method = RequestMethod.GET)
+	public ModelAndView editIncidenciasE(HttpServletRequest request, ModelAndView model) {	
+		String email1 = request.getParameter("email");
+		String estado1 = request.getParameter("estado");
+		String asunto1 = request.getParameter("asunto");
+		String descripcion1 = request.getParameter("descripcion");
+		String tipo1 = request.getParameter("tipo");
+		String fecha1 = request.getParameter("fecha");
+		model.setViewName("updateEstadoIncidencia");
+		model.addObject("email",email1);
+		model.addObject("estado",estado1);
+		model.addObject("asunto",asunto1);
+		model.addObject("descripcion",descripcion1);
+		model.addObject("tipo",tipo1);
+		model.addObject("fecha",fecha1);
+		
+		return model;
+	}
+	
+	@RequestMapping(value = "/updateIn", method = RequestMethod.GET)
+	public ModelAndView updateIn(HttpServletRequest request, ModelAndView model) {	
+		HttpSession session = request.getSession(true);
+		String emailIn = (String) session.getAttribute("emailSession");
+		String rolIn = (String) session.getAttribute("rolSession");
+		String estadoIn = request.getParameter("estado");
+		String asuntoIn = request.getParameter("asunto");
+		String descripcionIn = request.getParameter("descripcion");
+		String tipoIn = request.getParameter("tipo");
+		String fechaIn = request.getParameter("fecha");
+		DAOIncidencia.update(emailIn, estadoIn, asuntoIn, descripcionIn, tipoIn, fechaIn, rolIn);
+		model.setViewName("consultarIncidenciaUser");
+	
+		
 		return model;
 	}
 

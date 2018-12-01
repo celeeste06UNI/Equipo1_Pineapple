@@ -12,6 +12,8 @@ import org.bson.conversions.Bson;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.result.UpdateResult;
+import com.pineapple.intime.dominio.EmpleadoHelper;
+import com.steadystate.css.parser.ParseException;
 
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.or;
@@ -67,7 +69,7 @@ public class DAOFichaje {
 
 	}
 
-	public static boolean cerrarFichaje(String email) {
+	public static boolean cerrarFichaje(String email) throws ParseException, java.text.ParseException {
 		Boolean fichado = false;
 		Bson fichaje = null;
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
@@ -98,10 +100,12 @@ public class DAOFichaje {
 				fichajeNuevo.put("horaInicio", cierreFichaje.get("horaInicio"));
 				fichajeNuevo.put("fechaFin", cierreFichaje.get("fechaFin"));
 				fichajeNuevo.put("horaFin", cierreFichaje.get("horaFin"));
+				fichajeNuevo.put("tiempo",EmpleadoHelper.CalculoTiempo(cierreFichaje.get("horaFin"), cierreFichaje.get("horaInicio")));
+				
 				dbFichaje.insertOne(fichajeNuevo);
 				Bson fichajeCerrado = null;
 				fichajeCerrado = combine(set("email", email), set("estado", "cerrado"), set("fechaInicio", ""),
-						set("horaInicio", ""), set("fechaFin", ""), set("horaFin", ""));
+						set("horaInicio", ""), set("fechaFin", ""), set("horaFin", ""), set("tiempo", ""));
 				dbEstadoFichaje.updateOne(filtroEmail, fichajeCerrado);
 			}
 		} else if (datosPersonales.iterator().hasNext() && !estadoFichaje.iterator().hasNext()) {
@@ -110,19 +114,23 @@ public class DAOFichaje {
 		return fichado;
 	}
 	
-    public static ArrayList<String> consultarFichajes(String email,String fechaInicio,String fechaFin) {
-     	Bson filtroFechaInicio=null;
+
+
+    public static ArrayList<String> consultarFichajes(String email,String fechaInicio,String fechaFin, String tiempo) {
+    	Bson filtroFechaInicio=null;
+
     	Bson filtroFechaFin=null;
     	Bson filtroIncidencia=null;
     	Bson filtroEmail=null;
+    	Bson filtroTiempo=null;
     	ArrayList<String> result=new ArrayList<String>();
-    	
     	filtroFechaInicio=and(gte("fechaInicio",fechaInicio),gte("horaInicio","00:00:00"));
     	filtroFechaFin=and(lte("fechaFin",fechaFin),lte("horaFin","23:59:59"));
+    	filtroTiempo=and(lte("tiempo", tiempo));
     	filtroEmail=or(eq("email",email),eq("dni",email));
     	filtroIncidencia=and(filtroFechaInicio,filtroFechaFin,filtroEmail);
     	FindIterable<Document> fichajes=dbFichaje.find(filtroIncidencia);
-    	
+
     	for (Document doc : fichajes) {
     		String fichaje="";
     		for (String keys : doc.keySet()) {
@@ -167,11 +175,16 @@ public class DAOFichaje {
 			cont = cont + 1;
 			String fichajeInicio = doc.get("fechaInicio") + " " + doc.getString("horaInicio");
 			String fichajeFin = doc.get("fechaFin") + " " + doc.getString("horaFin");
-			String fichaje = fichajeInicio + " " + fichajeFin;
+			String tiempo = doc.getString("tiempo");
+			String fichaje = fichajeInicio + " - " + fichajeFin + " - " + tiempo;
 			resultado.put(cont.toString(), fichaje);
 
 		}
 		return resultado;
+	}
+	
+	public String toString() {
+		return null;
 	}
 
 }

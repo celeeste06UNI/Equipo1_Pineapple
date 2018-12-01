@@ -1,7 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-
+<title>Modificar Incidencia</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -10,8 +12,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<title>Modificar Usuario</title>
 
 <style type="text/css">
 *, *:before, *:after {
@@ -132,60 +132,63 @@ label.light {
 
 	<div class="row">
 		<div align="left" class="col-sm-2">
-			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atr�s</a>
+			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"></div>
 	</div>
+
 	<div class="container">
 		<div class="page-header">
-			<h1>Modificar Usuario</h1>
-		</div>
-		<div class="row">
-			<div class="col-sm-6" style="background-color: white;">
-				<form name='searchForm' action='/searchUser' method='POST'>
-
-					<fieldset>
-						<legend>
-							<span class="number">1</span>Introduzca el e-mail/dni del usuario
-						</legend>
-						<label for="name">Emai/DNI:</label> <input type="text"
-							name="email">
-						<button type="submit">Buscar</button>
-					</fieldset>
-				</form>
-			</div>
-			<div class="col-sm-6" style="background-color: white;">
-
-				<form name='updateForm' action='/editUser' method='POST'>
-
-					<fieldset>
-						<legend>
-							<span class="number">2</span>Modificar campos
-						</legend>
-						<input type="hidden" name="emailAntiguo" readonly value=${email} >
-						<label for="nombre">Nombre</label> <input type="text"
-							name="nombre" required autocomplete="off" value=${nombre} >
-						<label for="apellidos">Apellidos</label> <input type="text"
-							name="apellidos" required autocomplete="off" value=${apellidos} >
-						<label for="email">Email/dni</label> <input type="email"
-							name="emailNuevo" required autocomplete="off" value=${email} >
-						<label for="rolActual">Rol</label> <input type="text" readonly
-							name="rolActual" required autocomplete="off" value=${rol} >
-						<label>Roles Disponibles:</label> <input type="radio" id="admin"
-							value="admin" required autocomplete="off" name="rol"> <label
-							class="light" for="Administrador">Administrador</label><br>
-						<input type="radio" id="usuario" value="user" required
-							autocomplete="off" name="rol"> <label class="light"
-							for="Usuario">Usuario</label><br> <input type="radio"
-							id="gestor" value="incid" required autocomplete="off" name="rol">
-						<label class="light" for="Gestor">Gestor</label>
-					</fieldset>
-
-					<button type="submit">Actualizar</button>
-
-				</form>
-			</div>
+			<h1>Modificar Incidencia</h1>
 		</div>
 	</div>
+	<form name='IncidenciaForm' action='/updateIn' method='GET'>
+
+		<fieldset>
+			<legend>
+				<span class="number">1</span>Modificar Incidencia
+			</legend>
+			<label for="asunto">Asunto:</label>
+			<textarea class="form-control" rows="3" id="asunto" name="asunto">${asunto}</textarea>
+			<!-- <input type="text" required
+				autocomplete="off" name="asunto" value=${asunto}> -->
+			<label for="descripcion">Descripción:</label>
+			<textarea class="form-control" rows="5" id="descripcion"
+				name="descripcion">${descripcion}</textarea>
+			<!-- <input
+				type="textarea" required autocomplete="off" name="descripcion" value=${descripcion}> -->
+		</fieldset>
+		<fieldset>
+			<label for="estado">Estado</label>
+			<textarea readonly class="form-control" rows="2" id="estado"
+				name="estado">${estado}</textarea>
+
+
+
+			<label for="fechaMod">Fecha</label>
+			<textarea readonly class="form-control" rows="1" id="fecha"
+				name="fecha">${fecha}</textarea>
+			<!-- <input type="text" readonly
+  				name="EstadoActual" required autocomplete="off" value=${estado} > -->
+
+			<label for="tipoModi">Tipo</label>
+			<textarea readonly class="form-control" rows="2" id="tipoAn"
+				name="tipoAn">${tipo}</textarea>
+			<label>Tipos Disponibles:</label> <input type="radio" id="incidencia"
+				value="incidFich" required autocomplete="off" name="tipo"> <label
+				class="light" for="Incidencia">Incidencia por Fichaje</label><br>
+			<input type="radio" id="permisos" value="permisos" required
+				autocomplete="off" name="tipo"> <label class="light"
+				for="Permisos">Permisos</label><br> <input type="radio"
+				id="vacaciones" value="vacaciones" required autocomplete="off"
+				name="tipo"> <label class="light" for="Vacaciones">Vacaciones</label>
+		</fieldset>
+
+		<button type="submit">Actualizar</button>
+
+
+	</form>
+
 </body>
+</html>

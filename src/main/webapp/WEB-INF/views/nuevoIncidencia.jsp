@@ -122,59 +122,35 @@ label.light {
 </style>
 </head>
 <body>
-
-
-	<nav class="navbar navbar-default">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="/intime">InTime</a>
-		</div>
-		<ul class="nav navbar-nav">
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-
-					<li><a href="/newUser">Crear</a></li>
-					<li><a href="/deleteUser">Eliminar</a></li>
-					<li><a href="/updateUser">Modificar</a></li>
-				</ul></li>
-
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">Fichajes<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="/fichajeUser">Fichar</a></li>
-					<li><a href="/consultaFichaje">Consultar</a></li>
-
-				</ul></li>
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#">Gestión Incidencias <span
-					class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="#">Crear</a></li>
-					<li><a href="#">Eliminar</a></li>
-					<li><a href="#">Modificar</a></li>
-				</ul></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="/viewUpdatePassword"><span
-					class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
-			<li><a href="/cerrarSesion"><span
-					class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
-
-		</ul>
+	<div class="row">
+		<div class="col-sm-12"></div>
 	</div>
-	</nav>
 
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
+
+	<div class="row">
+		<div align="left" class="col-sm-2">
+			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
+		</div>
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8"></div>
+	</div>
+	
+	<div class="container">
+		<div class="page-header">
+			<h1>Nueva Incidencia</h1>
+		</div>
+	</div>
 
 	<form name='IncidenciaForm' action='/saveIncidencia' method='POST'>
-		<h1>Nueva Incidencia</h1>
 		<fieldset>
 			<legend>
 				<span class="number">1</span>Información básica
 			</legend>
 			<label for="name">Asunto:</label> <input type="text" required
-				autocomplete="off" name="asunto"> 
-			<label for="name">Descripción:</label><input
+				autocomplete="off" name="asunto"> <label for="name">Descripción:</label><input
 				type="text" required autocomplete="off" name="descripcion">
 		</fieldset>
 
@@ -182,13 +158,14 @@ label.light {
 			<legend>
 				<span class="number">2</span>Seleccionar el tipo
 			</legend>
-			<label>Tipos:</label>
-			<input type="radio" id="incidFich" value="incidFich" required autocomplete="off" name="tipo"> 
-			<label class="light" for="incidFich">Incidencia de Fichaje</label><br> 
-			<input type="radio" id="vacaciones" value="vacaciones" required autocomplete="off" name="tipo"> 
-			<label class="light" for="vacaciones">Vacaciones</label><br>
-			<input type="radio" id="perimisos" value="permisos" required autocomplete="off" name="tipo"> 
-			<label class="light" for="perimisos">Permisos</label>
+			<label>Tipos:</label> <input type="radio" id="incidFich"
+				value="incidFich" required autocomplete="off" name="tipo"> <label
+				class="light" for="incidFich">Incidencia de Fichaje</label><br>
+			<input type="radio" id="vacaciones" value="vacaciones" required
+				autocomplete="off" name="tipo"> <label class="light"
+				for="vacaciones">Vacaciones</label><br> <input type="radio"
+				id="permisos" value="permisos" required autocomplete="off"
+				name="tipo"> <label class="light" for="permisos">Permisos</label>
 		</fieldset>
 
 		<button type="submit">Crear</button>

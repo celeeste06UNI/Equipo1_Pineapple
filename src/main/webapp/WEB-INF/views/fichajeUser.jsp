@@ -86,6 +86,7 @@ button {
 	margin-bottom: 10px;
 }
 
+
 fieldset {
 	margin-bottom: 10px;
 	border: none;
@@ -128,48 +129,22 @@ label.light {
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/intime">InTime</a>
-			</div>
-			<ul class="nav navbar-nav">
-			
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
-					<ul class="dropdown-menu">
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
 
-						<li><a href="/newUser">Crear</a></li>
-						<li><a href="/deleteUser">Eliminar</a></li>
-						<li><a href="/updateUser">Modificar</a></li>
-					</ul></li>
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
 
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Fichajes<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="/fichajeUser">Fichar</a></li>
-						<li><a href="/consultaFichaje">Consultar</a></li>
-
-					</ul></li>
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Gestión Incidencias <span
-						class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Crear</a></li>
-						<li><a href="#">Eliminar</a></li>
-						<li><a href="#">Modificar</a></li>
-					</ul></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/viewUpdatePassword"><span
-						class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
-				<li><a href="/cerrarSesion"><span
-						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
-
-			</ul>
+	<div class="row">
+		<div align="left" class="col-sm-2">
+			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
 		</div>
-	</nav>
-
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8"></div>
+	</div>
+	
 	<div class="container">
 		<div class="page-header">
 			<h1>Gestor de Fichajes</h1>
@@ -180,8 +155,12 @@ label.light {
 					<legend>
 						<span class="number">1</span>Fichajes
 					</legend>
-					<button><a style="color:#FFFFFF" href="/abrirFichaje">abrir</a></button>
-					<button><a style="color:#FFFFFF" href="/cerrarFichaje">cerrar</a></button>
+					<button>
+						<a style="color: #FFFFFF" href="/abrirFichaje">abrir</a>
+					</button>
+					<button>
+						<a style="color: #FFFFFF" href="/cerrarFichaje">cerrar</a>
+					</button>
 				</fieldset>
 
 			</div>
@@ -193,8 +172,10 @@ label.light {
 						<legend>
 							<span class="number">2</span>Consultar mis Fichajes
 						</legend>
-						<label for="name">Introduzca la fecha:<br></label> <input
-							placeholder="yyyy/MM/dd" type="text" name="fecha">
+						<label for="fechaI">Introduzca la fecha inicio:<br></label> <input
+							placeholder="yyyy/MM/dd" type="text" name="fechaI"> <label
+							for="fechaF">Introduzca la fecha fin:<br></label> <input
+							placeholder="yyyy/MM/dd" type="text" name="fechaF">
 
 						<button type="submit">Buscar</button>
 					</fieldset>
@@ -206,8 +187,7 @@ label.light {
 		<table class="table table-hover">
 			<p>Fecha de los fichajes</p>
 			<!-- <th>Id</th> -->
-			<th>Fecha de apertura / Fecha de cierre</th>
-
+			<th>Email - Fecha de apertura - Fecha de cierre - Tiempo trabajado</th>
 			<c:forEach var="fechaDelFichaje" items="${listDate}">
 				<tr>
 					<td>${fechaDelFichaje}</td>

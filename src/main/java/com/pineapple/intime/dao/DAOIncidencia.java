@@ -7,11 +7,10 @@ import org.bson.conversions.Bson;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.pineapple.intime.model.Incidencia;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
-import com.pineapple.intime.model.Incidencia;
-
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.or;
 import static com.mongodb.client.model.Filters.and;
@@ -63,14 +62,17 @@ public class DAOIncidencia {
 		}
 	}
 	
+
 	public static boolean insert(Document incidencia) {
-		boolean insertado=false;
-		//if(DAOEmpleado.buscarEmpleado((String) incidencia.get("email"))) {
-			dbIncidencia.insertOne(incidencia);
-			//insertado=true;
-		//}
+		boolean insertado = false;
+		// if(DAOEmpleado.buscarEmpleado((String) incidencia.get("email"))) {
+		dbIncidencia.insertOne(incidencia);
+		// insertado=true;
+		// }
 		return insertado;
 	}
+
+
 	
 	public static ArrayList<Incidencia> consultar(String email,String tipo,String rol){
 		ArrayList<Incidencia> result=new ArrayList<Incidencia> ();
@@ -93,6 +95,7 @@ public class DAOIncidencia {
 		//	result.put(0, new Document("email","error"));
 		//}
 		return result;
+
 	}
 	
 

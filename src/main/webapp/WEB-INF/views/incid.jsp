@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Gestor Incidencias</title>
+<title>Gestor de Incidencias</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -16,10 +16,10 @@
 
 <style type="text/css">
 .login-block {
-	background: #DE6262; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to bottom, #FF0000, #FE2E2E);
+	background: #FFFFFF; */ /* fallback for old browsers */
+	/* background: -webkit-linear-gradient(to bottom, #FF0000, #FE2E2E);
 	/* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to bottom, #FF0000, #FE2E2E);
+	/* background: linear-gradient(to bottom, #FF0000, #FE2E2E); */
 	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	float: left;
 	width: 100%;
@@ -38,7 +38,8 @@
 .container {
 	background: #fff;
 	border-radius: 10px;
-	box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1);
+	margin-top: 80px;
+	/* box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1); */
 }
 
 .carousel-inner {
@@ -82,7 +83,7 @@
 	content: " ";
 	width: 100px;
 	height: 5px;
-	background: #FEB58A;
+	background: #fff;
 	display: block;
 	margin-top: 20px;
 	border-radius: 3px;
@@ -125,36 +126,68 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/intime">InTime</a>
+	<div class="container">
+		<div class="row" style="margin-bottom: 5px">
+			<div class="col-md-8" align="left">
+				
+				<div class="btn-group">
+
+					<button type="button" class="btn dropdown-toggle"
+						data-toggle="dropdown">
+						Fichajes <span class="caret"></span>
+					</button>
+
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="/fichajeUser">Fichar</a></li>
+						<li><a href="/consultaFichaje">Consultar</a></li>
+					</ul>
+				</div>
+				<div class="btn-group">
+					<button type="button" class="btn dropdown-toggle"
+						data-toggle="dropdown">
+						Gestion Incidencias<span class="caret"></span>
+					</button>
+
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="/nuevoIncidencia">Crear</a></li>
+						<li><a href="/consultarIncidenciaUser">Eliminar/Modificar</a></li>
+					</ul>
+				</div>
+				<div class="btn-group">
+					<button type="button" class="btn dropdown-toggle"
+						data-toggle="dropdown">
+						Resolver Incidencias <span class="caret"></span>
+					</button>
+
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="/resolverIncidencia">Visulizar</a></li>
+					</ul>
+				</div>
 			</div>
-			<ul class="nav navbar-nav">
-				<li><a href="/fichajeUser">Fichajes</a></li>
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Gestión Incidencias <span
-						class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Crear</a></li>
-						<li><a href="#">Eliminar</a></li>
-						<li><a href="#">Modificar</a></li>
-					</ul></li>
-				<li><a href="#">Resolución Incidencias</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/cerrarSesion"><span
-						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
-			</ul>
+			<div class="col-md-4" align="right">
+				<button type="button" class="btn dropdown-toggle">
+					<a style="color: black" href="/viewUpdatePassword">Modificar
+						Contraseña</a>
+				</button>
+				<button type="button" class="btn dropdown-toggle">
+					<a style="color: black" href="/cerrarSesion">Cerrar Sesión
+				</button>
+			</div>
 		</div>
-	</nav>
+
+
+	</div>
 
 	<section class="login-block">
-		<div class="container">
+
+		<!-- class="login-block" -->
+		<div class="container"
+			style="background-color: #E36B6C; margin-top: 0px">
+
 			<div class="row">
 				<div class="col-md-4 login-sec">
-					<h2 class="text-center">Gestión de Incidencias</h2>
-					<div class="copy-text">Pineapple</div>
+					<h2 class="text-center" style="color: #fff">Gestor de Incidencias</h2>
+					<h6 class="text-center" style="color: #fff">Pineapple</h6>
 				</div>
 				<div class="col-md-8 banner-sec">
 

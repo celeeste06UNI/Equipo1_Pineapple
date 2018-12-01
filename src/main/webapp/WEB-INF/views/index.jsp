@@ -15,10 +15,10 @@
 
 <style type="text/css">
 .login-block {
-	background: #DE6262; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to bottom, #FF0000, #FE2E2E);
+	background: #E36B6C; /* fallback for old browsers */
+	/* background: -webkit-linear-gradient(to bottom, #FF0000, #FE2E2E); */
 	/* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to bottom, #FF0000, #FE2E2E);
+	/* background: linear-gradient(to bottom, #FF0000, #FE2E2E); */
 	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	float: left;
 	width: 100%;
@@ -150,8 +150,7 @@
 
 
 						<div class="form-check">
-							<a><span style="color:red"> ${correcto}</span>
-								</a>
+							<a><span style="color:red">${correcto}</span></a>
 							
 							<button id="botonEntrar" type="submit"
 								class="btn btn-login float-right">Enviar</button>
