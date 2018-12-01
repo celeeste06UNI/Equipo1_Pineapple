@@ -97,7 +97,7 @@ public class DAOFichaje {
 
 				fichajeNuevo.put("fechaFin", cierreFichaje.get("fechaFin"));
 				fichajeNuevo.put("horaFin", cierreFichaje.get("horaFin"));
-				fichajeNuevo.put("tiempo",CalculoTiempo(cierreFichaje.get("horaInicio"), cierreFichaje.get("horaFin")));
+				fichajeNuevo.put("tiempo",CalculoTiempo(cierreFichaje.get("horaFin"), cierreFichaje.get("horaInicio")));
 				dbTest.insertOne(fichajeNuevo);
 				Bson fichajeCerrado = null;
 				fichajeCerrado = combine(set("email", email), set("estado", "cerrado"), set("fechaInicio", ""),
@@ -122,7 +122,8 @@ public class DAOFichaje {
 			cont = cont + 1;
 			String fichajeInicio = doc.get("fechaInicio") + " " + doc.getString("horaInicio");
 			String fichajeFin = doc.get("fechaFin") + " " + doc.getString("horaFin");
-			String fichaje = fichajeInicio + " - " + fichajeFin;
+			String tiempo = doc.getString("tiempo");
+			String fichaje = fichajeInicio + " - " + fichajeFin + " - " + tiempo ;
 			resultado.put(cont.toString(), fichaje);
 
 		}
@@ -141,7 +142,8 @@ public class DAOFichaje {
 			cont = cont + 1;
 			String fichajeInicio = doc.get("fechaInicio") + " " + doc.getString("horaInicio");
 			String fichajeFin = doc.get("fechaFin") + " " + doc.getString("horaFin");
-			String fichaje = fichajeInicio + " " + fichajeFin;
+			String tiempo = doc.getString("tiempo");
+			String fichaje = fichajeInicio + " - " + fichajeFin + " - " + tiempo ;
 			resultado.put(cont.toString(), fichaje);
 
 		}
