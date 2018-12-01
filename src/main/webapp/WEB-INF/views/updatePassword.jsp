@@ -122,6 +122,21 @@ label.light {
 </style>
 </head>
 <body>
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
+
+	<div class="row">
+		<div align="left" class="col-sm-2">
+			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
+		</div>
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8"></div>
+	</div>
 
 	<div class="container">
 		<div class="page-header">
@@ -136,8 +151,8 @@ label.light {
 					class="form-control" required autocomplete="off" placeholder="">
 			</div>
 			<div class="form-group">
-				<label for="exampleInputPassword1" class="text-uppercase">Contraseña Nueva</label>
-				<input name="passwordNueva" type="password" required
+				<label for="exampleInputPassword1" class="text-uppercase">Contraseña
+					Nueva</label> <input name="passwordNueva" type="password" required
 					autocomplete="off" class="form-control" placeholder="">
 			</div>
 			<button type="submit">Modificar</button>

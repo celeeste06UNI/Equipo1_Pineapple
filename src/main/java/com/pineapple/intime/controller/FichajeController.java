@@ -18,7 +18,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.pineapple.intime.dao.DAOFichaje;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'develop_celeste' of https://github.com/celeeste06UNI/Equipo1_Pineapple.git
 @Controller
 public class FichajeController {
 
@@ -35,10 +38,11 @@ public class FichajeController {
 	}
 
 	@RequestMapping(value = "/abrirFichaje", method = RequestMethod.GET)
-	public String abrirFichaje(ModelAndView model,HttpServletRequest request) {
+	public String abrirFichaje(ModelAndView model, HttpServletRequest request) {
 		boolean fichado;
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
+		String dni = (String) session.getAttribute("emailSession");
 		fichado = DAOFichaje.abrirFichaje(email);
 		model.addObject("fichado", fichado);
 		return "fichajeUser";
@@ -49,36 +53,32 @@ public class FichajeController {
 		boolean fichado;
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
+		String dni = (String) session.getAttribute("emailSession");
 		fichado = DAOFichaje.cerrarFichaje(email);
 		model.addObject("fichado", fichado);
 		return "fichajeUser";
 	}
-	
+
 	@RequestMapping(value = "/searchFichaje", method = RequestMethod.GET)
-	public ModelAndView searchFichaje(@ModelAttribute("fecha") String fecha, ModelAndView model, HttpServletRequest request) {
-		ArrayList<String> listDate= new ArrayList<String>();
+	public ModelAndView searchFichaje(@ModelAttribute("fechaI") String fechaI, @ModelAttribute("fechaF") String fechaF,
+			ModelAndView model, HttpServletRequest request) {
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
-		Document Document = DAOFichaje.consultarFichajes(email, fecha);
-		for(Integer i = 1; i<Document.keySet().size();i++) {
-			listDate.add((String) Document.get(""+i+""));
-		}
-		model.addObject("listDate", listDate);
+		ArrayList<String> result = DAOFichaje.consultarFichajes(email, fechaI, fechaF);
+		model.addObject("listDate", result);
 		model.setViewName("fichajeUser");
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/searchFichajeOtro", method = RequestMethod.GET)
-	public ModelAndView searchFichajeOtro(@ModelAttribute("fecha") String fecha,
-			@ModelAttribute("emailFichaje") String emailFichaje,
-			ModelAndView model, HttpServletRequest request) {
-		ArrayList<String> listDate= new ArrayList<String>();
-		Document Document = DAOFichaje.consultarFichajes(emailFichaje, fecha);
-		for(Integer i = 1; i<Document.keySet().size();i++) {
-			listDate.add((String) Document.get(""+i+""));
-		}
-		model.addObject("listDate", listDate);
+	public ModelAndView searchFichajeOtro(@ModelAttribute("fechaIn") String fechaIn,
+			@ModelAttribute("emailF") String emailF, @ModelAttribute("fechaFi") String fechaFi, ModelAndView model,
+			HttpServletRequest request) {
+		ArrayList<String> result = DAOFichaje.consultarFichajes(emailF, fechaIn, fechaFi);
+		model.addObject("listDateOtro", result);
 		model.setViewName("consultaFichaje");
+		//LAS QUE TIENEN FECHA DE AYER NO ME LAS MUESTRA... Y SOLO ME MUESTRA LAS DE UN DIA 
 		return model;
 	}
+
 }

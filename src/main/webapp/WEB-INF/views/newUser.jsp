@@ -3,6 +3,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script type="text/javascript">
+	function pregunta() {
+		if (confirm("¿Desea guardar el usuario?")) {
+			document.loginForm.submit()
+		}
+	}
+</script>
 <title>Nuevo Usuario</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -122,58 +129,35 @@ label.light {
 </style>
 </head>
 <body>
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
 
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
 
-<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/intime">InTime</a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-
-						<li><a href="/newUser">Crear</a></li>
-						<li><a href="/deleteUser">Eliminar</a></li>
-						<li><a href="/updateUser">Modificar</a></li>
-					</ul></li>
-
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Fichajes<span
-						class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="/fichajeUser">Fichar</a></li>
-						<li><a href="/consultaFichaje">Consultar</a></li>
-
-					</ul></li>
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Gestión Incidencias <span
-						class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Crear</a></li>
-						<li><a href="#">Eliminar</a></li>
-						<li><a href="#">Modificar</a></li>
-					</ul></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/viewUpdatePassword"><span
-						class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
-				<li><a href="/cerrarSesion"><span
-						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
-
-			</ul>
+	<div class="row">
+		<div align="left" class="col-sm-2">
+			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
 		</div>
-	</nav>
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8"></div>
+	</div>
 
+	<div class="container">
+		<div class="page-header">
+			<h1>Nuevo Usuario</h1>
+		</div>
+	</div>
 
 	<form name='loginForm' action='/saveUser' method='POST'>
-		<h1>Registro</h1>
 		<fieldset>
 			<legend>
 				<span class="number">1</span>Información básica
 			</legend>
-			<label for="name">Nombre:</label> <input type="text" required
+			<label for="dni">DNI:</label> <input type="text" required
+				autocomplete="off" name="dni"><label for="name">Nombre:</label> <input type="text" required
 				autocomplete="off" name="nombre"> <label for="name">Apellido:</label><input
 				type="text" required autocomplete="off" name="apellidos"> <label
 				for="mail">Email:</label> <input type="email" required
@@ -193,8 +177,8 @@ label.light {
 				autocomplete="off" name="rol"> <label class="light"
 				for="Gestor">Gestor</label>
 		</fieldset>
-
-		<button type="submit">Registrar</button>
+		<input type="button" onclick="pregunta()" value="Registrar">
+		<!-- 		<button type="submit">Registrar</button> -->
 
 	</form>
 

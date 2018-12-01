@@ -6,7 +6,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<script type="text/javascript">
+	function pregunta() {
+		if (confirm("¿Desea consultar los fichajes?")) {
+			document.searchForm.submit()
+		}
+	}
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -128,61 +134,38 @@ label.light {
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/intime">InTime</a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
-					<ul class="dropdown-menu">
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
 
-						<li><a href="/newUser">Crear</a></li>
-						<li><a href="/deleteUser">Eliminar</a></li>
-						<li><a href="/updateUser">Modificar</a></li>
-					</ul></li>
+	<div class="row">
+		<div class="col-sm-12"></div>
+	</div>
 
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Fichajes<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="/fichajeUser">Fichar</a></li>
-						<li><a href="/consultaFichaje">Consultar</a></li>
-
-					</ul></li>
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Gestión Incidencias <span
-						class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Crear</a></li>
-						<li><a href="#">Eliminar</a></li>
-						<li><a href="#">Modificar</a></li>
-					</ul></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/viewUpdatePassword"><span
-						class="glyphicon glyphicon-pencil"></span> Modificar Contraseña</a></li>
-				<li><a href="/cerrarSesion"><span
-						class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
-
-			</ul>
+	<div class="row">
+		<div align="left" class="col-sm-2">
+			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
 		</div>
-	</nav>
-
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8"></div>
+	</div>
 	<div class="container">
 		<div class="page-header">
-			<h1>Gestor de Fichajes</h1>
+			<h1>Consulta de Fichajes</h1>
 		</div>
-		<form name='searchForm' action='/searchFichajeOtro' method='GET'>
+		<form name='searchFichaje' action='/searchFichajeOtro' method='GET'>
 
 			<fieldset>
 				<legend>
 					<span class="number">1</span>Consultar Fichajes
 				</legend>
-				<label for="name">Introduzca el email:<br></label> <input
-							placeholder="" type="email" name="emailFichaje">
-				<label for="name">Introduzca la fecha:<br></label> <input
-							placeholder="yyyy/MM/dd" type="text" name="fecha">
+				<label for="emailF">Email:<br></label> <input
+					placeholder="email" type="text" name="emailF"><label
+					for="fechaI">Introduzca la fecha inicio:<br></label> <input
+					placeholder="yyyy/MM/dd" type="text" name="fechaIn"> <label
+					for="fechaF">Introduzca la fecha fin:<br></label> <input
+					placeholder="yyyy/MM/dd" type="text" name="fechaFi">
+
 				<button type="submit">Buscar</button>
 			</fieldset>
 		</form>
@@ -192,14 +175,14 @@ label.light {
 			<p>Fecha de los fichajes</p>
 			<!-- <th>Id</th> -->
 			<th>Fecha de apertura / Fecha de cierre</th>
-
-			<c:forEach var="fechaDelFichaje" items="${listDate}">
+			<c:forEach var="fechaDelFichaje" items="${listDateOtro}">
 				<tr>
 					<td>${fechaDelFichaje}</td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
+
 	<div class="col-sm-6" style="background-color: white;"></div>
 
 </body>

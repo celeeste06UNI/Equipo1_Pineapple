@@ -3,10 +3,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<c:set var="cp" value="${pageContext.request.contextPath}"
+	scope="request" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
 <head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>consultar incidencia</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -15,9 +18,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<title>Realizar Fichaje</title>
-
 <style type="text/css">
 *, *:before, *:after {
 	-moz-box-sizing: border-box;
@@ -86,7 +86,6 @@ button {
 	margin-bottom: 10px;
 }
 
-
 fieldset {
 	margin-bottom: 10px;
 	border: none;
@@ -139,60 +138,62 @@ label.light {
 
 	<div class="row">
 		<div align="left" class="col-sm-2">
-			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
+			&nbsp&nbsp<a style="color:#cc0000" href="/intime">atrás</a>
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"></div>
 	</div>
-	
+
 	<div class="container">
 		<div class="page-header">
-			<h1>Gestor de Fichajes</h1>
+			<h1>Consultar Incidencias</h1>
 		</div>
-		<div class="row">
-			<div class="col-sm-6" style="background-color: white;">
-				<fieldset>
-					<legend>
-						<span class="number">1</span>Fichajes
-					</legend>
-					<button>
-						<a style="color: #FFFFFF" href="/abrirFichaje">abrir</a>
-					</button>
-					<button>
-						<a style="color: #FFFFFF" href="/cerrarFichaje">cerrar</a>
-					</button>
-				</fieldset>
+		<form name='searchForm' action='/buscarIncidenciaTipo' method='GET'>
 
-			</div>
-			<div class="col-sm-6" style="background-color: white;">
-
-				<form name='searchFichaje' action='/searchFichaje' method='GET'>
-
-					<fieldset>
-						<legend>
-							<span class="number">2</span>Consultar mis Fichajes
-						</legend>
-						<label for="fechaI">Introduzca la fecha inicio:<br></label> <input
-							placeholder="yyyy/MM/dd" type="text" name="fechaI"> <label
-							for="fechaF">Introduzca la fecha fin:<br></label> <input
-							placeholder="yyyy/MM/dd" type="text" name="fechaF">
-
-						<button type="submit">Buscar</button>
-					</fieldset>
-				</form>
-			</div>
-		</div>
+			<fieldset>
+				<legend>
+					<span class="number">2</span>Seleccionar el tipo
+				</legend>
+				<label>Tipos:</label> <input type="radio" id="incidFich"
+					value="incidFich" required autocomplete="off" name="tipo">
+				<label class="light" for="incidFich">Incidencia de Fichaje</label><br>
+				<input type="radio" id="vacaciones" value="vacaciones" required
+					autocomplete="off" name="tipo"> <label class="light"
+					for="vacaciones">Vacaciones</label><br> <input type="radio"
+					id="permisos" value="permisos" required autocomplete="off"
+					name="tipo"> <label class="light" for="permisos">Permisos</label>
+			</fieldset>
+			<button type="submit">Buscar</button>
+		</form>
 	</div>
+
 	<div class="container" align="left">
 		<table class="table table-hover">
-			<p>Fecha de los fichajes</p>
-			<!-- <th>Id</th> -->
-			<th>Email - Fecha de apertura - Fecha de cierre</th>
-			<c:forEach var="fechaDelFichaje" items="${listDate}">
+			<p>Incidencias según el tipo seleccionado</p>
+
+			<th>estado</th>
+			<th>asunto</th>
+			<th>descripcion</th>
+			<th>tipo</th>
+			<th>fecha</th>
+			<th>Editar-Modificar</th>
+
+			<c:forEach var="fichaje" items="${listIncidencia}">
 				<tr>
-					<td>${fechaDelFichaje}</td>
+					<td>${fichaje.estado}</td>
+					<td>${fichaje.asunto}</td>
+					<td>${fichaje.descripcion}</td>
+					<td>${fichaje.tipo}</td>
+					<td>${fichaje.fecha}</td>
+					<td><a
+						href="<c:url value='/editIncidencias?email=${fichaje.email}&estado=${fichaje.estado}&asunto=${fichaje.asunto}&descripcion=${fichaje.descripcion}&tipo=${fichaje.tipo}&fecha=${fichaje.fecha}' />">Editar</a>
+						- <a
+						href="<c:url value='/deleteIncidencias?email=${fichaje.email}&estado=${fichaje.estado}&asunto=${fichaje.asunto}&descripcion=${fichaje.descripcion}&tipo=${fichaje.tipo}&fecha=${fichaje.fecha}' />">Eliminar</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
+
+	<div class="col-sm-6" style="background-color: white;"></div>
+
 </body>

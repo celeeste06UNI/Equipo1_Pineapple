@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <html>
@@ -148,8 +150,8 @@
 
 
 						<div class="form-check">
-							<label class="form-check-label"><small>"${correcto}"</small>
-							</label>
+							<a><span style="color:red">${correcto}</span></a>
+							
 							<button id="botonEntrar" type="submit"
 								class="btn btn-login float-right">Enviar</button>
 						</div>

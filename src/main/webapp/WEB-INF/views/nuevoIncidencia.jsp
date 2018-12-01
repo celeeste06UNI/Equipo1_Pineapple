@@ -1,12 +1,9 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-
+<title>Nueva Incidencia</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -15,8 +12,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<title>Realizar Fichaje</title>
 
 <style type="text/css">
 *, *:before, *:after {
@@ -45,8 +40,7 @@ h1 {
 
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"],
 	input[type="email"], input[type="number"], input[type="search"], input[type="tel"],
-	input[type="time"], input[type="url"], input[type="mes"], textarea,
-	select {
+	input[type="time"], input[type="url"], textarea, select {
 	background: rgba(255, 255, 255, 0.1);
 	border: none;
 	font-size: 16px;
@@ -85,7 +79,6 @@ button {
 	box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
 	margin-bottom: 10px;
 }
-
 
 fieldset {
 	margin-bottom: 10px;
@@ -147,52 +140,38 @@ label.light {
 	
 	<div class="container">
 		<div class="page-header">
-			<h1>Gestor de Fichajes</h1>
-		</div>
-		<div class="row">
-			<div class="col-sm-6" style="background-color: white;">
-				<fieldset>
-					<legend>
-						<span class="number">1</span>Fichajes
-					</legend>
-					<button>
-						<a style="color: #FFFFFF" href="/abrirFichaje">abrir</a>
-					</button>
-					<button>
-						<a style="color: #FFFFFF" href="/cerrarFichaje">cerrar</a>
-					</button>
-				</fieldset>
-
-			</div>
-			<div class="col-sm-6" style="background-color: white;">
-
-				<form name='searchFichaje' action='/searchFichaje' method='GET'>
-
-					<fieldset>
-						<legend>
-							<span class="number">2</span>Consultar mis Fichajes
-						</legend>
-						<label for="fechaI">Introduzca la fecha inicio:<br></label> <input
-							placeholder="yyyy/MM/dd" type="text" name="fechaI"> <label
-							for="fechaF">Introduzca la fecha fin:<br></label> <input
-							placeholder="yyyy/MM/dd" type="text" name="fechaF">
-
-						<button type="submit">Buscar</button>
-					</fieldset>
-				</form>
-			</div>
+			<h1>Nueva Incidencia</h1>
 		</div>
 	</div>
-	<div class="container" align="left">
-		<table class="table table-hover">
-			<p>Fecha de los fichajes</p>
-			<!-- <th>Id</th> -->
-			<th>Email - Fecha de apertura - Fecha de cierre</th>
-			<c:forEach var="fechaDelFichaje" items="${listDate}">
-				<tr>
-					<td>${fechaDelFichaje}</td>
-				</tr>
-			</c:forEach>
-		</table>
-	</div>
+
+	<form name='IncidenciaForm' action='/saveIncidencia' method='POST'>
+		<fieldset>
+			<legend>
+				<span class="number">1</span>Información básica
+			</legend>
+			<label for="name">Asunto:</label> <input type="text" required
+				autocomplete="off" name="asunto"> <label for="name">Descripción:</label><input
+				type="text" required autocomplete="off" name="descripcion">
+		</fieldset>
+
+		<fieldset>
+			<legend>
+				<span class="number">2</span>Seleccionar el tipo
+			</legend>
+			<label>Tipos:</label> <input type="radio" id="incidFich"
+				value="incidFich" required autocomplete="off" name="tipo"> <label
+				class="light" for="incidFich">Incidencia de Fichaje</label><br>
+			<input type="radio" id="vacaciones" value="vacaciones" required
+				autocomplete="off" name="tipo"> <label class="light"
+				for="vacaciones">Vacaciones</label><br> <input type="radio"
+				id="permisos" value="permisos" required autocomplete="off"
+				name="tipo"> <label class="light" for="permisos">Permisos</label>
+		</fieldset>
+
+		<button type="submit">Crear</button>
+
+	</form>
+
+
 </body>
+</html>
