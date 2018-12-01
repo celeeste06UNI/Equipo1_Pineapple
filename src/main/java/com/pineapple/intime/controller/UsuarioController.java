@@ -193,7 +193,7 @@ public class UsuarioController {
 	@RequestMapping(value = "/deleteSearchUser", method = RequestMethod.POST)
 	public ModelAndView deleteSearchUser(ModelAndView model, @ModelAttribute("email") String email) {
 		Document empleado = new Document();
-		//String emailLowerCase=email.toLowerCase(new Locale("en", "EN"));
+		String emailLowerCase=email.toLowerCase(new Locale("en", "EN"));
 		try {
 			empleado = DAOEmpleado.cargarEmpleado(email);
 			model.addObject("nombre", empleado.get("nombre"));

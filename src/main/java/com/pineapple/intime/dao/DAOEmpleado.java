@@ -35,6 +35,7 @@ public class DAOEmpleado {
 		filtroEmail = or(eq("email", empleado.get("email")),eq("dni",empleado.get("dni")));
 		Document empleadoRol = new Document();
 		empleadoRol.append("email", empleado.get("email"));
+		empleadoRol.append("dni", empleado.get("dni"));
 		empleadoRol.append("rol", empleado.get("rol"));
 		empleado.remove("rol");
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
@@ -130,12 +131,10 @@ public class DAOEmpleado {
 	/* CARGAR DATOS DE UN EMPLEADO */
 	public static Document cargarEmpleado(String emp) {
 		Bson filtroEmail = null;
-		Bson filtroRol=null;
 		
 		filtroEmail = or(eq("email", emp),eq("dni",emp));
-		filtroRol=eq("email",emp);
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
-		FindIterable<Document> rol = dbRol.find(filtroRol);
+		FindIterable<Document> rol = dbRol.find(filtroEmail);
 
 		Document empleado = new Document();
 		//if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
