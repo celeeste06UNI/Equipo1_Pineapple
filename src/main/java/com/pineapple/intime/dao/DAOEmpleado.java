@@ -53,7 +53,7 @@ public class DAOEmpleado {
 		Bson filtroEmail = null;
 		filtroEmail = or(eq("email", empleado.get("email")),eq("dni",empleado.get("dni")));
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
-		FindIterable<Document> rol = dbEmpleado.find(filtroEmail);
+		FindIterable<Document> rol = dbRol.find(filtroEmail);
 		if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
 			DeleteResult drDatos = dbEmpleado.deleteMany(filtroEmail);
 			DeleteResult drRol = dbRol.deleteMany(filtroEmail);
@@ -77,7 +77,7 @@ public class DAOEmpleado {
 		filtroEmail = or(eq("email", email),eq("dni",email));
 		
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
-		FindIterable<Document> rol = dbEmpleado.find(filtroEmail);
+		FindIterable<Document> rol = dbRol.find(filtroEmail);
 		boolean actualizado = false;
 		if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
 			UpdateResult urDatos = dbEmpleado.updateMany(filtroEmail, updateDatos);
