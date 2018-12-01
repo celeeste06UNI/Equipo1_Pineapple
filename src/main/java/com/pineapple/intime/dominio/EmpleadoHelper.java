@@ -166,7 +166,7 @@ public class EmpleadoHelper {
 		Date Dateapertura = dateFormat.parse((String) apertura);
 		Date DateCierre = dateFormat.parse((String) cierre);
 		
-		int tiempo = (int) (((Dateapertura).getTime() - (DateCierre).getTime())/1000);
+		int tiempo = (int) ((((Dateapertura).getTime() - (DateCierre).getTime())/1000)/3600);
 		
 		String segundos = Integer.toString(tiempo);
 		

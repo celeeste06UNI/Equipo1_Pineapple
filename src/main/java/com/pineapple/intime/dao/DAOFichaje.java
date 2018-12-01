@@ -171,8 +171,8 @@ public class DAOFichaje {
 			cont = cont + 1;
 			String fichajeInicio = doc.get("fechaInicio") + " " + doc.getString("horaInicio");
 			String fichajeFin = doc.get("fechaFin") + " " + doc.getString("horaFin");
-			String tiempo = doc.getString("tiempo");
-			String fichaje = fichajeInicio + " - " + fichajeFin + " - " + tiempo + " segundos ";
+			String tiempo = doc.getString("tiempo") + " horas ";
+			String fichaje = fichajeInicio + " - " + fichajeFin + " - " + tiempo + " horas ";
 			resultado.put(cont.toString(), fichaje);
 
 		}
