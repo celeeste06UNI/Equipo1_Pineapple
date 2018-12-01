@@ -138,12 +138,12 @@ public class DAOEmpleado {
 		FindIterable<Document> rol = dbRol.find(filtroRol);
 
 		Document empleado = new Document();
-		if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
+		//if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
 			empleado = datosPersonales.iterator().next();
 			empleado.put("rol", rol.iterator().next().get("rol"));
-		} else {
-			empleado.put("email", "error");
-		}
+		//} else {
+			//empleado.put("email", "error");
+		//}
 		return empleado;
 	}
 
