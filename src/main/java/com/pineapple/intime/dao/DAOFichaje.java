@@ -97,7 +97,7 @@ public class DAOFichaje {
 
 				fichajeNuevo.put("fechaFin", cierreFichaje.get("fechaFin"));
 				fichajeNuevo.put("horaFin", cierreFichaje.get("horaFin"));
-				fichajeNuevo.put("tiempo", cierreFichaje.get(CalculoTiempo(cierreFichaje.getString("horaInicio"), horaFin)));
+				fichajeNuevo.put("tiempo", cierreFichaje.get(CalculoTiempo(cierreFichaje.get("horaInicio"), cierreFichaje.get("horaFin"))));
 				dbTest.insertOne(fichajeNuevo);
 				Bson fichajeCerrado = null;
 				fichajeCerrado = combine(set("email", email), set("estado", "cerrado"), set("fechaInicio", ""),
@@ -152,12 +152,12 @@ public class DAOFichaje {
 		return null;
 	}
 	
-	public static String CalculoTiempo (String apertura, String cierre) throws ParseException {
+	public static String CalculoTiempo (Object apertura, Object cierre) throws ParseException {
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 		
-		Date apertura2 = dateFormat.parse(apertura);
-		Date cierre2 = dateFormat.parse(cierre);
+		Date apertura2 = dateFormat.parse((String) apertura);
+		Date cierre2 = dateFormat.parse((String) cierre);
 		
 		int tiempo = (int) (((apertura2).getTime() - (cierre2).getTime())/1000);
 		
