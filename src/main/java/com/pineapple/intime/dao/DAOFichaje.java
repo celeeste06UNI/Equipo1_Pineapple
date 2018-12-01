@@ -21,7 +21,7 @@ import static com.mongodb.client.model.Filters.in;
 
 public class DAOFichaje {
 	private static MongoCollection<Document> dbEstadoFichaje = MongoBroker.get().getCollection("EstadoFichaje");
-	private static MongoCollection<Document> dbFichaje = MongoBroker.get().getCollection("Fichaje");
+	private static MongoCollection<Document> dbTest = MongoBroker.get().getCollection("Test");
 	private static MongoCollection<Document> dbEmpleado = MongoBroker.get().getCollection("Empleado");
 
 	public static boolean abrirFichaje(String email) {
@@ -72,6 +72,7 @@ public class DAOFichaje {
 		hourFormat.setTimeZone(TimeZone.getTimeZone("Europe/Madrid"));
 		String horaFin = (String) hourFormat.format(new Date());
 		String fechaFin = (String) dateFormat.format(new Date());
+		
 
 		Bson filtroEmail = null;
 		filtroEmail = eq("email", email);
@@ -94,8 +95,9 @@ public class DAOFichaje {
 
 				fichajeNuevo.put("fechaFin", cierreFichaje.get("fechaFin"));
 				fichajeNuevo.put("horaFin", cierreFichaje.get("horaFin"));
-				fichajeNuevo.put("tiempo", CalculoTiempo(cierreFichaje.get("horaInicio"), cierreFichaje.get("horaFin")));
-				dbFichaje.insertOne(fichajeNuevo);
+				String tiempo = CalculoTiempo(cierreFichaje.get("horaInicio"),horaFin);
+				fichajeNuevo.put("tiempo", cierreFichaje.get("tiempo") );
+				dbTest.insertOne(fichajeNuevo);
 				Bson fichajeCerrado = null;
 				fichajeCerrado = combine(set("email", email), set("estado", "cerrado"), set("fechaInicio", ""),
 						set("horaInicio", ""), set("fechaFin", ""), set("horaFin", ""), set("tiempo", ""));
@@ -110,7 +112,7 @@ public class DAOFichaje {
 	public static Document consultarFichajes(String email, String fecha) {
 
 		Bson filtroFichaje = and(eq("email", email), eq("fechaFin", fecha), eq("fechaInicio", fecha));
-		FindIterable<Document> cursor = dbFichaje.find(filtroFichaje);
+		FindIterable<Document> cursor = dbTest.find(filtroFichaje);
 		Document resultado = new Document();
 
 		resultado.put("email", email);
@@ -129,7 +131,7 @@ public class DAOFichaje {
 	public static Document consultarFichajesEmpleado(String email) {
 		Bson filtroEmail = null;
 		filtroEmail = in("email", email);
-		FindIterable<Document> cursor = dbFichaje.find(filtroEmail);
+		FindIterable<Document> cursor = dbTest.find(filtroEmail);
 		Document resultado = new Document();
 
 		resultado.put("email", email);
