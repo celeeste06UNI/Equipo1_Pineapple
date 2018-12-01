@@ -139,6 +139,9 @@ label.light {
 
 	<div class="row">
 		<div align="left" class="col-sm-2">
+		<button type="button" class="btn btn-default">
+     			 <span class="glyphicon glyphicon-arrow-left"></span>
+    		</button>
 			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
 		</div>
 		<div class="col-sm-2"></div>
