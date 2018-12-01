@@ -95,7 +95,7 @@ public class DAOFichaje {
 
 				fichajeNuevo.put("fechaFin", cierreFichaje.get("fechaFin"));
 				fichajeNuevo.put("horaFin", cierreFichaje.get("horaFin"));
-				String tiempo = CalculoTiempo(cierreFichaje.get("horaInicio"),horaFin);
+				String tiempo = CalculoTiempo(cierreFichaje.get("horaInicio"),cierreFichaje.get("horaFin"));
 				fichajeNuevo.put("tiempo", cierreFichaje.get("tiempo") );
 				dbTest.insertOne(fichajeNuevo);
 				Bson fichajeCerrado = null;
