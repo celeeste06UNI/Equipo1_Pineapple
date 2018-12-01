@@ -114,14 +114,16 @@ public class DAOFichaje {
 		return fichado;
 	}
 	
-    public static ArrayList<String> consultarFichajes(String email,String fechaInicio,String fechaFin) {
+    public static ArrayList<String> consultarFichajes(String email,String fechaInicio,String fechaFin, String tiempo) {
     	Bson filtroFechaInicio=null;
     	Bson filtroFechaFin=null;
     	Bson filtroIncidencia=null;
     	Bson filtroEmail=null;
+    	Bson filtroTiempo=null;
     	ArrayList<String> result=new ArrayList<String>();
     	filtroFechaInicio=and(gte("fechaInicio",fechaInicio),gte("horaInicio","00:00:00"));
     	filtroFechaFin=and(lte("fechaFin",fechaFin),lte("horaFin","23:59:59"));
+    	filtroTiempo=and(lte("tiempo", tiempo));
     	filtroEmail=or(eq("email",email),eq("dni",email));
     	filtroIncidencia=and(filtroFechaInicio,filtroFechaFin,filtroEmail);
     	FindIterable<Document> fichajes=dbFichaje.find(filtroIncidencia);

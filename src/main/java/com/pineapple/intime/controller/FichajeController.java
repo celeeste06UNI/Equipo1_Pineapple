@@ -57,11 +57,11 @@ public class FichajeController {
 	}
 
 	@RequestMapping(value = "/searchFichaje", method = RequestMethod.GET)
-	public ModelAndView searchFichaje(@ModelAttribute("fechaI") String fechaI, @ModelAttribute("fechaF") String fechaF,
+	public ModelAndView searchFichaje(@ModelAttribute("fechaI") String fechaI, @ModelAttribute("fechaF") String fechaF, @ModelAttribute("tiempo") String tiempo,
 			ModelAndView model, HttpServletRequest request) {
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
-		ArrayList<String> result = DAOFichaje.consultarFichajes(email, fechaI, fechaF);
+		ArrayList<String> result = DAOFichaje.consultarFichajes(email, fechaI, fechaF, tiempo);
 		model.addObject("listDate", result);
 		model.setViewName("fichajeUser");
 		return model;
@@ -69,9 +69,9 @@ public class FichajeController {
 
 	@RequestMapping(value = "/searchFichajeOtro", method = RequestMethod.GET)
 	public ModelAndView searchFichajeOtro(@ModelAttribute("fechaIn") String fechaIn,
-			@ModelAttribute("emailF") String emailF, @ModelAttribute("fechaFi") String fechaFi, ModelAndView model,
+			@ModelAttribute("emailF") String emailF, @ModelAttribute("fechaFi") String fechaFi, @ModelAttribute("tiempo") String tiempo , ModelAndView model,
 			HttpServletRequest request) {
-		ArrayList<String> result = DAOFichaje.consultarFichajes(emailF, fechaIn, fechaFi);
+		ArrayList<String> result = DAOFichaje.consultarFichajes(emailF, fechaIn, fechaFi, tiempo);
 		model.addObject("listDateOtro", result);
 		model.setViewName("consultaFichaje");
 		//LAS QUE TIENEN FECHA DE AYER NO ME LAS MUESTRA... Y SOLO ME MUESTRA LAS DE UN DIA 
