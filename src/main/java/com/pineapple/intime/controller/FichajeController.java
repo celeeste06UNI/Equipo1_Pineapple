@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pineapple.intime.dao.DAOFichaje;
+import com.steadystate.css.parser.ParseException;
 
 @Controller
 public class FichajeController {
@@ -45,7 +46,7 @@ public class FichajeController {
 	}
 
 	@RequestMapping(value = "/cerrarFichaje", method = RequestMethod.GET)
-	public String cerrarFichaje(ModelAndView model, HttpServletRequest request) {
+	public String cerrarFichaje(ModelAndView model, HttpServletRequest request) throws ParseException, java.text.ParseException {
 		boolean fichado;
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
