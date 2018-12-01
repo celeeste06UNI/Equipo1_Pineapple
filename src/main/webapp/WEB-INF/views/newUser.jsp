@@ -139,11 +139,7 @@ label.light {
 
 	<div class="row">
 		<div align="left" class="col-sm-2">
-		<button type="button" class="btn btn-default">
-				 <a style="color: #cc0000" href="/intime"></a>
-     			
-    		</button>
-			
+			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"></div>
