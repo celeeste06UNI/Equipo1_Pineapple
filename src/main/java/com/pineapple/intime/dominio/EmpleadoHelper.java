@@ -166,11 +166,12 @@ public class EmpleadoHelper {
 		Date Dateapertura = dateFormat.parse((String) apertura);
 		Date DateCierre = dateFormat.parse((String) cierre);
 		
-		int tiempo = (int) ((((Dateapertura).getTime() - (DateCierre).getTime())/1000)/3600);
+		float tiempo = (float) (((Dateapertura).getTime() - (DateCierre).getTime())/1000);
+		float minutos = tiempo/60;
 		
-		String segundos = Integer.toString(tiempo);
+		String jornada = Float.toString(minutos);
 		
-		return segundos;
+		return jornada;
 	}
 
 }
