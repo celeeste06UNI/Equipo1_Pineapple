@@ -438,7 +438,7 @@ label.light {
 	<script type="text/javascript">
 	function aperturaFichaje(){
 	var d = new Date();
-	document.write('Fichaje abierto<br>Hora de apertura: '+d.getUTCHours()':'+d.getMinutes()':'+d.getSeconds());
+	alert('Fichaje abierto<br>Hora de apertura: '+d.getUTCHours()':'+d.getMinutes()':'+d.getSeconds());
 	}
 	</script>
 	
