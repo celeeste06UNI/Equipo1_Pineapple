@@ -438,14 +438,14 @@ label.light {
 	<script type="text/javascript">
 		function aperturaFichaje(){
 			var d = new Date();
-			alert('Fichaje abierto, hora de apertura: '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()-3);
+			alert('Fichaje abierto, hora de apertura: '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds());
 		}
 	</script>
 	
 	<script type="text/javascript">
 		function cierreFichaje(){
 			var d = new Date();
-			alert('Fichaje cerrado, hora de cierre: '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()-3);
+			alert('Fichaje cerrado, hora de cierre: '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds());
 		}
 	</script>
 
