@@ -435,11 +435,13 @@ label.light {
 	</div>
 
 
-	<script>
-	function aperturaFichaje() {
-	    alert("Fichaje abierto");
+	<script type="text/javascript">
+	function aperturaFichaje(){
+	var d = new Date();
+	alert('Fichaje abierto<br>Hora de apertura: '+d.getUTCHours()':'+d.getMinutes()':'+d.getSeconds());
 	}
 	</script>
+	
 
 
 </body>
