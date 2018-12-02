@@ -363,8 +363,9 @@ label.light {
 						<span class="number">1</span>Fichajes
 
 					</legend>
-
-					<a style="color:#FFFFFF" href="/abrirFichaje" ><button data-toggle="modal" data-target="#myModal">abrir</button></a>
+	
+	
+					<a style="color:#FFFFFF" href="/abrirFichaje" ><button onclick="aperturaFichaje()">abrir</button></a>
 
 					<a style="color:#FFFFFF" href="/cerrarFichaje"><button>cerrar</button></a>
 
@@ -433,26 +434,12 @@ label.light {
 
 	</div>
 
-<!-- Modal -->
-			  <div class="modal fade" id="myModal" role="dialog">
-			    <div class="modal-dialog">
-			    
-			      <!-- Modal content-->
-			      <div class="modal-content">
-			        <div class="modal-header">
-			          <button type="button" class="close" data-dismiss="modal"></button>
-			          <h4 class="modal-title">Modal Header</h4>
-			        </div>
-			        <div class="modal-body">
-			          <p>Apertura fichaje</p>
-			        </div>
-			        <div class="modal-footer">
-			          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        </div>
-			      </div>
-			      
-			    </div>
-			  </div>
+
+	<script>
+	function aperturaFichaje() {
+	    alert("Fichaje abierto");
+	}
+	</script>
 
 
 </body>
