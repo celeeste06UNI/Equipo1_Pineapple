@@ -176,14 +176,15 @@ label.light {
 						<legend>
 							<span class="number">2</span>Datos del usuario
 						</legend>
-						<label for="nombre">Nombre</label> <input type="text"
-							name="nombre" readonly value=${nombre} > <label
-							for="apellidos">Apellidos</label> <input type="text"
+						<label for="dni">DNI</label> <input type="text" name="dni"
+							readonly value=${dni}> <label for="nombre">Nombre</label>
+						<input type="text" name="nombre" readonly value=${nombre} >
+						<label for="apellidos">Apellidos</label> <input type="text"
 							name="apellidos" readonly value=${apellidos} > <label
 							for="email">Email</label> <input type="email" name="email"
 							readonly value=${email} > <label for="rol">Rol</label> <input
-							type="text" name="rol" readonly value=${rol} >
-						<input type="button" onclick="preguntaDelete()" value="Eliminar">
+							type="text" name="rol" readonly value=${rol} > <input
+							type="button" onclick="preguntaDelete()" value="Eliminar">
 					</fieldset>
 
 				</form>

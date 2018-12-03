@@ -54,13 +54,12 @@ public class DAOEmpleado {
 		Bson filtroEmail = null;
 		Bson filtroRol=null;
 		filtroEmail = or(eq("email", empleado.get("email")),eq("dni",empleado.get("dni")));
-		filtroRol=(eq("email",empleado.get("email")));
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
-		FindIterable<Document> rol = dbRol.find(filtroRol);
+		FindIterable<Document> rol = dbRol.find(filtroEmail);
 
 		if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
 			DeleteResult drDatos = dbEmpleado.deleteMany(filtroEmail);
-			DeleteResult drRol = dbRol.deleteMany(filtroRol);
+			DeleteResult drRol = dbRol.deleteMany(filtroEmail);
 			if (drDatos.wasAcknowledged() && drRol.wasAcknowledged()) {
 				return true;
 			}
