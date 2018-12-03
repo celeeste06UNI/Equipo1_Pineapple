@@ -165,12 +165,12 @@ public class UsuarioController {
 		return model;
 	}
 
-	@RequestMapping(value = "/deleteSearchUser", method = RequestMethod.POST)
+	@RequestMapping(value = "/deleteSearchUser", method = RequestMethod.GET)
 	public ModelAndView deleteSearchUser(ModelAndView model, @ModelAttribute("email") String email) {
 		Document empleado = new Document();
 		String emailLowerCase = email.toLowerCase(new Locale("en", "EN"));
 		try {
-			empleado = DAOEmpleado.cargarEmpleado(email);
+			empleado = DAOEmpleado.cargarEmpleado(emailLowerCase);
 			model.addObject("dni", empleado.get("dni"));
 			model.addObject("nombre", empleado.get("nombre"));
 			model.addObject("apellidos", empleado.get("apellidos"));
@@ -197,16 +197,18 @@ public class UsuarioController {
 			//if (rolSession.equals("admin")) {
 			Document empleado = new Document();
 			String emailLowerCase = email.toLowerCase();
-			empleado.put("dni", emailLowerCase);
+			empleado.put("dni", dni);
 			empleado.put("email", emailLowerCase);
 			empleado.put("rol", rol);
 			empleado.put("nombre", nombre);
 			empleado.put("apellidos", apellidos);
-			if(DAOEmpleado.delete(empleado)) {
-				model.setViewName("admin");
-			}else {
+			try {
+				DAOEmpleado.delete(empleado);
+				model.setViewName("actionDeleteUser");
+			}catch (Exception ex){
 				model.setViewName("error");
 			}
+			
 			
 		//}else {
 			

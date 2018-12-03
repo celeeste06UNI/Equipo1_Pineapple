@@ -156,7 +156,7 @@ label.light {
 		</div>
 		<div class="row">
 			<div class="col-sm-6" style="background-color: white;">
-				<form name='searchForm' action='/deleteSearchUser' method='POST'>
+				<form name='searchForm' action='/deleteSearchUser' method='GET'>
 
 					<fieldset>
 						<legend>

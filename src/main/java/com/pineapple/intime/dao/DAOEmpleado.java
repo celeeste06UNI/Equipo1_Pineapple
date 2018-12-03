@@ -57,8 +57,8 @@ public class DAOEmpleado {
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
 		FindIterable<Document> rol = dbRol.find(filtroEmail);
 		
-		dbEmpleado.findOneAndDelete(filtroEmail);
-		dbRol.findOneAndDelete(filtroEmail);
+		dbEmpleado.deleteOne(filtroEmail);
+		dbRol.deleteOne(filtroEmail);
 		
 		
 
