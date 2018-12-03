@@ -132,7 +132,7 @@ public class DAOEmpleado {
 		Bson filtroDNI = null;
 		Bson filtro = null;
 		filtroEmail=eq("email",emp);
-		filtroDNI=eq("email",emp);
+		filtroDNI=eq("dni",emp);
 		filtro=or(filtroEmail,filtroDNI);
 		
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtro);
