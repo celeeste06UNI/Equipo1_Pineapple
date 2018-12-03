@@ -145,7 +145,7 @@ public class IncidenciaController {
 		String descripcionIn = request.getParameter("descripcion");
 		String tipoIn = request.getParameter("tipo");
 		String fechaIn = request.getParameter("fecha");
-		DAOIncidencia.update(emailIn, estadoIn, asuntoIn, descripcionIn, tipoIn, fechaIn, rolIn);
+		DAOIncidencia.updateIncidencia(emailIn, estadoIn, asuntoIn, descripcionIn, tipoIn, fechaIn, rolIn);
 		model.setViewName("consultarIncidenciaUser");
 	
 		
@@ -162,7 +162,7 @@ public class IncidenciaController {
 		String descripcionEIn = request.getParameter("descripcion");
 		String tipoEIn = request.getParameter("tipo");
 		String fechaEIn = request.getParameter("fecha");
-		DAOIncidencia.update(emailEIn, estadoEIn, asuntoEIn, descripcionEIn, tipoEIn, fechaEIn, rolEIn);
+		DAOIncidencia.updateEstado(emailEIn, estadoEIn, asuntoEIn, descripcionEIn, tipoEIn, fechaEIn, rolEIn);
 		model.setViewName("resolverIncidencia");
 		return model;
 	}

@@ -35,7 +35,7 @@ public class DAOIncidencia {
 //		}
 //		
 //	}
-	public static boolean update(String email,String estado,String asunto,String descripcion,String tipo,String fecha,String rol) {
+	public static boolean updateEstado(String email,String estado,String asunto,String descripcion,String tipo,String fecha,String rol) {
 		Bson filtro=null;
 		Bson update=null;
 		filtro=and(or(eq("email",email),eq("dni",email)),eq("fecha",fecha));
@@ -44,6 +44,18 @@ public class DAOIncidencia {
 		}else {
 			update=combine(set("asunto",asunto),set("descripcion",descripcion),set("tipo",tipo));
 		}
+		UpdateResult urIncidencia = dbIncidencia.updateOne(filtro, update);
+		if(urIncidencia.wasAcknowledged()) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	public static boolean updateIncidencia(String email,String estado,String asunto,String descripcion,String tipo,String fecha,String rol) {
+		Bson filtro=null;
+		Bson update=null;
+		filtro=and(or(eq("email",email),eq("dni",email)),eq("fecha",fecha));
+		update=combine(set("asunto",asunto),set("descripcion",descripcion),set("tipo",tipo));
 		UpdateResult urIncidencia = dbIncidencia.updateOne(filtro, update);
 		if(urIncidencia.wasAcknowledged()) {
 			return true;
