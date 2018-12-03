@@ -177,7 +177,7 @@ label.light {
 				autocomplete="off" name="rol"> <label class="light"
 				for="Gestor">Gestor</label>
 		</fieldset>
-		<button><input type="button" onclick="pregunta()" value="Registrar"> </button>
+		<input class="button"  type="button" onclick="pregunta()" value="Registrar">
 		<!-- 		<button type="submit">Registrar</button> -->
 
 	</form>
