@@ -163,7 +163,7 @@ label.light {
 							<span class="number">1</span>Introduzca el e-mail del usuario
 						</legend>
 						<label for="name">Introduzca el email:</label> <input type="email"
-							name="email"> <input type="button" onclick="pregunta()"
+							name="text"> <input type="button" onclick="pregunta()"
 							value="Buscar">
 					</fieldset>
 				</form>
@@ -181,7 +181,7 @@ label.light {
 						<input type="text" name="nombre" readonly value=${nombre} >
 						<label for="apellidos">Apellidos</label> <input type="text"
 							name="apellidos" readonly value=${apellidos} > <label
-							for="email">Email</label> <input type="email" name="email"
+							for="email">Email</label> <input type="text" name="email"
 							readonly value=${email} > <label for="rol">Rol</label> <input
 							type="text" name="rol" readonly value=${rol} > <input
 							type="button" onclick="preguntaDelete()" value="Eliminar">
