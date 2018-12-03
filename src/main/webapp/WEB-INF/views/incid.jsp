@@ -160,7 +160,7 @@
 					</button>
 
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="/resolverIncidencia">Visulizar</a></li>
+						<li><a href="/resolverIncidencia">Visualizar</a></li>
 					</ul>
 				</div>
 			</div>

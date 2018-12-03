@@ -139,7 +139,7 @@ label.light {
 		<div class="col-sm-8"></div>
 	</div>
 
-	<form name='IncidenciaForm' action='/updateIn' method='GET'>
+	<form name='IncidenciaForm' action='/updateEIn' method='GET'>
 		<h1>Modificar Incidencia</h1>
 		<fieldset>
 			<legend>
