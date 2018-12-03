@@ -79,7 +79,7 @@ public class IncidenciaController {
 		HttpSession session = request.getSession(true);
 		String emailE = (String) session.getAttribute("emailSession");
 		String rolE = (String) session.getAttribute("rolSession");
-		listIncidencia = DAOIncidencia.consultar(emailE, tipoE,rolE);
+		listIncidencia = DAOIncidencia.consultarTodo(emailE, tipoE,rolE);
 		model.addObject("listIncidencia", listIncidencia);
 		model.setViewName("resolverIncidencia");
 		return model;
@@ -145,10 +145,27 @@ public class IncidenciaController {
 		String descripcionIn = request.getParameter("descripcion");
 		String tipoIn = request.getParameter("tipo");
 		String fechaIn = request.getParameter("fecha");
-		DAOIncidencia.update(emailIn, estadoIn, asuntoIn, descripcionIn, tipoIn, fechaIn, rolIn);
+		DAOIncidencia.updateIncidencia(emailIn, estadoIn, asuntoIn, descripcionIn, tipoIn, fechaIn, rolIn);
 		model.setViewName("consultarIncidenciaUser");
 	
 		
+		return model;
+	}
+	
+	@RequestMapping(value = "/updateEIn", method = RequestMethod.GET)
+	public ModelAndView updateEIn(HttpServletRequest request, ModelAndView model) {	
+		HttpSession session1 = request.getSession(true);
+/*		String emailEIn = (String) session1.getAttribute("emailSession");*/
+		String rolEIn = (String) session1.getAttribute("rolSession");
+		
+		String emailEIn = request.getParameter("email");
+		String estadoEIn = request.getParameter("estado");
+		String asuntoEIn = request.getParameter("asunto");
+		String descripcionEIn = request.getParameter("descripcion");
+		String tipoEIn = request.getParameter("tipo");
+		String fechaEIn = request.getParameter("fecha");
+		DAOIncidencia.updateEstado(emailEIn, estadoEIn, asuntoEIn, descripcionEIn, tipoEIn, fechaEIn, rolEIn);
+		model.setViewName("resolverIncidencia");
 		return model;
 	}
 

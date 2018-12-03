@@ -185,7 +185,7 @@ label.light {
 
 	<div class="container">
 		<div class="page-header">
-			<h1>Gestor de Fichajes</h1>
+			<h1>Resolución de Incidencias</h1>
 		</div>
 		<form name='searchForm' action='/buscarIncidenciaTipoE' method='GET'>
 
@@ -210,12 +210,12 @@ label.light {
 		<table class="table table-hover">
 			<p>Incidencias según el tipo seleccionado</p>
 
-			<th>estado</th>
-			<th>asunto</th>
-			<th>descripcion</th>
-			<th>tipo</th>
-			<th>fecha</th>
-			<th>Editar-Modificar</th>
+			<th>Estado</th>
+			<th>Asunto</th>
+			<th>Descripcion</th>
+			<th>Tipo</th>
+			<th>Fecha</th>
+			<th>Editar-Eliminar</th>
 
 			<c:forEach var="fichaje" items="${listIncidencia}">
 				<tr>

@@ -35,15 +35,25 @@ public class DAOIncidencia {
 //		}
 //		
 //	}
-	public static boolean update(String email,String estado,String asunto,String descripcion,String tipo,String fecha,String rol) {
+	public static boolean updateEstado(String email,String estado,String asunto,String descripcion,String tipo,String fecha,String rol) {
 		Bson filtro=null;
 		Bson update=null;
 		filtro=and(or(eq("email",email),eq("dni",email)),eq("fecha",fecha));
-		if(rol.equals("incid")) {
-			update=combine(set("estado",estado));
+	
+		update=combine(set("estado",estado));
+		
+		UpdateResult urIncidencia = dbIncidencia.updateOne(filtro, update);
+		if(urIncidencia.wasAcknowledged()) {
+			return true;
 		}else {
-			update=combine(set("asunto",asunto),set("descripcion",descripcion),set("tipo",tipo));
+			return false;
 		}
+	}
+	public static boolean updateIncidencia(String email,String estado,String asunto,String descripcion,String tipo,String fecha,String rol) {
+		Bson filtro=null;
+		Bson update=null;
+		filtro=and(or(eq("email",email),eq("dni",email)),eq("fecha",fecha));
+		update=combine(set("asunto",asunto),set("descripcion",descripcion),set("tipo",tipo));
 		UpdateResult urIncidencia = dbIncidencia.updateOne(filtro, update);
 		if(urIncidencia.wasAcknowledged()) {
 			return true;
@@ -77,6 +87,26 @@ public class DAOIncidencia {
 	public static ArrayList<Incidencia> consultar(String email,String tipo,String rol){
 		ArrayList<Incidencia> result=new ArrayList<Incidencia> ();
 		Bson filtro=null;
+			filtro=and(or(eq("email",email),eq("dni",email)),eq("tipo",tipo));
+		
+		//if(DAOEmpleado.buscarEmpleado(email)) {
+
+			FindIterable<Document> incidencias = dbIncidencia.find(filtro);
+			for (Document inc: incidencias) {
+				Incidencia incidencia=new Incidencia(inc.getString("email"),inc.getString("estado"),inc.getString("asunto"),inc.getString("descripcion"),
+						inc.getString("tipo"),inc.getString("fecha"));
+				result.add(incidencia);
+			}
+			
+		//}else {
+		//	result.put(0, new Document("email","error"));
+		//}
+		return result;
+
+	}
+	public static ArrayList<Incidencia> consultarTodo(String email,String tipo,String rol){
+		ArrayList<Incidencia> result=new ArrayList<Incidencia> ();
+		Bson filtro=null;
 		if(rol.equals("incid")) {
 			filtro=eq("tipo",tipo);
 		}else {
@@ -97,6 +127,7 @@ public class DAOIncidencia {
 		return result;
 
 	}
+	
 	
 
 }

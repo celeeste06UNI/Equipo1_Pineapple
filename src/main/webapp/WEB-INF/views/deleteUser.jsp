@@ -160,9 +160,9 @@ label.light {
 
 					<fieldset>
 						<legend>
-							<span class="number">1</span>Introduzca el e-mail del usuario
+							<span class="number">1</span>Introduzca el e-mail del usuario o DNI
 						</legend>
-						<label for="name">Introduzca el email:</label> <input type="email"
+						<label for="name">Introduzca el email:</label> <input type="text"
 							name="email"> <input type="button" onclick="pregunta()"
 							value="Buscar">
 					</fieldset>
@@ -170,20 +170,21 @@ label.light {
 
 			</div>
 			<div class="col-sm-6" style="background-color: white;">
-				<form name='deleteForm' action='/actionDeleteUser' method='POST'>
+				<form name='deleteForm' action='/actionDeleteUser' method='GET'>
 
 					<fieldset>
 						<legend>
 							<span class="number">2</span>Datos del usuario
 						</legend>
-						<label for="nombre">Nombre</label> <input type="text"
-							name="nombre" readonly value=${nombre} > <label
-							for="apellidos">Apellidos</label> <input type="text"
+						<label for="dni">DNI</label> <input type="text" name="dni"
+							readonly value=${dni}> <label for="nombre">Nombre</label>
+						<input type="text" name="nombre" readonly value=${nombre} >
+						<label for="apellidos">Apellidos</label> <input type="text"
 							name="apellidos" readonly value=${apellidos} > <label
-							for="email">Email</label> <input type="email" name="email"
+							for="email">Email</label> <input type="text" name="email"
 							readonly value=${email} > <label for="rol">Rol</label> <input
-							type="text" name="rol" readonly value=${rol} >
-						<input type="button" onclick="preguntaDelete()" value="Eliminar">
+							type="text" name="rol" readonly value=${rol} > <input
+							type="button" onclick="preguntaDelete()" value="Eliminar">
 					</fieldset>
 
 				</form>
