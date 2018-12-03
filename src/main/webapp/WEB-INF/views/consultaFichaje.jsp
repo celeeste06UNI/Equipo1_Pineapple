@@ -174,7 +174,7 @@ label.light {
 		<table class="table table-hover">
 			<p>Fecha de los fichajes</p>
 			<!-- <th>Id</th> -->
-			<th>Fecha de apertura / Fecha de cierre</th>
+			<th>Fecha de apertura / Fecha de cierre / Tiempo trabajado</th>
 			<c:forEach var="fechaDelFichaje" items="${listDateOtro}">
 				<tr>
 					<td>${fechaDelFichaje}</td>

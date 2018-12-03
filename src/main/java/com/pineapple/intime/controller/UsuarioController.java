@@ -43,27 +43,6 @@ public class UsuarioController {
 		return model;
 	}
 
-	@RequestMapping(value = "/actionDeleteUser", method = RequestMethod.POST)
-	public ModelAndView actionDeleteUser(ModelAndView model, HttpServletRequest request,
-			@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
-			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) {
-
-		HttpSession session = request.getSession(true);
-		String rolSession = (String) session.getAttribute("rolSession");
-		if (rolSession.equals("admin")) {
-			Document empleado = new Document();
-			String emailLowerCase = email.toLowerCase();
-			empleado.put("email", emailLowerCase);
-			empleado.put("rol", rol);
-			empleado.put("nombre", nombre);
-			empleado.put("apellidos", apellidos);
-			DAOEmpleado.delete(empleado);
-			model.setViewName("admin");
-		}
-
-		return model;
-	}
-
 	@RequestMapping(value = "/updateUser", method = RequestMethod.GET)
 	public ModelAndView updateUser(HttpServletRequest request, ModelAndView model) {
 		HttpSession session = request.getSession(true);
@@ -109,9 +88,6 @@ public class UsuarioController {
 		return model;
 	}
 
-
-
-
 	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
 	public String updatePassword(@ModelAttribute("passwordVieja") String contrasennaVieja,
 			@ModelAttribute("passwordNueva") String contrasennaNueva, HttpServletRequest request) throws Exception {
@@ -123,21 +99,20 @@ public class UsuarioController {
 		HttpSession session = request.getSession(true);
 		String email = (String) session.getAttribute("emailSession");
 		String rolSession = (String) session.getAttribute("rolSession");
-		DAOEmpleado.updatePassword(email,passAntHex,passNuevaHex);
-		
-		if("admin".equals(rolSession)) {
+		DAOEmpleado.updatePassword(email, passAntHex, passNuevaHex);
+
+		if ("admin".equals(rolSession)) {
 			pagina = "admin";
 		}
 
-		if("user".equals(rolSession)) {
+		if ("user".equals(rolSession)) {
 			pagina = "user";
-		}	
-		if("incid".equals(rolSession)) {
+		}
+		if ("incid".equals(rolSession)) {
 			pagina = "incid";
 		}
 		return pagina;
 	}
-
 
 	public String saveUser(@ModelAttribute("nombre") String nombre, @ModelAttribute("apellidos") String apellidos,
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) throws Exception {
@@ -193,21 +168,49 @@ public class UsuarioController {
 	@RequestMapping(value = "/deleteSearchUser", method = RequestMethod.POST)
 	public ModelAndView deleteSearchUser(ModelAndView model, @ModelAttribute("email") String email) {
 		Document empleado = new Document();
-		String emailLowerCase=email.toLowerCase(new Locale("en", "EN"));
+		String emailLowerCase = email.toLowerCase(new Locale("en", "EN"));
 		try {
-			empleado = DAOEmpleado.cargarEmpleado(emailLowerCase);
+			empleado = DAOEmpleado.cargarEmpleado(email);
+			model.addObject("dni", empleado.get("dni"));
 			model.addObject("nombre", empleado.get("nombre"));
 			model.addObject("apellidos", empleado.get("apellidos"));
 			model.addObject("email", empleado.get("email"));
 			model.addObject("rol", empleado.get("rol"));
 			model.setViewName("deleteUser");
-		}catch(Exception e){
+		} catch (Exception e) {
 			model.addObject("nombre", "");
 			model.addObject("apellidos", "");
-			model.addObject("email", "");
+			model.addObject("email", "error");
 			model.addObject("rol", "");
 			model.setViewName("deleteUser");
 		}
+		return model;
+	}
+
+	@RequestMapping(value = "/actionDeleteUser", method = RequestMethod.POST)
+	public ModelAndView actionDeleteUser(ModelAndView model, HttpServletRequest request,
+			@ModelAttribute("dni") String dni, @ModelAttribute("nombre") String nombre,
+			@ModelAttribute("apellidos") String apellidos, @ModelAttribute("email") String email,
+			@ModelAttribute("rol") String rol) {
+
+		HttpSession session = request.getSession(true);
+		String rolSession = (String) session.getAttribute("rolSession");
+		if (rolSession.equals("admin")) {
+			Document empleado = new Document();
+			String emailLowerCase = email.toLowerCase();
+			empleado.put("dni", dni);
+			empleado.put("email", emailLowerCase);
+			empleado.put("rol", rol);
+			empleado.put("nombre", nombre);
+			empleado.put("apellidos", apellidos);
+			if(DAOEmpleado.delete(empleado)) {
+				model.setViewName("admin");
+			}else {
+				model.setViewName("error");
+			}
+			
+		}
+
 		return model;
 	}
 }

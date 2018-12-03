@@ -35,10 +35,11 @@ public class DAOEmpleado {
 		filtroEmail = or(eq("email", empleado.get("email")),eq("dni",empleado.get("dni")));
 		Document empleadoRol = new Document();
 		empleadoRol.append("email", empleado.get("email"));
+		empleadoRol.append("dni", empleado.get("dni"));
 		empleadoRol.append("rol", empleado.get("rol"));
 		empleado.remove("rol");
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
-		FindIterable<Document> rol = dbEmpleado.find(filtroEmail);
+		FindIterable<Document> rol = dbRol.find(filtroEmail);
 		if (!(datosPersonales.iterator().hasNext() && rol.iterator().hasNext())) {
 			dbEmpleado.insertOne(empleado);
 			dbRol.insertOne(empleadoRol);
@@ -51,19 +52,20 @@ public class DAOEmpleado {
 	/* ELIMINAR EMPLEADO */
 	public static boolean delete(Document empleado) {
 		Bson filtroEmail = null;
+		Bson filtroRol=null;
 		filtroEmail = or(eq("email", empleado.get("email")),eq("dni",empleado.get("dni")));
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
-		FindIterable<Document> rol = dbEmpleado.find(filtroEmail);
-		if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
-			DeleteResult drDatos = dbEmpleado.deleteMany(filtroEmail);
-			DeleteResult drRol = dbRol.deleteMany(filtroEmail);
-			if (drDatos.wasAcknowledged() && drRol.wasAcknowledged()) {
-				return true;
-			}
-		} else {
-			return false;
-		}
-		return false;
+		FindIterable<Document> rol = dbRol.find(filtroEmail);
+
+		//if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
+			/*DeleteResult drDatos = */dbEmpleado.deleteOne(filtroEmail);
+			/*DeleteResult drRol = */dbRol.deleteOne(filtroEmail);
+//			if (drDatos.wasAcknowledged() && drRol.wasAcknowledged()) {
+			return true;
+//			}
+//		} else {
+//			return false;
+//		}
 	}
 
 	/* MODIFICAR USUARIO */
@@ -77,7 +79,7 @@ public class DAOEmpleado {
 		filtroEmail = or(eq("email", email),eq("dni",email));
 		
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
-		FindIterable<Document> rol = dbEmpleado.find(filtroEmail);
+		FindIterable<Document> rol = dbRol.find(filtroEmail);
 		boolean actualizado = false;
 		if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
 			UpdateResult urDatos = dbEmpleado.updateMany(filtroEmail, updateDatos);
@@ -127,17 +129,24 @@ public class DAOEmpleado {
 	/* CARGAR DATOS DE UN EMPLEADO */
 	public static Document cargarEmpleado(String emp) {
 		Bson filtroEmail = null;
-		filtroEmail = or(eq("email", emp),eq("dni",emp));
-		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
-		FindIterable<Document> rol = dbRol.find(filtroEmail);
-
-		Document empleado = new Document();
+		Bson filtroDNI = null;
+		Bson filtro = null;
+		filtroEmail=eq("email",emp);
+		filtroDNI=eq("dni",emp);
+		filtro=or(filtroEmail,filtroDNI);
+		
+		FindIterable<Document> datosPersonales = dbEmpleado.find(filtro);
+		FindIterable<Document> rol = dbRol.find(filtro);
+		Document empleado=new Document();
+		Document doc = new Document();
 		if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
-			empleado = datosPersonales.iterator().next();
+			
+			doc = datosPersonales.iterator().next();
+			for(String keys: doc.keySet()) {
+				empleado.put(keys, doc.get(keys));
+			}
 			empleado.put("rol", rol.iterator().next().get("rol"));
-		} else {
-			empleado.put("email", "error");
-		}
+		} 
 		return empleado;
 	}
 

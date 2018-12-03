@@ -106,7 +106,7 @@ public class HomeController {
 
 		String emailLowerCase=email.toLowerCase(new Locale("en", "EN"));
 		Document doc = DAOEmpleado.autenticar(emailLowerCase,password);
-		model.addObject("correcto", "");
+		model.addObject("correcto", "&nbsp");
 
 		if(doc.get("email").equals("error")) {
 			model.addObject("correcto", "Usuario o contraseña incorrecto");
