@@ -203,8 +203,12 @@ public class UsuarioController {
 			empleado.put("rol", rol);
 			empleado.put("nombre", nombre);
 			empleado.put("apellidos", apellidos);
-			DAOEmpleado.delete(empleado);
-			model.setViewName("admin");
+			if(DAOEmpleado.delete(empleado)) {
+				model.setViewName("admin");
+			}else {
+				model.setViewName("error");
+			}
+			
 		}
 
 		return model;
