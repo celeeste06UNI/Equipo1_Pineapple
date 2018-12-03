@@ -165,7 +165,7 @@ public class UsuarioController {
 		return model;
 	}
 
-	@RequestMapping(value = "/deleteSearchUser", method = RequestMethod.GET)
+	@RequestMapping(value = "/deleteSearchUser", method = RequestMethod.POST)
 	public ModelAndView deleteSearchUser(ModelAndView model, @ModelAttribute("email") String email) {
 		Document empleado = new Document();
 		String emailLowerCase = email.toLowerCase(new Locale("en", "EN"));
@@ -187,7 +187,7 @@ public class UsuarioController {
 		return model;
 	}
 
-	@RequestMapping(value = "/actionDeleteUser", method = RequestMethod.POST)
+	@RequestMapping(value = "/actionDeleteUser", method = RequestMethod.GET)
 	public ModelAndView actionDeleteUser(ModelAndView model, HttpServletRequest request,
 			@ModelAttribute("dni") String dni, @ModelAttribute("nombre") String nombre,
 			@ModelAttribute("apellidos") String apellidos, @ModelAttribute("email") String email,
