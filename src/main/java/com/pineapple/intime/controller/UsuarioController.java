@@ -194,7 +194,7 @@ public class UsuarioController {
 			@ModelAttribute("rol") String rol) {
 		HttpSession session = request.getSession(true);
 		String rolSession = (String) session.getAttribute("rol");
-		if (rolSession.equals("admin")) {
+		//if (rolSession.equals("admin")) {
 			Document empleado = new Document();
 			String emailLowerCase = email.toLowerCase();
 			empleado.put("dni", dni);
@@ -208,7 +208,9 @@ public class UsuarioController {
 				model.setViewName("error");
 			}
 			
-		}
+		//}else {
+			
+		//}
 
 		return model;
 	}
