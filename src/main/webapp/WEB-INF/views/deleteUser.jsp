@@ -160,7 +160,7 @@ label.light {
 
 					<fieldset>
 						<legend>
-							<span class="number">1</span>Introduzca el e-mail del usuario
+							<span class="number">1</span>Introduzca el e-mail del usuario o DNI
 						</legend>
 						<label for="name">Introduzca el email:</label> <input type="text"
 							name="email"> <input type="button" onclick="pregunta()"

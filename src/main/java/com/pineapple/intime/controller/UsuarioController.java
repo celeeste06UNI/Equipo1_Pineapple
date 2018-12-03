@@ -180,7 +180,7 @@ public class UsuarioController {
 		} catch (Exception e) {
 			model.addObject("nombre", "");
 			model.addObject("apellidos", "");
-			model.addObject("email", "");
+			model.addObject("email", "error");
 			model.addObject("rol", "");
 			model.setViewName("deleteUser");
 		}
