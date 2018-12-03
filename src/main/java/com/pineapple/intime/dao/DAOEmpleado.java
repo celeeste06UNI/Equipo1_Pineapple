@@ -129,18 +129,24 @@ public class DAOEmpleado {
 	/* CARGAR DATOS DE UN EMPLEADO */
 	public static Document cargarEmpleado(String emp) {
 		Bson filtroEmail = null;
+		Bson filtroDNI = null;
+		Bson filtro = null;
+		filtroEmail=eq("email",emp);
+		filtroDNI=eq("email",emp);
+		filtro=or(filtroEmail,filtroDNI);
 		
-		filtroEmail = or(eq("email", emp),eq("dni",emp));
-		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
-		FindIterable<Document> rol = dbRol.find(filtroEmail);
-
-		Document empleado = new Document();
-		//if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
-			empleado = datosPersonales.iterator().next();
+		FindIterable<Document> datosPersonales = dbEmpleado.find(filtro);
+		FindIterable<Document> rol = dbRol.find(filtro);
+		Document empleado=new Document();
+		Document doc = new Document();
+		if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
+			
+			doc = datosPersonales.iterator().next();
+			for(String keys: doc.keySet()) {
+				empleado.put(keys, doc.get(keys));
+			}
 			empleado.put("rol", rol.iterator().next().get("rol"));
-		//} else {
-			//empleado.put("email", "error");
-		//}
+		} 
 		return empleado;
 	}
 
