@@ -194,7 +194,7 @@ public class UsuarioController {
 			@ModelAttribute("rol") String rol) {
 
 		HttpSession session = request.getSession(true);
-		String rolSession = (String) session.getAttribute("rolSession");
+		String rolSession = (String) session.getAttribute("rol");
 		if (rolSession.equals("admin")) {
 			Document empleado = new Document();
 			String emailLowerCase = email.toLowerCase();
