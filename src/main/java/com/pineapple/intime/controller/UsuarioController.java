@@ -192,7 +192,6 @@ public class UsuarioController {
 			@ModelAttribute("dni") String dni, @ModelAttribute("nombre") String nombre,
 			@ModelAttribute("apellidos") String apellidos, @ModelAttribute("email") String email,
 			@ModelAttribute("rol") String rol) {
-
 		HttpSession session = request.getSession(true);
 		String rolSession = (String) session.getAttribute("rol");
 		if (rolSession.equals("admin")) {
