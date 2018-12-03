@@ -176,13 +176,13 @@ public class UsuarioController {
 			model.addObject("apellidos", empleado.get("apellidos"));
 			model.addObject("email", empleado.get("email"));
 			model.addObject("rol", empleado.get("rol"));
-			model.setViewName("actionDeleteUser");
+			model.setViewName("deleteUser");
 		} catch (Exception e) {
 			model.addObject("nombre", "");
 			model.addObject("apellidos", "");
 			model.addObject("email", "error");
 			model.addObject("rol", "");
-			model.setViewName("actionDeleteUser");
+			model.setViewName("deleteUser");
 		}
 		return model;
 	}
@@ -197,7 +197,7 @@ public class UsuarioController {
 			//if (rolSession.equals("admin")) {
 			Document empleado = new Document();
 			String emailLowerCase = email.toLowerCase();
-			empleado.put("dni", dni);
+			empleado.put("dni", emailLowerCase);
 			empleado.put("email", emailLowerCase);
 			empleado.put("rol", rol);
 			empleado.put("nombre", nombre);
