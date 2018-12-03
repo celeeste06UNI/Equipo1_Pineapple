@@ -39,11 +39,9 @@ public class DAOIncidencia {
 		Bson filtro=null;
 		Bson update=null;
 		filtro=and(or(eq("email",email),eq("dni",email)),eq("fecha",fecha));
-		if(rol.equals("incid")) {
-			update=combine(set("estado",estado));
-		}else {
-			update=combine(set("asunto",asunto),set("descripcion",descripcion),set("tipo",tipo));
-		}
+	
+		update=combine(set("estado",estado));
+		
 		UpdateResult urIncidencia = dbIncidencia.updateOne(filtro, update);
 		if(urIncidencia.wasAcknowledged()) {
 			return true;

@@ -155,8 +155,10 @@ public class IncidenciaController {
 	@RequestMapping(value = "/updateEIn", method = RequestMethod.GET)
 	public ModelAndView updateEIn(HttpServletRequest request, ModelAndView model) {	
 		HttpSession session1 = request.getSession(true);
-		String emailEIn = (String) session1.getAttribute("emailSession");
+/*		String emailEIn = (String) session1.getAttribute("emailSession");*/
 		String rolEIn = (String) session1.getAttribute("rolSession");
+		
+		String emailEIn = request.getParameter("email");
 		String estadoEIn = request.getParameter("estado");
 		String asuntoEIn = request.getParameter("asunto");
 		String descripcionEIn = request.getParameter("descripcion");

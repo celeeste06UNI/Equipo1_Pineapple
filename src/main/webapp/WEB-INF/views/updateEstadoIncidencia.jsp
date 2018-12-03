@@ -145,11 +145,16 @@ label.light {
 			<legend>
 				<span class="number">1</span>Modificar Incidencia
 			</legend>
+			
+			<textarea readonly class="hidden" rows="3" id="asunto"
+				name="email">${email}</textarea>
+				
 			<label for="asunto">Asunto:</label>
-			<textarea readonly class="form-control" rows="3" id="asunto" name="asunto">${asunto}</textarea>
+			<textarea readonly class="form-control" rows="3" id="asunto"
+				name="asunto">${asunto}</textarea>
 			<label for="descripcion">Descripción:</label>
-			<textarea readonly class="form-control" rows="5" id="descripcion" readonly
-				name="descripcion">${descripcion}</textarea>
+			<textarea readonly class="form-control" rows="5" id="descripcion"
+				readonly name="descripcion">${descripcion}</textarea>
 		</fieldset>
 		<fieldset>
 
@@ -167,11 +172,11 @@ label.light {
 			<textarea readonly class="form-control" rows="2" id="estadoAn"
 				name="estadoAn">${estado}</textarea>
 			<label>Estados Disponibles:</label> <input type="radio" id="denegada"
-				value="denegada" required autocomplete="off" name="estado"> <label
-				class="light" for="denegada">Denegada</label><br> <input
+				value="denegada" required autocomplete="off" name="estado">
+			<label class="light" for="denegada">Denegada</label><br> <input
 				type="radio" id="aceptada" value="aceptada" required
 				autocomplete="off" name="estado"> <label class="light"
-				for="aceptada">Aceptada</label><br> 
+				for="aceptada">Aceptada</label><br>
 		</fieldset>
 
 		<button type="submit">Actualizar</button>
