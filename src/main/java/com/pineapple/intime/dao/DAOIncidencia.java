@@ -77,6 +77,26 @@ public class DAOIncidencia {
 	public static ArrayList<Incidencia> consultar(String email,String tipo,String rol){
 		ArrayList<Incidencia> result=new ArrayList<Incidencia> ();
 		Bson filtro=null;
+			filtro=and(or(eq("email",email),eq("dni",email)),eq("tipo",tipo));
+		
+		//if(DAOEmpleado.buscarEmpleado(email)) {
+
+			FindIterable<Document> incidencias = dbIncidencia.find(filtro);
+			for (Document inc: incidencias) {
+				Incidencia incidencia=new Incidencia(inc.getString("email"),inc.getString("estado"),inc.getString("asunto"),inc.getString("descripcion"),
+						inc.getString("tipo"),inc.getString("fecha"));
+				result.add(incidencia);
+			}
+			
+		//}else {
+		//	result.put(0, new Document("email","error"));
+		//}
+		return result;
+
+	}
+	public static ArrayList<Incidencia> consultarTodo(String email,String tipo,String rol){
+		ArrayList<Incidencia> result=new ArrayList<Incidencia> ();
+		Bson filtro=null;
 		if(rol.equals("incid")) {
 			filtro=eq("tipo",tipo);
 		}else {
@@ -97,6 +117,7 @@ public class DAOIncidencia {
 		return result;
 
 	}
+	
 	
 
 }

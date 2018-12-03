@@ -79,7 +79,7 @@ public class IncidenciaController {
 		HttpSession session = request.getSession(true);
 		String emailE = (String) session.getAttribute("emailSession");
 		String rolE = (String) session.getAttribute("rolSession");
-		listIncidencia = DAOIncidencia.consultar(emailE, tipoE,rolE);
+		listIncidencia = DAOIncidencia.consultarTodo(emailE, tipoE,rolE);
 		model.addObject("listIncidencia", listIncidencia);
 		model.setViewName("resolverIncidencia");
 		return model;
