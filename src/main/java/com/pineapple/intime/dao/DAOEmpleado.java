@@ -57,15 +57,15 @@ public class DAOEmpleado {
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
 		FindIterable<Document> rol = dbRol.find(filtroEmail);
 
-		//if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
-			DeleteResult drDatos = dbEmpleado.deleteOne(filtroEmail);
-			DeleteResult drRol = dbRol.deleteOne(filtroEmail);
+		if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
+			DeleteResult drDatos = dbEmpleado.deleteOne(empleado);
+			DeleteResult drRol = dbRol.deleteOne(empleado);
 			if (drDatos.wasAcknowledged() && drRol.wasAcknowledged()) {
 				return true;
 			}
-		//} else {
-//			return false;
-		//}
+		} else {
+			return false;
+		}
 		return false;
 	}
 
