@@ -176,13 +176,13 @@ public class UsuarioController {
 			model.addObject("apellidos", empleado.get("apellidos"));
 			model.addObject("email", empleado.get("email"));
 			model.addObject("rol", empleado.get("rol"));
-			model.setViewName("deleteUser");
+			model.setViewName("actionDeleteUser");
 		} catch (Exception e) {
 			model.addObject("nombre", "");
 			model.addObject("apellidos", "");
 			model.addObject("email", "error");
 			model.addObject("rol", "");
-			model.setViewName("deleteUser");
+			model.setViewName("actionDeleteUser");
 		}
 		return model;
 	}
