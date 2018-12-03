@@ -162,8 +162,8 @@ label.light {
 						<legend>
 							<span class="number">1</span>Introduzca el e-mail del usuario
 						</legend>
-						<label for="name">Introduzca el email:</label> <input type="email"
-							name="text"> <input type="button" onclick="pregunta()"
+						<label for="name">Introduzca el email:</label> <input type="text"
+							name="email"> <input type="button" onclick="pregunta()"
 							value="Buscar">
 					</fieldset>
 				</form>
