@@ -61,6 +61,7 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView index(ModelAndView model) {
+		model.addObject("correcto", "&nbsp");
 		model.setViewName("index");
 		return model;
 	}
