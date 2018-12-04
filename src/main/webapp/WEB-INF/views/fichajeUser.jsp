@@ -155,12 +155,9 @@ label.light {
 					<legend>
 						<span class="number">1</span>Fichajes
 					</legend>
-					<button>
-						<a style="color: #FFFFFF" href="/abrirFichaje">abrir</a>
-					</button>
-					<button>
-						<a style="color: #FFFFFF" href="/cerrarFichaje">cerrar</a>
-					</button>
+					<a style="color:#FFFFFF" href="/abrirFichaje" ><button onclick="aperturaFichaje()">abrir</button></a>
+
+					<a style="color:#FFFFFF" href="/cerrarFichaje"><button onclick="cierreFichaje()">cerrar</button></a>
 				</fieldset>
 
 			</div>
@@ -195,4 +192,19 @@ label.light {
 			</c:forEach>
 		</table>
 	</div>
+	<script type="text/javascript">
+		function aperturaFichaje(){
+			var d = new Date();
+			alert('Fichaje abierto, hora de apertura: '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds());
+		}
+	</script>
+	
+	<script type="text/javascript">
+		function cierreFichaje(){
+			var d = new Date();
+			alert('Fichaje cerrado, hora de cierre: '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds());
+		}
+	</script>
+	
+	
 </body>

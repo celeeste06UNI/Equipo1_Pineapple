@@ -170,7 +170,7 @@ public class UsuarioController {
 		Document empleado = new Document();
 		String emailLowerCase = email.toLowerCase(new Locale("en", "EN"));
 		try {
-			empleado = DAOEmpleado.cargarEmpleado(email);
+			empleado = DAOEmpleado.cargarEmpleado(emailLowerCase);
 			model.addObject("dni", empleado.get("dni"));
 			model.addObject("nombre", empleado.get("nombre"));
 			model.addObject("apellidos", empleado.get("apellidos"));
@@ -187,15 +187,14 @@ public class UsuarioController {
 		return model;
 	}
 
-	@RequestMapping(value = "/actionDeleteUser", method = RequestMethod.POST)
+	@RequestMapping(value = "/actionDeleteUser", method = RequestMethod.GET)
 	public ModelAndView actionDeleteUser(ModelAndView model, HttpServletRequest request,
 			@ModelAttribute("dni") String dni, @ModelAttribute("nombre") String nombre,
 			@ModelAttribute("apellidos") String apellidos, @ModelAttribute("email") String email,
 			@ModelAttribute("rol") String rol) {
-
-		HttpSession session = request.getSession(true);
-		String rolSession = (String) session.getAttribute("rolSession");
-		if (rolSession.equals("admin")) {
+			HttpSession session = request.getSession(true);
+			String rolSession = (String) session.getAttribute("rol");
+			//if (rolSession.equals("admin")) {
 			Document empleado = new Document();
 			String emailLowerCase = email.toLowerCase();
 			empleado.put("dni", dni);
@@ -203,13 +202,17 @@ public class UsuarioController {
 			empleado.put("rol", rol);
 			empleado.put("nombre", nombre);
 			empleado.put("apellidos", apellidos);
-			if(DAOEmpleado.delete(empleado)) {
-				model.setViewName("admin");
-			}else {
+			try {
+				DAOEmpleado.delete(empleado);
+				model.setViewName("actionDeleteUser");
+			}catch (Exception ex){
 				model.setViewName("error");
 			}
 			
-		}
+			
+		//}else {
+			
+		//}
 
 		return model;
 	}

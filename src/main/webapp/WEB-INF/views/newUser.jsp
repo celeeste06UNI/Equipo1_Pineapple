@@ -87,6 +87,21 @@ button {
 	margin-bottom: 10px;
 }
 
+.button {
+	padding: 19px 39px 18px 39px;
+	color: #FFF;
+	background-color: #FE2E2E;
+	font-size: 18px;
+	text-align: center;
+	font-style: normal;
+	border-radius: 5px;
+	width: 100%;
+	border: 2px solid #8A0808;
+	border-width: 1px 1px 3px;
+	box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+	margin-bottom: 10px;
+}
+
 fieldset {
 	margin-bottom: 10px;
 	border: none;
@@ -177,7 +192,7 @@ label.light {
 				autocomplete="off" name="rol"> <label class="light"
 				for="Gestor">Gestor</label>
 		</fieldset>
-		<input type="button" onclick="pregunta()" value="Registrar">
+		<input class="button"  type="button" onclick="pregunta()" value="Registrar">
 		<!-- 		<button type="submit">Registrar</button> -->
 
 	</form>
