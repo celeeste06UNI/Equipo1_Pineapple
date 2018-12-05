@@ -1,42 +1,30 @@
 package testMantenimiento;
 
-import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import com.google.common.base.Function;
-
 import junit.framework.Assert;
-
-import static org.junit.Assert.assertEquals;
-
-import java.util.concurrent.TimeUnit;
 
 public class pruebaLogin {
 
-	private static ChromeDriver driver;
+	 private static ChromeDriver driver;
 	 WebElement element;
 	 
 	 @BeforeClass
-	     public static void openBrowser(){
-
-	         System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");
-	 		 driver = new ChromeDriver();
+     public static void openBrowser(){
+         System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");
+ 		 driver = new ChromeDriver();
 	 } 
 	 
 	 @Test
 	 public void login_no_valido(){
-	      
 		  System.out.println("Starting test " + new Object(){}.getClass().getEnclosingMethod().getName());
 	      String mensajeError = "";
-		  driver.get("https://equipo01mantenimiento.herokuapp.com"); 
-	      //driver.findElement(By.xpath(".//*[@id='account']/a")).click();
+		  driver.get("https://equipo01mantenimiento.herokuapp.com");
 	      driver.findElement(By.name("email")).sendKeys("usuarioPrueba");
 	      driver.findElement(By.name("password")).sendKeys("password1234");
 	      driver.findElement(By.id("botonEntrar")).click();
@@ -47,11 +35,28 @@ public class pruebaLogin {
 	      }catch (Exception e){
 
 	      }
-	    	
 
 		  Assert.assertEquals(mensajeError, "Usuario o contraseña incorrecto");
 	      System.out.println("Ending test " + new Object(){}.getClass().getEnclosingMethod().getName());
-	     }
+	 }
+	 
+	 @Test
+	 public void login_campos_vacios(){
+		  System.out.println("Starting test " + new Object(){}.getClass().getEnclosingMethod().getName());
+	      String mensajeError = "";
+		  driver.get("https://equipo01mantenimiento.herokuapp.com");
+	      driver.findElement(By.id("botonEntrar")).click();
+	      
+	      try{
+	    	  element = driver.findElement (By.xpath("/html/body/section/div/div/div[1]/form/div[3]/a/span"));
+	    	  mensajeError = element.getText();
+	      }catch (Exception e){
+
+	      }
+
+		  Assert.assertEquals(mensajeError, "Usuario o contraseña incorrecto");
+	      System.out.println("Ending test " + new Object(){}.getClass().getEnclosingMethod().getName());
+	 }
 	 
 	 @Test
 	 public void login_valido_administrador(){
@@ -59,7 +64,6 @@ public class pruebaLogin {
 		  String funcion = "";
 		  System.out.println("Starting test " + new Object(){}.getClass().getEnclosingMethod().getName());
 	      driver.get("https://equipo01mantenimiento.herokuapp.com"); 
-	      //driver.findElement(By.xpath(".//*[@id='account']/a")).click();
 	      driver.findElement(By.name("email")).sendKeys("alejandro.verod@gmail.com");
 	      driver.findElement(By.name("password")).sendKeys("alex");
 	      driver.findElement(By.id("botonEntrar")).click();
@@ -75,9 +79,8 @@ public class pruebaLogin {
 	      System.out.println("Ending test " + new Object(){}.getClass().getEnclosingMethod().getName());
 	 }
 	 
-	
 	 @AfterClass
 	 public static void closeBrowser(){
-	 driver.quit();
+		 driver.quit();
 	 }
 }
