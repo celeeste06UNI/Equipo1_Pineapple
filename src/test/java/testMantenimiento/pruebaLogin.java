@@ -79,6 +79,48 @@ public class pruebaLogin {
 	      System.out.println("Ending test " + new Object(){}.getClass().getEnclosingMethod().getName());
 	 }
 	 
+	 @Test
+	 public void login_valido_gestor(){
+		 
+		  String funcion = "";
+		  System.out.println("Starting test " + new Object(){}.getClass().getEnclosingMethod().getName());
+	      driver.get("https://equipo01mantenimiento.herokuapp.com"); 
+	      driver.findElement(By.name("email")).sendKeys("pavlo.urgot@gmail.com");
+	      driver.findElement(By.name("password")).sendKeys("pavlo1");
+	      driver.findElement(By.id("botonEntrar")).click();
+	      
+	      try{
+	    	  element = driver.findElement(By.xpath("/html/body/a/section/div/div/div[1]/h2"));
+	    	  funcion = element.getText();
+	      }catch (Exception e){
+	    	  
+	      }
+	      
+	      Assert.assertEquals(funcion, "Gestor de Incidencias");
+	      System.out.println("Ending test " + new Object(){}.getClass().getEnclosingMethod().getName());
+	 }
+	 
+	 @Test
+	 public void login_valido_usuario(){
+		 
+		  String funcion = "";
+		  System.out.println("Starting test " + new Object(){}.getClass().getEnclosingMethod().getName());
+	      driver.get("https://equipo01mantenimiento.herokuapp.com"); 
+	      driver.findElement(By.name("email")).sendKeys("joseja127@gmail.com");
+	      driver.findElement(By.name("password")).sendKeys("joseja1234");
+	      driver.findElement(By.id("botonEntrar")).click();
+	      
+	      try{
+	    	  element = driver.findElement(By.xpath("/html/body/a/section/div/div/div[1]/h2"));
+	    	  funcion = element.getText();
+	      }catch (Exception e){
+	    	  
+	      }
+	      
+	      Assert.assertEquals(funcion, "Usuario");
+	      System.out.println("Ending test " + new Object(){}.getClass().getEnclosingMethod().getName());
+	 }
+	 
 	 @AfterClass
 	 public static void closeBrowser(){
 		 driver.quit();
