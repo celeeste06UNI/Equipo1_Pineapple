@@ -54,7 +54,7 @@ public class pruebaLogin {
 
 	      }
 
-		  Assert.assertEquals(mensajeError, "Usuario o contraseña incorrecto");
+		  Assert.assertTrue(!mensajeError.equals(""));
 	      System.out.println("Ending test " + new Object(){}.getClass().getEnclosingMethod().getName());
 	 }
 	 
