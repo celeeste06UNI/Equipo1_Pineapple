@@ -18,7 +18,7 @@ public class pruebaLogin {
      public static void openBrowser(){
          System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");
  		 driver = new ChromeDriver();
-	 } 
+	 }
 	 
 	 @Test
 	 public void login_no_valido(){
