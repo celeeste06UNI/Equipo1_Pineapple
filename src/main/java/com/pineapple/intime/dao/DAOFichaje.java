@@ -76,8 +76,8 @@ public class DAOFichaje {
 		Bson fichaje = null;
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
-		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
-		hourFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
+		dateFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
+		hourFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
 		
 		String horaFin = (String) hourFormat.format(new Date());
 		String fechaFin = (String) dateFormat.format(new Date());
