@@ -35,8 +35,8 @@ public class DAOFichaje {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
 
-		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
-		hourFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
+		dateFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
+		hourFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
 
 		Bson filtroEmail = null;
 		filtroEmail = or(eq("email", email),eq("dni",email));
