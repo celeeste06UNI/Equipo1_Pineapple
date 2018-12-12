@@ -51,11 +51,11 @@ public class DAOEmpleado {
 
 	/* ELIMINAR EMPLEADO */
 	public static boolean delete(String empleado) {
-		Bson filtroEmail = null;
-		Bson filtroRol=null;
-		
 		Document bso = new Document();
-		bso.append("dni", new BsonString(empleado));
+		bso.append("dni", new BsonString("6"));
+		MongoCollection<Document> dbEmpleado=MongoBroker.get().getCollection("Empleado");
+		MongoCollection<Document> dbRol=MongoBroker.get().getCollection("EmpleadoRol");
+		
 		dbEmpleado.deleteOne(bso);
 		dbRol.deleteOne(bso);
 		
