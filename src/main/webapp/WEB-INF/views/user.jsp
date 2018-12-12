@@ -149,7 +149,7 @@
 
 					</ul></li>
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Gesti髇 Incidencias <span
+					data-toggle="dropdown" href="#">Gesti贸n Incidencias <span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="/nuevoIncidencia">Crear</a></li>
@@ -158,9 +158,9 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/viewUpdatePassword"><span
-						class="glyphicon glyphicon-pencil"></span> Modificar Contrase馻</a></li>
+						class="glyphicon glyphicon-pencil"></span> Modificar Contrase帽a</a></li>
 				<li><a href="/cerrarSesion"><span
-						class="glyphicon glyphicon-log-in"></span> Cerrar Sesi髇</a></li>
+						class="glyphicon glyphicon-log-in"></span> Cerrar Sesi贸n</a></li>
 
 			</ul>
 		</div>
@@ -196,10 +196,10 @@
 			<div class="col-md-4" align="right">
 				<button type="button" class="btn dropdown-toggle">
 					<a style="color: black" href="/viewUpdatePassword">Modificar
-						Contrase馻</a>
+						Contrase帽a</a>
 				</button>
 				<button type="button" class="btn dropdown-toggle">
-					<a style="color: black" href="/cerrarSesion">Cerrar Sesi髇
+					<a style="color: black" href="/cerrarSesion">Cerrar Sesi贸n</a>
 				</button>
 			</div>
 		</div>
@@ -225,7 +225,7 @@
 					<div>
 						<div class="banner-text">
 							<h2>In Time</h2>
-							<p>Aplicaci髇 web para la gesti髇 de los fichajes</p>
+							<p>Aplicaci贸n web para la gesti贸n de los fichajes</p>
 						</div>
 					</div>
 				</div>
