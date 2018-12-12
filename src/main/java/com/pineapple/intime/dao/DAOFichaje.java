@@ -32,16 +32,16 @@ public class DAOFichaje {
 	public static boolean abrirFichaje(String email) {
 		Boolean fichado = false;
 		Bson fichaje = null;
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		//DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
 		
-		dateFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
+		//dateFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
 		//hourFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
 
 		Bson filtroEmail = null;
 		filtroEmail = or(eq("email", email),eq("dni",email));
 		String horaInicio = getCurrentTimeUsingCalendar();
-		String fechaInicio = (String) dateFormat.format(new Date());
+		String fechaInicio = (java.time.LocalDate.now()).toString();
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
 		FindIterable<Document> estadoFichaje = dbEstadoFichaje.find(filtroEmail);
 		if (datosPersonales.iterator().hasNext() && estadoFichaje.iterator().hasNext()
@@ -83,13 +83,13 @@ public class DAOFichaje {
 	public static boolean cerrarFichaje(String email) throws ParseException, java.text.ParseException {
 		Boolean fichado = false;
 		Bson fichaje = null;
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		//DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
-		dateFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
+		//dateFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
 		//hourFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
 		
 		String horaFin = getCurrentTimeUsingCalendar();
-		String fechaFin = (String) dateFormat.format(new Date());
+		String fechaFin = (java.time.LocalDate.now()).toString();
 
 		Bson filtroEmail = null;
 		filtroEmail = or(eq("email", email),eq("dni",email));
@@ -126,7 +126,6 @@ public class DAOFichaje {
 		}
 		return fichado;
 	}
-	
 
 
     public static ArrayList<String> consultarFichajes(String email,String fechaInicio,String fechaFin, String tiempo) {
