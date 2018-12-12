@@ -50,12 +50,12 @@ public class DAOEmpleado {
 	}
 
 	/* ELIMINAR EMPLEADO */
-	public static boolean delete(Document empleado) {
+	public static boolean delete(String empleado) {
 		Bson filtroEmail = null;
 		Bson filtroRol=null;
 		
 		Document bso = new Document();
-		bso.append("dni", new BsonString(empleado.get("dni").toString()));
+		bso.append("dni", new BsonString(empleado));
 		dbEmpleado.deleteOne(bso);
 		dbRol.deleteOne(bso);
 		
