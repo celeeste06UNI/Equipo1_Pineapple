@@ -166,10 +166,10 @@
 			<div class="col-md-4" align="right">
 				<button type="button" class="btn dropdown-toggle">
 					<a style="color: black" href="/viewUpdatePassword">Modificar
-						Contraseña</a>
+						ContraseÃ±a</a>
 				</button>
 				<button type="button" class="btn dropdown-toggle">
-					<a style="color: black" href="/cerrarSesion">Cerrar Sesión
+					<a style="color: black" href="/cerrarSesion">Cerrar SesiÃ³n</a>
 				</button>
 			</div>
 		</div>
@@ -195,7 +195,7 @@
 					<div>
 						<div class="banner-text">
 							<h2>In Time</h2>
-							<p>Aplicación web para la gestión de los fichajes</p>
+							<p>AplicaciÃ³n web para la gestiÃ³n de los fichajes</p>
 						</div>
 					</div>
 				</div>
