@@ -33,14 +33,14 @@ public class DAOFichaje {
 		Boolean fichado = false;
 		Bson fichaje = null;
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-		DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
-
-		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC+2"));
-		hourFormat.setTimeZone(TimeZone.getTimeZone("UTC+2"));
+		//DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+		
+		dateFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
+		//hourFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
 
 		Bson filtroEmail = null;
 		filtroEmail = or(eq("email", email),eq("dni",email));
-		String horaInicio = (String) hourFormat.format(new Date());
+		String horaInicio = getCurrentTimeUsingCalendar();
 		String fechaInicio = (String) dateFormat.format(new Date());
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
 		FindIterable<Document> estadoFichaje = dbEstadoFichaje.find(filtroEmail);
@@ -70,16 +70,25 @@ public class DAOFichaje {
 		return fichado;
 
 	}
+	public static String getCurrentTimeUsingCalendar() {
+		Calendar cal = Calendar.getInstance();
+		Date date=cal.getTime();
+		DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("Europe/Madrid"));
+		String formattedTime=dateFormat.format(date);
+		return formattedTime;
+
+	}
 
 	public static boolean cerrarFichaje(String email) throws ParseException, java.text.ParseException {
 		Boolean fichado = false;
 		Bson fichaje = null;
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-		DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
-		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC+2"));
-		hourFormat.setTimeZone(TimeZone.getTimeZone("UTC+2"));
+		//DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
+		//hourFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
 		
-		String horaFin = (String) hourFormat.format(new Date());
+		String horaFin = getCurrentTimeUsingCalendar();
 		String fechaFin = (String) dateFormat.format(new Date());
 
 		Bson filtroEmail = null;
