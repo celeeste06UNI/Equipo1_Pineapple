@@ -144,7 +144,7 @@ label.light {
 
 	<div class="row">
 		<div align="left" class="col-sm-2">
-			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
+			&nbsp&nbsp<a style="color: #cc0000" href="intime">atrás</a>
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"></div>
@@ -153,7 +153,7 @@ label.light {
 		<div class="page-header">
 			<h1>Consulta de Fichajes</h1>
 		</div>
-		<form name='searchFichaje' action='/searchFichajeOtro' method='GET'>
+		<form name='searchFichaje' action='searchFichajeOtro' method='GET'>
 
 			<fieldset>
 				<legend>

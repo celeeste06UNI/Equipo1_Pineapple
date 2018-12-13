@@ -53,8 +53,6 @@ public class DAOEmpleado {
 	public static boolean delete(String empleado) {
 		Document bso = new Document();
 		bso.append("dni", new BsonString("6"));
-		MongoCollection<Document> dbEmpleado=MongoBroker.get().getCollection("Empleado");
-		MongoCollection<Document> dbRol=MongoBroker.get().getCollection("EmpleadoRol");
 		
 		dbEmpleado.deleteOne(bso);
 		dbRol.deleteOne(bso);

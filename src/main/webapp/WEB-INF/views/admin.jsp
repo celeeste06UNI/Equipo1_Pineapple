@@ -126,45 +126,6 @@
 </head>
 <body>
 
-	<!-- <nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/intime">InTime</a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-
-						<li><a href="/newUser">Crear</a></li>
-						<li><a href="/deleteUser">Eliminar</a></li>
-						<li><a href="/updateUser">Modificar</a></li>
-					</ul></li>
-
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Fichajes<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="/fichajeUser">Fichar</a></li>
-						<li><a href="/consultaFichaje">Consultar</a></li>
-
-					</ul></li>
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Gesti贸n Incidencias <span
-						class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="/nuevoIncidencia">Crear</a></li>
-						<li><a href="/consultarIncidenciaUser">Eliminar/Modificar</a></li>
-					</ul></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/viewUpdatePassword"><span
-						class="glyphicon glyphicon-pencil"></span> Modificar Contrase帽a</a></li>
-				<li><a href="/cerrarSesion"><span
-						class="glyphicon glyphicon-log-in"></span> Cerrar Sesi贸n</a></li>
-
-			</ul>
-		</div>
-	</nav> -->
 
 	<div class="container">
 		<div class="row" style="margin-bottom: 5px">
@@ -176,9 +137,9 @@
 					</button>
 
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="/newUser">Crear</a></li>
-						<li><a href="/deleteUser">Eliminar</a></li>
-						<li><a href="/updateUser">Modificar</a></li>
+						<li><a href="newUser">Crear</a></li>
+						<li><a href="deleteUser">Eliminar</a></li>
+						<li><a href="updateUser">Modificar</a></li>
 					</ul>
 				</div>
 				<div class="btn-group">
@@ -189,8 +150,8 @@
 					</button>
 
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="/fichajeUser">Fichar</a></li>
-						<li><a href="/consultaFichaje">Consultar</a></li>
+						<li><a href="fichajeUser">Fichar</a></li>
+						<li><a href="consultaFichaje">Consultar</a></li>
 					</ul>
 				</div>
 				<div class="btn-group">
@@ -200,18 +161,18 @@
 					</button>
 
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="/nuevoIncidencia">Crear</a></li>
-						<li><a href="/consultarIncidenciaUser">Eliminar/Modificar</a></li>
+						<li><a href="nuevoIncidencia">Crear</a></li>
+						<li><a href="consultarIncidenciaUser">Eliminar/Modificar</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-md-4" align="right">
 				<button type="button" class="btn dropdown-toggle">
-					<a style="color: black" href="/viewUpdatePassword">Modificar
+					<a style="color: black" href="viewUpdatePassword">Modificar
 						Contrase帽a</a>
 				</button>
 				<button type="button" class="btn dropdown-toggle">
-					<a style="color: black" href="/cerrarSesion">Cerrar Sesi贸n</a>
+					<a style="color: black" href="cerrarSesion">Cerrar Sesi贸n</a>
 				</button>
 			</div>
 		</div>
@@ -237,7 +198,7 @@
 					<div>
 						<div class="banner-text">
 							<h2>In Time</h2>
-							<p>Aplicaci贸n web para la gesti贸n de los fichajes</p>
+							<p>Aplicaci髇 web para la gesti髇 de los fichajes</p>
 						</div>
 					</div>
 				</div>

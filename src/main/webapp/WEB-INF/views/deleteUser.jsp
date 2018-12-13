@@ -159,7 +159,7 @@ label.light {
 
 	<div class="row">
 		<div align="left" class="col-sm-2">
-			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
+			&nbsp&nbsp<a style="color: #cc0000" href="intime">atrás</a>
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"></div>
@@ -171,7 +171,7 @@ label.light {
 		</div>
 		<div class="row">
 			<div class="col-sm-6" style="background-color: white;">
-				<form name='searchForm' action='/deleteSearchUser' method='POST'>
+				<form name='searchForm' action='deleteSearchUser' method='POST'>
 
 					<fieldset>
 						<legend>
@@ -185,7 +185,7 @@ label.light {
 
 			</div>
 			<div class="col-sm-6" style="background-color: white;">
-				<form name='deleteForm' action='/actionDeleteUser' method='GET'>
+				<form name='deleteForm' action='actionDeleteUser' method='GET'>
 
 					<fieldset>
 						<legend>

@@ -132,7 +132,7 @@ label.light {
 
 	<div class="row">
 		<div align="left" class="col-sm-2">
-			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
+			&nbsp&nbsp<a style="color: #cc0000" href="intime">atrás</a>
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"></div>
@@ -144,7 +144,7 @@ label.light {
 		</div>
 	</div>
 
-	<form name='IncidenciaForm' action='/saveIncidencia' method='POST'>
+	<form name='IncidenciaForm' action='saveIncidencia' method='POST'>
 		<fieldset>
 			<legend>
 				<span class="number">1</span>Información básica

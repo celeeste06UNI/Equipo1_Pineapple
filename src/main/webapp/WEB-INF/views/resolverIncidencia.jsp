@@ -138,7 +138,7 @@ label.light {
 
 	<div class="row">
 		<div align="left" class="col-sm-2">
-			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
+			&nbsp&nbsp<a style="color: #cc0000" href="intime">atrás</a>
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"></div>
@@ -148,7 +148,7 @@ label.light {
 		<div class="page-header">
 			<h1>Resolución de Incidencias</h1>
 		</div>
-		<form name='searchForm' action='/buscarIncidenciaTipoE' method='GET'>
+		<form name='searchForm' action='buscarIncidenciaTipoE' method='GET'>
 
 			<fieldset>
 				<legend>
@@ -188,7 +188,7 @@ label.light {
 					<td>${fichaje.tipo}</td>
 					<td>${fichaje.fecha}</td>
 					<td><a
-						href="<c:url value='/editIncidenciasE?email=${fichaje.email}&estado=${fichaje.estado}&asunto=${fichaje.asunto}&descripcion=${fichaje.descripcion}&tipo=${fichaje.tipo}&fecha=${fichaje.fecha}' />">Editar</a>
+						href="<c:url value='editIncidenciasE?email=${fichaje.email}&estado=${fichaje.estado}&asunto=${fichaje.asunto}&descripcion=${fichaje.descripcion}&tipo=${fichaje.tipo}&fecha=${fichaje.fecha}' />">Editar</a>
 				</tr>
 			</c:forEach>
 		</table>

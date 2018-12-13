@@ -139,7 +139,7 @@ label.light {
 
 	<div class="row">
 		<div align="left" class="col-sm-2">
-			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
+			&nbsp&nbsp<a style="color: #cc0000" href="intime">atrás</a>
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"></div>
@@ -155,15 +155,15 @@ label.light {
 					<legend>
 						<span class="number">1</span>Fichajes
 					</legend>
-					<a style="color:#FFFFFF" href="/abrirFichaje" ><button onclick="aperturaFichaje()">abrir</button></a>
+					<a style="color:#FFFFFF" href="abrirFichaje" ><button onclick="aperturaFichaje()">abrir</button></a>
 
-					<a style="color:#FFFFFF" href="/cerrarFichaje"><button onclick="cierreFichaje()">cerrar</button></a>
+					<a style="color:#FFFFFF" href="cerrarFichaje"><button onclick="cierreFichaje()">cerrar</button></a>
 				</fieldset>
 
 			</div>
 			<div class="col-sm-6" style="background-color: white;">
 
-				<form name='searchFichaje' action='/searchFichaje' method='GET'>
+				<form name='searchFichaje' action='searchFichaje' method='GET'>
 
 					<fieldset>
 						<legend>

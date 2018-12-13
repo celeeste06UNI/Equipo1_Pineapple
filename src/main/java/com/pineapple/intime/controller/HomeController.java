@@ -99,7 +99,6 @@ public class HomeController {
     }
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-
 	public ModelAndView loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password, 
 			HttpServletRequest request, ModelAndView model) throws Exception {
 		String pagina = "error";
