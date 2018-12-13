@@ -169,10 +169,10 @@
 			<div class="col-md-4" align="right">
 				<button type="button" class="btn dropdown-toggle">
 					<a style="color: black" href="viewUpdatePassword">Modificar
-						ContraseÃ±a</a>
+						Contraseña</a>
 				</button>
 				<button type="button" class="btn dropdown-toggle">
-					<a style="color: black" href="cerrarSesion">Cerrar SesiÃ³n</a>
+					<a style="color: black" href="cerrarSesion">Cerrar Sesión</a>
 				</button>
 			</div>
 		</div>
