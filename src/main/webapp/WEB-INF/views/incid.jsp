@@ -169,7 +169,11 @@
 						ContraseÃ±a</a>
 				</button>
 				<button type="button" class="btn dropdown-toggle">
+<<<<<<< HEAD
+					<a style="color: black" href="/cerrarSesion">Cerrar Sesión</a>
+=======
 					<a style="color: black" href="cerrarSesion">Cerrar Sesión</a>
+>>>>>>> branch 'master' of https://github.com/Rodrigo262/Equipo1_Pineapple
 				</button>
 			</div>
 		</div>
