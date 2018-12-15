@@ -112,7 +112,6 @@ public class HomeController {
 		if(doc.get("email").equals("error")) {
 			model.addObject("correcto", "Usuario o contraseña incorrecto");
 			model.setViewName("index");
-			//pagina = "index";
 		}
 
 		if(doc.get("email").equals(emailLowerCase)) {
@@ -123,17 +122,14 @@ public class HomeController {
 			if(doc.get("rol").equals("admin")){
 				session.setAttribute("rolSession",doc.get("rol"));
 				model.setViewName("admin");
-				//pagina = "admin";
 			}
 			if(doc.get("rol").equals("user")){
 				session.setAttribute("rolSession",doc.get("rol"));
 				model.setViewName("user");
-				//pagina = "user";
 			}
 			if(doc.get("rol").equals("incid")){
 				session.setAttribute("rolSession",doc.get("rol"));
 				model.setViewName("incid");
-				//pagina = "incid";
 			}
 		}
 		return model;

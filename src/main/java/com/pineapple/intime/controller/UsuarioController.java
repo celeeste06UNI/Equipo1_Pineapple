@@ -1,14 +1,11 @@
 package com.pineapple.intime.controller;
 
-import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.bson.Document;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,9 +52,6 @@ public class UsuarioController {
 
 	@RequestMapping(value = "/viewUpdatePassword", method = RequestMethod.GET)
 	public ModelAndView viewUpdatePassword(HttpServletRequest request, ModelAndView model) {
-		HttpSession session = request.getSession(true);
-		String rolSession = (String) session.getAttribute("rolSession");
-
 		model.setViewName("updatePassword");
 
 		return model;
@@ -192,9 +186,6 @@ public class UsuarioController {
 			@ModelAttribute("dni") String dni, @ModelAttribute("nombre") String nombre,
 			@ModelAttribute("apellidos") String apellidos, @ModelAttribute("email") String email,
 			@ModelAttribute("rol") String rol) {
-			HttpSession session = request.getSession(true);
-			String rolSession = (String) session.getAttribute("rol");
-			//if (rolSession.equals("admin")) {
 			Document empleado = new Document();
 			String emailLowerCase = email.toLowerCase();
 			empleado.put("dni", dni);
@@ -208,11 +199,6 @@ public class UsuarioController {
 			}catch (Exception ex){
 				model.setViewName("error");
 			}
-			
-			
-		//}else {
-			
-		//}
 
 		return model;
 	}

@@ -169,7 +169,7 @@
 						Contraseña</a>
 				</button>
 				<button type="button" class="btn dropdown-toggle">
-					<a style="color: black" href="/cerrarSesion">Cerrar Sesión
+					<a style="color: black" href="/cerrarSesion">Cerrar Sesión</a>
 				</button>
 			</div>
 		</div>
