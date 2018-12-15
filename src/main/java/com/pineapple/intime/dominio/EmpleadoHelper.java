@@ -156,7 +156,7 @@ public class EmpleadoHelper {
 	}
 	
 	public String toString() {
-		return null;
+		return "";
 	}
 	
 	public static String CalculoTiempo (Object apertura, Object cierre) throws ParseException, java.text.ParseException {

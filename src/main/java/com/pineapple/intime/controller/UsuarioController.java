@@ -17,12 +17,14 @@ import com.pineapple.intime.dominio.EmpleadoHelper;
 
 @Controller
 public class UsuarioController {
+	
+	private final String admin="admin";
 
 	@RequestMapping(value = "/newUser", method = RequestMethod.GET)
 	public ModelAndView newUser(ModelAndView model, HttpServletRequest request) {
 		HttpSession session = request.getSession(true);
 		String rolSession = (String) session.getAttribute("rolSession");
-		if (rolSession.equals("admin")) {
+		if (rolSession.equals(admin)) {
 			model.setViewName("newUser");
 		} else {
 			model.setViewName(rolSession);
@@ -34,7 +36,7 @@ public class UsuarioController {
 	public ModelAndView deleteUser(ModelAndView model, HttpServletRequest request) {
 		HttpSession session = request.getSession(true);
 		String rolSession = (String) session.getAttribute("rolSession");
-		if (rolSession.equals("admin")) {
+		if (rolSession.equals(admin)) {
 			model.setViewName("deleteUser");
 		}
 		return model;
@@ -44,7 +46,7 @@ public class UsuarioController {
 	public ModelAndView updateUser(HttpServletRequest request, ModelAndView model) {
 		HttpSession session = request.getSession(true);
 		String rolSession = (String) session.getAttribute("rolSession");
-		if (rolSession.equals("admin")) {
+		if (rolSession.equals(admin)) {
 			model.setViewName("updateUser");
 		}
 		return model;
@@ -63,7 +65,7 @@ public class UsuarioController {
 			@ModelAttribute("email") String email, @ModelAttribute("rol") String rol) throws Exception {
 		HttpSession session = request.getSession(true);
 		String rolSession = (String) session.getAttribute("rolSession");
-		if (rolSession.equals("admin")) {
+		if (rolSession.equals(admin)) {
 			Document empleado = new Document();
 			String contrasenna = EmpleadoHelper.generarContrasenna();
 			String emailLowerCase = email.toLowerCase();
@@ -76,7 +78,7 @@ public class UsuarioController {
 			if (DAOEmpleado.insert(empleado)) {
 				EmpleadoHelper.sesionEmail(email, contrasenna);
 			}
-			model.setViewName("admin");
+			model.setViewName(admin);
 		}
 
 		return model;
@@ -95,8 +97,8 @@ public class UsuarioController {
 		String rolSession = (String) session.getAttribute("rolSession");
 		DAOEmpleado.updatePassword(email, passAntHex, passNuevaHex);
 
-		if ("admin".equals(rolSession)) {
-			pagina = "admin";
+		if (admin.equals(rolSession)) {
+			pagina = admin;
 		}
 
 		if ("user".equals(rolSession)) {
@@ -122,7 +124,7 @@ public class UsuarioController {
 			EmpleadoHelper.sesionEmail(email, contrasenna);
 		}
 
-		return "admin";
+		return admin;
 	}
 
 	@RequestMapping(value = "/editUser", method = RequestMethod.POST)
@@ -136,7 +138,7 @@ public class UsuarioController {
 		empleado.put("nombre", nombre);
 		empleado.put("apellidos", apellidos);
 		DAOEmpleado.update(emailAntiguo, empleado);
-		return "admin";
+		return admin;
 	}
 
 	@RequestMapping(value = "/searchUser", method = RequestMethod.POST)

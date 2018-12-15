@@ -165,7 +165,7 @@ public class DAOEmpleado {
 	}
 	
 	public String toString() {
-		return null;
+		return "";
 	}
 
 }
