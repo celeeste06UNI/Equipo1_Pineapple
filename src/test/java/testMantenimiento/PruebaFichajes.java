@@ -74,7 +74,7 @@ public class PruebaFichajes {
 			
 		}
 		
-		//Volver atrás
+		//Volver atrÃ¡s
 		driver.findElement(By.xpath("/html/body/div[3]/div[1]/a")).click();
 		
 		
@@ -91,7 +91,7 @@ public class PruebaFichajes {
 		fichajePrueba.append("fechaFin", fechaFin);
 		fichajePrueba.append("horaFin", horaFin);
 
-		//Volver atrás
+		//Volver atrÃ¡s
 		driver.findElement(By.xpath("/html/body/div[3]/div[1]/a")).click();
 		
 		Assert.assertTrue(buscarFichajeCerrado(fichajePrueba));
@@ -126,7 +126,7 @@ public class PruebaFichajes {
 		driver.findElement(By.xpath("/html/body/div[4]/div[2]/div[2]/form/fieldset/button")).click();
 		String datos = driver.findElement(By.xpath("/html/body/div[5]/table/tbody/tr[2]/td")).getText();
 		Assert.assertTrue(datos.contains(email));
-		//Volver atrás
+		//Volver atrÃ¡s
 		driver.findElement(By.xpath("/html/body/div[3]/div[1]/a")).click();
 	}
 
@@ -141,7 +141,7 @@ public class PruebaFichajes {
 		driver.findElement(By.xpath("/html/body/div[4]/form/fieldset/button")).click();
 		String datos = driver.findElement(By.xpath("/html/body/div[5]/table/tbody/tr[2]/td")).getText();
 		Assert.assertTrue(datos.contains(emailConsulta));
-		//Volver atrás
+		//Volver atrÃ¡s
 		driver.findElement(By.xpath("/html/body/div[3]/div[1]/a")).click();
 	}
 	
@@ -153,7 +153,7 @@ public class PruebaFichajes {
 		
 		fechaInicio = "20/07/2017";
 		fechaFin = "20/12/2019";
-		Assert.assertNotNull(daofichaje.consultarFichajes(email, fechaInicio, fechaFin));
+		Assert.assertNotNull(daofichaje.consultarFichajes(email, fechaInicio, fechaFin, ""));
 	}
 
 	private MongoCollection<Document> obtenerFichajes() {
