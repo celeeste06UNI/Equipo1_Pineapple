@@ -3,6 +3,7 @@ package com.pineapple.intime.dao;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -21,7 +22,6 @@ import static com.mongodb.client.model.Filters.gte;
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Updates.combine;
 import static com.mongodb.client.model.Updates.set;
-import static com.mongodb.client.model.Filters.in;
 import static com.mongodb.client.model.Filters.lte;
 
 public class DAOFichaje {
@@ -32,16 +32,16 @@ public class DAOFichaje {
 	public static boolean abrirFichaje(String email) {
 		Boolean fichado = false;
 		Bson fichaje = null;
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-		DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
-
-		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
-		hourFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
+		//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		//DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+		
+		//dateFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
+		//hourFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
 
 		Bson filtroEmail = null;
 		filtroEmail = or(eq("email", email),eq("dni",email));
-		String horaInicio = (String) hourFormat.format(new Date());
-		String fechaInicio = (String) dateFormat.format(new Date());
+		String horaInicio = getCurrentTimeUsingCalendar();
+		String fechaInicio = (java.time.LocalDate.now()).toString();
 		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
 		FindIterable<Document> estadoFichaje = dbEstadoFichaje.find(filtroEmail);
 		if (datosPersonales.iterator().hasNext() && estadoFichaje.iterator().hasNext()
@@ -70,17 +70,26 @@ public class DAOFichaje {
 		return fichado;
 
 	}
+	public static String getCurrentTimeUsingCalendar() {
+		Calendar cal = Calendar.getInstance();
+		Date date=cal.getTime();
+		DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("Europe/Madrid"));
+		String formattedTime=dateFormat.format(date);
+		return formattedTime;
+
+	}
 
 	public static boolean cerrarFichaje(String email) throws ParseException, java.text.ParseException {
 		Boolean fichado = false;
 		Bson fichaje = null;
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-		DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
-		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
-		hourFormat.setTimeZone(TimeZone.getTimeZone("UTC+1"));
+		//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		//DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+		//dateFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
+		//hourFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
 		
-		String horaFin = (String) hourFormat.format(new Date());
-		String fechaFin = (String) dateFormat.format(new Date());
+		String horaFin = getCurrentTimeUsingCalendar();
+		String fechaFin = (java.time.LocalDate.now()).toString();
 
 		Bson filtroEmail = null;
 		filtroEmail = or(eq("email", email),eq("dni",email));
@@ -117,7 +126,6 @@ public class DAOFichaje {
 		}
 		return fichado;
 	}
-	
 
 
     public static ArrayList<String> consultarFichajes(String email,String fechaInicio,String fechaFin, String tiempo) {
