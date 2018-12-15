@@ -194,7 +194,7 @@ public class UsuarioController {
 			empleado.put("nombre", nombre);
 			empleado.put("apellidos", apellidos);
 			try {
-				DAOEmpleado.delete(empleado);
+				DAOEmpleado.delete("6");
 				model.setViewName("actionDeleteUser");
 			}catch (Exception ex){
 				model.setViewName("error");

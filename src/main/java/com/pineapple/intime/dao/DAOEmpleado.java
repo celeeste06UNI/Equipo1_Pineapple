@@ -50,27 +50,14 @@ public class DAOEmpleado {
 	}
 
 	/* ELIMINAR EMPLEADO */
-	public static boolean delete(Document empleado) {
-		Bson filtroEmail = null;
-		Bson filtroRol=null;
-		filtroEmail = or(eq("email", empleado.get("email")),eq("dni",empleado.get("dni")));
-		FindIterable<Document> datosPersonales = dbEmpleado.find(filtroEmail);
-		FindIterable<Document> rol = dbRol.find(filtroEmail);
+	public static boolean delete(String empleado) {
+		Document bso = new Document();
+		bso.append("dni", new BsonString("6"));
 		
-		dbEmpleado.deleteOne(filtroEmail);
-		dbRol.deleteOne(filtroEmail);
+		dbEmpleado.deleteOne(bso);
+		dbRol.deleteOne(bso);
 		
-		
-
-		//if (datosPersonales.iterator().hasNext() && rol.iterator().hasNext()) {
-//			/*DeleteResult drDatos = */dbEmpleado.deleteOne(filtroEmail);
-//			/*DeleteResult drRol = */dbRol.deleteOne(filtroEmail);
-//			if (drDatos.wasAcknowledged() && drRol.wasAcknowledged()) {
-			return true;
-//			}
-//		} else {
-//			return false;
-//		}
+		return true;
 	}
 
 	/* MODIFICAR USUARIO */

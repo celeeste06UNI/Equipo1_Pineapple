@@ -133,13 +133,13 @@ label.light {
 
 	<div class="row">
 		<div align="left" class="col-sm-2">
-			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
+			&nbsp&nbsp<a style="color: #cc0000" href="intime">atrás</a>
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"></div>
 	</div>
 
-	<form name='IncidenciaForm' action='/updateEIn' method='GET'>
+	<form name='IncidenciaForm' action='updateEIn' method='GET'>
 		<h1>Modificar Incidencia</h1>
 		<fieldset>
 			<legend>

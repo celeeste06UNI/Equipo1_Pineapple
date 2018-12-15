@@ -138,7 +138,7 @@
 					</button>
 
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="/fichajeUser">Fichar</a></li>
+						<li><a href="fichajeUser">Fichar</a></li>
 					</ul>
 				</div>
 				<div class="btn-group">
@@ -148,8 +148,8 @@
 					</button>
 
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="/nuevoIncidencia">Crear</a></li>
-						<li><a href="/consultarIncidenciaUser">Eliminar/Modificar</a></li>
+						<li><a href="nuevoIncidencia">Crear</a></li>
+						<li><a href="consultarIncidenciaUser">Eliminar/Modificar</a></li>
 					</ul>
 				</div>
 				<div class="btn-group">
@@ -159,17 +159,21 @@
 					</button>
 
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="/resolverIncidencia">Visualizar</a></li>
+						<li><a href="resolverIncidencia">Visualizar</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-md-4" align="right">
 				<button type="button" class="btn dropdown-toggle">
-					<a style="color: black" href="/viewUpdatePassword">Modificar
-						Contraseña</a>
+					<a style="color: black" href="viewUpdatePassword">Modificar
+						ContraseÃ±a</a>
 				</button>
 				<button type="button" class="btn dropdown-toggle">
+<<<<<<< HEAD
 					<a style="color: black" href="/cerrarSesion">Cerrar Sesión</a>
+=======
+					<a style="color: black" href="cerrarSesion">Cerrar Sesión</a>
+>>>>>>> branch 'master' of https://github.com/Rodrigo262/Equipo1_Pineapple
 				</button>
 			</div>
 		</div>

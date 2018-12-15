@@ -132,7 +132,7 @@ label.light {
 
 	<div class="row">
 		<div align="left" class="col-sm-2">
-			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
+			&nbsp&nbsp<a style="color: #cc0000" href="intime">atrás</a>
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"></div>
@@ -143,7 +143,7 @@ label.light {
 			<h1>Modificar Contraseña</h1>
 		</div>
 
-		<form name='updatePasswordForm' action='/updatePassword' method='POST'>
+		<form name='updatePasswordForm' action='updatePassword' method='POST'>
 
 			<div class="form-group">
 				<label for="exampleInputPassword1" class="text-uppercase">Contraseña

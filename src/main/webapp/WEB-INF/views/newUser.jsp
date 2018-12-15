@@ -19,6 +19,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script 
+  src="http://1000hz.github.io/bootstrap-validator/dist/validator.min.js"></script>
 
 <style type="text/css">
 *, *:before, *:after {
@@ -154,7 +156,7 @@ label.light {
 
 	<div class="row">
 		<div align="left" class="col-sm-2">
-			&nbsp&nbsp<a style="color: #cc0000" href="/intime">atrás</a>
+			&nbsp&nbsp<a style="color: #cc0000" href="intime">atrás</a>
 		</div>
 		<div class="col-sm-2"></div>
 		<div class="col-sm-8"></div>
@@ -166,37 +168,43 @@ label.light {
 		</div>
 	</div>
 
-	<form name='loginForm' action='/saveUser' method='POST'>
+	<form name='loginForm' action='saveUser' method='POST' data-toggle="validator">
 		<fieldset>
 			<legend>
 				<span class="number">1</span>Información básica
 			</legend>
-			<label for="dni">DNI:</label> <input type="text" required
-				autocomplete="off" name="dni"><label for="name">Nombre:</label> <input type="text" required
-				autocomplete="off" name="nombre"> <label for="name">Apellido:</label><input
-				type="text" required autocomplete="off" name="apellidos"> <label
-				for="mail">Email:</label> <input type="email" required
-				autocomplete="off" name="email">
+			<div class="form-group">
+			<label for="dni">DNI:</label> <input type="text" placeholder="00000000A" maxlength="9" data-error="Formato del DNI inv&aacute;lido" pattern="(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))" name="dni" required>
+			<div class="help-block with-errors"></div>
+			</div>
+			<div class="form-group">
+			<label for="name">Nombre:</label> <input type="text" placeholder="Nombre" data-error="Campo necesario" name="nombre" required>
+			<div class="help-block with-errors"></div>
+			</div>
+			<div class="form-group">
+			<label for="name">Apellido:</label><input type="text" placeholder="Apellido" data-error="Campo necesario" name="apellidos" required>
+			<div class="help-block with-errors"></div>
+			</div>
+			<div class="form-group">
+			<label for="mail">Email:</label> <input type="email"  placeholder="example@gmail.com" data-error="Direcci&oacute;n de correo inv&aacute;lida" name="email" required>
+			<div class="help-block with-errors"></div>
+			</div>
 		</fieldset>
 
 		<fieldset>
 			<legend>
 				<span class="number">2</span>Seleccionar Rol
 			</legend>
-			<label>Roles:</label> <input type="radio" id="admin" value="admin"
-				required autocomplete="off" name="rol"> <label class="light"
-				for="Administrador">Administrador</label><br> <input
-				type="radio" id="usuario" value="user" required autocomplete="off"
-				name="rol"> <label class="light" for="Usuario">Usuario</label><br>
-			<input type="radio" id="gestor" value="incid" required
-				autocomplete="off" name="rol"> <label class="light"
-				for="Gestor">Gestor</label>
+			<label>Roles:</label> <input type="radio" id="admin" value="admin" name="rol" required> 
+			<label class="light" for="Administrador" required>Administrador</label>
+			<br> <input type="radio" id="usuario" value="user"  name="rol"required> 
+			<label class="light" for="Usuario">Usuario</label><br>
+			<input type="radio" id="gestor" value="incid" name="rol" required>
+			<label class="light" for="Gestor">Gestor</label>
 		</fieldset>
-		<input class="button"  type="button" onclick="pregunta()" value="Registrar">
-		<!-- 		<button type="submit">Registrar</button> -->
-
+		<input class="button" type="submit" value="Registrar" >
+		<span style="color:red"><em>${alerta}</em></span>
 	</form>
-
 
 </body>
 </html>
