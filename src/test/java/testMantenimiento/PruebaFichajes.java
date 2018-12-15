@@ -78,7 +78,7 @@ public class PruebaFichajes {
 		driver.findElement(By.xpath("/html/body/div[3]/div[1]/a")).click();
 		
 		
-		Assert.assertTrue(buscarFichajeAbiertoPrints(fichajePrueba));
+		Assert.assertTrue(buscarFichajeAbierto(fichajePrueba));
 		
 		//Entrar otra vez a la  interfaz de abrir/cerrar fichaje
 		driver.findElement(By.xpath("/html/body/div/div/div[1]/div[2]/button")).click();
@@ -94,7 +94,7 @@ public class PruebaFichajes {
 		//Volver atrás
 		driver.findElement(By.xpath("/html/body/div[3]/div[1]/a")).click();
 		
-		Assert.assertTrue(buscarFichajeCerradoPrints(fichajePrueba));
+		Assert.assertTrue(buscarFichajeCerrado(fichajePrueba));
 	}
 	
 	@Test
@@ -180,43 +180,6 @@ public class PruebaFichajes {
 					if (documento.get("fechaInicio").toString().equals(fichaje.get("fechaInicio").toString())){
 						return true;
 					}
-				}
-			}
-		}
-		return false;
-	}
-	
-	public boolean buscarFichajeAbiertoPrints(Document fichaje) {
-		Document documento = new Document();
-		MongoCursor<Document> listaEstados = obtenerEstadoFichajes().find().iterator();
-
-		while(listaEstados.hasNext()) {
-			documento = listaEstados.next();
-
-			if(documento.get("email").toString().equalsIgnoreCase(email)){
-				System.out.println(documento.get("estado").toString());
-				if (documento.get("estado").toString().equalsIgnoreCase("abierto")) {
-					System.out.println(fichaje.get("fechaInicio").toString());
-					System.out.println(documento.get("fechaInicio").toString());
-					if (documento.get("fechaInicio").toString().equals(fichaje.get("fechaInicio").toString())){
-						return true;
-					}
-				}
-			}
-		}
-		return false;
-	}
-	
-	public boolean buscarFichajeCerradoPrints(Document fichaje) {
-		Document documento = new Document();
-		MongoCursor<Document> listaFichajes = obtenerFichajes().find().iterator();
-		while(listaFichajes.hasNext()) {
-			documento = listaFichajes.next();
-			if(documento.get("email").toString().equalsIgnoreCase(email)){
-				System.out.println(fichaje.get("fechaFin").toString());
-				System.out.println(documento.get("fechaFin").toString());
-				if(documento.get("fechaFin").toString().equalsIgnoreCase(fichaje.get("fechaFin").toString())) {
-					return true;
 				}
 			}
 		}
