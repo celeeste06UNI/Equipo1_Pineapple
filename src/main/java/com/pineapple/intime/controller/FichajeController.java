@@ -21,10 +21,11 @@ import com.steadystate.css.parser.ParseException;
 
 @Controller
 public class FichajeController {
+	private static final String FICHAJE_USER = "fichajeUser";
 
 	@RequestMapping(value = "/fichajeUser", method = RequestMethod.GET)
 	public ModelAndView fichajeUser(ModelAndView model) {
-		model.setViewName("fichajeUser");
+		model.setViewName(FICHAJE_USER);
 		return model;
 	}
 
@@ -41,7 +42,7 @@ public class FichajeController {
 		String email = (String) session.getAttribute("emailSession");
 		fichado = DAOFichaje.abrirFichaje(email);
 		model.addObject("fichado", fichado);
-		return "fichajeUser";
+		return FICHAJE_USER;
 	}
 
 	@RequestMapping(value = "/cerrarFichaje", method = RequestMethod.GET)
@@ -51,7 +52,7 @@ public class FichajeController {
 		String email = (String) session.getAttribute("emailSession");
 		fichado = DAOFichaje.cerrarFichaje(email);
 		model.addObject("fichado", fichado);
-		return "fichajeUser";
+		return FICHAJE_USER;
 	}
 
 	@RequestMapping(value = "/searchFichaje", method = RequestMethod.GET)
@@ -61,7 +62,7 @@ public class FichajeController {
 		String email = (String) session.getAttribute("emailSession");
 		ArrayList<String> result = DAOFichaje.consultarFichajes(email, fechaI, fechaF, tiempo);
 		model.addObject("listDate", result);
-		model.setViewName("fichajeUser");
+		model.setViewName(FICHAJE_USER);
 		return model;
 	}
 

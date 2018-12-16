@@ -39,11 +39,12 @@ public class EmpleadoHelper {
 
 
 	public static String generarContrasenna() throws Exception {
-		String passHex = null;
 		
 		String passCifrada = cifra(RandomStringUtils.randomAlphanumeric(10));
+		String passHex = ConvertirHexadecimal(passCifrada);
 
-		return passHex = ConvertirHexadecimal(passCifrada);
+
+		return passHex;
 	}
 	
 	public static void sesionEmail(String emailDestino, String contrasenna) throws Exception {

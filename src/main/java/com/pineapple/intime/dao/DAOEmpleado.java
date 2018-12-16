@@ -79,9 +79,7 @@ public class DAOEmpleado {
 			if (urDatos.wasAcknowledged() && urRol.wasAcknowledged()) {
 				actualizado = true;
 			}
-		} else {
-			actualizado = false;
-		}
+		} 
 		return actualizado;
 	}
 
