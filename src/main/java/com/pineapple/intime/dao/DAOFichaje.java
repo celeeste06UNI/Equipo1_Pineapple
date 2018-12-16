@@ -32,11 +32,6 @@ public class DAOFichaje {
 	public static boolean abrirFichaje(String email) {
 		Boolean fichado = false;
 		Bson fichaje = null;
-		//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-		//DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
-		
-		//dateFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
-		//hourFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
 
 		Bson filtroEmail = null;
 		filtroEmail = or(eq("email", email),eq("dni",email));
@@ -83,10 +78,6 @@ public class DAOFichaje {
 	public static boolean cerrarFichaje(String email) throws ParseException, java.text.ParseException {
 		Boolean fichado = false;
 		Bson fichaje = null;
-		//DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-		//DateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
-		//dateFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
-		//hourFormat.setTimeZone(TimeZone.getTimeZone("Europa/Madrid"));
 		
 		String horaFin = getCurrentTimeUsingCalendar();
 		String fechaFin = (java.time.LocalDate.now()).toString();
@@ -156,25 +147,6 @@ public class DAOFichaje {
     	return result;
     }
 
-//	public static Document consultarFichajes(String email, String fecha) {
-//
-//		Bson filtroFichaje = and(eq("email", email), eq("fechaFin", fecha), eq("fechaInicio", fecha));
-//		FindIterable<Document> cursor = dbFichaje.find(filtroFichaje);
-//		Document resultado = new Document();
-//
-//		resultado.put("email", email);
-//		Integer cont = 0;
-//		for (Document doc : cursor) {
-//			cont = cont + 1;
-//			String fichajeInicio = doc.get("fechaInicio") + " " + doc.getString("horaInicio");
-//			String fichajeFin = doc.get("fechaFin") + " " + doc.getString("horaFin");
-//			String fichaje = fichajeInicio + " - " + fichajeFin;
-//			resultado.put(cont.toString(), fichaje);
-//
-//		}
-//		return resultado;
-//	}
-
 	public static Document consultarFichajesEmpleado(String email) {
 		Bson filtroEmail = null;
 		filtroEmail = or(eq("email", email),eq("dni",email));
@@ -198,5 +170,4 @@ public class DAOFichaje {
 	public String toString() {
 		return "";
 	}
-
 }
