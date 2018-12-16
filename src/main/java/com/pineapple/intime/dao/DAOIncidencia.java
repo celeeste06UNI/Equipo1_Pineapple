@@ -20,21 +20,6 @@ public class DAOIncidencia {
 
 	private static MongoCollection<Document> dbIncidencia=MongoBroker.get().getCollection("Incidencia");
 	
-	
-	
-	
-//	public static MongoCursor<Document> buscarIncidencias(String email,String tipo){
-//		MongoCursor<Document> m = null;
-//		if(DAOEmpleado.buscarEmpleado(email)) {
-//			Bson filtro=null;
-//			filtro=and(eq("email",email),eq("tipo",tipo));
-//			m=dbIncidencia.find(filtro).iterator();
-//			return m;
-//		}else {
-//			return m;
-//		}
-//		
-//	}
 	public static boolean updateEstado(String email,String estado,String asunto,String descripcion,String tipo,String fecha,String rol) {
 		Bson filtro=null;
 		Bson update=null;
@@ -75,10 +60,7 @@ public class DAOIncidencia {
 
 	public static boolean insert(Document incidencia) {
 		boolean insertado = false;
-		// if(DAOEmpleado.buscarEmpleado((String) incidencia.get("email"))) {
 		dbIncidencia.insertOne(incidencia);
-		// insertado=true;
-		// }
 		return insertado;
 	}
 
@@ -87,20 +69,14 @@ public class DAOIncidencia {
 	public static ArrayList<Incidencia> consultar(String email,String tipo,String rol){
 		ArrayList<Incidencia> result=new ArrayList<Incidencia> ();
 		Bson filtro=null;
-			filtro=and(or(eq("email",email),eq("dni",email)),eq("tipo",tipo));
-		
-		//if(DAOEmpleado.buscarEmpleado(email)) {
+		filtro=and(or(eq("email",email),eq("dni",email)),eq("tipo",tipo));
 
-			FindIterable<Document> incidencias = dbIncidencia.find(filtro);
-			for (Document inc: incidencias) {
-				Incidencia incidencia=new Incidencia(inc.getString("email"),inc.getString("estado"),inc.getString("asunto"),inc.getString("descripcion"),
-						inc.getString("tipo"),inc.getString("fecha"));
-				result.add(incidencia);
-			}
-			
-		//}else {
-		//	result.put(0, new Document("email","error"));
-		//}
+		FindIterable<Document> incidencias = dbIncidencia.find(filtro);
+		for (Document inc: incidencias) {
+			Incidencia incidencia=new Incidencia(inc.getString("email"),inc.getString("estado"),inc.getString("asunto"),inc.getString("descripcion"),
+					inc.getString("tipo"),inc.getString("fecha"));
+			result.add(incidencia);
+		}
 		return result;
 
 	}
@@ -112,22 +88,13 @@ public class DAOIncidencia {
 		}else {
 			filtro=and(or(eq("email",email),eq("dni",email)),eq("tipo",tipo));
 		}
-		//if(DAOEmpleado.buscarEmpleado(email)) {
 
-			FindIterable<Document> incidencias = dbIncidencia.find(filtro);
-			for (Document inc: incidencias) {
-				Incidencia incidencia=new Incidencia(inc.getString("email"),inc.getString("estado"),inc.getString("asunto"),inc.getString("descripcion"),
-						inc.getString("tipo"),inc.getString("fecha"));
-				result.add(incidencia);
-			}
-			
-		//}else {
-		//	result.put(0, new Document("email","error"));
-		//}
+		FindIterable<Document> incidencias = dbIncidencia.find(filtro);
+		for (Document inc: incidencias) {
+			Incidencia incidencia=new Incidencia(inc.getString("email"),inc.getString("estado"),inc.getString("asunto"),inc.getString("descripcion"),
+					inc.getString("tipo"),inc.getString("fecha"));
+			result.add(incidencia);
+		}
 		return result;
-
 	}
-	
-	
-
 }
