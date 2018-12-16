@@ -39,11 +39,10 @@ public class EmpleadoHelper {
 
 
 	public static String generarContrasenna() throws Exception {
-		String passHex = null;
-		
+	
 		String passCifrada = cifra(RandomStringUtils.randomAlphanumeric(10));
 
-		return passHex = ConvertirHexadecimal(passCifrada);
+		return ConvertirHexadecimal(passCifrada);
 	}
 	
 	public static void sesionEmail(String emailDestino, String contrasenna) throws Exception {
@@ -106,8 +105,6 @@ public class EmpleadoHelper {
 	}
 	
 	public static String ConvertirCadena(String hex) {
-	    
-	    String noHex= null;
 		
 	    String rephex = hex.replaceAll("^(00)+", "");
 	    byte[] bytes = new byte[rephex.length() / 2];
@@ -115,25 +112,23 @@ public class EmpleadoHelper {
 	        bytes[i / 2] = (byte) ((Character.digit(rephex.charAt(i), 16) << 4) + Character.digit(rephex.charAt(i + 1), 16));
 	    }
 
-	    return noHex = new String(bytes);
+	    return new String(bytes);
 	}
 	
 
 
 	public static String cifra(String sinCifrar) throws Exception {
-		String cifrarString = null;
 		final byte[] bytes = sinCifrar.getBytes("UTF-8");
 		final Cipher aes = obtieneCipher(true);
 		final byte[] cifrado = aes.doFinal(bytes);
-		return cifrarString = new String(cifrado, UNICODE_FORMAT);
+		return new String(cifrado, UNICODE_FORMAT);
 	}
 	
 	public static String descifra(String cifrado) throws Exception {
-		String sinCifrar = null;
 		final Cipher aes = obtieneCipher(false);
 		byte[] cifradoByte = cifrado.getBytes(UNICODE_FORMAT);
 		final byte[] bytes = aes.doFinal(cifradoByte);
-		return sinCifrar = new String(bytes, "UTF-8");
+		return new String(bytes, "UTF-8");
 	}
 	
 	private static Cipher obtieneCipher(boolean paraCifrar) throws Exception {
