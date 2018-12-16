@@ -3,31 +3,21 @@ package com.pineapple.intime.dominio;
 import java.util.Properties;
 
 import javax.mail.Session;
-import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.Key;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.spec.SecretKeySpec;
 import javax.mail.Authenticator;
-import javax.mail.BodyPart;
 import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -39,12 +29,11 @@ public class EmpleadoHelper {
 
 
 	public static String generarContrasenna() throws Exception {
-		
+
 		String passCifrada = cifra(RandomStringUtils.randomAlphanumeric(10));
 		String passHex = ConvertirHexadecimal(passCifrada);
-
-
 		return passHex;
+
 	}
 	
 	public static void sesionEmail(String emailDestino, String contrasenna) throws Exception {
@@ -107,8 +96,6 @@ public class EmpleadoHelper {
 	}
 	
 	public static String ConvertirCadena(String hex) {
-	    
-	    String noHex= null;
 		
 	    String rephex = hex.replaceAll("^(00)+", "");
 	    byte[] bytes = new byte[rephex.length() / 2];
@@ -116,25 +103,23 @@ public class EmpleadoHelper {
 	        bytes[i / 2] = (byte) ((Character.digit(rephex.charAt(i), 16) << 4) + Character.digit(rephex.charAt(i + 1), 16));
 	    }
 
-	    return noHex = new String(bytes);
+	    return new String(bytes);
 	}
 	
 
 
 	public static String cifra(String sinCifrar) throws Exception {
-		String cifrarString = null;
 		final byte[] bytes = sinCifrar.getBytes("UTF-8");
 		final Cipher aes = obtieneCipher(true);
 		final byte[] cifrado = aes.doFinal(bytes);
-		return cifrarString = new String(cifrado, UNICODE_FORMAT);
+		return new String(cifrado, UNICODE_FORMAT);
 	}
 	
 	public static String descifra(String cifrado) throws Exception {
-		String sinCifrar = null;
 		final Cipher aes = obtieneCipher(false);
 		byte[] cifradoByte = cifrado.getBytes(UNICODE_FORMAT);
 		final byte[] bytes = aes.doFinal(cifradoByte);
-		return sinCifrar = new String(bytes, "UTF-8");
+		return new String(bytes, "UTF-8");
 	}
 	
 	private static Cipher obtieneCipher(boolean paraCifrar) throws Exception {
