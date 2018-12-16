@@ -1,10 +1,15 @@
 package testMantenimiento;
 
+
+import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.or;
 import static org.junit.Assert.*;
 
 import java.util.List;
 
+import org.bson.BsonString;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
@@ -12,9 +17,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.pineapple.intime.dao.MongoBroker;
+import com.uclm.equipo02.modelo.Usuario;
 
 public class pruebaCreaUsuario {
 	
@@ -44,6 +51,14 @@ public class pruebaCreaUsuario {
 		return esta;
 	}
 	
+	public void delete (String dni){
+		Object db;
+		MongoCollection<Document> collection = db.getcollectiion("Empleado");
+		
+
+	}
+
+	
 	 @BeforeClass
      public static void openBrowser(){
 
@@ -71,37 +86,19 @@ public class pruebaCreaUsuario {
 			driver.findElement (By.xpath("/html/body/form/input")).click();
 			Alert alert = driver.switchTo().alert();
 	        alert.accept();
+	        
 	        Boolean resultado = existeUserDNI("55555555P");
+			System.out.println(resultado);
+
 	        assertTrue(resultado);
 
 		}catch(Exception e){
-			
+			System.out.println(e.getMessage());
 		}
 
 	}
 	
-	@Test
-	public void crearNuevoAdmin() {
-		 driver.findElement (By.xpath("/html/body/div/div/div[1]/div[1]/button")).click();
-		 driver.findElement (By.xpath("/html/body/div/div/div[1]/div[1]/ul/li[1]/a")).click();
-		 
-		try {
-			driver.findElement (By.xpath("/html/body/form/fieldset[1]/input[1]")).sendKeys("77777777A");
-			driver.findElement (By.xpath("/html/body/form/fieldset[1]/input[2]")).sendKeys("Administrador");
-			driver.findElement (By.xpath("/html/body/form/fieldset[1]/input[3]")).sendKeys("Prueba Garcia");
-			driver.findElement (By.xpath("/html/body/form/fieldset[1]/input[4]")).sendKeys("pruebacreaadmin@prueba.com");
-			driver.findElement (By.xpath("//*[@id=\"admin\"]")).click();
-			driver.findElement (By.xpath("/html/body/form/input")).click();
-			Alert alert = driver.switchTo().alert();
-	        alert.accept();
-	        Boolean resultado = existeUserDNI("77777777A");
-	        assertTrue(resultado);
 
-		}catch(Exception e){
-			
-		}
-
-	}
 	@Test
 	public void crearNuevoGestor() {
 		 driver.findElement (By.xpath("/html/body/div/div/div[1]/div[1]/button")).click();
@@ -117,10 +114,37 @@ public class pruebaCreaUsuario {
 			Alert alert = driver.switchTo().alert();
 	        alert.accept();
 	        Boolean resultado = existeUserDNI("22222222G");
+			System.out.println(resultado);
 	        assertTrue(resultado);
 
 		}catch(Exception e){
-			
+			System.out.println(e.getMessage());
+		}
+
+	}
+	
+  
+	@Test
+	public void crearNuevoAdmin() {
+		 driver.findElement (By.xpath("/html/body/div/div/div[1]/div[1]/button")).click();
+		 driver.findElement (By.xpath("/html/body/div/div/div[1]/div[1]/ul/li[1]/a")).click();
+		 
+		try {
+			driver.findElement (By.xpath("/html/body/form/fieldset[1]/input[1]")).sendKeys("77777777A");
+			driver.findElement (By.xpath("/html/body/form/fieldset[1]/input[2]")).sendKeys("Administrador");
+			driver.findElement (By.xpath("/html/body/form/fieldset[1]/input[3]")).sendKeys("Prueba Garcia");
+			driver.findElement (By.xpath("/html/body/form/fieldset[1]/input[4]")).sendKeys("pruebacreaadmin@prueba.com");
+			driver.findElement (By.xpath("//*[@id=\"admin\"]")).click();
+			driver.findElement (By.xpath("/html/body/form/input")).click();
+			Alert alert = driver.switchTo().alert();
+	        alert.accept();
+	        Boolean resultado = existeUserDNI("77777777A");
+			System.out.println(resultado);
+
+	        assertTrue(resultado);
+
+		}catch(Exception e){
+			System.out.println(e.getMessage());
 		}
 
 	}
