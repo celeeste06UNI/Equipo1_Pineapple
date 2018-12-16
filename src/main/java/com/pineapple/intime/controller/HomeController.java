@@ -88,7 +88,6 @@ public class HomeController {
 	protected void cerrarSesion(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
         HttpSession sesion = request.getSession(true);
         
         //Cerrar sesion
@@ -101,7 +100,6 @@ public class HomeController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView loginProcess(@ModelAttribute("email") String email, @ModelAttribute("password") String password, 
 			HttpServletRequest request, ModelAndView model) throws Exception {
-		String pagina = "error";
 		HttpSession session = request.getSession(true);
 
 		String emailLowerCase=email.toLowerCase(new Locale("en", "EN"));
